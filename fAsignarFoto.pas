@@ -6,9 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls,
   Vcl.Forms, Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit,
   Vcl.Menus, Vcl.ExtCtrls, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxTextEdit, cxDBEdit, VFrames, VSample, dxSkinscxPCPainter,
-  dxBarBuiltInMenu, cxImage, cxPC, db, jpeg, dxSkinDevExpressStyle, cxLabel,
-  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver,
-  dxSkinOffice2013LightGray, System.Actions, cxMaskEdit, cxDropDownEdit;
+  dxBarBuiltInMenu, cxImage, cxPC, db, jpeg, dxSkinDevExpressStyle, cxLabel, dxSkinBlue, dxSkinOffice2007Silver,
+  dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxMaskEdit, cxDropDownEdit;
 
 type
   TfrmAsignarFoto = class(TForm)
@@ -35,7 +34,6 @@ type
     Label3: TLabel;
     Label2: TcxLabel;
     Label1: TcxLabel;
-    xVideoSizes: TcxComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

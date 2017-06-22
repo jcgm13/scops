@@ -490,10 +490,6 @@ object frmServicios: TfrmServicios
     object cxTabSheet2: TcxTabSheet
       Caption = 'Funciones'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object cxGrid1: TcxGrid
         Left = 0
         Top = 0
@@ -1328,7 +1324,6 @@ object frmServicios: TfrmServicios
           StartOfWeek = swMonday
           TabOrder = 0
           OnClick = xfechaClick
-          Selection = 1
         end
         object cxButton9: TcxButton
           Left = 646

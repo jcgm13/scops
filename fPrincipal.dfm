@@ -23,7 +23,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Top = 0
     Width = 920
-    Height = 157
+    Height = 145
     ApplicationButton.Menu = dxRibbonBackstageView1
     BarManager = dxBarManager1
     Style = rs2013
@@ -291,9 +291,9 @@ object frmPrincipal: TfrmPrincipal
   end
   object cxGridMain: TcxGrid
     Left = 0
-    Top = 157
+    Top = 145
     Width = 920
-    Height = 432
+    Height = 444
     Align = alClient
     TabOrder = 3
     LookAndFeel.NativeStyle = False
@@ -874,8 +874,8 @@ object frmPrincipal: TfrmPrincipal
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
@@ -952,7 +952,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar3: TdxBar
       Caption = 'Custom 2'
       CaptionButtons = <>
-      DockedLeft = 335
+      DockedLeft = 418
       DockedTop = 0
       FloatLeft = 816
       FloatTop = 8
@@ -1120,7 +1120,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar10: TdxBar
       Caption = 'Custom 9'
       CaptionButtons = <>
-      DockedLeft = 440
+      DockedLeft = 514
       DockedTop = 0
       FloatLeft = 885
       FloatTop = 8
@@ -1140,7 +1140,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar11: TdxBar
       Caption = 'Custom 10'
       CaptionButtons = <>
-      DockedLeft = 506
+      DockedLeft = 576
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1256,7 +1256,7 @@ object frmPrincipal: TfrmPrincipal
       AllowReset = False
       Caption = 'Custom 15'
       CaptionButtons = <>
-      DockedLeft = 575
+      DockedLeft = 644
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1964,7 +1964,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 360
     Top = 232
     Bitmap = {
-      494C0101B0001401200120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101B0002401240120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A005000001002000000000000040
       0B00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -30238,7 +30238,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 356
     Top = 292
     Bitmap = {
-      494C0101AF00C400D00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101AF00D400D40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0020000010020000000000000C0
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

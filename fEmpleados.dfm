@@ -556,7 +556,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 30
+        TabOrder = 29
         Width = 50
       end
       object cxLabel183: TcxLabel
@@ -574,7 +574,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 32
+        TabOrder = 31
         Width = 55
       end
       object cxLabel186: TcxLabel
@@ -599,7 +599,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 43
+        TabOrder = 42
         Width = 280
       end
       object cxDBTextEdit121: TcxDBTextEdit
@@ -631,7 +631,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 50
+        TabOrder = 49
         Width = 120
       end
       object cxLabel189: TcxLabel
@@ -715,7 +715,7 @@ object frmEmpleados: TfrmEmpleados
             Value = 5
           end>
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 33
+        TabOrder = 32
         Width = 200
       end
       object lblComentariosBaja: TcxLabel
@@ -3329,7 +3329,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.DecimalPlaces = 0
         Properties.DisplayFormat = ',0'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 28
+        TabOrder = 27
         Width = 57
       end
       object cxCurrencyEdit1: TcxDBCurrencyEdit
@@ -3601,7 +3601,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 30
+        TabOrder = 29
         Width = 100
       end
       object cxLabel75: TcxLabel
@@ -4601,7 +4601,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 98
+        TabOrder = 97
         Width = 150
       end
       object cxDBTextEdit77: TcxDBTextEdit
@@ -4652,7 +4652,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 105
+        TabOrder = 104
         Width = 150
       end
       object cxDBTextEdit80: TcxDBTextEdit
@@ -4663,7 +4663,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 100
+        TabOrder = 99
         Width = 150
       end
       object cxLabel133: TcxLabel
@@ -5460,7 +5460,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 51
+        TabOrder = 50
         Width = 100
       end
       object cxLabel233: TcxLabel
@@ -5568,7 +5568,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 52
+        TabOrder = 51
         Width = 100
       end
       object cxLabel239: TcxLabel

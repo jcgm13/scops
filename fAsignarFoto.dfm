@@ -27,7 +27,6 @@ object frmAsignarFoto: TfrmAsignarFoto
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 377
     DesignSize = (
       388
       69)
@@ -53,7 +52,6 @@ object frmAsignarFoto: TfrmAsignarFoto
       Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 0
       Text = 'CXTEXTEDIT1'
-      ExplicitWidth = 292
       Width = 303
     end
     object Label2: TcxLabel
@@ -81,7 +79,6 @@ object frmAsignarFoto: TfrmAsignarFoto
     Padding.Right = 4
     Padding.Bottom = 4
     TabOrder = 1
-    ExplicitWidth = 377
     object cxButton4: TcxButton
       Left = 152
       Top = 4
@@ -92,7 +89,6 @@ object frmAsignarFoto: TfrmAsignarFoto
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'DevExpressStyle'
       TabOrder = 0
-      ExplicitLeft = 141
     end
     object cxButton5: TcxButton
       Left = 268
@@ -104,7 +100,6 @@ object frmAsignarFoto: TfrmAsignarFoto
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'DevExpressStyle'
       TabOrder = 1
-      ExplicitLeft = 257
     end
   end
   object cxPageControl1: TcxPageControl
@@ -114,11 +109,10 @@ object frmAsignarFoto: TfrmAsignarFoto
     Height = 474
     Align = alClient
     TabOrder = 0
-    Properties.ActivePage = cxTabSheet3
+    Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'DevExpressStyle'
-    ExplicitWidth = 377
     ClientRectBottom = 468
     ClientRectLeft = 2
     ClientRectRight = 382
@@ -126,7 +120,6 @@ object frmAsignarFoto: TfrmAsignarFoto
     object cxTabSheet1: TcxTabSheet
       Caption = 'Foto Actual'
       ImageIndex = 0
-      ExplicitWidth = 369
       DesignSize = (
         380
         441)
@@ -148,7 +141,6 @@ object frmAsignarFoto: TfrmAsignarFoto
         ParentFont = False
         Transparent = True
         WordWrap = True
-        ExplicitWidth = 331
       end
       object cxDBImage1: TcxDBImage
         Left = 21
@@ -166,7 +158,6 @@ object frmAsignarFoto: TfrmAsignarFoto
     object cxTabSheet3: TcxTabSheet
       Caption = 'Capturar imagen desde Camara Web...'
       ImageIndex = 2
-      ExplicitWidth = 369
       object PaintBox1: TPaintBox
         Left = 0
         Top = 41
@@ -174,7 +165,6 @@ object frmAsignarFoto: TfrmAsignarFoto
         Height = 400
         Cursor = crHandPoint
         Align = alClient
-        ExplicitWidth = 369
       end
       object Panel3: TPanel
         Left = 0
@@ -184,7 +174,6 @@ object frmAsignarFoto: TfrmAsignarFoto
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 369
         DesignSize = (
           380
           41)
@@ -198,7 +187,6 @@ object frmAsignarFoto: TfrmAsignarFoto
           LookAndFeel.NativeStyle = False
           LookAndFeel.SkinName = 'DevExpressStyle'
           TabOrder = 0
-          ExplicitLeft = 243
         end
         object cxButton2: TcxButton
           Left = 9
@@ -212,13 +200,6 @@ object frmAsignarFoto: TfrmAsignarFoto
         end
       end
     end
-  end
-  object xVideoSizes: TcxComboBox
-    Left = 121
-    Top = 107
-    Properties.DropDownListStyle = lsFixedList
-    TabOrder = 3
-    Width = 129
   end
   object ActionList1: TActionList
     Images = frmPrincipal.imgListAcciones

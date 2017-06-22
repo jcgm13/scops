@@ -31,12 +31,11 @@ object frmLogin: TfrmLogin
     Padding.Right = 5
     Padding.Bottom = 5
     TabOrder = 0
-    ExplicitHeight = 328
     object lblError: TLabel
       Left = 5
       Top = 46
       Width = 495
-      Height = 18
+      Height = 16
       Align = alTop
       Alignment = taCenter
       Caption = 'Usuario o Contrase'#241'a Incorrectos'
@@ -51,7 +50,6 @@ object frmLogin: TfrmLogin
       ParentFont = False
       Transparent = False
       Visible = False
-      ExplicitWidth = 193
     end
     object Bevel1: TBevel
       Left = 10
@@ -210,7 +208,6 @@ object frmLogin: TfrmLogin
       Padding.Right = 4
       Padding.Bottom = 4
       TabOrder = 7
-      ExplicitTop = 283
       object cxButton1: TcxButton
         Left = 291
         Top = 4

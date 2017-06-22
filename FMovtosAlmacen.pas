@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlue,
   dxSkinDevExpressStyle, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxControls, cxContainer,
   cxEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxMaskEdit, cxDropDownEdit, cxImageComboBox, cxDBEdit, cxTextEdit,
-  cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, System.Actions, Vcl.ActnList, cxStyles, dxSkinscxPCPainter, cxCustomData,
+  cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, cxStyles, dxSkinscxPCPainter, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, cxCurrencyEdit, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxCalendar, cxButtonEdit;
 

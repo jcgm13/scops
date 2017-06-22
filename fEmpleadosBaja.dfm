@@ -32,7 +32,6 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
     Padding.Right = 4
     Padding.Bottom = 4
     TabOrder = 2
-    ExplicitTop = 179
     object cxButton4: TcxButton
       Left = 458
       Top = 4
@@ -94,7 +93,6 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
     TabOrder = 1
     DataController.DataSource = dmMain.dsEmpleadosEdit
     DataController.GridMode = True
-    ExplicitHeight = 85
     Version = 1
     object vGridElementosDBEditorRow7: TcxDBEditorRow
       Properties.Caption = 'Fecha Baja'

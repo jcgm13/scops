@@ -228,7 +228,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
       Style.StyleController = frmPrincipal.cxEditStyleController1
-      TabOrder = 25
+      TabOrder = 23
       Transparent = True
       OnClick = chk7Click
       Width = 66
@@ -390,7 +390,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.TimeFormat = tfHourMin
       Style.StyleController = frmPrincipal.cxEditStyleController1
-      TabOrder = 27
+      TabOrder = 26
       Width = 50
     end
     object teDomingoS: TcxDBTimeEdit
@@ -429,7 +429,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.TimeFormat = tfHourMin
       Style.StyleController = frmPrincipal.cxEditStyleController1
-      TabOrder = 23
+      TabOrder = 22
       Width = 50
     end
     object Label2: TcxLabel

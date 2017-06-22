@@ -11,7 +11,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit, cxBarEditItem,
   dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, dxSkinDevExpressStyle, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls,
   cxTextEdit, cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems,
-  DateUtils, Vcl.Grids, Vcl.DBGrids, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, System.Actions;
+  DateUtils, Vcl.Grids, Vcl.DBGrids, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
 
 type
   TfrmPrincipal = class(TdxRibbonForm)

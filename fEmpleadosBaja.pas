@@ -9,8 +9,7 @@ uses
   Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox, cxVGrid, cxDBVGrid, cxInplaceContainer, cxCalendar,
   cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids,
   cxImageComboBox, dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel,
-  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver,
-  dxSkinOffice2013LightGray, System.Actions;
+  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
 
 type
   TfrmEmpleadosBaja = class(TForm)

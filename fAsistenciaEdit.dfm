@@ -123,7 +123,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     ParentFont = False
     Properties.TimeFormat = tfHourMin
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 11
+    TabOrder = 10
     Width = 80
   end
   object cxLabel5: TcxLabel
@@ -147,7 +147,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     ParentFont = False
     Properties.TimeFormat = tfHourMin
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 12
+    TabOrder = 11
     Width = 80
   end
   object cxLabel6: TcxLabel
@@ -216,7 +216,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 17
+    TabOrder = 16
     Height = 89
     Width = 300
   end
@@ -235,7 +235,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 13
+    TabOrder = 12
     Width = 75
   end
   object chkDescansa: TcxCheckBox
@@ -245,7 +245,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.ValueChecked = 'S'
     Properties.ValueUnchecked = 'N'
     State = cbsGrayed
-    TabOrder = 14
+    TabOrder = 13
     Width = 121
   end
   object ActionList1: TActionList

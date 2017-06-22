@@ -746,10 +746,6 @@ object frmClientes: TfrmClientes
     object cxTabSheet2: TcxTabSheet
       Caption = 'Servicios'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object cxGrid1: TcxGrid
         Left = 0
         Top = 0
