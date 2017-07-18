@@ -866,6 +866,171 @@ object frmPrincipal: TfrmPrincipal
         Width = 100
       end
     end
+    object ViewAsistenciaCapturaNew: TcxGridDBBandedTableView
+      Navigator.Buttons.CustomButtons = <>
+      FindPanel.DisplayMode = fpdmManual
+      OnCellDblClick = ViewAsistenciaCapturaNewCellDblClick
+      DataController.DataSource = dmMain.dsAsistencia
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.ColumnAutoWidth = True
+      Bands = <
+        item
+          Caption = 'Cliente'
+        end
+        item
+          Caption = 'Servicio'
+        end
+        item
+          Caption = 'Funci'#243'n'
+        end
+        item
+          Caption = 'Empleado'
+        end
+        item
+          Caption = 'Asistencia'
+        end>
+      object ViewAsistenciaCapturaNewColumnClienteId: TcxGridDBBandedColumn
+        Caption = 'Cliente'
+        DataBinding.FieldName = 'cliente_id'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 50
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumncliente_descripcion: TcxGridDBBandedColumn
+        Caption = 'Descripci'#243'n Cliente'
+        DataBinding.FieldName = 'cliente_descripcion'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 300
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnservicio_id: TcxGridDBBandedColumn
+        Caption = 'Servicio'
+        DataBinding.FieldName = 'servicio_id'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 50
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumndescripcion_servicio: TcxGridDBBandedColumn
+        Caption = 'Descripci'#243'n Servicio'
+        DataBinding.FieldName = 'descripcion_servicio'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 300
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnasignacion_id: TcxGridDBBandedColumn
+        Caption = '#'
+        DataBinding.FieldName = 'asignacion_id'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = ',0'
+        Properties.UseThousandSeparator = True
+        Width = 30
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumndescripcion_funcion: TcxGridDBBandedColumn
+        Caption = 'Funci'#243'n'
+        DataBinding.FieldName = 'descripcion_funcion'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 150
+        Position.BandIndex = 2
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnempleado_id: TcxGridDBBandedColumn
+        Caption = 'Empleado'
+        DataBinding.FieldName = 'empleado_id'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 50
+        Position.BandIndex = 3
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnnombre_empleado: TcxGridDBBandedColumn
+        Caption = 'Nombre'
+        DataBinding.FieldName = 'nombre_empleado'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Width = 300
+        Position.BandIndex = 3
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnhoraentrada: TcxGridDBBandedColumn
+        Caption = 'Entrada'
+        DataBinding.FieldName = 'horaentrada'
+        PropertiesClassName = 'TcxTimeEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Properties.TimeFormat = tfHourMin
+        Width = 50
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnhorasalida: TcxGridDBBandedColumn
+        Caption = 'Salida'
+        DataBinding.FieldName = 'horasalida'
+        PropertiesClassName = 'TcxTimeEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Properties.TimeFormat = tfHourMin
+        Width = 50
+        Position.BandIndex = 4
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnhorasextras: TcxGridDBBandedColumn
+        Caption = 'Extras'
+        DataBinding.FieldName = 'horas_extra'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = ',0'
+        Properties.UseThousandSeparator = True
+        Width = 50
+        Position.BandIndex = 4
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnFalta: TcxGridDBBandedColumn
+        Caption = 'Falta'
+        PropertiesClassName = 'TcxImageComboBoxProperties'
+        Properties.Images = imgListAcciones
+        Properties.Items = <
+          item
+            ImageIndex = 0
+            Value = 0
+          end
+          item
+            Value = 1
+          end>
+        Position.BandIndex = 4
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+    end
     object cxGridMainLevelMain: TcxGridLevel
       GridView = ViewEmpleados
     end
@@ -1381,7 +1546,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar20: TdxBar
       Caption = 'Custom 19'
       CaptionButtons = <>
-      DockedLeft = 191
+      DockedLeft = 188
       DockedTop = 0
       FloatLeft = 946
       FloatTop = 8
@@ -1461,7 +1626,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar23: TdxBar
       Caption = 'Custom 22'
       CaptionButtons = <>
-      DockedLeft = 339
+      DockedLeft = 326
       DockedTop = 0
       FloatLeft = 954
       FloatTop = 8
@@ -1964,7 +2129,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 360
     Top = 232
     Bitmap = {
-      494C0101B0002401240120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101B0002801280120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A005000001002000000000000040
       0B00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -30238,7 +30403,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 356
     Top = 292
     Bitmap = {
-      494C0101AF00D400D40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101AF00D800D80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0020000010020000000000000C0
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -4,7 +4,6 @@ object dmMain: TdmMain
   Width = 925
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF16
-    Catalog = ''
     HostName = 'localhost'
     Port = 5432
     Database = 'bdcops2'

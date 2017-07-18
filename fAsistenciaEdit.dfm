@@ -4,7 +4,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Modificar Asistencia'
-  ClientHeight = 402
+  ClientHeight = 340
   ClientWidth = 469
   Color = clBtnFace
   DoubleBuffered = True
@@ -43,45 +43,9 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
   end
-  object edEntradaProg: TcxTimeEdit
-    Left = 117
-    Top = 132
-    EditValue = 0d
-    Enabled = False
-    ParentFont = False
-    Properties.TimeFormat = tfHourMin
-    Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 7
-    Width = 80
-  end
-  object cxLabel3: TcxLabel
-    Left = 117
-    Top = 113
-    Caption = 'Entrada Programada'
-    ParentFont = False
-    Style.StyleController = frmPrincipal.cxEditStyleController1
-  end
-  object edSalidaProg: TcxTimeEdit
-    Left = 248
-    Top = 132
-    EditValue = 0d
-    Enabled = False
-    ParentFont = False
-    Properties.TimeFormat = tfHourMin
-    Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 9
-    Width = 80
-  end
-  object cxLabel4: TcxLabel
-    Left = 248
-    Top = 113
-    Caption = 'Salida Programada'
-    ParentFont = False
-    Style.StyleController = frmPrincipal.cxEditStyleController1
-  end
   object Panel1: TPanel
     Left = 0
-    Top = 366
+    Top = 304
     Width = 469
     Height = 36
     Align = alBottom
@@ -90,7 +54,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Padding.Top = 4
     Padding.Right = 4
     Padding.Bottom = 4
-    TabOrder = 19
+    TabOrder = 15
     object cxButton4: TcxButton
       Left = 265
       Top = 4
@@ -118,17 +82,17 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
   end
   object edEntrada: TcxTimeEdit
     Left = 117
-    Top = 192
+    Top = 132
     EditValue = 0d
     ParentFont = False
     Properties.TimeFormat = tfHourMin
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 10
+    TabOrder = 6
     Width = 80
   end
   object cxLabel5: TcxLabel
     Left = 117
-    Top = 173
+    Top = 113
     Caption = 'Entrada'
     ParentFont = False
     Style.Font.Charset = DEFAULT_CHARSET
@@ -142,17 +106,17 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
   end
   object edSalida: TcxTimeEdit
     Left = 248
-    Top = 192
+    Top = 132
     EditValue = 0d
     ParentFont = False
     Properties.TimeFormat = tfHourMin
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 11
+    TabOrder = 7
     Width = 80
   end
   object cxLabel6: TcxLabel
     Left = 248
-    Top = 173
+    Top = 113
     Caption = 'Salida'
     ParentFont = False
     Style.Font.Charset = DEFAULT_CHARSET
@@ -166,7 +130,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
   end
   object cxLabel7: TcxLabel
     Left = 36
-    Top = 246
+    Top = 186
     Caption = 'Observaciones'
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
@@ -209,49 +173,49 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
   end
   object edObservaciones: TcxMemo
     Left = 117
-    Top = 246
+    Top = 186
     Lines.Strings = (
       'EDOBSERVACIONES')
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 16
+    TabOrder = 11
     Height = 89
     Width = 300
   end
   object cxLabel8: TcxLabel
     Left = 36
-    Top = 221
+    Top = 161
     Caption = 'Horas Extras:'
     Transparent = True
   end
   object edHorasExtra: TcxCurrencyEdit
     Left = 117
-    Top = 219
+    Top = 159
     ParentFont = False
     Properties.Alignment.Horz = taRightJustify
     Properties.DecimalPlaces = 0
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 12
+    TabOrder = 8
     Width = 75
   end
   object chkDescansa: TcxCheckBox
     Left = 248
-    Top = 220
+    Top = 160
     Caption = 'Descansa'
     Properties.ValueChecked = 'S'
     Properties.ValueUnchecked = 'N'
     State = cbsGrayed
-    TabOrder = 13
+    TabOrder = 9
     Width = 121
   end
   object ActionList1: TActionList
     Images = frmPrincipal.imgListAcciones
-    Left = 32
-    Top = 128
+    Left = 12
+    Top = 104
     object actGuardar: TAction
       Caption = 'Guardar [F2]'
       ImageIndex = 6

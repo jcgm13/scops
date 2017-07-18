@@ -712,6 +712,17 @@ type
     cxDBMemo3: TcxDBMemo;
     OpenDialog1: TOpenDialog;
     btnEditCURP: TcxButtonEdit;
+    cxGroupBox2: TcxGroupBox;
+    cxLabel303: TcxLabel;
+    cxDBTextEdit181: TcxDBTextEdit;
+    cxLabel304: TcxLabel;
+    cxDBTextEdit182: TcxDBTextEdit;
+    cxLabel305: TcxLabel;
+    cxDBTextEdit183: TcxDBTextEdit;
+    cxLabel306: TcxLabel;
+    cxDBTextEdit184: TcxDBTextEdit;
+    cxLabel307: TcxLabel;
+    cxDBTextEdit185: TcxDBTextEdit;
     procedure actCerrarExecute(Sender: TObject);
     procedure actGuardarExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);

@@ -5,7 +5,7 @@ object frmEmpleados: TfrmEmpleados
   BorderStyle = bsSingle
   Caption = 'Empleados'
   ClientHeight = 652
-  ClientWidth = 904
+  ClientWidth = 934
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object frmEmpleados: TfrmEmpleados
   object Panel1: TPanel
     Left = 0
     Top = 616
-    Width = 904
+    Width = 934
     Height = 36
     Align = alBottom
     BevelOuter = bvNone
@@ -33,7 +33,7 @@ object frmEmpleados: TfrmEmpleados
     Padding.Bottom = 4
     TabOrder = 1
     object cxButton4: TcxButton
-      Left = 700
+      Left = 730
       Top = 4
       Width = 100
       Height = 28
@@ -45,7 +45,7 @@ object frmEmpleados: TfrmEmpleados
       TabOrder = 0
     end
     object cxButton5: TcxButton
-      Left = 800
+      Left = 830
       Top = 4
       Width = 100
       Height = 28
@@ -93,7 +93,7 @@ object frmEmpleados: TfrmEmpleados
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 904
+    Width = 934
     Height = 60
     Align = alTop
     BevelOuter = bvNone
@@ -168,7 +168,7 @@ object frmEmpleados: TfrmEmpleados
       Width = 180
     end
     object xsexo: TcxDBRadioGroup
-      Left = 805
+      Left = 835
       Top = 0
       TabStop = False
       Align = alRight
@@ -247,7 +247,7 @@ object frmEmpleados: TfrmEmpleados
   object cxPageControl1: TcxPageControl
     Left = 0
     Top = 60
-    Width = 904
+    Width = 934
     Height = 556
     Align = alClient
     TabOrder = 2
@@ -256,7 +256,7 @@ object frmEmpleados: TfrmEmpleados
     LookAndFeel.NativeStyle = False
     ClientRectBottom = 550
     ClientRectLeft = 2
-    ClientRectRight = 898
+    ClientRectRight = 928
     ClientRectTop = 27
     object cxTabSheet10: TcxTabSheet
       Caption = 'Resumen'
@@ -574,7 +574,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 31
+        TabOrder = 30
         Width = 55
       end
       object cxLabel186: TcxLabel
@@ -599,7 +599,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 42
+        TabOrder = 41
         Width = 280
       end
       object cxDBTextEdit121: TcxDBTextEdit
@@ -631,7 +631,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 49
+        TabOrder = 48
         Width = 120
       end
       object cxLabel189: TcxLabel
@@ -715,7 +715,7 @@ object frmEmpleados: TfrmEmpleados
             Value = 5
           end>
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 32
+        TabOrder = 31
         Width = 200
       end
       object lblComentariosBaja: TcxLabel
@@ -2127,13 +2127,13 @@ object frmEmpleados: TfrmEmpleados
         Width = 250
       end
       object cxLabel46: TcxLabel
-        Left = 388
+        Left = 379
         Top = 258
         Caption = 'Especialidad:'
         Transparent = True
       end
       object cxDBTextEdit24: TcxDBTextEdit
-        Left = 456
+        Left = 447
         Top = 257
         DataBinding.DataField = 'especialidad'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2141,7 +2141,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 54
-        Width = 250
+        Width = 225
       end
       object cxLabel47: TcxLabel
         Left = 24
@@ -2161,13 +2161,13 @@ object frmEmpleados: TfrmEmpleados
         Width = 250
       end
       object cxLabel48: TcxLabel
-        Left = 388
+        Left = 379
         Top = 280
         Caption = 'A'#241'o Inicio:'
         Transparent = True
       end
       object cxDBTextEdit26: TcxDBTextEdit
-        Left = 456
+        Left = 447
         Top = 279
         DataBinding.DataField = 'escolaridad_inicio'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2178,7 +2178,7 @@ object frmEmpleados: TfrmEmpleados
         Width = 75
       end
       object cxDBTextEdit27: TcxDBTextEdit
-        Left = 607
+        Left = 597
         Top = 279
         DataBinding.DataField = 'escolaridad_fin'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2189,7 +2189,7 @@ object frmEmpleados: TfrmEmpleados
         Width = 75
       end
       object cxLabel49: TcxLabel
-        Left = 534
+        Left = 527
         Top = 280
         Caption = 'A'#241'o T'#233'rmino:'
         Transparent = True
@@ -2209,13 +2209,13 @@ object frmEmpleados: TfrmEmpleados
         Width = 89
       end
       object cxLabel50: TcxLabel
-        Left = 222
+        Left = 209
         Top = 303
         Caption = 'Folio Certificado:'
         Transparent = True
       end
       object cxDBTextEdit28: TcxDBTextEdit
-        Left = 309
+        Left = 295
         Top = 301
         DataBinding.DataField = 'folio_certificado'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2226,7 +2226,7 @@ object frmEmpleados: TfrmEmpleados
         Width = 75
       end
       object cxDBTextEdit29: TcxDBTextEdit
-        Left = 456
+        Left = 447
         Top = 301
         DataBinding.DataField = 'promedio'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2237,14 +2237,14 @@ object frmEmpleados: TfrmEmpleados
         Width = 75
       end
       object cxLabel51: TcxLabel
-        Left = 388
+        Left = 379
         Top = 303
         Caption = 'Promedio:'
         Transparent = True
       end
       object cxDBRadioGroup5: TcxDBRadioGroup
         Left = 120
-        Top = 348
+        Top = 364
         Caption = 'Antecedente'
         DataBinding.DataField = 'antecedente'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2281,7 +2281,7 @@ object frmEmpleados: TfrmEmpleados
       end
       object cxDBRadioGroup6: TcxDBRadioGroup
         Left = 259
-        Top = 348
+        Top = 364
         Caption = 'Como se enter'#243
         DataBinding.DataField = 'como_se_entero'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2317,8 +2317,8 @@ object frmEmpleados: TfrmEmpleados
         Width = 133
       end
       object cxDBCheckBox11: TcxDBCheckBox
-        Left = 414
-        Top = 325
+        Left = 412
+        Top = 330
         Caption = 'Sabe Conducir'
         DataBinding.DataField = 'sabe_manejar'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2331,14 +2331,14 @@ object frmEmpleados: TfrmEmpleados
         Width = 96
       end
       object cxLabel52: TcxLabel
-        Left = 516
-        Top = 325
+        Left = 514
+        Top = 330
         Caption = 'Licencia:'
         Transparent = True
       end
       object cxDBTextEdit30: TcxDBTextEdit
-        Left = 567
-        Top = 323
+        Left = 560
+        Top = 328
         DataBinding.DataField = 'licencia_conducir_folio'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
         ParentFont = False
@@ -2348,14 +2348,14 @@ object frmEmpleados: TfrmEmpleados
         Width = 75
       end
       object cxLabel53: TcxLabel
-        Left = 646
-        Top = 325
+        Left = 648
+        Top = 330
         Caption = 'Vigencia:'
         Transparent = True
       end
       object cxDBDateEdit10: TcxDBDateEdit
-        Left = 699
-        Top = 323
+        Left = 697
+        Top = 328
         DataBinding.DataField = 'licencia_conducir_vigencia'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
         ParentFont = False
@@ -2410,13 +2410,13 @@ object frmEmpleados: TfrmEmpleados
         Width = 250
       end
       object cxLabel54: TcxLabel
-        Left = 502
-        Top = 215
+        Left = 491
+        Top = 214
         Caption = 'Tipo de Sangre:'
         Transparent = True
       end
       object cxDBLookupComboBox13: TcxDBComboBox
-        Left = 590
+        Left = 572
         Top = 213
         DataBinding.DataField = 'tipo_sangre'
         DataBinding.DataSource = dmMain.dsEmpleadosEdit
@@ -2437,7 +2437,7 @@ object frmEmpleados: TfrmEmpleados
       end
       object cxGroupBox1: TcxGroupBox
         Left = 414
-        Top = 348
+        Top = 364
         Caption = 'Referencia - Padres'
         TabOrder = 75
         Height = 133
@@ -2596,6 +2596,99 @@ object frmEmpleados: TfrmEmpleados
         TabOrder = 76
         Text = 'btnEditCURP'
         Width = 37
+      end
+      object cxGroupBox2: TcxGroupBox
+        Left = 680
+        Top = 176
+        Caption = 'Caracter'#237'sticas F'#237'sicas'
+        TabOrder = 77
+        Height = 123
+        Width = 216
+        object cxLabel303: TcxLabel
+          Left = 8
+          Top = 20
+          Caption = 'Estatura:'
+          Transparent = True
+        end
+        object cxDBTextEdit181: TcxDBTextEdit
+          Left = 64
+          Top = 18
+          DataBinding.DataField = 'estatura'
+          DataBinding.DataSource = dmMain.dsEmpleadosEdit
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.StyleController = frmPrincipal.cxEditStyleController1
+          TabOrder = 0
+          Width = 50
+        end
+        object cxLabel304: TcxLabel
+          Left = 121
+          Top = 20
+          Caption = 'Peso:'
+          Transparent = True
+        end
+        object cxDBTextEdit182: TcxDBTextEdit
+          Left = 154
+          Top = 18
+          DataBinding.DataField = 'peso'
+          DataBinding.DataSource = dmMain.dsEmpleadosEdit
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.StyleController = frmPrincipal.cxEditStyleController1
+          TabOrder = 1
+          Width = 50
+        end
+        object cxLabel305: TcxLabel
+          Left = 9
+          Top = 44
+          Caption = 'Color Piel:'
+          Transparent = True
+        end
+        object cxDBTextEdit183: TcxDBTextEdit
+          Left = 74
+          Top = 40
+          DataBinding.DataField = 'color_piel'
+          DataBinding.DataSource = dmMain.dsEmpleadosEdit
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.StyleController = frmPrincipal.cxEditStyleController1
+          TabOrder = 2
+          Width = 130
+        end
+        object cxLabel306: TcxLabel
+          Left = 8
+          Top = 64
+          Caption = 'Color Ojos:'
+          Transparent = True
+        end
+        object cxDBTextEdit184: TcxDBTextEdit
+          Left = 74
+          Top = 62
+          DataBinding.DataField = 'color_ojos'
+          DataBinding.DataSource = dmMain.dsEmpleadosEdit
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.StyleController = frmPrincipal.cxEditStyleController1
+          TabOrder = 3
+          Width = 130
+        end
+        object cxLabel307: TcxLabel
+          Left = 8
+          Top = 86
+          Caption = 'Tipo Cabello:'
+          Transparent = True
+        end
+        object cxDBTextEdit185: TcxDBTextEdit
+          Left = 74
+          Top = 84
+          DataBinding.DataField = 'tipo_cabello'
+          DataBinding.DataSource = dmMain.dsEmpleadosEdit
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.StyleController = frmPrincipal.cxEditStyleController1
+          TabOrder = 4
+          Width = 130
+        end
       end
     end
     object cxTabSheet4: TcxTabSheet
@@ -3329,7 +3422,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.DecimalPlaces = 0
         Properties.DisplayFormat = ',0'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 27
+        TabOrder = 26
         Width = 57
       end
       object cxCurrencyEdit1: TcxDBCurrencyEdit
@@ -3601,7 +3694,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 29
+        TabOrder = 28
         Width = 100
       end
       object cxLabel75: TcxLabel
@@ -4652,7 +4745,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 104
+        TabOrder = 103
         Width = 150
       end
       object cxDBTextEdit80: TcxDBTextEdit
@@ -4663,7 +4756,7 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.CharCase = ecUpperCase
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 99
+        TabOrder = 98
         Width = 150
       end
       object cxLabel133: TcxLabel
@@ -5460,7 +5553,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 50
+        TabOrder = 49
         Width = 100
       end
       object cxLabel233: TcxLabel
@@ -5568,7 +5661,7 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        TabOrder = 51
+        TabOrder = 50
         Width = 100
       end
       object cxLabel239: TcxLabel
@@ -7953,7 +8046,7 @@ object frmEmpleados: TfrmEmpleados
     DefaultExt = '*.pdf'
     Filter = 'Archivos PDF|*.pdf'
     Title = 'Seleccionar CURP'
-    Left = 800
-    Top = 264
+    Left = 816
+    Top = 112
   end
 end

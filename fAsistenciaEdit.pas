@@ -13,10 +13,6 @@ type
     Empleado: TcxLabel;
     cxLabel1: TcxLabel;
     cxLabel2: TcxLabel;
-    edEntradaProg: TcxTimeEdit;
-    cxLabel3: TcxLabel;
-    edSalidaProg: TcxTimeEdit;
-    cxLabel4: TcxLabel;
     Panel1: TPanel;
     cxButton4: TcxButton;
     cxButton5: TcxButton;
@@ -114,26 +110,17 @@ end;
 
 procedure TfrmAsistenciaEdit.FormShow(Sender: TObject);
 begin
-     edEmpleado.Text := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('nombre_empleado').AsString;
-     edServicio.Text := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('descripcion_servicio').AsString;
-     edFuncion.Text  := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('descripcion_tipo_funcion').AsString;
+     edEmpleado.Text := dmMain.dsAsistencia.DataSet.FieldByName('nombre_empleado').AsString;
+     edServicio.Text := dmMain.dsAsistencia.DataSet.FieldByName('descripcion_servicio').AsString;
+     edFuncion.Text  := dmMain.dsAsistencia.DataSet.FieldByName('descripcion_funcion').AsString;
 
-     edEntradaProg.Time := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horaentprog').AsDateTime;
-     edSalidaProg.Time  := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horasalprog').AsDateTime;
+     edEntrada.Time := dmMain.dsAsistencia.DataSet.FieldByName('horaentrada').AsDateTime;
+     edSalida.Time := dmMain.dsAsistencia.DataSet.FieldByName('horasalida').AsDateTime;
 
-     if dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horaentrada').IsNull then
-        edEntrada.Time := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horaentprog').AsDateTime
-     else
-         edEntrada.Time := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horaentrada').AsDateTime;
-     if dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horasalida').IsNull then
-        edSalida.Time := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horasalprog').AsDateTime
-     else
-         edSalida.Time := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horasalida').AsDateTime;
-
-     edHorasExtra.Value := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('horas_extra').AsInteger;
+     edHorasExtra.Value := dmMain.dsAsistencia.DataSet.FieldByName('horas_extra').AsInteger;
 
      edObservaciones.Clear;
-     edObservaciones.Text := dmMain.dsAsistenciaDetalle.DataSet.FieldByName('observaciones').AsString;
+     edObservaciones.Text := dmMain.dsAsistencia.DataSet.FieldByName('observaciones').AsString;
 
      EmpleadoNuevo := 0;
 end;

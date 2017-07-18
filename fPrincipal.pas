@@ -11,7 +11,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit, cxBarEditItem,
   dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, dxSkinDevExpressStyle, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls,
   cxTextEdit, cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems,
-  DateUtils, Vcl.Grids, Vcl.DBGrids, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
+  DateUtils, Vcl.Grids, Vcl.DBGrids, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxGridBandedTableView, cxGridDBBandedTableView, cxTimeEdit;
 
 type
   TfrmPrincipal = class(TdxRibbonForm)
@@ -273,6 +273,19 @@ type
     ViewAlmacenColumnProveedor: TcxGridDBColumn;
     ViewAlmacenColumnReferencia: TcxGridDBColumn;
     ViewAlmacenColumnTotal: TcxGridDBColumn;
+    ViewAsistenciaCapturaNew: TcxGridDBBandedTableView;
+    ViewAsistenciaCapturaNewColumnClienteId: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumncliente_descripcion: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnservicio_id: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumndescripcion_servicio: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnasignacion_id: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumndescripcion_funcion: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnempleado_id: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnnombre_empleado: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnhoraentrada: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnhorasalida: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnhorasextras: TcxGridDBBandedColumn;
+    ViewAsistenciaCapturaNewColumnFalta: TcxGridDBBandedColumn;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
@@ -341,6 +354,7 @@ type
     procedure actModificarMovtoExecute(Sender: TObject);
     procedure actEliminarMovtoExecute(Sender: TObject);
     procedure actVerMovtoExecute(Sender: TObject);
+    procedure ViewAsistenciaCapturaNewCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
   private
     { Private declarations }
     procedure ShowWaitForm;
@@ -357,7 +371,7 @@ implementation
 {$R *.dfm}
 
 uses dMain, fEmpleados, fReportes, fSplash, fWaitForm, fPermisos, fLogin,
-  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen;
+  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit;
 
 
 { TForm1 }
@@ -440,12 +454,16 @@ end;
 
 procedure TfrmPrincipal.actCapturarAsistenciaExecute(Sender: TObject);
 begin
-     ShowWaitForm;
-     cxGridMainLevelMain.GridView := ViewAsistenciaCaptura;
-     dmMain.CargaAsistencia(_Globales.Empresa,
-                            xFechaAsistenciaIni.Date,
-                            xFechaAsistenciaFin.Date);
-     HideWaitForm;
+     try
+        ShowWaitForm;
+        cxGridMainLevelMain.GridView := ViewAsistenciaCapturaNew;
+        dmMain.CargaAsistencia(_Globales.Empresa,
+                               YearOf(Now),
+                               MonthOf(Now),
+                               DayOf(Now));
+     finally
+            HideWaitForm;
+     end;
 end;
 
 procedure TfrmPrincipal.actCedulaExecute(Sender: TObject);
@@ -1099,7 +1117,11 @@ begin
                 end;
 
              if ANewTab.Caption = 'ASISTENCIA' then
-                cxGridMainLevelMain.GridView := ViewAsistenciaCaptura;
+                begin
+                     //cxGridMainLevelMain.GridView := ViewAsistenciaCaptura;
+                     cxGridMainLevelMain.GridView := ViewAsistenciaCapturaNew;
+                     ViewAsistenciaCapturaNew.Controller.ShowFindPanel;
+                end;
 
              if ANewTab.Caption = 'VEHÍCULOS' then
                 cxGridMainLevelMain.GridView := ViewVehiculos;
@@ -1243,6 +1265,22 @@ begin
         finally
                FreeAndNil(frmAsistencia);
         end;
+end;
+
+procedure TfrmPrincipal.ViewAsistenciaCapturaNewCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
+  var AHandled: Boolean);
+begin
+     try
+        frmAsistenciaEdit := TfrmAsistenciaEdit.Create(Self);
+        if frmAsistenciaEdit.ShowModal = mrOk then
+           dmMain.CargaAsistenciaDetalle(_Globales.Empresa,
+                                         YearOf(Now),
+                                         MonthOf(Now),
+                                         DayOf(Now)
+                                        );
+     finally
+            FreeAndNil(frmAsistenciaEdit);
+     end;
 end;
 
 procedure TfrmPrincipal.ViewClientesCellDblClick(Sender: TcxCustomGridTableView;

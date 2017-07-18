@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters,
-  Vcl.Menus, Vcl.StdCtrls, cxButtons, frxClass, frxDBSet, db, dxSkinDevExpressStyle;
+  Vcl.Menus, Vcl.StdCtrls, cxButtons, frxClass, frxDBSet, db, dxSkinDevExpressStyle, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
 
 type
   TfrmReportes = class(TForm)
@@ -89,14 +89,15 @@ begin
         2 :
           begin
                PV1 := frxReport2.FindObject('Picture1');
-               PV2 := frxReport2.FindObject('Picture3');
+//               PV2 := frxReport2.FindObject('Picture3');
                if Assigned (PV1) then
                   begin
-                       S1 := TFileStream.Create(RutaExe + 'formatos\FichaTecnica1.jpg',fmOpenRead);
-                       S2 := TFileStream.Create(RutaExe + 'formatos\FichaTecnica_.jpg',fmOpenRead);
+//                       S1 := TFileStream.Create(RutaExe + 'formatos\FichaTecnica1.jpg',fmOpenRead);
+                       S1 := TFileStream.Create(RutaExe + 'formatos\logo_cifes.jpg',fmOpenRead);
+//                       S2 := TFileStream.Create(RutaExe + 'formatos\FichaTecnica_.jpg',fmOpenRead);
                        try
                           TfrxPictureView (PV1).LoadPictureFromStream(S1,true);
-                          TfrxPictureView (PV2).LoadPictureFromStream(S2,true);
+//                          TfrxPictureView (PV2).LoadPictureFromStream(S2,true);
 
                           dmMain.CargaReporte(_TipoReporte,_id,'');
                           frxDBDataset2.DataSet := dmMain.qryReporte;
@@ -119,7 +120,7 @@ begin
                           frxReport2.ShowReport(True);
                        finally
                               S1.Free;
-                              S2.Free;
+//                              S2.Free;
                        end;
                   end;
           end;

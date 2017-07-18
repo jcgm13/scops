@@ -237,7 +237,7 @@ type
     function getNextMovtoAlmacenId(empresaId : Integer) : Integer;
 
     // ASISTENCIA
-    procedure CargaAsistencia(empresaId : Integer; fechaIni, fechaFin : TDateTime);
+    procedure CargaAsistencia(empresaId : Integer; anio, mes, dia: Integer);
     procedure ConsultaAsistencia(empresaId : Integer; fechaIni, fechaFin : TDateTime);
     procedure CargaAsistenciaDetalle(empresaId, anio, mes, dia : Integer);
     procedure ActualizarAsistencia(empresaId, anio, mes, dia : Integer;
@@ -513,13 +513,14 @@ begin
      end;
 end;
 
-procedure TdmMain.CargaAsistencia(empresaId: Integer; fechaIni, fechaFin: TDateTime);
+procedure TdmMain.CargaAsistencia(empresaId: Integer; anio, mes, dia: Integer);
 var
    xSQL : string;
 begin
      try
         cdsAsistencia.DisableControls;
         cdsAsistencia.Active := False;
+        {
         xSQL := 'SELECT DISTINCT ' +
                 '      anio, ' +
                 '      mes, ' +
@@ -529,12 +530,43 @@ begin
                 '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') >= :fini ' +
                 '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') <= :ffin ' +
                 ' ORDER BY anio, mes, dia';
+        }
+        xSQL := 'SELECT serv.cliente_id, serv.cliente_descripcion, sfe.servicio_id, serv.descripcion AS descripcion_servicio, sfe.asignacion_id, tipos_funciones.descripcion AS descripcion_funcion, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN sfe.empleado_id ELSE asist.empleado_id END empleado_id, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN coalesce(trim(empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno),''--- N O  A S I G N A D O ---'') ' +
+                '            ELSE asist.nombre_empleado END AS nombre_empleado, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horaentrada END AS HoraEntrada, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horasalida END AS HoraSalida, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horas_extra END AS horas_extra, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.observaciones END AS observaciones ' +
+                ' FROM servicios_funciones_empleados sfe ' +
+                ' LEFT JOIN (SELECT servicios.*, clientes.descripcion AS cliente_descripcion ' +
+                '             FROM servicios ' +
+                '             LEFT JOIN clientes ON clientes.cliente_id = servicios.cliente_id ' +
+                '             WHERE servicios.activo = 1 ' +
+                '                 AND servicios.empresa_id = :empresa ' +
+                '                 AND servicio_id NOT IN ('' SP01'','' SP02'','' SP03'') ' +
+                '           ) serv ON serv.servicio_id = sfe.servicio_id ' +
+                ' LEFT JOIN tipos_funciones ON tipos_funciones.id_tipo_funcion = sfe.funcion_id ' +
+                ' LEFT JOIN empleados ON empleados.empleado_id = sfe.empleado_id ' +
+                ' LEFT JOIN ( SELECT asistencia.*, trim(empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno) AS nombre_empleado ' +
+                '             FROM asistencia ' +
+                '             LEFT JOIN empleados ON empleados.empleado_id = asistencia.empleado_id ' +
+                '             WHERE asistencia.empresa_id = :empresa ' +
+                '                 AND anio = :anio ' +
+                '                 AND mes = :mes ' +
+                '                 AND dia = :dia ' +
+                '           ) asist ON asist.servicio_id = sfe.servicio_id AND asist.funcion_id = sfe.funcion_id AND asist.asignacion_id = sfe.asignacion_id ' +
+                ' WHERE sfe.empresa_id = :empresa ' +
+                '     AND serv.servicio_id IS NOT null ' +
+                ' ORDER BY cliente_descripcion, descripcion_servicio';
         qryAsistencia.Close;
         qryAsistencia.SQL.Clear;
         qryAsistencia.SQL.Add(xSQL);
         qryAsistencia.ParamByName('empresa').AsInteger := empresaId;
-        qryAsistencia.ParamByName('fini').AsDate := fechaIni;
-        qryAsistencia.ParamByName('ffin').AsDate := fechaFin;
+        qryAsistencia.ParamByName('anio').AsInteger := anio;
+        qryAsistencia.ParamByName('mes').AsInteger := mes;
+        qryAsistencia.ParamByName('dia').AsInteger := dia;
         cdsAsistencia.Active := True;
      finally
             cdsAsistencia.EnableControls;
@@ -983,7 +1015,9 @@ begin
         2 :
           begin
                xSQL := 'SELECT ' +
-                       '   CONCAT_WS('' '',TRIM(nombres), TRIM(apellido_paterno), TRIM(apellido_materno)) AS nombre_empleado, ' +
+                       '      TRIM(nombres) AS nombres, ' +
+                       '      TRIM(apellido_paterno) AS apellido_paterno, ' +
+                       '      TRIM(apellido_materno) AS apellido_materno, ' +
                        '   CONCAT_WS('' '', calle, num_ext) AS domicilio, ' +
                        '   colonia, ' +
                        '   telefono_domicilio, ' +
@@ -1004,7 +1038,7 @@ begin
                        '   nacimiento_ciudad, ' +
                        '   tiposestudios."Descripcion" AS escolaridad, ' +
                        '   tipospuesto."Descripcion" AS Puesto, ' +
-                       '   fecha_alta, ' +
+                       '   to_char(fecha_alta,''DD/MM/YYYY'') AS fecha_alta, ' +
                        '   empleados."empleado_id", ' +
                        '   "RefTrabAnt1Empresa", ' +
                        '   "RefTrabAnt1Direccion", ' +
@@ -1030,10 +1064,30 @@ begin
                        '   "RefMadreNombre", ' +
                        '   "RefMadreDireccion", ' +
                        '   "RefMadreTelefono", ' +
-                       '   CONCAT_WS('' '',trim("Ref1Nombres"),trim("Ref1Paterno"),trim("Ref1Materno")) AS nombre_referencia, ' +
-                       '   "Ref1Parentesco", ' +
-                       '   CONCAT_WS('' '',"Ref1Calle","Ref1NumExt","Ref1Colonia") AS domicilio_referencia, ' +
-                       '   "Ref1Telefono", ' +
+                       '  CONCAT_WS('' '',trim("Ref1Nombres"),trim("Ref1Paterno"),trim("Ref1Materno")) AS ref1_nombre, ' +
+                       '  CONCAT_WS('' '',trim("Ref1Calle"),trim("Ref1NumExt"),trim("Ref1Colonia")) AS ref1_domicilio, ' +
+                       '  "Ref1Telefono" AS ref1_telefono, ' +
+                       '  "Ref1Parentesco" AS ref1_parentesco, ' +
+                       '  CONCAT_WS('' '',trim("Ref2Nombres"),trim("Ref2Paterno"),trim("Ref2Materno")) AS ref2_nombre, ' +
+                       '  CONCAT_WS('' '',trim("Ref2Calle"),trim("Ref2NumExt"),trim("Ref2Colonia")) AS ref2_domicilio, ' +
+                       '  "Ref2Telefono" AS ref2_telefono, ' +
+                       '  "Ref2Parentesco" AS ref2_parentesco, ' +
+                       '  CONCAT_WS('' '',trim("Ref3Nombres"),trim("Ref3Paterno"),trim("Ref3Materno")) AS ref3_nombre, ' +
+                       '  CONCAT_WS('' '',trim("Ref3Calle"),trim("Ref3NumExt"),trim("Ref3Colonia")) AS ref3_domicilio, ' +
+                       '  "Ref3Telefono" AS ref3_telefono, ' +
+                       '  "Ref3Parentesco" AS ref3_parentesco, ' +
+                       '  CONCAT_WS('' '',trim("Ref4Nombres"),trim("Ref4Paterno"),trim("Ref4Materno")) AS ref4_nombre, ' +
+                       '  CONCAT_WS('' '',trim("Ref4Calle"),trim("Ref4NumExt"),trim("Ref4Colonia")) AS ref4_domicilio, ' +
+                       '  "Ref4Telefono" AS ref4_telefono, ' +
+                       '  "Ref4Parentesco" AS ref4_parentesco, ' +
+                       '   CASE WHEN licencia_conducir_folio <> NULL THEN ''SI'' ELSE ''NO'' END AS tiene_licencia, ' +
+                       '   CASE WHEN licencia_conducir_folio <> NULL THEN '''' ELSE licencia_conducir_folio END AS licencia_folio, ' +
+                       '   pasaporte, ' +
+                       '   estatura, ' +
+                       '   peso, ' +
+                       '   color_piel, ' +
+                       '   color_ojos, ' +
+                       '   tipo_cabello, ' +
                        '   foto ' +
                        ' FROM empleados ' +
                        ' LEFT JOIN tiposestudios ON tiposestudios."Estudios" = empleados."escolaridad_id" ' +
