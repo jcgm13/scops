@@ -43,7 +43,7 @@ object frmEquipo: TfrmEquipo
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -56,7 +56,7 @@ object frmEquipo: TfrmEquipo
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end
@@ -177,7 +177,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 6
+    TabOrder = 5
     Width = 200
   end
   object cxLabel5: TcxLabel
@@ -194,7 +194,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 9
+    TabOrder = 8
     Width = 400
   end
   object cxLabel6: TcxLabel
@@ -211,7 +211,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 11
+    TabOrder = 10
     Width = 400
   end
   object cxLabel7: TcxLabel
@@ -228,7 +228,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 13
+    TabOrder = 12
     Width = 100
   end
   object cxLabel8: TcxLabel
@@ -245,7 +245,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 15
+    TabOrder = 14
     Width = 100
   end
   object cxLabel9: TcxLabel
@@ -262,7 +262,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 17
+    TabOrder = 16
     Width = 150
   end
   object cxLabel10: TcxLabel
@@ -279,7 +279,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 19
+    TabOrder = 18
     Width = 200
   end
   object cxLabel11: TcxLabel
@@ -296,7 +296,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 21
+    TabOrder = 20
     Width = 50
   end
   object cxLabel12: TcxLabel
@@ -313,7 +313,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 23
+    TabOrder = 22
     Width = 150
   end
   object cxLabel13: TcxLabel
@@ -330,7 +330,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 25
+    TabOrder = 24
     Width = 200
   end
   object cxLabel14: TcxLabel
@@ -347,7 +347,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 27
+    TabOrder = 26
     Width = 200
   end
   object cxLabel192: TcxLabel
@@ -386,7 +386,7 @@ object frmEquipo: TfrmEquipo
     Properties.DisplayFormat = ',0.00'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 29
+    TabOrder = 28
     Width = 100
   end
   object cxLabel15: TcxLabel
@@ -406,7 +406,7 @@ object frmEquipo: TfrmEquipo
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 31
+    TabOrder = 30
     Width = 50
   end
   object cxLabel16: TcxLabel
@@ -423,7 +423,7 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 33
+    TabOrder = 32
     Width = 200
   end
   object cxLabel84: TcxLabel
@@ -441,7 +441,7 @@ object frmEquipo: TfrmEquipo
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 36
+    TabOrder = 35
     Height = 85
     Width = 400
   end

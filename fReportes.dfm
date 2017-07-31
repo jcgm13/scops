@@ -24,12 +24,12 @@ object frmReportes: TfrmReportes
     Height = 36
     Caption = 'Imprimir'
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     TabOrder = 0
     OnClick = btnImprimirClick
   end
   object frxReport1: TfrxReport
-    Version = '4.14.4'
+    Version = '5.1.5'
     DataSet = frxDBDataset1
     DataSetName = 'frxDBDataset1'
     DotMatrixReport = False
@@ -78,7 +78,6 @@ object frmReportes: TfrmReportes
         ShiftMode = smDontShift
         Width = 740.787880000000000000
         Height = 400.630180000000000000
-        ShowHint = False
         HightQuality = True
         Transparent = False
         TransparentColor = clWhite
@@ -88,7 +87,6 @@ object frmReportes: TfrmReportes
         Top = 20.897650000000000000
         Width = 98.267780000000000000
         Height = 113.385900000000000000
-        ShowHint = False
         HightQuality = False
         Transparent = False
         TransparentColor = clWhite
@@ -98,7 +96,6 @@ object frmReportes: TfrmReportes
         Top = 167.519790000000000000
         Width = 238.110390000000000000
         Height = 34.015770000000000000
-        ShowHint = False
         DataField = 'nombre'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -116,7 +113,6 @@ object frmReportes: TfrmReportes
         Top = 219.212740000000000000
         Width = 238.110390000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         DataField = 'descripcion_puesto'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -134,7 +130,6 @@ object frmReportes: TfrmReportes
         Top = 134.063080000000000000
         Width = 181.417440000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         DataField = 'nss'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -152,7 +147,6 @@ object frmReportes: TfrmReportes
         Top = 105.826840000000000000
         Width = 181.417440000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
@@ -167,7 +161,6 @@ object frmReportes: TfrmReportes
         Top = 158.740260000000000000
         Width = 52.913420000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         DataField = 'empleado_id'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -186,7 +179,6 @@ object frmReportes: TfrmReportes
         Top = 211.653680000000000000
         Width = 268.346630000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         DataField = 'nombre'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -205,7 +197,6 @@ object frmReportes: TfrmReportes
         Top = 158.740260000000000000
         Width = 41.574830000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         DataField = 'tipo_sangre'
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
@@ -222,7 +213,7 @@ object frmReportes: TfrmReportes
     end
   end
   object frxReport2: TfrxReport
-    Version = '4.14.4'
+    Version = '5.1.5'
     DataSet = frxDBDataset2
     DataSetName = 'frxDBDataset2'
     DotMatrixReport = False
@@ -260,7 +251,6 @@ object frmReportes: TfrmReportes
         Top = 36.795300000000000000
         Width = 117.165430000000000000
         Height = 132.283550000000000000
-        ShowHint = False
         HightQuality = False
         Transparent = False
         TransparentColor = clWhite
@@ -270,7 +260,6 @@ object frmReportes: TfrmReportes
         Top = 18.897650000000000000
         Width = 335.000000000000000000
         Height = 148.000000000000000000
-        ShowHint = False
         AutoSize = True
         HightQuality = False
         Transparent = False
@@ -281,7 +270,6 @@ object frmReportes: TfrmReportes
         Top = 188.519790000000000000
         Width = 737.008350000000000000
         Height = 94.488250000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -16
@@ -305,14 +293,13 @@ object frmReportes: TfrmReportes
         Top = 283.008040000000000000
         Width = 737.008350000000000000
         Height = 26.456710000000000000
-        ShowHint = False
-        Color = 15329769
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+        Fill.BackColor = 15329769
         Memo.UTF8W = (
           ' DATOS PERSONALES')
         ParentFont = False
@@ -323,14 +310,12 @@ object frmReportes: TfrmReportes
         Top = 309.464750000000000000
         Width = 737.008350000000000000
         Height = 151.181200000000000000
-        ShowHint = False
       end
       object Memo3: TfrxMemoView
         Left = 52.913420000000000000
         Top = 320.803340000000000000
         Width = 204.094620000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -345,7 +330,6 @@ object frmReportes: TfrmReportes
         Top = 320.803340000000000000
         Width = 204.094488190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -360,7 +344,6 @@ object frmReportes: TfrmReportes
         Top = 320.803340000000000000
         Width = 173.858380000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -375,7 +358,6 @@ object frmReportes: TfrmReportes
         Top = 337.133858267716500000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -390,7 +372,6 @@ object frmReportes: TfrmReportes
         Top = 337.133858267716500000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -405,7 +386,6 @@ object frmReportes: TfrmReportes
         Top = 337.133858267716500000
         Width = 173.858380000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -420,7 +400,6 @@ object frmReportes: TfrmReportes
         Top = 366.157700000000000000
         Width = 200.315090000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -435,7 +414,6 @@ object frmReportes: TfrmReportes
         Top = 366.157700000000000000
         Width = 52.913288190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -450,7 +428,6 @@ object frmReportes: TfrmReportes
         Top = 366.157700000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -465,7 +442,6 @@ object frmReportes: TfrmReportes
         Top = 366.157700000000000000
         Width = 143.622140000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -480,7 +456,6 @@ object frmReportes: TfrmReportes
         Top = 382.488188980000000000
         Width = 200.315090000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -495,7 +470,6 @@ object frmReportes: TfrmReportes
         Top = 382.488188976378000000
         Width = 52.913288190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -510,7 +484,6 @@ object frmReportes: TfrmReportes
         Top = 382.488188976378000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -525,7 +498,6 @@ object frmReportes: TfrmReportes
         Top = 382.488188976378000000
         Width = 143.622140000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -540,7 +512,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 68.031540000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -555,7 +526,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 45.354228190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -570,7 +540,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -585,7 +554,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -600,7 +568,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 68.031540000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -615,7 +582,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 45.354228190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -630,7 +596,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -645,7 +610,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -660,7 +624,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 117.165430000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -675,7 +638,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 117.165430000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -690,7 +652,6 @@ object frmReportes: TfrmReportes
         Top = 411.512060000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -705,7 +666,6 @@ object frmReportes: TfrmReportes
         Top = 427.409710000000000000
         Width = 109.606370000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -720,14 +680,13 @@ object frmReportes: TfrmReportes
         Top = 460.645950000000000000
         Width = 737.008350000000000000
         Height = 26.456710000000000000
-        ShowHint = False
-        Color = 15329769
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+        Fill.BackColor = 15329769
         Memo.UTF8W = (
           ' DOCUMENTACI'#211'N')
         ParentFont = False
@@ -738,14 +697,12 @@ object frmReportes: TfrmReportes
         Top = 487.102660000000000000
         Width = 737.008350000000000000
         Height = 151.181200000000000000
-        ShowHint = False
       end
       object Memo30: TfrxMemoView
         Left = 52.913420000000000000
         Top = 498.441250000000000000
         Width = 204.094620000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -760,7 +717,6 @@ object frmReportes: TfrmReportes
         Top = 498.441250000000000000
         Width = 204.094488190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -775,7 +731,6 @@ object frmReportes: TfrmReportes
         Top = 498.441250000000000000
         Width = 173.858380000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -790,7 +745,6 @@ object frmReportes: TfrmReportes
         Top = 514.393700787401600000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -805,7 +759,6 @@ object frmReportes: TfrmReportes
         Top = 514.393700787401600000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -820,7 +773,6 @@ object frmReportes: TfrmReportes
         Top = 514.393700787401600000
         Width = 173.858380000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -835,7 +787,6 @@ object frmReportes: TfrmReportes
         Top = 547.575140000000000000
         Width = 204.094620000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -850,7 +801,6 @@ object frmReportes: TfrmReportes
         Top = 547.575140000000000000
         Width = 204.094488190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -865,7 +815,6 @@ object frmReportes: TfrmReportes
         Top = 547.575140000000000000
         Width = 196.535560000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -880,7 +829,6 @@ object frmReportes: TfrmReportes
         Top = 563.252320000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -895,7 +843,6 @@ object frmReportes: TfrmReportes
         Top = 563.252320000000000000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -910,7 +857,6 @@ object frmReportes: TfrmReportes
         Top = 563.252320000000000000
         Width = 196.535560000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -925,7 +871,6 @@ object frmReportes: TfrmReportes
         Top = 596.709030000000000000
         Width = 204.094620000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -940,7 +885,6 @@ object frmReportes: TfrmReportes
         Top = 596.709030000000000000
         Width = 204.094488190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -955,7 +899,6 @@ object frmReportes: TfrmReportes
         Top = 613.039370078740200000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -970,7 +913,6 @@ object frmReportes: TfrmReportes
         Top = 613.039370078740200000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -985,14 +927,13 @@ object frmReportes: TfrmReportes
         Top = 638.283860000000000000
         Width = 737.008350000000000000
         Height = 26.456710000000000000
-        ShowHint = False
-        Color = 15329769
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+        Fill.BackColor = 15329769
         Memo.UTF8W = (
           ' REFERENCIAS PERSONALES')
         ParentFont = False
@@ -1003,14 +944,12 @@ object frmReportes: TfrmReportes
         Top = 664.740570000000000000
         Width = 737.008350000000000000
         Height = 120.944960000000000000
-        ShowHint = False
       end
       object Memo47: TfrxMemoView
         Left = 52.913420000000000000
         Top = 676.079160000000000000
         Width = 204.094620000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1025,7 +964,6 @@ object frmReportes: TfrmReportes
         Top = 676.079160000000000000
         Width = 204.094488190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1040,7 +978,6 @@ object frmReportes: TfrmReportes
         Top = 676.079160000000000000
         Width = 124.724490000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1055,7 +992,6 @@ object frmReportes: TfrmReportes
         Top = 692.756340000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1070,7 +1006,6 @@ object frmReportes: TfrmReportes
         Top = 692.756340000000000000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1085,7 +1020,6 @@ object frmReportes: TfrmReportes
         Top = 692.756340000000000000
         Width = 124.724490000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1100,7 +1034,6 @@ object frmReportes: TfrmReportes
         Top = 676.079160000000000000
         Width = 143.622140000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1115,7 +1048,6 @@ object frmReportes: TfrmReportes
         Top = 692.756340000000000000
         Width = 143.622140000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1130,14 +1062,12 @@ object frmReportes: TfrmReportes
         Top = 785.685530000000000000
         Width = 737.008350000000000000
         Height = 60.472480000000000000
-        ShowHint = False
       end
       object Memo71: TfrxMemoView
         Left = 52.913420000000000000
         Top = 797.024120000000000000
         Width = 268.346630000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1152,7 +1082,6 @@ object frmReportes: TfrmReportes
         Top = 797.024120000000000000
         Width = 90.708588190000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1167,7 +1096,6 @@ object frmReportes: TfrmReportes
         Top = 797.024120000000000000
         Width = 105.826840000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1182,7 +1110,6 @@ object frmReportes: TfrmReportes
         Top = 813.701300000000000000
         Width = 268.346630000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1197,7 +1124,6 @@ object frmReportes: TfrmReportes
         Top = 813.701300000000000000
         Width = 90.708588190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1212,7 +1138,6 @@ object frmReportes: TfrmReportes
         Top = 813.701300000000000000
         Width = 105.826840000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1227,7 +1152,6 @@ object frmReportes: TfrmReportes
         Top = 365.614410000000000000
         Width = 177.637910000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -1242,7 +1166,6 @@ object frmReportes: TfrmReportes
         Top = 382.488188976378000000
         Width = 177.637910000000000000
         Height = 15.118120000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1257,7 +1180,6 @@ object frmReportes: TfrmReportes
         Top = 712.331170000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1272,7 +1194,6 @@ object frmReportes: TfrmReportes
         Top = 712.331170000000000000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1287,7 +1208,6 @@ object frmReportes: TfrmReportes
         Top = 712.331170000000000000
         Width = 124.724490000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1302,7 +1222,6 @@ object frmReportes: TfrmReportes
         Top = 712.331170000000000000
         Width = 143.622140000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1317,7 +1236,6 @@ object frmReportes: TfrmReportes
         Top = 732.008350000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1332,7 +1250,6 @@ object frmReportes: TfrmReportes
         Top = 732.008350000000000000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1347,7 +1264,6 @@ object frmReportes: TfrmReportes
         Top = 732.008350000000000000
         Width = 124.724490000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1362,7 +1278,6 @@ object frmReportes: TfrmReportes
         Top = 732.008350000000000000
         Width = 143.622140000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1377,7 +1292,6 @@ object frmReportes: TfrmReportes
         Top = 752.125984250000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1392,7 +1306,6 @@ object frmReportes: TfrmReportes
         Top = 752.125984250000000000
         Width = 204.094488190000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1407,7 +1320,6 @@ object frmReportes: TfrmReportes
         Top = 752.125984251968500000
         Width = 124.724490000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1422,7 +1334,6 @@ object frmReportes: TfrmReportes
         Top = 752.125984251968500000
         Width = 143.622140000000000000
         Height = 18.897650000000000000
-        ShowHint = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -1435,7 +1346,7 @@ object frmReportes: TfrmReportes
     end
   end
   object frxReport3: TfrxReport
-    Version = '4.14.4'
+    Version = '5.1.5'
     DataSet = frxDBDataset3
     DataSetName = 'frxDBDataset3'
     DotMatrixReport = False
@@ -1479,7 +1390,7 @@ object frmReportes: TfrmReportes
     Top = 64
   end
   object frxReport4: TfrxReport
-    Version = '4.14.4'
+    Version = '5.1.5'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -1531,6 +1442,7 @@ object frmReportes: TfrmReportes
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object Footer1: TfrxFooter
+        FillType = ftBrush
         Height = 64.252010000000000000
         Top = 914.646260000000000000
         Width = 740.409927000000000000
@@ -1539,13 +1451,12 @@ object frmReportes: TfrmReportes
           Top = 2.559060000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[NombreEmpresa]')
@@ -1556,13 +1467,12 @@ object frmReportes: TfrmReportes
           Top = 21.236240000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[DireccionEmpresa]')
@@ -1573,13 +1483,12 @@ object frmReportes: TfrmReportes
           Top = 39.913420000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[EmailEmpresa]')
@@ -1587,6 +1496,7 @@ object frmReportes: TfrmReportes
         end
       end
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 873.071430000000000000
         Top = 18.897650000000000000
         Width = 740.409927000000000000
@@ -1598,7 +1508,6 @@ object frmReportes: TfrmReportes
           Top = 37.795300000000000000
           Width = 438.425480000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -24
@@ -1613,7 +1522,6 @@ object frmReportes: TfrmReportes
           Top = 68.031540000000000000
           Width = 438.425480000000000000
           Height = 30.236240000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
@@ -1628,7 +1536,6 @@ object frmReportes: TfrmReportes
           Top = 11.338590000000000000
           Width = 118.157390000000000000
           Height = 120.598330000000000000
-          ShowHint = False
           Picture.Data = {
             0A544A504547496D6167654D3D0000FFD8FFE000104A4649460001010100DC00
             DC0000FFE1005A4578696600004D4D002A000000080005030100050000000100
@@ -2130,7 +2037,6 @@ object frmReportes: TfrmReportes
           Top = 109.606370000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2146,7 +2052,6 @@ object frmReportes: TfrmReportes
           Top = 109.606370000000000000
           Width = 268.346630000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'ciudad_fecha'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2165,7 +2070,6 @@ object frmReportes: TfrmReportes
           Top = 143.622140000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2181,7 +2085,6 @@ object frmReportes: TfrmReportes
           Top = 143.622140000000000000
           Width = 124.724490000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'cliente_id'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2201,7 +2104,6 @@ object frmReportes: TfrmReportes
           Top = 143.622140000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2216,7 +2118,6 @@ object frmReportes: TfrmReportes
           Top = 143.622140000000000000
           Width = 317.480520000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'descripcion'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2235,7 +2136,6 @@ object frmReportes: TfrmReportes
           Top = 177.637910000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2250,7 +2150,6 @@ object frmReportes: TfrmReportes
           Top = 177.637910000000000000
           Width = 514.016080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'NombreFiscal'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2269,7 +2168,6 @@ object frmReportes: TfrmReportes
           Top = 245.669450000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2284,7 +2182,6 @@ object frmReportes: TfrmReportes
           Top = 245.669450000000000000
           Width = 514.016080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'giro'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2303,7 +2200,6 @@ object frmReportes: TfrmReportes
           Top = 211.653680000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2318,7 +2214,6 @@ object frmReportes: TfrmReportes
           Top = 211.653680000000000000
           Width = 514.016080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'Domicilio'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2337,7 +2232,6 @@ object frmReportes: TfrmReportes
           Top = 279.685220000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2352,7 +2246,6 @@ object frmReportes: TfrmReportes
           Top = 279.685220000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'telefono1'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2371,7 +2264,6 @@ object frmReportes: TfrmReportes
           Top = 279.685220000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2386,7 +2278,6 @@ object frmReportes: TfrmReportes
           Top = 279.685220000000000000
           Width = 162.519790000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'telefono2'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2405,7 +2296,6 @@ object frmReportes: TfrmReportes
           Top = 313.700990000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2420,7 +2310,6 @@ object frmReportes: TfrmReportes
           Top = 313.700990000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'RepSeg'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2439,7 +2328,6 @@ object frmReportes: TfrmReportes
           Top = 313.700990000000000000
           Width = 68.031540000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2454,7 +2342,6 @@ object frmReportes: TfrmReportes
           Top = 313.700990000000000000
           Width = 294.803340000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2470,7 +2357,6 @@ object frmReportes: TfrmReportes
           Top = 347.716760000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2485,7 +2371,6 @@ object frmReportes: TfrmReportes
           Top = 347.716760000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'RepCob'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2504,7 +2389,6 @@ object frmReportes: TfrmReportes
           Top = 347.716760000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2519,7 +2403,6 @@ object frmReportes: TfrmReportes
           Top = 347.716760000000000000
           Width = 275.905690000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'RepCobTD'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2538,7 +2421,6 @@ object frmReportes: TfrmReportes
           Top = 381.732530000000000000
           Width = 204.094620000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2553,7 +2435,6 @@ object frmReportes: TfrmReportes
           Top = 381.732530000000000000
           Width = 510.236550000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'ContratoTot'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2572,7 +2453,6 @@ object frmReportes: TfrmReportes
           Top = 415.748300000000000000
           Width = 204.094620000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2587,7 +2467,6 @@ object frmReportes: TfrmReportes
           Top = 415.748300000000000000
           Width = 510.236550000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'Pagos'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2606,7 +2485,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2621,7 +2499,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2637,7 +2514,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2652,7 +2528,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2668,7 +2543,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 83.149660000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2683,7 +2557,6 @@ object frmReportes: TfrmReportes
           Top = 449.764070000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2699,7 +2572,6 @@ object frmReportes: TfrmReportes
           Top = 483.779840000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2714,7 +2586,6 @@ object frmReportes: TfrmReportes
           Top = 483.779840000000000000
           Width = 162.519790000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2730,7 +2601,6 @@ object frmReportes: TfrmReportes
           Top = 517.795610000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2745,7 +2615,6 @@ object frmReportes: TfrmReportes
           Top = 517.795610000000000000
           Width = 207.874150000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2761,7 +2630,6 @@ object frmReportes: TfrmReportes
           Top = 551.811380000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2776,7 +2644,6 @@ object frmReportes: TfrmReportes
           Top = 551.811380000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2792,7 +2659,6 @@ object frmReportes: TfrmReportes
           Top = 585.827150000000000000
           Width = 147.401670000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2807,7 +2673,6 @@ object frmReportes: TfrmReportes
           Top = 585.827150000000000000
           Width = 185.196970000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'ContratoIni'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2826,7 +2691,6 @@ object frmReportes: TfrmReportes
           Top = 483.779840000000000000
           Width = 124.724490000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2841,7 +2705,6 @@ object frmReportes: TfrmReportes
           Top = 483.779840000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2857,7 +2720,6 @@ object frmReportes: TfrmReportes
           Top = 517.795610000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2872,7 +2734,6 @@ object frmReportes: TfrmReportes
           Top = 517.795610000000000000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2888,7 +2749,6 @@ object frmReportes: TfrmReportes
           Top = 551.811380000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2903,7 +2763,6 @@ object frmReportes: TfrmReportes
           Top = 551.811380000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -2919,7 +2778,6 @@ object frmReportes: TfrmReportes
           Top = 585.827150000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2934,7 +2792,6 @@ object frmReportes: TfrmReportes
           Top = 585.827150000000000000
           Width = 245.669450000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'ContratoFin'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -2959,6 +2816,7 @@ object frmReportes: TfrmReportes
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object Footer2: TfrxFooter
+        FillType = ftBrush
         Height = 64.252010000000000000
         Top = 914.646260000000000000
         Width = 740.409927000000000000
@@ -2967,13 +2825,12 @@ object frmReportes: TfrmReportes
           Top = 2.559060000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[NombreEmpresa]')
@@ -2984,13 +2841,12 @@ object frmReportes: TfrmReportes
           Top = 21.236240000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[DireccionEmpresa]')
@@ -3001,13 +2857,12 @@ object frmReportes: TfrmReportes
           Top = 39.913420000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
-          Color = clSilver
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Fill.BackColor = clSilver
           HAlign = haCenter
           Memo.UTF8W = (
             '[EmailEmpresa]')
@@ -3015,6 +2870,7 @@ object frmReportes: TfrmReportes
         end
       end
       object MasterData2: TfrxMasterData
+        FillType = ftBrush
         Height = 873.071430000000000000
         Top = 18.897650000000000000
         Width = 740.409927000000000000
@@ -3026,7 +2882,6 @@ object frmReportes: TfrmReportes
           Top = 37.795300000000000000
           Width = 514.016080000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -24
@@ -3041,7 +2896,6 @@ object frmReportes: TfrmReportes
           Top = 68.031540000000000000
           Width = 514.016080000000000000
           Height = 30.236240000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
@@ -3056,7 +2910,6 @@ object frmReportes: TfrmReportes
           Top = 11.338590000000000000
           Width = 118.157390000000000000
           Height = 120.598330000000000000
-          ShowHint = False
           Picture.Data = {
             0A544A504547496D6167654D3D0000FFD8FFE000104A4649460001010100DC00
             DC0000FFE1005A4578696600004D4D002A000000080005030100050000000100
@@ -3558,7 +3411,6 @@ object frmReportes: TfrmReportes
           Top = 154.960730000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3573,7 +3425,6 @@ object frmReportes: TfrmReportes
           Top = 154.960730000000000000
           Width = 570.709030000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'domicilio'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3592,7 +3443,6 @@ object frmReportes: TfrmReportes
           Top = 188.976500000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3607,7 +3457,6 @@ object frmReportes: TfrmReportes
           Top = 188.976500000000000000
           Width = 374.173470000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'DomColonia'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3626,7 +3475,6 @@ object frmReportes: TfrmReportes
           Top = 188.976500000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3641,7 +3489,6 @@ object frmReportes: TfrmReportes
           Top = 188.976500000000000000
           Width = 124.724490000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'DomCP'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3660,7 +3507,6 @@ object frmReportes: TfrmReportes
           Top = 222.992270000000000000
           Width = 177.637910000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3675,7 +3521,6 @@ object frmReportes: TfrmReportes
           Top = 222.992270000000000000
           Width = 529.134200000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'DomCiudad'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3694,7 +3539,6 @@ object frmReportes: TfrmReportes
           Top = 257.008040000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3709,7 +3553,6 @@ object frmReportes: TfrmReportes
           Top = 257.008040000000000000
           Width = 154.960730000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'rfc'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3728,7 +3571,6 @@ object frmReportes: TfrmReportes
           Top = 257.008040000000000000
           Width = 64.252010000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3743,7 +3585,6 @@ object frmReportes: TfrmReportes
           Top = 257.008040000000000000
           Width = 328.819110000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'DomCiudad'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3762,7 +3603,6 @@ object frmReportes: TfrmReportes
           Top = 306.141930000000000000
           Width = 714.331170000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3778,7 +3618,6 @@ object frmReportes: TfrmReportes
           Top = 343.937230000000000000
           Width = 234.330860000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3793,7 +3632,6 @@ object frmReportes: TfrmReportes
           Top = 343.937230000000000000
           Width = 264.567100000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -3809,7 +3647,6 @@ object frmReportes: TfrmReportes
           Top = 377.953000000000000000
           Width = 234.330860000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3824,7 +3661,6 @@ object frmReportes: TfrmReportes
           Top = 377.953000000000000000
           Width = 264.567100000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -3840,7 +3676,6 @@ object frmReportes: TfrmReportes
           Top = 411.968770000000000000
           Width = 234.330860000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3855,7 +3690,6 @@ object frmReportes: TfrmReportes
           Top = 411.968770000000000000
           Width = 264.567100000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -3871,7 +3705,6 @@ object frmReportes: TfrmReportes
           Top = 445.984540000000000000
           Width = 234.330860000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3886,7 +3719,6 @@ object frmReportes: TfrmReportes
           Top = 445.984540000000000000
           Width = 264.567100000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
           Font.Charset = DEFAULT_CHARSET
@@ -3902,7 +3734,6 @@ object frmReportes: TfrmReportes
           Top = 514.016080000000000000
           Width = 234.330860000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3917,7 +3748,6 @@ object frmReportes: TfrmReportes
           Top = 514.016080000000000000
           Width = 464.882190000000000000
           Height = 113.385900000000000000
-          ShowHint = False
           DataField = 'comentarios'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
@@ -3936,7 +3766,6 @@ object frmReportes: TfrmReportes
           Top = 740.787880000000000000
           Width = 317.480520000000000000
           Height = 37.795300000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3954,7 +3783,6 @@ object frmReportes: TfrmReportes
           Top = 740.787880000000000000
           Width = 317.480520000000000000
           Height = 37.795300000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13

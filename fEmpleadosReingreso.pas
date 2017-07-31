@@ -1,4 +1,4 @@
-unit fEmpleadosBaja;
+unit fEmpleadosReingreso;
 
 interface
 
@@ -9,10 +9,11 @@ uses
   Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox, cxVGrid, cxDBVGrid, cxInplaceContainer, cxCalendar,
   cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids,
   cxImageComboBox, dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, System.Actions, dxBevel,
-  Vcl.ComCtrls, dxCore, cxDateUtils, dxSkinOffice2016Colorful;
+  Vcl.ComCtrls, dxCore, cxDateUtils, dxSkinOffice2016Colorful, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxClasses,
+  cxGridCustomView, cxGrid;
 
 type
-  TfrmEmpleadosBaja = class(TForm)
+  TfrmEmpleadosReingreso = class(TForm)
     Panel1: TPanel;
     cxButton4: TcxButton;
     cxButton5: TcxButton;
@@ -28,12 +29,16 @@ type
     C: TcxLabel;
     lblServicio: TcxLabel;
     dxBevel1: TdxBevel;
-    xfecha_baja: TcxDateEdit;
+    xfecha_reingreso: TcxDateEdit;
     cxLabel1: TcxLabel;
-    cxLabel2: TcxLabel;
-    xmotivobaja: TcxImageComboBox;
     cxLabel3: TcxLabel;
     xobservaciones: TcxMemo;
+    cxGridBitacora: TcxGrid;
+    cxGridBitacoraDBBandedTableViewBitacora: TcxGridDBBandedTableView;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn1: TcxGridDBBandedColumn;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn2: TcxGridDBBandedColumn;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn3: TcxGridDBBandedColumn;
+    cxGridBitacoraLevel1: TcxGridLevel;
     procedure actCerrarExecute(Sender: TObject);
     procedure actGuardarExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -48,7 +53,7 @@ type
   end;
 
 var
-  frmEmpleadosBaja: TfrmEmpleadosBaja;
+  frmEmpleadosReingreso: TfrmEmpleadosReingreso;
 
 implementation
 
@@ -56,21 +61,21 @@ implementation
 
 uses dMain, fPrincipal, uGlobales;
 
-procedure TfrmEmpleadosBaja.actCerrarExecute(Sender: TObject);
+procedure TfrmEmpleadosReingreso.actCerrarExecute(Sender: TObject);
 begin
      ModalResult := mrCancel;
 end;
 
-procedure TfrmEmpleadosBaja.actGuardarExecute(Sender: TObject);
+procedure TfrmEmpleadosReingreso.actGuardarExecute(Sender: TObject);
 begin
      if Validate then
         begin
-             dmMain.BajaEmpleado(_Globales.Empresa, StrToInt(lblId.Caption), xfecha_baja.Date, xobservaciones.Text);
+             dmMain.ReingresoEmpleado(_Globales.Empresa, StrToInt(lblId.Caption), xfecha_reingreso.Date, xobservaciones.Text);
              ModalResult := mrOk;
         end;
 end;
 
-procedure TfrmEmpleadosBaja.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmEmpleadosReingreso.FormKeyPress(Sender: TObject; var Key: Char);
 begin
      if key = #13 then
         begin
@@ -79,23 +84,22 @@ begin
         end;
 end;
 
-procedure TfrmEmpleadosBaja.FormShow(Sender: TObject);
+procedure TfrmEmpleadosReingreso.FormShow(Sender: TObject);
 begin
-     Caption := 'Baja Empleados';
-     xfecha_baja.Date := Now;
+     Caption := 'Reingreso Empleados';
+     xfecha_reingreso.Date := Now;
+     cxGridBitacoraDBBandedTableViewBitacora.DataController.DataSource := dmMain.dsBitacoraEmpleado;
 end;
 
-function TfrmEmpleadosBaja.Validate: Boolean;
+function TfrmEmpleadosReingreso.Validate: Boolean;
 var
    msg : string;
 begin
      msg := '';
-     if Trim(xfecha_baja.Text) = '' then
-        msg := '- Debe capturar la fecha de baja';
-     if Trim(xmotivobaja.Text) = '' then
-        msg := msg + ifthen(Trim(msg)<>'',#13#10,'') + '- Debe indicar el motivo de baja';
+     if Trim(xfecha_reingreso.Text) = '' then
+        msg := '- Debe capturar la fecha de reingreso';
      if Trim(xobservaciones.Text) = '' then
-        msg := msg + ifthen(Trim(msg)<>'',#13#10,'') + '- Debe capturar las observaciones de la baja';
+        msg := msg + ifthen(Trim(msg)<>'',#13#10,'') + '- Debe capturar las observaciones del reingreso';
 
      Result := Trim(msg)='';
 
@@ -103,7 +107,7 @@ begin
         MessageDlg(msg,mtError,[mbOK],0);
 end;
 
-procedure TfrmEmpleadosBaja.xNombresKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmEmpleadosReingreso.xNombresKeyPress(Sender: TObject; var Key: Char);
 begin
      if key = #13 then
         begin

@@ -114,7 +114,7 @@ object frmClientes: TfrmClientes
       Align = alLeft
       Action = actExpandir
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       ParentShowHint = False
       ShowHint = True
       SpeedButtonOptions.CanBeFocused = False
@@ -128,7 +128,7 @@ object frmClientes: TfrmClientes
       Align = alLeft
       Action = actContraer
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       ParentShowHint = False
       ShowHint = True
       SpeedButtonOptions.CanBeFocused = False
@@ -142,7 +142,7 @@ object frmClientes: TfrmClientes
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 2
     end
@@ -154,7 +154,7 @@ object frmClientes: TfrmClientes
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 3
     end
@@ -168,26 +168,26 @@ object frmClientes: TfrmClientes
     TabOrder = 2
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     OnPageChanging = cxPageControl1PageChanging
-    ClientRectBottom = 525
+    ClientRectBottom = 529
     ClientRectLeft = 2
-    ClientRectRight = 688
-    ClientRectTop = 27
+    ClientRectRight = 692
+    ClientRectTop = 26
     object cxTabSheet1: TcxTabSheet
       Caption = 'Informaci'#243'n General'
       ImageIndex = 0
       object vGridClientes: TcxDBVerticalGrid
         Left = 0
         Top = 0
-        Width = 686
-        Height = 498
+        Width = 690
+        Height = 503
         BorderStyle = cxcbsNone
         Align = alClient
         Images = frmPrincipal.imgListAcciones
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         OptionsView.CellAutoHeight = True
         OptionsView.CellEndEllipsis = True
         OptionsView.ScrollBars = ssVertical
@@ -749,12 +749,12 @@ object frmClientes: TfrmClientes
       object cxGrid1: TcxGrid
         Left = 0
         Top = 0
-        Width = 686
-        Height = 462
+        Width = 690
+        Height = 467
         Align = alClient
         TabOrder = 0
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsServiciosCliente
@@ -763,6 +763,7 @@ object frmClientes: TfrmClientes
           DataController.Summary.SummaryGroups = <>
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
+          Styles.Header = frmPrincipal.cxStyle1
           object cxGrid1DBTableView1Column1: TcxGridDBColumn
             Caption = 'Servicio'
             DataBinding.FieldName = 'servicio_id'
@@ -795,8 +796,8 @@ object frmClientes: TfrmClientes
       end
       object pnl1: TPanel
         Left = 0
-        Top = 462
-        Width = 686
+        Top = 467
+        Width = 690
         Height = 36
         Align = alBottom
         BevelOuter = bvNone

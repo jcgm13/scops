@@ -69,7 +69,7 @@ object frmAsistencia: TfrmAsistencia
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -82,7 +82,7 @@ object frmAsistencia: TfrmAsistencia
     Align = alClient
     TabOrder = 2
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     object cxGrid1DBBandedTableView1: TcxGridDBBandedTableView
       Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = cxGrid1DBBandedTableView1CellDblClick

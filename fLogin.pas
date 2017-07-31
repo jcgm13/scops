@@ -6,8 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, Vcl.Menus, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxTextEdit, Vcl.ExtCtrls, cxMaskEdit, cxDropDownEdit,
-  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxLabel, dxSkinDevExpressStyle, dxSkinBlue, dxSkinOffice2007Silver,
-  dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
+  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxLabel, dxSkinOffice2016Colorful, dxSkinOffice2016Dark, System.Actions;
 
 type
   TfrmLogin = class(TForm)

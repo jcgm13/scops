@@ -38,7 +38,7 @@ object frmDocumentacionEmpleados: TfrmDocumentacionEmpleados
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 0
     end
   end
@@ -101,6 +101,8 @@ object frmDocumentacionEmpleados: TfrmDocumentacionEmpleados
         Caption = 'Documento Adicional 2'
         Value = 12
       end>
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
     TabOrder = 1
     Height = 113
     Width = 613

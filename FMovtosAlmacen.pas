@@ -9,7 +9,7 @@ uses
   cxEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxMaskEdit, cxDropDownEdit, cxImageComboBox, cxDBEdit, cxTextEdit,
   cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, cxStyles, dxSkinscxPCPainter, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, cxCurrencyEdit, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxCalendar, cxButtonEdit;
+  cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxCalendar, cxButtonEdit, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmMovtosAlmacen = class(TForm)

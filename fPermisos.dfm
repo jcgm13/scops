@@ -67,7 +67,7 @@ object frmPermisos: TfrmPermisos
       Align = alLeft
       Action = actExpandir
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
@@ -80,7 +80,7 @@ object frmPermisos: TfrmPermisos
       Align = alLeft
       Action = actContraer
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
@@ -93,7 +93,7 @@ object frmPermisos: TfrmPermisos
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 0
     end
     object cxButton5: TcxButton
@@ -104,7 +104,7 @@ object frmPermisos: TfrmPermisos
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 3
     end
   end
@@ -116,7 +116,7 @@ object frmPermisos: TfrmPermisos
     Align = alClient
     TabOrder = 0
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     object ViewPermisos: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dmMain.dsPermisos

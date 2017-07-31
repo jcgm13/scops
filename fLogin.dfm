@@ -35,7 +35,7 @@ object frmLogin: TfrmLogin
       Left = 5
       Top = 46
       Width = 495
-      Height = 16
+      Height = 18
       Align = alTop
       Alignment = taCenter
       Caption = 'Usuario o Contrase'#241'a Incorrectos'
@@ -216,7 +216,7 @@ object frmLogin: TfrmLogin
         Align = alRight
         Action = actAceptar
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         TabOrder = 0
       end
       object cxButton2: TcxButton
@@ -227,7 +227,7 @@ object frmLogin: TfrmLogin
         Align = alRight
         Action = actCerrar
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         TabOrder = 1
       end
     end

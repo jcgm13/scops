@@ -4,7 +4,7 @@ uses
   Forms,
   dMain in 'dMain.pas' {dmMain: TDataModule},
   fPrincipal in 'fPrincipal.pas' {frmPrincipal},
-  fEmpleadosBaja in 'fEmpleadosBaja.pas' {frmEmpleadosBaja},
+  fEmpleadosReingreso in 'fEmpleadosReingreso.pas' {frmEmpleadosReingreso},
   fServicios in 'fServicios.pas' {frmServicios},
   fReportes in 'fReportes.pas' {frmReportes},
   fSplash in 'fSplash.pas' {frmSplash},
@@ -32,7 +32,8 @@ uses
   fVehiculosCombustible in 'fVehiculosCombustible.pas' {frmVehiculosCombustible},
   fSeleccionEmpleados in 'fSeleccionEmpleados.pas' {frmSeleccionEmpleados},
   fDocumentacionEmpleados in 'fDocumentacionEmpleados.pas' {frmDocumentacionEmpleados},
-  FMovtosAlmacen in 'FMovtosAlmacen.pas' {frmMovtosAlmacen};
+  FMovtosAlmacen in 'FMovtosAlmacen.pas' {frmMovtosAlmacen},
+  fEmpleadosBaja in 'fEmpleadosBaja.pas' {frmEmpleadosBaja};
 
 {$R *.res}
 

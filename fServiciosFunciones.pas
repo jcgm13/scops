@@ -7,7 +7,7 @@ uses
   Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinDevExpressStyle, Vcl.ActnList,
   Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxControls, cxContainer, cxEdit, cxSpinEdit, cxTimeEdit, cxCheckBox, cxTextEdit,
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxDBEdit, cxLabel, math, StrUtils, db,
-  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
+  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmServiciosFunciones = class(TForm)

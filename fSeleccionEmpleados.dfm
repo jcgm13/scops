@@ -27,11 +27,12 @@ object frmSeleccionEmpleados: TfrmSeleccionEmpleados
     Align = alClient
     TabOrder = 0
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     object ViewEmpleados: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmAlways
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewEmpleadosCellDblClick
       DataController.DataSource = dmMain.dsEmpleadosList
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -95,7 +96,7 @@ object frmSeleccionEmpleados: TfrmSeleccionEmpleados
       Align = alRight
       Action = actAceptar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -107,7 +108,7 @@ object frmSeleccionEmpleados: TfrmSeleccionEmpleados
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end

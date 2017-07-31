@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus,
   dxSkinsCore, dxSkinDevExpressStyle, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, cxControls,
   cxContainer, cxEdit, cxDBEdit, cxTextEdit, cxLabel, cxMaskEdit, cxDropDownEdit, cxCalendar,
-  cxImageComboBox, cxCurrencyEdit, db;
+  cxImageComboBox, cxCurrencyEdit, db, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmVehiculosCombustible = class(TForm)

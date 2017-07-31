@@ -45,7 +45,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -57,7 +57,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end
@@ -83,7 +83,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 3
+    TabOrder = 2
     Text = 'edMarca'
     Width = 300
   end
@@ -94,7 +94,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 5
+    TabOrder = 4
     Text = 'edModelo'
     Width = 200
   end
@@ -119,7 +119,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 7
+    TabOrder = 6
     Text = 'edFuncion'
     Width = 200
   end
@@ -133,7 +133,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     ParentFont = False
     Properties.Alignment.Horz = taRightJustify
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 1
+    TabOrder = 0
     Width = 75
   end
   object cxLabel100: TcxLabel
@@ -191,7 +191,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.SaveTime = False
     Properties.ShowTime = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 10
+    TabOrder = 9
     Width = 100
   end
   object cxLabel62: TcxLabel
@@ -211,7 +211,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 14
+    TabOrder = 13
     Width = 60
   end
   object cxDBCurrencyEdit2: TcxDBCurrencyEdit
@@ -225,7 +225,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.DisplayFormat = ',0.00'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 18
+    TabOrder = 17
     Width = 75
   end
   object cxLabel8: TcxLabel
@@ -250,7 +250,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 16
+    TabOrder = 15
     Width = 300
   end
   object cxLabel10: TcxLabel
@@ -268,7 +268,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.SaveTime = False
     Properties.ShowTime = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 12
+    TabOrder = 11
     Width = 100
   end
   object cxLabel6: TcxLabel
@@ -287,7 +287,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 20
+    TabOrder = 19
     Width = 300
   end
   object cxDBMemo1: TcxDBMemo
@@ -299,7 +299,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 22
+    TabOrder = 21
     Height = 69
     Width = 300
   end

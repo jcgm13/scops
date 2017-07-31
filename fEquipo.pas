@@ -8,7 +8,7 @@ uses
   dxSkinDevExpressStyle, cxControls, cxContainer, cxEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, cxDBEdit,
   cxTextEdit, cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, db, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCurrencyEdit, cxMemo, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver,
-  dxSkinOffice2013LightGray;
+  dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmEquipo = class(TForm)

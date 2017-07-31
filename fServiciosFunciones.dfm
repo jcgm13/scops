@@ -105,7 +105,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 2
       Transparent = True
       OnClick = chkTodosClick
-      Width = 66
     end
     object teTodosE: TcxTimeEdit
       Left = 92
@@ -146,7 +145,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 5
       Transparent = True
       OnClick = chk1Click
-      Width = 66
     end
     object chk2: TcxDBCheckBox
       Left = 23
@@ -163,7 +161,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 8
       Transparent = True
       OnClick = chk2Click
-      Width = 66
     end
     object chk4: TcxDBCheckBox
       Left = 23
@@ -180,7 +177,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 14
       Transparent = True
       OnClick = chk4Click
-      Width = 66
     end
     object chk3: TcxDBCheckBox
       Left = 23
@@ -197,7 +193,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 11
       Transparent = True
       OnClick = chk3Click
-      Width = 66
     end
     object chk5: TcxDBCheckBox
       Left = 23
@@ -214,7 +209,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 17
       Transparent = True
       OnClick = chk5Click
-      Width = 66
     end
     object chk7: TcxDBCheckBox
       Left = 23
@@ -231,7 +225,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 23
       Transparent = True
       OnClick = chk7Click
-      Width = 66
     end
     object chk6: TcxDBCheckBox
       Left = 23
@@ -248,7 +241,6 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       TabOrder = 20
       Transparent = True
       OnClick = chk6Click
-      Width = 66
     end
     object teLunesE: TcxDBTimeEdit
       Left = 92
@@ -390,7 +382,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.TimeFormat = tfHourMin
       Style.StyleController = frmPrincipal.cxEditStyleController1
-      TabOrder = 26
+      TabOrder = 25
       Width = 50
     end
     object teDomingoS: TcxDBTimeEdit
@@ -477,7 +469,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -489,7 +481,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end

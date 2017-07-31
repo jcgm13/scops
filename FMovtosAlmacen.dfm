@@ -43,7 +43,7 @@ object frmMovtosAlmacen: TfrmMovtosAlmacen
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -56,7 +56,7 @@ object frmMovtosAlmacen: TfrmMovtosAlmacen
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end
@@ -159,6 +159,7 @@ object frmMovtosAlmacen: TfrmMovtosAlmacen
     Align = alBottom
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 10
+    LookAndFeel.SkinName = 'Office2016Colorful'
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.Summary.DefaultGroupSummaryItems = <>

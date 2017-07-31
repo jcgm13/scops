@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinDevExpressStyle, cxControls, cxContainer, cxEdit, cxImage, cxDBEdit,
-  cxGroupBox, cxRadioGroup, Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls;
+  cxGroupBox, cxRadioGroup, Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmDocumentacionEmpleados = class(TForm)

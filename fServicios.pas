@@ -11,8 +11,7 @@ uses
   dxSkinDevExpressStyle, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator,
   cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid,
   cxGridBandedTableView, cxSchedulerStorage, cxSchedulerCustomControls, cxSchedulerDateNavigator, cxDateNavigator, cxLabel,
-  Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon, dxSkinBlue,
-  dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
+  Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmServicios = class(TForm)

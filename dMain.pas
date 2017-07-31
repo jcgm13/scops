@@ -151,6 +151,8 @@ type
     qryMovtosAlmacen: TZQuery;
     dsMovtosAlmacenEdit: TDataSource;
     qryMovtosAlmacenEdit: TZQuery;
+    qryBitacoraEmpleado: TZQuery;
+    dsBitacoraEmpleado: TDataSource;
     procedure qryEmpleadosEditCalcFields(DataSet: TDataSet);
     procedure qryEmpleadosEditNewRecord(DataSet: TDataSet);
     procedure qryEmpleadosEditBeforePost(DataSet: TDataSet);
@@ -165,8 +167,10 @@ type
     procedure qryVehiculosReparacionesEditNewRecord(DataSet: TDataSet);
     procedure qryClientesEditAfterPost(DataSet: TDataSet);
     procedure qryMovtosAlmacenEditNewRecord(DataSet: TDataSet);
+    procedure qryEmpleadosEditAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
+    modoInsercion : Boolean;
     function nextEmpleado(empresaId : Integer) : Integer;
   public
     { Public declarations }
@@ -176,8 +180,11 @@ type
     procedure CargaDetalleEmpleado(empresaId, empleado : integer);
     procedure CargaFotoEmpleado(empresaId, empleado : integer);
     procedure InactivaUsuario(empresaId, empleado : Integer);
-    procedure ReingresoEmpleado(empresaId, empleado : Integer);
+    procedure ReingresoEmpleado(empresaId, empleadoId : Integer; fechaReingreso : TDateTime; observaciones : string);
     function ExisteEmpleado(nombre : string) : Boolean;
+    procedure RegistraHistorialEmpleado(empresaId, empleadoid : Integer; fecha: TDateTime; descripcion, observaciones : string);
+    procedure BajaEmpleado(empresaId, empleadoId : Integer; fechaBaja : TDateTime; observaciones : string);
+    procedure CargaBitacoraEmpleado(empresaId, empleadoId : Integer);
 
     // CLIENTES
     procedure CargaClientes(empresaId, Estatus : Integer);
@@ -486,6 +493,42 @@ begin
      end;
 end;
 
+procedure TdmMain.BajaEmpleado(empresaId, empleadoId: Integer; fechaBaja: TDateTime; observaciones: string);
+var
+   xSQL : string;
+begin
+     try
+        // Se le quita el servicio asignado al empleado y se pone con estatus BAJA
+        xSQL := 'UPDATE empleados SET activo = ''0'', servicio_id = '' SP01'' ' +
+                ' WHERE empresa_id = :empresa ' +
+                '       AND empleado_id = :empleado';
+        qryAux.Close;
+        qryAux.SQL.Clear;
+        qryAux.SQL.Add(xSQL);
+        qryAux.ParamByName('empresa').AsInteger  := empresaId;
+        qryAux.ParamByName('empleado').AsInteger := empleadoId;
+        qryAux.ExecSQL;
+
+        // Se elimina el registro de los servicios a este empleado
+        xSQL := 'UPDATE servicios_funciones_empleados ' +
+                ' SET empleado_id = NULL ' +
+                ' WHERE empresa_id = :empresa ' +
+                '       AND empleado_id = :empleado';
+        qryAux.Close;
+        qryAux.SQL.Clear;
+        qryAux.SQL.Add(xSQL);
+        qryAux.ParamByName('empresa').AsInteger  := empresaId;
+        qryAux.ParamByName('empleado').AsInteger := empleadoId;
+        qryAux.ExecSQL;
+
+        // Se guarda el registro en la bitácora
+        RegistraHistorialEmpleado(empresaId, empleadoId, fechaBaja, 'BAJA', observaciones);
+     except
+           on E:Exception do
+              raise Exception.Create('Ha ocurrido un error en TdmMain.InactivaUsuario. ' + E.Message);
+     end;
+end;
+
 procedure TdmMain.BorrarServiciosPreasignacionSemanal(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer);
 var
    xSQL : string;
@@ -666,6 +709,28 @@ begin
      end;
 end;
 
+procedure TdmMain.CargaBitacoraEmpleado(empresaId, empleadoId: Integer);
+var
+   xSQL : string;
+begin
+     try
+        xSQL := 'SELECT * ' +
+                ' FROM bitacora_empleados ' +
+                ' WHERE empresa_id = :empresa ' +
+                '       AND empleado_id = :empleado ' +
+                ' ORDER BY fecha DESC';
+        qryBitacoraEmpleado.Close;
+        qryBitacoraEmpleado.SQL.Clear;
+        qryBitacoraEmpleado.SQL.Add(xSQL);
+        qryBitacoraEmpleado.ParamByName('empresa').AsInteger := empresaId;
+        qryBitacoraEmpleado.ParamByName('empleado').AsInteger := empleadoId;
+        qryBitacoraEmpleado.Open;
+     except
+           on E:Exception do
+              raise Exception.Create('Ha ocurrido un error en TdmMain.CargaBitacoraEmpleado. ' + E.Message);
+     end;
+end;
+
 procedure TdmMain.CargaDetalleEmpleado(empresaId, empleado: integer);
 var
    xSQL : string;
@@ -726,7 +791,8 @@ begin
                 '   TRIM(COALESCE(e.calle,'''') || '' '' || COALESCE(e.num_ext,'''') || '' '' || COALESCE(e.colonia)) AS domicilio, ' +
                 '   e.cuip, ' +
                 '   e.nacimiento_fecha, ' +
-                '   e.nss ' +
+                '   e.nss, ' +
+                '   e.reingreso ' +
                 ' FROM empleados e ' +
                 ' LEFT JOIN estatus_sp ON estatus_sp.estatus_sp_id = e.estatus_sp_id ' +
                 ' LEFT JOIN empresas ON empresas."Empresa" = e.empresa_id ' +
@@ -3226,10 +3292,25 @@ begin
           end;
 end;
 
+procedure TdmMain.qryEmpleadosEditAfterPost(DataSet: TDataSet);
+begin
+     if modoInsercion then
+        begin
+             RegistraHistorialEmpleado(DataSet.FieldByName('empresa_id').AsInteger,
+                                       DataSet.FieldByName('empleado_id').AsInteger,
+                                       Now,
+                                       'ALTA',
+                                       ''
+                                      );
+             modoInsercion := False;
+        end;
+end;
+
 procedure TdmMain.qryEmpleadosEditBeforePost(DataSet: TDataSet);
 var
    xSQL : string;
 begin
+     modoInsercion := False;
      if DataSet.State = dsInsert then
         begin
              DataSet.FieldByName('empleado_id').AsInteger := nextEmpleado(_Globales.Empresa);
@@ -3247,6 +3328,8 @@ begin
                    on E:Exception do
                       raise Exception.Create('Ha ocurrido un error en TdmMain.qryEditEmpleadosAfterPost. ' + E.Message);
              end;
+
+             modoInsercion := True;
         end;
 end;
 
@@ -3472,20 +3555,47 @@ begin
             end;
 end;
 
-procedure TdmMain.ReingresoEmpleado(empresaId, empleado: Integer);
+procedure TdmMain.RegistraHistorialEmpleado(empresaId, empleadoid: Integer; fecha: TDateTime; descripcion, observaciones: string);
 var
    xSQL : string;
 begin
      try
-        xSQL := 'UPDATE empleados SET activo = ''1'', reingreso = ''S'', comentarios_baja = COALESCE(comentarios_baja,'''') || E''\r\n'' || ''- REINGRESO EL '' || to_char(current_timestamp, ''dd/MM/YYYY'') ' +
-                ' WHERE empleado_id = :empleado ' +
-                '       AND empresa_id =  :empresaId';
+        xSQL := 'INSERT INTO public.bitacora_empleados (empresa_id, empleado_id, bitacora_id, fecha, descripcion, observaciones) ' +
+                ' VALUES(:empresa_id, :empleado_id, (SELECT COALESCE( MAX( bitacora_id ), 0 ) + 1 FROM bitacora_empleados WHERE empleado_id = :empleado_id), :fecha, :descripcion, :observaciones)';
         qryAux.Close;
         qryAux.SQL.Clear;
         qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('empleado').AsInteger  := empleado;
-        qryAux.ParamByName('empresaId').AsInteger := empresaId;
+        qryAux.ParamByName('empresa_id').AsInteger   := empresaId;
+        qryAux.ParamByName('empleado_id').AsInteger  := empleadoid;
+        qryAux.ParamByName('fecha').AsDate           := fecha;
+        qryAux.ParamByName('descripcion').AsString   := descripcion;
+        qryAux.ParamByName('observaciones').AsString := observaciones;
         qryAux.ExecSQL;
+     except
+           on E:Exception do
+              raise Exception.Create('Ha ocurrido un error en TdmMain.RegistraHistorialEmpleado. ' + E.Message);
+     end;
+end;
+
+procedure TdmMain.ReingresoEmpleado(empresaId, empleadoId : Integer; fechaReingreso : TDateTime; observaciones : string);
+var
+   xSQL : string;
+begin
+     try
+        // Se le quita el servicio asignado al empleado y se pone con estatus BAJA
+        xSQL := 'UPDATE empleados SET activo = ''1'', reingreso = ''S'', fecha_ultimo_reingreso = :fechaReingreso ' +
+                ' WHERE empresa_id = :empresa ' +
+                '       AND empleado_id = :empleado';
+        qryAux.Close;
+        qryAux.SQL.Clear;
+        qryAux.SQL.Add(xSQL);
+        qryAux.ParamByName('empresa').AsInteger  := empresaId;
+        qryAux.ParamByName('empleado').AsInteger := empleadoId;
+        qryAux.ParamByName('fechaReingreso').AsDateTime := fechaReingreso;
+        qryAux.ExecSQL;
+
+        // Se guarda el registro en la bitácora
+        RegistraHistorialEmpleado(empresaId, empleadoId, fechaReingreso, 'REINGRESO', observaciones);
      except
            on E:Exception do
               raise Exception.Create('Ha ocurrido un error en TdmMain.ReingresoEmpleado. ' + E.Message);

@@ -10,7 +10,7 @@ uses
   Vcl.ExtCtrls, cxVGrid, cxDBVGrid, cxInplaceContainer, cxHyperLinkEdit, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo,
   dxSkinDevExpressStyle, cxLabel, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray,
   dxSkinscxPCPainter, dxBarBuiltInMenu, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, cxPC;
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, cxPC, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmClientes = class(TForm)

@@ -1,10 +1,10 @@
-object frmEmpleadosBaja: TfrmEmpleadosBaja
+object frmEmpleadosReingreso: TfrmEmpleadosReingreso
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = 'Baja de Empleados'
-  ClientHeight = 344
+  Caption = 'Reingreso de Empleados'
+  ClientHeight = 485
   ClientWidth = 652
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -28,7 +28,7 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
   end
   object Panel1: TPanel
     Left = 0
-    Top = 308
+    Top = 449
     Width = 652
     Height = 36
     Align = alBottom
@@ -37,7 +37,7 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
     Padding.Top = 4
     Padding.Right = 4
     Padding.Bottom = 4
-    TabOrder = 3
+    TabOrder = 2
     object cxButton4: TcxButton
       Left = 416
       Top = 4
@@ -124,9 +124,9 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
     Height = 17
     Width = 500
   end
-  object xfecha_baja: TcxDateEdit
+  object xfecha_reingreso: TcxDateEdit
     Left = 117
-    Top = 127
+    Top = 322
     Properties.DateButtons = [btnToday]
     Properties.SaveTime = False
     Properties.ShowTime = False
@@ -135,68 +135,116 @@ object frmEmpleadosBaja: TfrmEmpleadosBaja
   end
   object cxLabel1: TcxLabel
     Left = 23
-    Top = 128
-    Caption = 'Fecha de Baja'
+    Top = 323
+    Caption = 'Fecha Reingreso'
     Transparent = True
-  end
-  object cxLabel2: TcxLabel
-    Left = 23
-    Top = 155
-    Caption = 'Motivo de Baja'
-    Transparent = True
-  end
-  object xmotivobaja: TcxImageComboBox
-    Tag = 1
-    Left = 117
-    Top = 154
-    ParentFont = False
-    Properties.Alignment.Horz = taLeftJustify
-    Properties.Items = <
-      item
-        Description = 'RENUNCIA'
-        ImageIndex = 0
-        Value = 0
-      end
-      item
-        Description = 'CAUSA ADMINISTRATIVA'
-        Value = 1
-      end
-      item
-        Description = 'COMETER DELITO'
-        Value = 2
-      end
-      item
-        Description = 'PENSIONADO'
-        Value = 3
-      end
-      item
-        Description = 'DEFUNCI'#211'N'
-        Value = 4
-      end
-      item
-        Description = 'ABANDONO DE TRABAJO'
-        Value = 5
-      end>
-    Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 1
-    Width = 200
   end
   object cxLabel3: TcxLabel
     Left = 23
-    Top = 181
+    Top = 349
     Caption = 'Observaciones'
     Transparent = True
   end
   object xobservaciones: TcxMemo
     Left = 117
-    Top = 181
+    Top = 349
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 2
+    TabOrder = 1
     Height = 89
     Width = 500
+  end
+  object cxGridBitacora: TcxGrid
+    Left = 23
+    Top = 111
+    Width = 594
+    Height = 205
+    TabOrder = 11
+    LookAndFeel.SkinName = 'Office2016Colorful'
+    object cxGridBitacoraDBBandedTableViewBitacora: TcxGridDBBandedTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.ScrollBars = ssVertical
+      OptionsView.CellAutoHeight = True
+      OptionsView.ColumnAutoWidth = True
+      OptionsView.GroupByBox = False
+      Bands = <
+        item
+          Caption = 'Bit'#225'cora'
+          Options.Moving = False
+          Styles.Header = frmPrincipal.cxStyle1
+        end>
+      object cxGridBitacoraDBBandedTableViewBitacoraColumn1: TcxGridDBBandedColumn
+        Caption = 'Fecha'
+        DataBinding.FieldName = 'fecha'
+        PropertiesClassName = 'TcxDateEditProperties'
+        MinWidth = 90
+        Options.Editing = False
+        Options.Grouping = False
+        Options.Sorting = False
+        Styles.Header = frmPrincipal.cxStyle1
+        Width = 90
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGridBitacoraDBBandedTableViewBitacoraColumn2: TcxGridDBBandedColumn
+        Caption = 'Tipo'
+        DataBinding.FieldName = 'descripcion'
+        PropertiesClassName = 'TcxImageComboBoxProperties'
+        Properties.Images = frmPrincipal.imgListAcciones
+        Properties.Items = <
+          item
+            Description = 'ALTA'
+            ImageIndex = 9
+            Value = 'ALTA'
+          end
+          item
+            Description = 'BAJA'
+            ImageIndex = 10
+            Value = 'BAJA'
+          end
+          item
+            Description = 'REINGRESO'
+            ImageIndex = 11
+            Value = 'REINGRESO'
+          end>
+        MinWidth = 100
+        Options.Editing = False
+        Options.Grouping = False
+        Options.Sorting = False
+        Styles.Header = frmPrincipal.cxStyle1
+        Width = 100
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGridBitacoraDBBandedTableViewBitacoraColumn3: TcxGridDBBandedColumn
+        Caption = 'Observaciones'
+        DataBinding.FieldName = 'observaciones'
+        PropertiesClassName = 'TcxMemoProperties'
+        Properties.ScrollBars = ssVertical
+        MinWidth = 300
+        Options.Editing = False
+        Options.Grouping = False
+        Options.Sorting = False
+        Styles.Header = frmPrincipal.cxStyle1
+        Width = 300
+        Position.BandIndex = 0
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+    end
+    object cxGridBitacoraLevel1: TcxGridLevel
+      GridView = cxGridBitacoraDBBandedTableViewBitacora
+    end
   end
   object ActionList1: TActionList
     Images = frmPrincipal.imgListAcciones

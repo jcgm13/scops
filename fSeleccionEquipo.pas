@@ -8,7 +8,7 @@ uses
   cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxCurrencyEdit, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, Vcl.Menus, Vcl.ActnList, Vcl.StdCtrls,
-  cxButtons, Vcl.ExtCtrls, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray;
+  cxButtons, Vcl.ExtCtrls, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmSeleccionEquipo = class(TForm)

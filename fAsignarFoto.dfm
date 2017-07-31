@@ -87,7 +87,7 @@ object frmAsignarFoto: TfrmAsignarFoto
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 0
     end
     object cxButton5: TcxButton
@@ -98,7 +98,7 @@ object frmAsignarFoto: TfrmAsignarFoto
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 1
     end
   end
@@ -112,21 +112,21 @@ object frmAsignarFoto: TfrmAsignarFoto
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
-    ClientRectBottom = 468
+    LookAndFeel.SkinName = 'Office2016Colorful'
+    ClientRectBottom = 472
     ClientRectLeft = 2
-    ClientRectRight = 382
-    ClientRectTop = 27
+    ClientRectRight = 386
+    ClientRectTop = 26
     object cxTabSheet1: TcxTabSheet
       Caption = 'Foto Actual'
       ImageIndex = 0
       DesignSize = (
-        380
-        441)
+        384
+        446)
       object Label3: TLabel
         Left = 21
         Top = 357
-        Width = 342
+        Width = 346
         Height = 32
         Anchors = [akLeft, akTop, akRight]
         AutoSize = False
@@ -161,31 +161,31 @@ object frmAsignarFoto: TfrmAsignarFoto
       object PaintBox1: TPaintBox
         Left = 0
         Top = 41
-        Width = 380
-        Height = 400
+        Width = 384
+        Height = 405
         Cursor = crHandPoint
         Align = alClient
       end
       object Panel3: TPanel
         Left = 0
         Top = 0
-        Width = 380
+        Width = 384
         Height = 41
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
         DesignSize = (
-          380
+          384
           41)
         object btnActivarCamara: TcxButton
-          Left = 254
+          Left = 258
           Top = 10
           Width = 120
           Height = 25
           Action = actActivarCamara
           Anchors = [akTop, akRight]
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           TabOrder = 0
         end
         object cxButton2: TcxButton
@@ -195,7 +195,7 @@ object frmAsignarFoto: TfrmAsignarFoto
           Height = 25
           Action = actAsignarFoto
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           TabOrder = 1
         end
       end

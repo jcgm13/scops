@@ -11,7 +11,8 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit, cxBarEditItem,
   dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, dxSkinDevExpressStyle, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls,
   cxTextEdit, cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems,
-  DateUtils, Vcl.Grids, Vcl.DBGrids, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxGridBandedTableView, cxGridDBBandedTableView, cxTimeEdit;
+  DateUtils, Vcl.Grids, Vcl.DBGrids, System.Actions, dxSkinOffice2016Colorful, dxSkinOffice2016Dark, cxTimeEdit, cxGridBandedTableView, cxGridDBBandedTableView, dxSkinBlack, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light;
 
 type
   TfrmPrincipal = class(TdxRibbonForm)
@@ -286,6 +287,9 @@ type
     ViewAsistenciaCapturaNewColumnhorasalida: TcxGridDBBandedColumn;
     ViewAsistenciaCapturaNewColumnhorasextras: TcxGridDBBandedColumn;
     ViewAsistenciaCapturaNewColumnFalta: TcxGridDBBandedColumn;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    ViewEmpleadosColumnReingreso: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
@@ -371,7 +375,7 @@ implementation
 {$R *.dfm}
 
 uses dMain, fEmpleados, fReportes, fSplash, fWaitForm, fPermisos, fLogin,
-  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit;
+  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit, fEmpleadosReingreso;
 
 
 { TForm1 }
@@ -625,10 +629,9 @@ begin
              if MessageDlg('¿Está seguro de dar de baja al empleado ' + Trim(FieldByName('nombre_empleado').AsString) + ' ' + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
                 try
                    frmEmpleadosBaja := TfrmEmpleadosBaja.Create(Self);
-                   dmMain.qryEmpleadosEdit.Close;
-                   dmMain.qryEmpleadosEdit.ParamByName('empleado_id').AsInteger := dmMain.dsEmpleados.DataSet.FieldByName('empleado_id').AsInteger;
-                   dmMain.qryEmpleadosEdit.Open;
-                   dmMain.qryEmpleadosEdit.Edit;
+                   frmEmpleadosBaja.lblId.Caption := FieldByName('empleado_id').AsString;
+                   frmEmpleadosBaja.lblNombre.Caption := FieldByName('nombre_empleado').AsString;
+                   frmEmpleadosBaja.lblServicio.Caption := FieldByName('descripcion_servicio').AsString;
                    if frmEmpleadosBaja.ShowModal = mrOk then
                       if actConsultarEmpleadosActivos.Enabled then
                          actConsultarEmpleadosActivos.Execute;
@@ -973,11 +976,24 @@ end;
 
 procedure TfrmPrincipal.actReingresoExecute(Sender: TObject);
 begin
-     if not dmMain.dsEmpleados.DataSet.IsEmpty then
-        begin
-             dmMain.ReingresoEmpleado(_Globales.Empresa, dmMain.cdsEmpleados.FieldByName('empleado_id').AsInteger);
-             actConsultarEmpleadosInactivos.Execute;
-        end;
+     with dmMain.dsEmpleados.DataSet do
+          if not IsEmpty then
+             try
+                frmEmpleadosReingreso := TfrmEmpleadosReingreso.Create(Self);
+                frmEmpleadosReingreso.lblId.Caption := FieldByName('empleado_id').AsString;
+                frmEmpleadosReingreso.lblNombre.Caption := FieldByName('nombre_empleado').AsString;
+                frmEmpleadosReingreso.lblServicio.Caption := FieldByName('descripcion_servicio').AsString;
+
+                dmMain.CargaBitacoraEmpleado(dmMain.dsEmpleadosEdit.DataSet.FieldByName('empresa_id').AsInteger,
+                                             dmMain.dsEmpleadosEdit.DataSet.FieldByName('empleado_id').AsInteger
+                                            );
+
+                if frmEmpleadosReingreso.ShowModal = mrOk then
+                   if actConsultarEmpleadosInactivos.Enabled then
+                      actConsultarEmpleadosInactivos.Execute;
+             finally
+                    FreeAndNil(frmEmpleadosReingreso);
+             end;
 end;
 
 procedure TfrmPrincipal.actVerClienteExecute(Sender: TObject);
@@ -1016,6 +1032,10 @@ begin
                 dmMain.qryEmpleadosSocioEconomicoEdit.ParamByName('empresa_id').AsInteger := dmMain.dsEmpleadosEdit.DataSet.FieldByName('empresa_id').AsInteger;
                 dmMain.qryEmpleadosSocioEconomicoEdit.ParamByName('empleado_id').AsInteger := dmMain.dsEmpleadosEdit.DataSet.FieldByName('empleado_id').AsInteger;
                 dmMain.qryEmpleadosSocioEconomicoEdit.Open;
+
+                dmMain.CargaBitacoraEmpleado(dmMain.dsEmpleadosEdit.DataSet.FieldByName('empresa_id').AsInteger,
+                                             dmMain.dsEmpleadosEdit.DataSet.FieldByName('empleado_id').AsInteger
+                                            );
 
                 frmEmpleados.ShowModal;
              finally

@@ -5,7 +5,7 @@ object frmPrincipal: TfrmPrincipal
     'Sistema de Control de Personal para Empresas de Seguridad Privad' +
     'a'
   ClientHeight = 612
-  ClientWidth = 920
+  ClientWidth = 934
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,13 +22,13 @@ object frmPrincipal: TfrmPrincipal
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 920
-    Height = 145
+    Width = 934
+    Height = 158
     ApplicationButton.Menu = dxRibbonBackstageView1
     BarManager = dxBarManager1
-    Style = rs2013
-    ColorSchemeAccent = rcsaOrange
-    ColorSchemeName = 'DevExpressStyle'
+    Style = rs2016
+    ColorSchemeAccent = rcsaBlue
+    ColorSchemeName = 'Office2016Colorful'
     DocumentName = 'SCoPS'
     PopupMenuItems = []
     QuickAccessToolbar.Toolbar = dxBarManager1Bar1
@@ -115,7 +115,7 @@ object frmPrincipal: TfrmPrincipal
           ToolbarName = 'dxBarManager1Bar19'
         end
         item
-          Caption = ''
+          Caption = 'Consultar Asistencia'
           ToolbarName = 'dxBarManager1Bar20'
         end
         item
@@ -220,6 +220,7 @@ object frmPrincipal: TfrmPrincipal
         OptionsView.Item.Text.Position = posRight
         OptionsView.Item.PinMode = bgipmTag
         Ribbon = dxRibbon1
+        TabOrder = 0
         object dxRibbonBackstageViewGalleryControl1Group1: TdxRibbonBackstageViewGalleryGroup
           ShowCaption = False
           object dxRibbonBackstageViewGalleryControl1Group1Item1: TdxRibbonBackstageViewGalleryItem
@@ -252,7 +253,7 @@ object frmPrincipal: TfrmPrincipal
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
     Top = 589
-    Width = 920
+    Width = 934
     Height = 23
     Images = imgListAcciones
     Panels = <
@@ -282,7 +283,9 @@ object frmPrincipal: TfrmPrincipal
         Width = 200
       end>
     Ribbon = dxRibbon1
-    LookAndFeel.SkinName = 'Office2013LightGray'
+    LookAndFeel.Kind = lfUltraFlat
+    LookAndFeel.NativeStyle = False
+    LookAndFeel.SkinName = 'Office2016Colorful'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clDefault
     Font.Height = -11
@@ -291,18 +294,19 @@ object frmPrincipal: TfrmPrincipal
   end
   object cxGridMain: TcxGrid
     Left = 0
-    Top = 145
-    Width = 920
-    Height = 444
+    Top = 158
+    Width = 934
+    Height = 431
     Align = alClient
     TabOrder = 3
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     object ViewEmpleados: TcxGridDBTableView
       PopupMenu = dxRibbonPopupMenuEmpleados
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewEmpleadosCellDblClick
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
@@ -326,6 +330,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
+      Styles.Header = cxStyle1
       object ViewEmpleadosColumnElemento: TcxGridDBColumn
         Caption = 'Empleado'
         DataBinding.FieldName = 'empleado_id'
@@ -375,6 +380,7 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'RFC'
         DataBinding.FieldName = 'rfc'
         Visible = False
+        Options.Editing = False
       end
       object ViewEmpleadosColumnFechaAlta: TcxGridDBColumn
         Caption = 'Fecha Alta'
@@ -385,16 +391,19 @@ object frmPrincipal: TfrmPrincipal
         Properties.ShowTime = False
         Visible = False
         HeaderAlignmentHorz = taRightJustify
+        Options.Editing = False
       end
       object ViewEmpleadosColumnDomicilio: TcxGridDBColumn
         Caption = 'Domicilio'
         DataBinding.FieldName = 'domicilio'
         Visible = False
+        Options.Editing = False
       end
       object ViewEmpleadosColumnCuip: TcxGridDBColumn
         Caption = 'CUIP'
         DataBinding.FieldName = 'cuip'
         Visible = False
+        Options.Editing = False
       end
       object ViewEmpleadosColumnFechaNacimiento: TcxGridDBColumn
         Caption = 'Fecha Nacimiento'
@@ -405,11 +414,29 @@ object frmPrincipal: TfrmPrincipal
         Properties.ShowTime = False
         Visible = False
         HeaderAlignmentHorz = taRightJustify
+        Options.Editing = False
       end
       object ViewEmpleadosColumnNSS: TcxGridDBColumn
         Caption = 'Num. Seguro Social'
         DataBinding.FieldName = 'nss'
         Visible = False
+        Options.Editing = False
+      end
+      object ViewEmpleadosColumnReingreso: TcxGridDBColumn
+        Caption = 'Reingreso'
+        DataBinding.FieldName = 'reingreso'
+        PropertiesClassName = 'TcxImageComboBoxProperties'
+        Properties.Images = imgListAcciones
+        Properties.Items = <
+          item
+            Value = 'N'
+          end
+          item
+            ImageIndex = 6
+            Value = 'S'
+          end>
+        Options.Editing = False
+        Width = 55
       end
     end
     object ViewClientes: TcxGridDBTableView
@@ -417,6 +444,7 @@ object frmPrincipal: TfrmPrincipal
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewClientesCellDblClick
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
@@ -435,6 +463,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
+      Styles.Header = cxStyle1
       object ViewClientesColumnCliente: TcxGridDBColumn
         Caption = 'Cliente'
         DataBinding.FieldName = 'cliente_id'
@@ -474,6 +503,7 @@ object frmPrincipal: TfrmPrincipal
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewServiciosCellDblClick
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
@@ -486,6 +516,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsData.Inserting = False
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
       object ViewServiciosColumnServicio: TcxGridDBColumn
         Caption = 'Servicio'
         DataBinding.FieldName = 'servicio_id'
@@ -534,6 +565,7 @@ object frmPrincipal: TfrmPrincipal
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewVehiculosCellDblClick
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
@@ -546,6 +578,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsData.Inserting = False
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
       object ViewVehiculosColumnVehiculoId: TcxGridDBColumn
         Caption = 'Veh'#237'culo'
         DataBinding.FieldName = 'vehiculo_id'
@@ -586,6 +619,7 @@ object frmPrincipal: TfrmPrincipal
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
@@ -598,6 +632,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
+      Styles.Header = cxStyle1
       object ViewUsuariosColumnUsuario: TcxGridDBColumn
         Caption = 'Usuario'
         DataBinding.FieldName = 'clave'
@@ -606,6 +641,7 @@ object frmPrincipal: TfrmPrincipal
     object ViewAsistenciaCaptura: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewAsistenciaCapturaCellDblClick
       DataController.DataSource = dmMain.dsAsistencia
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -619,6 +655,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
+      Styles.Header = cxStyle1
       object ViewAsistenciaCapturaColumnAnio: TcxGridDBColumn
         Caption = 'A'#241'o'
         DataBinding.FieldName = 'anio'
@@ -706,6 +743,7 @@ object frmPrincipal: TfrmPrincipal
     object ViewAsistenciaConsulta: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
+      FindPanel.ShowCloseButton = False
       DataController.DataSource = dmMain.dsAsistencia
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
@@ -717,6 +755,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsData.Inserting = False
       OptionsView.ScrollBars = ssVertical
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
       object ViewAsistenciaConsultaColumnServicio: TcxGridDBColumn
         Caption = 'Servicio'
         DataBinding.FieldName = 'servicio_id'
@@ -786,6 +825,7 @@ object frmPrincipal: TfrmPrincipal
       PopupMenu = dxRibbonPopupMenuEquipo
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewEquipoCellDblClick
       DataController.DataSource = dmMain.dsEquipo
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -799,6 +839,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.CellAutoHeight = True
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
       object ViewEquipoColumnEquipo: TcxGridDBColumn
         Caption = 'Equipo'
         DataBinding.FieldName = 'equipo_id'
@@ -828,6 +869,7 @@ object frmPrincipal: TfrmPrincipal
     object ViewAlmacen: TcxGridDBTableView
       PopupMenu = dxRibbonPopupMenuAlmacen
       Navigator.Buttons.CustomButtons = <>
+      FindPanel.ShowCloseButton = False
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
@@ -839,6 +881,7 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.ScrollBars = ssVertical
       OptionsView.CellAutoHeight = True
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
       object ViewAlmacenColumnMovto: TcxGridDBColumn
         Caption = 'Movimiento'
         HeaderAlignmentHorz = taRightJustify
@@ -869,6 +912,7 @@ object frmPrincipal: TfrmPrincipal
     object ViewAsistenciaCapturaNew: TcxGridDBBandedTableView
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
+      FindPanel.ShowCloseButton = False
       OnCellDblClick = ViewAsistenciaCapturaNewCellDblClick
       DataController.DataSource = dmMain.dsAsistencia
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -880,6 +924,8 @@ object frmPrincipal: TfrmPrincipal
       OptionsData.Editing = False
       OptionsData.Inserting = False
       OptionsView.ColumnAutoWidth = True
+      Styles.Header = cxStyle1
+      Styles.BandHeader = cxStyle1
       Bands = <
         item
           Caption = 'Cliente'
@@ -1039,8 +1085,8 @@ object frmPrincipal: TfrmPrincipal
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
@@ -1051,7 +1097,7 @@ object frmPrincipal: TfrmPrincipal
       True)
     ImageOptions.Images = ImageListRibbon16
     ImageOptions.LargeImages = ImageListRibbon
-    LookAndFeel.SkinName = 'DevExpressStyle'
+    LookAndFeel.SkinName = 'Office2016Colorful'
     PopupMenuLinks = <>
     UseSystemFont = True
     Left = 676
@@ -1117,7 +1163,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar3: TdxBar
       Caption = 'Custom 2'
       CaptionButtons = <>
-      DockedLeft = 418
+      DockedLeft = 336
       DockedTop = 0
       FloatLeft = 816
       FloatTop = 8
@@ -1177,7 +1223,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar5: TdxBar
       Caption = 'Custom 4'
       CaptionButtons = <>
-      DockedLeft = 247
+      DockedLeft = 248
       DockedTop = 0
       FloatLeft = 816
       FloatTop = 8
@@ -1261,7 +1307,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar9: TdxBar
       Caption = 'Custom 8'
       CaptionButtons = <>
-      DockedLeft = 260
+      DockedLeft = 261
       DockedTop = 0
       FloatLeft = 816
       FloatTop = 8
@@ -1285,7 +1331,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar10: TdxBar
       Caption = 'Custom 9'
       CaptionButtons = <>
-      DockedLeft = 514
+      DockedLeft = 442
       DockedTop = 0
       FloatLeft = 885
       FloatTop = 8
@@ -1305,7 +1351,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar11: TdxBar
       Caption = 'Custom 10'
       CaptionButtons = <>
-      DockedLeft = 576
+      DockedLeft = 509
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1357,7 +1403,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar13: TdxBar
       Caption = 'Custom 12'
       CaptionButtons = <>
-      DockedLeft = 250
+      DockedLeft = 251
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1377,7 +1423,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar14: TdxBar
       Caption = 'Custom 13'
       CaptionButtons = <>
-      DockedLeft = 324
+      DockedLeft = 326
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 10
@@ -1397,7 +1443,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar15: TdxBar
       Caption = 'Custom 14'
       CaptionButtons = <>
-      DockedLeft = 316
+      DockedLeft = 318
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1421,7 +1467,7 @@ object frmPrincipal: TfrmPrincipal
       AllowReset = False
       Caption = 'Custom 15'
       CaptionButtons = <>
-      DockedLeft = 644
+      DockedLeft = 579
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1450,7 +1496,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar17: TdxBar
       Caption = 'Custom 16'
       CaptionButtons = <>
-      DockedLeft = 385
+      DockedLeft = 388
       DockedTop = 0
       FloatLeft = 893
       FloatTop = 8
@@ -1474,7 +1520,8 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar18: TdxBar
       Caption = 'Custom 17'
       CaptionButtons = <>
-      DockedLeft = 251
+      DockedDockingStyle = dsTop
+      DockedLeft = 252
       DockedTop = 0
       FloatLeft = 964
       FloatTop = 8
@@ -1492,13 +1539,13 @@ object frmPrincipal: TfrmPrincipal
       OneOnRow = False
       Row = 0
       UseOwnFont = False
-      Visible = True
+      Visible = False
       WholeRow = False
     end
     object dxBarManager1Bar7: TdxBar
       Caption = 'Custom 6'
       CaptionButtons = <>
-      DockedLeft = 599
+      DockedLeft = 252
       DockedTop = 0
       FloatLeft = 946
       FloatTop = 8
@@ -1531,11 +1578,7 @@ object frmPrincipal: TfrmPrincipal
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'xFechaAsistenciaIni'
-        end
-        item
-          Visible = True
-          ItemName = 'xFechaAsistenciaFin'
+          ItemName = 'dxBarLargeButton42'
         end>
       OneOnRow = False
       Row = 0
@@ -1546,7 +1589,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar20: TdxBar
       Caption = 'Custom 19'
       CaptionButtons = <>
-      DockedLeft = 188
+      DockedLeft = 80
       DockedTop = 0
       FloatLeft = 946
       FloatTop = 8
@@ -1555,7 +1598,11 @@ object frmPrincipal: TfrmPrincipal
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'dxBarLargeButton42'
+          ItemName = 'xFechaAsistenciaFin'
+        end
+        item
+          Visible = True
+          ItemName = 'xFechaAsistenciaIni'
         end
         item
           Visible = True
@@ -1602,7 +1649,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar21: TdxBar
       Caption = 'Custom 20'
       CaptionButtons = <>
-      DockedLeft = 247
+      DockedLeft = 248
       DockedTop = 0
       FloatLeft = 954
       FloatTop = 8
@@ -1626,7 +1673,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar23: TdxBar
       Caption = 'Custom 22'
       CaptionButtons = <>
-      DockedLeft = 326
+      DockedLeft = 346
       DockedTop = 0
       FloatLeft = 954
       FloatTop = 8
@@ -1646,7 +1693,8 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar24: TdxBar
       Caption = 'Custom 23'
       CaptionButtons = <>
-      DockedLeft = 476
+      DockedDockingStyle = dsTop
+      DockedLeft = 252
       DockedTop = 0
       FloatLeft = 954
       FloatTop = 4
@@ -1660,7 +1708,7 @@ object frmPrincipal: TfrmPrincipal
       OneOnRow = False
       Row = 0
       UseOwnFont = False
-      Visible = True
+      Visible = False
       WholeRow = False
     end
     object dxBarManager1Bar25: TdxBar
@@ -1698,7 +1746,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarManager1Bar26: TdxBar
       Caption = 'Rango de fechas'
       CaptionButtons = <>
-      DockedLeft = 332
+      DockedLeft = 333
       DockedTop = 0
       FloatLeft = 946
       FloatTop = 8
@@ -1721,7 +1769,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object dxBarManager1Bar27: TdxBar
       CaptionButtons = <>
-      DockedLeft = 522
+      DockedLeft = 524
       DockedTop = 0
       FloatLeft = 954
       FloatTop = 8
@@ -1785,6 +1833,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton1: TdxBarLargeButton
       Action = actConsultarEmpleadosActivos
       Category = 0
+      Style = cxStyle1
     end
     object btnClientesActivos: TdxBarButton
       Caption = 'Activos   '
@@ -1837,6 +1886,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton10: TdxBarLargeButton
       Action = actConsultarClientesActivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton11: TdxBarLargeButton
       Action = actAgregarServicio
@@ -1857,6 +1907,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton15: TdxBarLargeButton
       Action = actConsultarServiciosActivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton16: TdxBarLargeButton
       Action = actAgregarVehiculo
@@ -1877,6 +1928,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton20: TdxBarLargeButton
       Action = actConsultarVehiculosActivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton21: TdxBarLargeButton
       Action = actCredencial
@@ -1913,6 +1965,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton29: TdxBarLargeButton
       Action = actConsultarUsuarios
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton30: TdxBarLargeButton
       Action = actPermisos
@@ -1933,18 +1986,22 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton34: TdxBarLargeButton
       Action = actConsultarEmpleadosInactivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton35: TdxBarLargeButton
       Action = actConsultarClientesInactivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton36: TdxBarLargeButton
       Action = actConsultarServiciosInactivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton38: TdxBarLargeButton
       Action = actConsultarVehiculosInactivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton37: TdxBarLargeButton
       Action = actReingreso
@@ -1996,6 +2053,7 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton43: TdxBarLargeButton
       Action = actConsultarAsistencia
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton44: TdxBarLargeButton
       Action = actAgregarEquipo
@@ -2016,10 +2074,12 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton40: TdxBarLargeButton
       Action = actConsultarEquipoActivo
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton48: TdxBarLargeButton
       Action = actConsultarEquipoInactivo
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton49: TdxBarLargeButton
       Action = actExportarExcel
@@ -2074,10 +2134,12 @@ object frmPrincipal: TfrmPrincipal
     object dxBarLargeButton55: TdxBarLargeButton
       Action = actConsultarMovtosActivos
       Category = 0
+      Style = cxStyle1
     end
     object dxBarLargeButton56: TdxBarLargeButton
       Action = actConsultarMovtosInactivos
       Category = 0
+      Style = cxStyle1
     end
     object xfechaAlmacenDesde: TdxBarDateCombo
       Caption = 'Desde'
@@ -2118,7 +2180,7 @@ object frmPrincipal: TfrmPrincipal
   end
   object dxSkinController1: TdxSkinController
     NativeStyle = False
-    SkinName = 'DevExpressStyle'
+    SkinName = 'Office2016Colorful'
     UseImageSet = imsAlternate
     Left = 644
     Top = 152
@@ -2129,7 +2191,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 360
     Top = 232
     Bitmap = {
-      494C0101B0002801280120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101B00028013C0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A005000001002000000000000040
       0B00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -25903,19 +25965,19 @@ object frmPrincipal: TfrmPrincipal
     Style.Font.Height = -11
     Style.Font.Name = 'Tahoma'
     Style.Font.Style = []
-    Style.LookAndFeel.SkinName = 'DevExpressStyle'
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.ButtonStyle = btsOffice11
     Style.ButtonTransparency = ebtHideUnselected
     Style.Gradient = True
     Style.PopupBorderStyle = epbsSingle
     Style.IsFontAssigned = True
     StyleDisabled.BorderColor = clSilver
-    StyleDisabled.LookAndFeel.SkinName = 'DevExpressStyle'
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
     StyleDisabled.TextColor = clBlack
     StyleFocused.Color = 11468799
-    StyleFocused.LookAndFeel.SkinName = 'DevExpressStyle'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
     StyleFocused.TextColor = 10485760
-    StyleHot.LookAndFeel.SkinName = 'DevExpressStyle'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
     Left = 440
     Top = 232
     PixelsPerInch = 96
@@ -30403,7 +30465,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 356
     Top = 292
     Bitmap = {
-      494C0101AF00D800D80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101AF00D800EC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0020000010020000000000000C0
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -36381,5 +36443,16 @@ object frmPrincipal: TfrmPrincipal
     UseOwnFont = False
     Left = 80
     Top = 508
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+    end
   end
 end

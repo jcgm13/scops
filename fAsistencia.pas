@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinDevExpressStyle, Vcl.Menus, cxStyles, dxSkinscxPCPainter,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
-  Vcl.StdCtrls, cxButtons, cxLabel, cxTextEdit, cxDBEdit, Vcl.ExtCtrls, Vcl.ActnList, cxGridBandedTableView, cxGridDBBandedTableView, cxTimeEdit, cxCurrencyEdit;
+  Vcl.StdCtrls, cxButtons, cxLabel, cxTextEdit, cxDBEdit, Vcl.ExtCtrls, Vcl.ActnList, cxGridBandedTableView, cxGridDBBandedTableView, cxTimeEdit, cxCurrencyEdit, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmAsistencia = class(TForm)

@@ -91,7 +91,7 @@ object frmVehiculos: TfrmVehiculos
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -103,7 +103,7 @@ object frmVehiculos: TfrmVehiculos
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end
@@ -117,24 +117,24 @@ object frmVehiculos: TfrmVehiculos
     TabOrder = 2
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
-    ClientRectBottom = 537
+    ClientRectBottom = 541
     ClientRectLeft = 2
-    ClientRectRight = 688
-    ClientRectTop = 27
+    ClientRectRight = 692
+    ClientRectTop = 26
     object cxTabSheet1: TcxTabSheet
       Caption = 'Informaci'#243'n General'
       ImageIndex = 0
       object vGridVehiculos: TcxDBVerticalGrid
         Left = 0
         Top = 0
-        Width = 686
-        Height = 474
+        Width = 690
+        Height = 479
         BorderStyle = cxcbsNone
         Align = alClient
         Images = frmPrincipal.imgListAcciones
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         OptionsView.CellAutoHeight = True
         OptionsView.CellEndEllipsis = True
         OptionsView.ScrollBars = ssVertical
@@ -700,8 +700,8 @@ object frmVehiculos: TfrmVehiculos
       end
       object Panel3: TPanel
         Left = 0
-        Top = 474
-        Width = 686
+        Top = 479
+        Width = 690
         Height = 36
         Align = alBottom
         BevelOuter = bvNone
@@ -718,7 +718,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actExpandir
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -732,7 +732,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actContraer
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -745,8 +745,8 @@ object frmVehiculos: TfrmVehiculos
       ImageIndex = 1
       object Panel4: TPanel
         Left = 0
-        Top = 474
-        Width = 686
+        Top = 479
+        Width = 690
         Height = 36
         Align = alBottom
         BevelOuter = bvNone
@@ -766,7 +766,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actAgregarCombustible
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -780,7 +780,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actEliminarCombustible
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -794,7 +794,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actModificarCombustible
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -808,7 +808,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actVerCombustible
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -818,12 +818,12 @@ object frmVehiculos: TfrmVehiculos
       object cxGrid1: TcxGrid
         Left = 0
         Top = 0
-        Width = 686
-        Height = 474
+        Width = 690
+        Height = 479
         Align = alClient
         TabOrder = 1
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsVehiculosCombustible
@@ -837,6 +837,7 @@ object frmVehiculos: TfrmVehiculos
           OptionsData.Inserting = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
+          Styles.Header = frmPrincipal.cxStyle1
           object cxGrid1DBTableView1ColumnFecha: TcxGridDBColumn
             Caption = 'Fecha'
             DataBinding.FieldName = 'fecha'
@@ -913,8 +914,8 @@ object frmVehiculos: TfrmVehiculos
       ImageIndex = 2
       object Panel5: TPanel
         Left = 0
-        Top = 474
-        Width = 686
+        Top = 479
+        Width = 690
         Height = 36
         Align = alBottom
         BevelOuter = bvNone
@@ -934,7 +935,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actAgregarManto
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -948,7 +949,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actEliminarManto
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -962,7 +963,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actModificarManto
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -976,7 +977,7 @@ object frmVehiculos: TfrmVehiculos
           Align = alLeft
           Action = actVerManto
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -986,12 +987,12 @@ object frmVehiculos: TfrmVehiculos
       object cxGrid2: TcxGrid
         Left = 0
         Top = 0
-        Width = 686
-        Height = 474
+        Width = 690
+        Height = 479
         Align = alClient
         TabOrder = 1
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'DevExpressStyle'
+        LookAndFeel.SkinName = 'Office2016Colorful'
         object cxGridDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsVehiculosReparaciones
@@ -1000,6 +1001,7 @@ object frmVehiculos: TfrmVehiculos
           DataController.Summary.SummaryGroups = <>
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
+          Styles.Header = frmPrincipal.cxStyle1
           object cxGridDBColumnEntrada: TcxGridDBColumn
             Caption = 'Entrada'
             DataBinding.FieldName = 'fecha_entrada'

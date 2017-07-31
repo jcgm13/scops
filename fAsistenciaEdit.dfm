@@ -63,7 +63,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
       Align = alRight
       Action = actGuardar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 0
     end
@@ -75,7 +75,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
       Align = alRight
       Action = actCerrar
       LookAndFeel.NativeStyle = False
-      LookAndFeel.SkinName = 'DevExpressStyle'
+      LookAndFeel.SkinName = 'Office2016Colorful'
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
     end
@@ -180,7 +180,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 11
+    TabOrder = 10
     Height = 89
     Width = 300
   end
@@ -210,7 +210,6 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.ValueUnchecked = 'N'
     State = cbsGrayed
     TabOrder = 9
-    Width = 121
   end
   object ActionList1: TActionList
     Images = frmPrincipal.imgListAcciones

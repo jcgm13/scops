@@ -8,7 +8,7 @@ uses
   cxContainer, cxEdit, Vcl.Menus, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxTextEdit, cxDBEdit, Vcl.ExtCtrls, cxStyles,
   dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, cxCurrencyEdit,
   cxImageComboBox, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView,
-  cxGrid, Vcl.Grids, Vcl.DBGrids, cxCheckBox, dxSkinDevExpressStyle;
+  cxGrid, Vcl.Grids, Vcl.DBGrids, cxCheckBox, dxSkinDevExpressStyle, dxSkinOffice2016Colorful, System.Actions;
 
 type
   TfrmPermisos = class(TForm)

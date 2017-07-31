@@ -9,7 +9,8 @@ uses
   Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox, cxInplaceContainer, cxCalendar, cxRadioGroup,
   cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, cxImageComboBox,
   dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, cxLookupEdit, cxDBLookupEdit, cxSpinEdit, cxImage,
-  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxButtonEdit;
+  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxButtonEdit, dxSkinOffice2016Colorful, System.Actions, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridCustomTableView,
+  cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGridCustomView, cxClasses, cxGridLevel, cxGrid;
 
 type
   TfrmEmpleados = class(TForm)
@@ -19,7 +20,6 @@ type
     xNombres: TcxDBTextEdit;
     xapellido_paterno: TcxDBTextEdit;
     xapellido_materno: TcxDBTextEdit;
-    xsexo: TcxDBRadioGroup;
     cxButton4: TcxButton;
     cxButton5: TcxButton;
     ActionList1: TActionList;
@@ -452,13 +452,6 @@ type
     cxLabel189: TcxLabel;
     cxDBTextEdit123: TcxDBTextEdit;
     cxLabel190: TcxLabel;
-    lblMotivoBaja: TcxLabel;
-    xmotivobaja: TcxDBImageComboBox;
-    lblComentariosBaja: TcxLabel;
-    xObservacionesBaja: TcxDBMemo;
-    lblTituloBaja: TcxLabel;
-    lblFechaBaja: TcxLabel;
-    xFechaBaja: TcxDBDateEdit;
     cxLabel184: TcxLabel;
     cxDBImageComboBox6: TcxDBImageComboBox;
     cxLabel185: TcxLabel;
@@ -723,6 +716,15 @@ type
     cxDBTextEdit184: TcxDBTextEdit;
     cxLabel307: TcxLabel;
     cxDBTextEdit185: TcxDBTextEdit;
+    cxGridBitacoraLevel1: TcxGridLevel;
+    cxGridBitacora: TcxGrid;
+    cxGridBitacoraDBBandedTableViewBitacora: TcxGridDBBandedTableView;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn1: TcxGridDBBandedColumn;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn2: TcxGridDBBandedColumn;
+    cxGridBitacoraDBBandedTableViewBitacoraColumn3: TcxGridDBBandedColumn;
+    xsexo: TcxDBImageComboBox;
+    cxDBCheckBox33: TcxDBCheckBox;
+    cxLabel308: TcxLabel;
     procedure actCerrarExecute(Sender: TObject);
     procedure actGuardarExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -836,13 +838,8 @@ begin
      if dmMain.dsEmpleadosEdit.DataSet.State in [dsEdit, dsBrowse] then
         dmMain.CargaFotoEmpleado(_Globales.Empresa, dmMain.dsEmpleadosEdit.DataSet.FieldByName('empleado_id').AsInteger);
 
-     lblTituloBaja.Visible      := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-     lblFechaBaja.Visible       := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-     xFechaBaja.Visible         := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-     lblMotivoBaja.Visible      := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-     xMotivoBaja.Visible        := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-//     lblComentariosBaja.Visible := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
-//     xObservacionesBaja.Visible := dmMain.dsEmpleadosEdit.DataSet.FieldByName('activo').AsString = '0';
+     if dmMain.dsEmpleadosEdit.DataSet.State = dsBrowse then
+        cxGridBitacoraDBBandedTableViewBitacora.DataController.DataSource := dmMain.dsBitacoraEmpleado;
 
      cxTabSheet10.TabVisible := dmMain.dsEmpleadosEdit.DataSet.State <> dsInsert;
 end;
@@ -854,7 +851,8 @@ begin
      for p := 0 to cxPageControl1.PageCount -1 do
          for c := 0 to cxPageControl1.Pages[p].ControlCount - 1 do
              if not(cxPageControl1.Pages[p].Controls[c] is TcxLabel) and (cxPageControl1.Pages[p].Controls[c].Tag = 0) then
-                cxPageControl1.Pages[p].Controls[c].Enabled := habilitar;
+                if cxPageControl1.Pages[p].Controls[c].Name <> 'cxGridBitacora' then
+                   cxPageControl1.Pages[p].Controls[c].Enabled := habilitar;
 end;
 
 function TfrmEmpleados.Validate: Boolean;

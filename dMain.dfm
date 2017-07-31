@@ -4,6 +4,7 @@ object dmMain: TdmMain
   Width = 925
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF16
+    Catalog = ''
     HostName = 'localhost'
     Port = 5432
     Database = 'bdcops2'
@@ -63,6 +64,7 @@ object dmMain: TdmMain
     Connection = ZConnection1
     OnCalcFields = qryEmpleadosEditCalcFields
     BeforePost = qryEmpleadosEditBeforePost
+    AfterPost = qryEmpleadosEditAfterPost
     OnNewRecord = qryEmpleadosEditNewRecord
     SQL.Strings = (
       'select * from empleados where empleado_id = :empleado_id')
@@ -1459,5 +1461,18 @@ object dmMain: TdmMain
         Name = 'id_movto_almacen'
         ParamType = ptUnknown
       end>
+  end
+  object qryBitacoraEmpleado: TZQuery
+    Connection = ZConnection1
+    SQL.Strings = (
+      'select id_tipo_curso, descripcion_tipo_curso from tipos_curso')
+    Params = <>
+    Left = 624
+    Top = 116
+  end
+  object dsBitacoraEmpleado: TDataSource
+    DataSet = qryBitacoraEmpleado
+    Left = 668
+    Top = 116
   end
 end
