@@ -25,6 +25,7 @@ object frmPrincipal: TfrmPrincipal
     Width = 934
     Height = 158
     ApplicationButton.Menu = dxRibbonBackstageView1
+    ApplicationButton.Visible = False
     BarManager = dxBarManager1
     Style = rs2016
     ColorSchemeAccent = rcsaBlue
@@ -195,15 +196,19 @@ object frmPrincipal: TfrmPrincipal
     Top = 166
     Width = 577
     Height = 266
-    Buttons = <>
+    Buttons = <
+      item
+        BeginGroup = True
+        Item = dxBarButtonAcerca
+      end>
     Ribbon = dxRibbon1
     object dxRibbonBackstageViewTabSheet1: TdxRibbonBackstageViewTabSheet
-      Left = 132
+      Left = 144
       Top = 0
       Active = True
       Caption = 'Recent'
       DesignSize = (
-        445
+        433
         266)
       object dxRibbonBackstageViewGalleryControl1: TdxRibbonBackstageViewGalleryControl
         Left = 12
@@ -299,6 +304,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 431
     Align = alClient
     TabOrder = 3
+    LookAndFeel.Kind = lfUltraFlat
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2016Colorful'
     object ViewEmpleados: TcxGridDBTableView
@@ -910,6 +916,7 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object ViewAsistenciaCapturaNew: TcxGridDBBandedTableView
+      OnKeyPress = ViewAsistenciaCapturaNewKeyPress
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.ShowCloseButton = False
@@ -947,6 +954,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'cliente_id'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 0
         Position.ColIndex = 0
@@ -957,6 +965,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'cliente_descripcion'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 300
         Position.BandIndex = 0
         Position.ColIndex = 1
@@ -967,6 +976,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'servicio_id'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 1
         Position.ColIndex = 0
@@ -977,6 +987,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'descripcion_servicio'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 300
         Position.BandIndex = 1
         Position.ColIndex = 1
@@ -990,6 +1001,7 @@ object frmPrincipal: TfrmPrincipal
         Properties.DecimalPlaces = 0
         Properties.DisplayFormat = ',0'
         Properties.UseThousandSeparator = True
+        Options.Editing = False
         Width = 30
         Position.BandIndex = 2
         Position.ColIndex = 0
@@ -1000,6 +1012,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'descripcion_funcion'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 150
         Position.BandIndex = 2
         Position.ColIndex = 1
@@ -1010,6 +1023,7 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'empleado_id'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 3
         Position.ColIndex = 0
@@ -1020,31 +1034,57 @@ object frmPrincipal: TfrmPrincipal
         DataBinding.FieldName = 'nombre_empleado'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taLeftJustify
+        Options.Editing = False
         Width = 300
         Position.BandIndex = 3
         Position.ColIndex = 1
         Position.RowIndex = 0
       end
-      object ViewAsistenciaCapturaNewColumnhoraentrada: TcxGridDBBandedColumn
-        Caption = 'Entrada'
-        DataBinding.FieldName = 'horaentrada'
-        PropertiesClassName = 'TcxTimeEditProperties'
-        Properties.Alignment.Horz = taLeftJustify
-        Properties.TimeFormat = tfHourMin
+      object ViewAsistenciaCapturaNewColumnDescansa: TcxGridDBBandedColumn
+        Caption = 'Tipo'
+        DataBinding.FieldName = 'tipo_registro'
+        PropertiesClassName = 'TcxImageComboBoxProperties'
+        Properties.Images = imgListAcciones
+        Properties.Items = <
+          item
+            Value = 0
+          end
+          item
+            Description = 'DESCANSO'
+            Value = 1
+          end
+          item
+            Description = 'FALTA'
+            Value = 2
+          end>
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 4
         Position.ColIndex = 0
         Position.RowIndex = 0
       end
-      object ViewAsistenciaCapturaNewColumnhorasalida: TcxGridDBBandedColumn
-        Caption = 'Salida'
-        DataBinding.FieldName = 'horasalida'
+      object ViewAsistenciaCapturaNewColumnhoraentrada: TcxGridDBBandedColumn
+        Caption = 'Entrada'
+        DataBinding.FieldName = 'hora_entrada'
         PropertiesClassName = 'TcxTimeEditProperties'
         Properties.Alignment.Horz = taLeftJustify
         Properties.TimeFormat = tfHourMin
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 4
         Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object ViewAsistenciaCapturaNewColumnhorasalida: TcxGridDBBandedColumn
+        Caption = 'Salida'
+        DataBinding.FieldName = 'hora_salida'
+        PropertiesClassName = 'TcxTimeEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        Properties.TimeFormat = tfHourMin
+        Options.Editing = False
+        Width = 50
+        Position.BandIndex = 4
+        Position.ColIndex = 2
         Position.RowIndex = 0
       end
       object ViewAsistenciaCapturaNewColumnhorasextras: TcxGridDBBandedColumn
@@ -1053,11 +1093,12 @@ object frmPrincipal: TfrmPrincipal
         PropertiesClassName = 'TcxCurrencyEditProperties'
         Properties.Alignment.Horz = taRightJustify
         Properties.DecimalPlaces = 0
-        Properties.DisplayFormat = ',0'
+        Properties.DisplayFormat = ',#'
         Properties.UseThousandSeparator = True
+        Options.Editing = False
         Width = 50
         Position.BandIndex = 4
-        Position.ColIndex = 2
+        Position.ColIndex = 3
         Position.RowIndex = 0
       end
       object ViewAsistenciaCapturaNewColumnFalta: TcxGridDBBandedColumn
@@ -1072,8 +1113,9 @@ object frmPrincipal: TfrmPrincipal
           item
             Value = 1
           end>
+        Options.Editing = False
         Position.BandIndex = 4
-        Position.ColIndex = 3
+        Position.ColIndex = 4
         Position.RowIndex = 0
       end
     end
@@ -2177,6 +2219,13 @@ object frmPrincipal: TfrmPrincipal
       Action = actVerMovto
       Category = 0
     end
+    object dxBarButtonAcerca: TdxBarButton
+      Caption = 'Acerca de...'
+      Category = 0
+      Hint = 'Acerca de'
+      Visible = ivAlways
+      OnClick = dxBarButtonAcercaClick
+    end
   end
   object dxSkinController1: TdxSkinController
     NativeStyle = False
@@ -2191,7 +2240,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 360
     Top = 232
     Bitmap = {
-      494C0101B00028013C0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101B0002801500120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A005000001002000000000000040
       0B00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -30465,7 +30514,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 356
     Top = 292
     Bitmap = {
-      494C0101AF00D800EC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101AF00D800000110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0020000010020000000000000C0
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -36445,6 +36494,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 508
   end
   object cxStyleRepository1: TcxStyleRepository
+    Left = 96
+    Top = 144
     PixelsPerInch = 96
     object cxStyle1: TcxStyle
       AssignedValues = [svFont]

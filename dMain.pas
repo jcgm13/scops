@@ -247,10 +247,8 @@ type
     procedure CargaAsistencia(empresaId : Integer; anio, mes, dia: Integer);
     procedure ConsultaAsistencia(empresaId : Integer; fechaIni, fechaFin : TDateTime);
     procedure CargaAsistenciaDetalle(empresaId, anio, mes, dia : Integer);
-    procedure ActualizarAsistencia(empresaId, anio, mes, dia : Integer;
-                                   horaEnt, horaSal : TDateTime;
-                                   HorasExtra : Integer; descansa : string;
-                                   EmpAnterior, EmpNuevo : Integer; obs : String);
+    procedure RegistraAsistencia(empresa_id, anio, mes, dia: Integer; hora_entrada, hora_salida: TDateTime; horas_extra, tipo_registro : Integer;
+                                 empleado_id : Integer; servicio_id : string; funcion_id, asignacion_id : Integer; observaciones: String; fecha : TDateTime);
 
     // USUARIOS
     procedure CargaUsuarios;
@@ -349,17 +347,13 @@ begin
      end;
 end;
 
-procedure TdmMain.ActualizarAsistencia(empresaId, anio, mes, dia: Integer; horaEnt, horaSal: TDateTime; HorasExtra : Integer; descansa : string; EmpAnterior, EmpNuevo: Integer; obs: String);
+procedure TdmMain.RegistraAsistencia(empresa_id, anio, mes, dia: Integer; hora_entrada, hora_salida: TDateTime; horas_extra, tipo_registro : Integer;
+                                     empleado_id : Integer; servicio_id : string; funcion_id, asignacion_id : Integer; observaciones: String; fecha : TDateTime);
 var
    xSQL : string;
 begin
-     xSQL := 'UPDATE asistencia ' +
-             ' SET horaEntrada   = :horaEntrada, ' +
-             '     horaSalida    = :horaSalida, ' +
-             '     horas_extra   = :horas_extra, ' +
-             '     descansa      = :descansa, ' +
-             '     observaciones = :observaciones, ' +
-             '     empleado_id   = :empleado_nuevo ' +
+     // Primero se elimina el registro de la asistencia
+     xSQL := 'DELETE FROM asistencia ' +
              ' WHERE empresa_id = :empresa_id ' +
              '       AND anio = :anio ' +
              '       AND mes = :mes ' +
@@ -368,36 +362,43 @@ begin
      qryAux.Close;
      qryAux.SQL.Clear;
      qryAux.SQL.Add(xSQL);
-     qryAux.ParamByName('empresa_id').AsInteger     := empresaId;
+     qryAux.ParamByName('empresa_id').AsInteger     := empresa_id;
      qryAux.ParamByName('anio').AsInteger           := anio;
      qryAux.ParamByName('mes').AsInteger            := mes;
      qryAux.ParamByName('dia').AsInteger            := dia;
-     qryAux.ParamByName('empleado_id').AsInteger    := EmpAnterior;
-     qryAux.ParamByName('horaEntrada').AsDateTime   := horaEnt;
-     qryAux.ParamByName('horas_extra').AsInteger    := HorasExtra;
-     qryAux.ParamByName('descansa').AsString        := descansa;
-     qryAux.ParamByName('horaSalida').AsDateTime    := horaSal;
-     qryAux.ParamByName('observaciones').AsString   := obs;
-     if EmpNuevo <> 0 then
-        qryAux.ParamByName('empleado_nuevo').AsInteger := EmpNuevo
-     else
-         qryAux.ParamByName('empleado_nuevo').AsInteger := EmpAnterior;
+     qryAux.ParamByName('empleado_id').AsInteger    := empleado_id;
      qryAux.ExecSQL;
 
-     {
-     if EmpNuevo <> 0 then
+     // Se inserta el registro de la asistencia
+     xSQL := 'INSERT INTO asistencia (empresa_id, anio, mes, dia, empleado_id, servicio_id, funcion_id, asignacion_id, hora_entrada, hora_salida, observaciones, horas_extra, tipo_registro, fecha_asistencia) ' +
+             ' VALUES(:empresa_id, :anio, :mes, :dia, :empleado_id, :servicio_id, :funcion_id, :asignacion_id, :hora_entrada, :hora_salida, :observaciones, :horas_extra, :tipo_registro, :fecha_asistencia)';
+     qryAux.Close;
+     qryAux.SQL.Clear;
+     qryAux.SQL.Add(xSQL);
+     qryAux.ParamByName('empresa_id').AsInteger     := empresa_id;
+     qryAux.ParamByName('anio').AsInteger           := anio;
+     qryAux.ParamByName('mes').AsInteger            := mes;
+     qryAux.ParamByName('dia').AsInteger            := dia;
+     qryAux.ParamByName('empleado_id').AsInteger    := empleado_id;
+     qryAux.ParamByName('servicio_id').AsString     := servicio_id;
+     qryAux.ParamByName('funcion_id').AsInteger     := funcion_id;
+     qryAux.ParamByName('asignacion_id').AsInteger  := asignacion_id;
+     if tipo_registro <> 0 then
         begin
-             xSQL := 'UPDATE empleados SET servicio_id = '' SP01'' ' +
-                     ' WHERE empresa_id = :empresa_id ' +
-                     '       AND empleado_id = :empleado_id';
-             qryAux.Close;
-             qryAux.SQL.Clear;
-             qryAux.SQL.Add(xSQL);
-             qryAux.ParamByName('empresa_id').AsInteger  := empresaId;
-             qryAux.ParamByName('empleado_id').AsInteger := EmpAnterior;
-             qryAux.ExecSQL;
-        end;
-       }
+             qryAux.ParamByName('hora_entrada').Value    := Null;
+             qryAux.ParamByName('hora_salida').Value     := Null;
+             qryAux.ParamByName('horas_extra').AsInteger := 0;
+        end
+     else
+         begin
+              qryAux.ParamByName('hora_entrada').AsDateTime  := hora_entrada;
+              qryAux.ParamByName('hora_salida').AsDateTime   := hora_salida;
+              qryAux.ParamByName('horas_extra').AsInteger    := horas_extra;
+         end;
+     qryAux.ParamByName('observaciones').AsString      := observaciones;
+     qryAux.ParamByName('tipo_registro').AsInteger     := tipo_registro;
+     qryAux.ParamByName('fecha_asistencia').AsDateTime := fecha;
+     qryAux.ExecSQL;
 end;
 
 procedure TdmMain.AsignaEmpleadoFuncion(empresaId: Integer; servicioId: string; empleado, funcionId, asignacionId: integer);
@@ -448,7 +449,7 @@ begin
                 qryClientes.SQL.Clear;
                 qryClientes.SQL.Add(xSQL);
                 qryClientes.ParamByName('empresa_id').AsInteger  := empresaId;
-                qryClientes.ParamByName('servicio_id').AsString  := ' SP01';
+                qryClientes.ParamByName('servicio_id').Value     := Null;
                 qryClientes.ParamByName('empleado_id').AsInteger := empleadoAnterior;
                 qryClientes.ExecSQL;
            end;
@@ -499,7 +500,7 @@ var
 begin
      try
         // Se le quita el servicio asignado al empleado y se pone con estatus BAJA
-        xSQL := 'UPDATE empleados SET activo = ''0'', servicio_id = '' SP01'' ' +
+        xSQL := 'UPDATE empleados SET activo = ''0'', servicio_id = NULL ' +
                 ' WHERE empresa_id = :empresa ' +
                 '       AND empleado_id = :empleado';
         qryAux.Close;
@@ -563,46 +564,56 @@ begin
      try
         cdsAsistencia.DisableControls;
         cdsAsistencia.Active := False;
-        {
-        xSQL := 'SELECT DISTINCT ' +
-                '      anio, ' +
-                '      mes, ' +
-                '      dia ' +
-                ' FROM asistencia ' +
-                ' WHERE empresa_id = :empresa ' +
-                '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') >= :fini ' +
-                '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') <= :ffin ' +
-                ' ORDER BY anio, mes, dia';
-        }
-        xSQL := 'SELECT serv.cliente_id, serv.cliente_descripcion, sfe.servicio_id, serv.descripcion AS descripcion_servicio, sfe.asignacion_id, tipos_funciones.descripcion AS descripcion_funcion, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN sfe.empleado_id ELSE asist.empleado_id END empleado_id, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN coalesce(trim(empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno),''--- N O  A S I G N A D O ---'') ' +
-                '            ELSE asist.nombre_empleado END AS nombre_empleado, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horaentrada END AS HoraEntrada, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horasalida END AS HoraSalida, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horas_extra END AS horas_extra, ' +
-                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.observaciones END AS observaciones ' +
+
+        xSQL := 'SELECT ' +
+                '   serv.cliente_id, ' +
+                '   serv.cliente_descripcion, ' +
+                '   sfe.servicio_id, ' +
+                '   serv.descripcion AS descripcion_servicio, ' +
+                '   sfe.asignacion_id, ' +
+                '   sfe.funcion_id, ' +
+                '   sfe.asignacion_id, ' +
+                '   tipos_funciones.descripcion AS descripcion_funcion, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN sfe.empleado_id ELSE asist.empleado_id END empleado_id, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN COALESCE( TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ), '' *** N O  A S I G N A D O ***'' ) ELSE asist.nombre_empleado END AS nombre_empleado, ' +
+                '   tipo_registro, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_entrada END AS hora_entrada, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_salida END AS hora_salida, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horas_extra END AS horas_extra, ' +
+                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.observaciones END AS observaciones, ' +
+                '   :anio AS anio, ' +
+                '   :mes AS mes, ' +
+                '   :dia AS dia, ' +
+                '   asist.fecha_asistencia ' +
                 ' FROM servicios_funciones_empleados sfe ' +
-                ' LEFT JOIN (SELECT servicios.*, clientes.descripcion AS cliente_descripcion ' +
-                '             FROM servicios ' +
-                '             LEFT JOIN clientes ON clientes.cliente_id = servicios.cliente_id ' +
-                '             WHERE servicios.activo = 1 ' +
-                '                 AND servicios.empresa_id = :empresa ' +
-                '                 AND servicio_id NOT IN ('' SP01'','' SP02'','' SP03'') ' +
-                '           ) serv ON serv.servicio_id = sfe.servicio_id ' +
+                ' LEFT JOIN ( ' +
+                '            SELECT ' +
+                '                   servicios.*, ' +
+                '                   clientes.descripcion AS cliente_descripcion ' +
+                '            FROM servicios ' +
+                '            LEFT JOIN clientes ON clientes.empresa_id = servicios.empresa_id AND clientes.cliente_id = servicios.cliente_id ' +
+                '            WHERE servicios.empresa_id = :empresa ' +
+                '                  AND NOT (servicios.servicio_id is NULL) ' +
+                '           ) serv ON serv.empresa_id = sfe.empresa_id AND serv.servicio_id = sfe.servicio_id ' +
                 ' LEFT JOIN tipos_funciones ON tipos_funciones.id_tipo_funcion = sfe.funcion_id ' +
-                ' LEFT JOIN empleados ON empleados.empleado_id = sfe.empleado_id ' +
-                ' LEFT JOIN ( SELECT asistencia.*, trim(empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno) AS nombre_empleado ' +
-                '             FROM asistencia ' +
-                '             LEFT JOIN empleados ON empleados.empleado_id = asistencia.empleado_id ' +
-                '             WHERE asistencia.empresa_id = :empresa ' +
-                '                 AND anio = :anio ' +
-                '                 AND mes = :mes ' +
-                '                 AND dia = :dia ' +
-                '           ) asist ON asist.servicio_id = sfe.servicio_id AND asist.funcion_id = sfe.funcion_id AND asist.asignacion_id = sfe.asignacion_id ' +
-                ' WHERE sfe.empresa_id = :empresa ' +
-                '     AND serv.servicio_id IS NOT null ' +
-                ' ORDER BY cliente_descripcion, descripcion_servicio';
+                ' LEFT JOIN empleados ON empleados.empresa_id = sfe.empresa_id AND empleados.empleado_id = sfe.empleado_id ' +
+                ' LEFT JOIN ( ' +
+                '            SELECT ' +
+                '                   asistencia.*, ' +
+                '                   TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ) AS nombre_empleado ' +
+                '            FROM asistencia ' +
+                '            LEFT JOIN empleados ON empleados.empleado_id = asistencia.empleado_id ' +
+                '            WHERE asistencia.empresa_id = :empresa ' +
+                '                  AND anio = :anio ' +
+                '                  AND mes = :mes ' +
+                '                  AND dia = :dia ' +
+                '           ) asist ON asist.empresa_id = sfe.empresa_id ' +
+                '                      AND asist.servicio_id = sfe.servicio_id ' +
+                '                      AND asist.funcion_id = sfe.funcion_id ' +
+                '                      AND asist.asignacion_id = sfe.asignacion_id ' +
+                '                      AND asist.empleado_id = sfe.empleado_id ' +
+                ' WHERE serv.activo = 1 ' +
+                ' ORDER BY serv.cliente_id, serv.servicio_id, nombre_empleado';
         qryAsistencia.Close;
         qryAsistencia.SQL.Clear;
         qryAsistencia.SQL.Add(xSQL);
@@ -785,7 +796,7 @@ begin
                 '   estatus_sp.descripcion AS descripcion_estatus, ' +
                 '   empresas."RazonSocial", ' +
                 '   oficinas."Descripcion" AS descripcion_oficina, ' +
-                '   servicios."descripcion" AS descripcion_servicio, ' +
+                '   COALESCE(servicios."descripcion",''S I N  A S I G N A C I Ó N'') AS descripcion_servicio, ' +
                 '   e.rfc, ' +
                 '   e.fecha_alta, ' +
                 '   TRIM(COALESCE(e.calle,'''') || '' '' || COALESCE(e.num_ext,'''') || '' '' || COALESCE(e.colonia)) AS domicilio, ' +
@@ -1558,7 +1569,7 @@ begin
                    if not qryAux.FieldByName('empleado_id').IsNull then
                       begin
                            xSQL := 'UPDATE empleados ' +
-                                   ' SET servicio_id = '' SP01'' ' +
+                                   ' SET servicio_id = NULL ' +
                                    ' WHERE empresa_id = :empresaId ' +
                                    '       AND empleado_id = :empleadoId';
                            qryAux2.Close;
@@ -1946,7 +1957,7 @@ begin
 
         // Se liberan los empleados de este servicio
         xSQL := 'UPDATE empleados ' +
-                ' SET servicio_id = :servicio_nuevo ' +
+                ' SET servicio_id = NULL ' +
                 ' WHERE empresa_id = :empresaId ' +
                 '       AND empleado_id IN (SELECT empleado_id ' +
                 '                           FROM servicios_funciones_empleados ' +
@@ -1956,7 +1967,6 @@ begin
         qryAux2.SQL.Clear;
         qryAux2.SQL.Add(xSQL);
         qryAux2.ParamByName('empresaId').AsInteger     := empresaId;
-        qryAux2.ParamByName('servicio_nuevo').AsString := ' SP01';
         qryAux2.ParamByName('servicio').AsString       := id;
         qryAux2.ExecSQL;
 
@@ -3348,7 +3358,7 @@ begin
                FieldByName('estatus_sp_id').AsInteger    := 2;
                FieldByName('sexo').AsInteger             := 1;
                FieldByName('activo').AsString            := '1';
-               FieldByName('servicio_id').AsString       := ' SP01';
+               FieldByName('servicio_id').Value          := NULL;
                FieldByName('puesto_id').AsInteger        := 63;
                FieldByName('fecha_alta').AsDateTime      := Now;
                FieldByName('precontrato').AsString       := 'N';
@@ -3482,29 +3492,14 @@ begin
         qryClientes.ExecSQL;
 
         // Se libera el servicio del empleado
-        xSQL := 'UPDATE empleados SET servicio_id = :servicio_id ' +
+        xSQL := 'UPDATE empleados SET servicio_id = NULL ' +
                 ' WHERE empresa_id = :empresa_id ' +
                 '       AND empleado_id = :empleado_id';
         qryClientes.Close;
         qryClientes.SQL.Clear;
         qryClientes.SQL.Add(xSQL);
         qryClientes.ParamByName('empresa_id').AsInteger  := empresaId;
-        qryClientes.ParamByName('servicio_id').AsString  := ' SP01';
         qryClientes.ParamByName('empleado_id').AsInteger := empleado;
-        qryClientes.ExecSQL;
-
-        // Se eliminan los registros de la programación de asistencia que aun no hayan tenido movimientos.
-        xSQL := 'DELETE FROM asistencia ' +
-                'WHERE ' +
-                '  empresa_id =:empresa ' +
-                '  AND empleado_id =:empleado ' +
-                '  AND horaentrada IS null ' +
-                '  AND horasalida IS null';
-        qryClientes.Close;
-        qryClientes.SQL.Clear;
-        qryClientes.SQL.Add(xSQL);
-        qryClientes.ParamByName('empresa').AsInteger  := empresaId;
-        qryClientes.ParamByName('empleado').AsInteger := empleado;
         qryClientes.ExecSQL;
 
         ZConnection1.Commit;

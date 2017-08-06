@@ -13,7 +13,7 @@ type
     end;
 
 Const
-     _VERSION = '3.9';
+     _VERSION = '4.0';
 
         function LlenaCerosIzq(cad: String; tam : Integer; carac : String): String;
         function LlenaCerosDer(cad: String; tam: Integer; carac: String): String;

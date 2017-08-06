@@ -718,6 +718,7 @@ object frmServicios: TfrmServicios
     object cxTabSheet4: TcxTabSheet
       Caption = 'Preasignaci'#243'n Semanal'
       ImageIndex = 3
+      TabVisible = False
       object cxGrid3: TcxGrid
         Left = 0
         Top = 128
@@ -1329,7 +1330,6 @@ object frmServicios: TfrmServicios
           StartOfWeek = swMonday
           TabOrder = 0
           OnClick = xfechaClick
-          Selection = 1
         end
         object cxButton9: TcxButton
           Left = 650

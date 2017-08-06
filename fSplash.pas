@@ -10,13 +10,18 @@ uses
 type
   TfrmSplash = class(TForm)
     Panel1: TPanel;
-    Label1: TcxLabel;
+    lblCargando: TcxLabel;
     img1: TImage;
-    lbl1: TLabel;
+    img2: TImage;
+    procedure FormShow(Sender: TObject);
+    procedure img2Click(Sender: TObject);
   private
+    FautoCerrar: Boolean;
+    procedure SetAutoCerrar(const Value: Boolean);
     { Private declarations }
   public
     { Public declarations }
+    property autoCerrar : Boolean read FautoCerrar write SetAutoCerrar;
   end;
 
 var
@@ -25,5 +30,23 @@ var
 implementation
 
 {$R *.dfm}
+
+{ TfrmSplash }
+
+procedure TfrmSplash.FormShow(Sender: TObject);
+begin
+     lblCargando.Visible := FautoCerrar;
+end;
+
+procedure TfrmSplash.img2Click(Sender: TObject);
+begin
+     if not FautoCerrar then
+        Close;
+end;
+
+procedure TfrmSplash.SetAutoCerrar(const Value: Boolean);
+begin
+  FautoCerrar := Value;
+end;
 
 end.

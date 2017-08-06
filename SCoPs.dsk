@@ -1,30 +1,36 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\jc\code\SCops\fEmpleadosReingreso.pas',0,1,69,1,73,0,0,,
-File_1=TSourceModule,'C:\jc\code\SCops\fEmpleados.pas',0,5,828,10,830,0,0,,
-File_2=TSourceModule,'C:\jc\code\SCops\fEmpleadosBaja.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'C:\jc\code\SCops\uGlobales.pas',0,1,1,15,1,0,0,,
-File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\15.0\source\rtl\common\System.StrUtils.pas',0,1,484,1,497,0,0,,
-File_5=TSourceModule,'C:\jc\code\SCops\fSplash.pas',0,1,1,1,1,0,0,,
-File_6=TSourceModule,'C:\jc\code\SCops\fVehiculosReparaciones.pas',0,1,1,1,1,0,0,,
-File_7=TSourceModule,'C:\jc\code\SCops\fVehiculos.pas',0,1,1,1,1,0,0,,
-File_8=TSourceModule,'C:\jc\code\SCops\fClientes.pas',0,1,1,1,1,0,0,,
-File_9=TSourceModule,'C:\jc\code\SCops\fServiciosFunciones.pas',0,1,1,1,1,0,0,,
-File_10=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressQuantumGrid\Sources\cxGridStrs.pas',0,1,183,27,79,0,0,,
-File_11=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressLibrary\Sources\cxLibraryStrs.pas',0,1,70,47,50,0,0,,
-File_12=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressEditors Library\Sources\cxEditConsts.pas',0,1,156,29,47,0,0,,
-File_13=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressBars\Sources\dxBarStrs.pas',0,1,39,59,72,0,0,,
-File_14=TSourceModule,'C:\jc\code\SCops\fSeleccionEquipo.pas',0,1,1,1,1,0,0,,
+File_0=TSourceModule,'C:\jc\code\SCops\uGlobales.pas',0,1,1,107,6,0,0,,
+File_1=TSourceModule,'C:\jc\code\SCops\fVehiculos.pas',0,1,1,1,1,0,0,,
+File_2=TSourceModule,'C:\jc\code\SCops\fSplash.pas',0,1,41,15,44,0,0,,
+File_3=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressLibrary\Sources\cxPropertiesStore.pas',0,1,24,23,35,0,0,,
+File_4=TSourceModule,'C:\jc\code\SCops\fEmpleadosBaja.pas',0,1,16,1,1,0,0,,
+File_5=TSourceModule,'C:\jc\code\SCops\fSeleccionEquipo.pas',0,1,7,64,17,0,0,,
+File_6=TSourceModule,'C:\jc\code\SCops\fAsistencia.pas',0,1,40,3,55,0,0,,
+File_7=TSourceModule,'C:\jc\code\SCops\fServiciosFunciones.pas',0,1,1,1,1,0,0,,
+File_8=TSourceModule,'C:\jc\code\SCops\fEmpleadosReingreso.pas',0,1,69,1,73,0,0,,
+File_9=TSourceModule,'C:\jc\code\SCops\fEmpleados.pas',0,5,828,10,830,0,0,,
+File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\15.0\source\rtl\common\System.StrUtils.pas',0,1,484,1,497,0,0,,
+File_11=TSourceModule,'C:\jc\code\SCops\fVehiculosReparaciones.pas',0,1,1,1,1,0,0,,
+File_12=TSourceModule,'C:\jc\code\SCops\fClientes.pas',0,1,1,1,1,0,0,,
+File_13=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressQuantumGrid\Sources\cxGridStrs.pas',0,1,183,27,79,0,0,,
+File_14=TSourceModule,'C:\jc\controles\DevExpress VCL 16.1.2 Full Sources\ExpressLibrary\Sources\cxLibraryStrs.pas',0,1,70,47,50,0,0,,
 
 [Modules]
-Module0=C:\jc\code\SCops\dMain.pas
-Module1=C:\jc\code\SCops\fPrincipal.pas
-Count=2
+Module0=C:\jc\code\SCops\fAsistenciaEdit.pas
+Module1=C:\jc\code\SCops\dMain.pas
+Module2=C:\jc\code\SCops\fPrincipal.pas
+Count=3
 EditWindowCount=1
+
+[C:\jc\code\SCops\fAsistenciaEdit.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
 
 [C:\jc\code\SCops\dMain.pas]
 ModuleType=TSourceModule
 FormState=1
-FormOnTop=1
+FormOnTop=0
 
 [C:\jc\code\SCops\fPrincipal.pas]
 ModuleType=TSourceModule
@@ -36,10 +42,11 @@ FormState=1
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=2
-CurrentEditView=C:\jc\code\SCops\dMain.pas
+ViewCount=3
+CurrentEditView=C:\jc\code\SCops\fAsistenciaEdit.pas
 View0=0
 View1=1
+View2=2
 PercentageSizes=1
 Create=1
 Visible=1
@@ -58,11 +65,11 @@ BorlandEditorCodeExplorer=BorlandEditorCodeExplorer@EditWindow0
 TopPanelSize=0
 LeftPanelSize=1895
 LeftPanelClients=DockSite2,DockSite4
-LeftPanelData=0000080001010100000009000000446F636B5369746532F01300000000000001670700000000000001000000007223000009000000446F636B5369746534FFFFFFFF
+LeftPanelData=0000080001000100000009000000446F636B5369746532C01D00000000000000280D0000000000000100000000C01D000009000000446F636B5369746534FFFFFFFF
 RightPanelSize=0
-BottomPanelSize=0
+BottomPanelSize=1308
 BottomPanelClients=DockSite1,MessageView
-BottomPanelData=0000080001020200000009000000446F636B53697465310F0000004D65737361676556696577466F726D1534000000000000022606000000000000FFFFFFFF
+BottomPanelData=0000080001020100000009000000446F636B53697465317245000000000000021C050000000000000100000000724500000F0000004D65737361676556696577466F726DFFFFFFFF
 BottomMiddlePanelSize=0
 BottomMiddlePanelClients=DockSite0,GraphDrawingModel
 BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965779D1D00000000000002F606000000000000FFFFFFFF
@@ -71,9 +78,9 @@ TabDockRightClients=DockSite3=0
 [View0]
 CustomEditViewType=TEditView
 Module=C:\jc\code\SCops\fPrincipal.pas
-CursorX=37
-CursorY=989
-TopLine=977
+CursorX=24
+CursorY=469
+TopLine=425
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -82,21 +89,28 @@ EditViewName=C:\jc\code\SCops\fPrincipal.pas
 [View1]
 CustomEditViewType=TEditView
 Module=C:\jc\code\SCops\dMain.pas
-CursorX=33
-CursorY=3582
-TopLine=3574
+CursorX=66
+CursorY=575
+TopLine=569
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=Borland.FormDesignerView
+EditViewName=C:\jc\code\SCops\dMain.pas
+
+[View2]
+CustomEditViewType=TEditView
+Module=C:\jc\code\SCops\fAsistenciaEdit.pas
+CursorX=15
+CursorY=81
+TopLine=67
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\jc\code\SCops\fAsistenciaEdit.pas
 
 [Watches]
-Count=5
-Watch0='strm.size',256,0,18,1,0,'Watches',1
-Watch1='strm2.size',256,0,18,1,0,'Watches',1
-Watch2='qryServiciosFunciones.RecordCount',256,0,18,1,0,'Watches',1
-Watch3='dmMain.dsEmpleadosCursosEdit.DataSet.State',256,0,18,1,0,'Watches',1
-Watch4='FormatArr',256,0,18,1,0,'Watches',1
+Count=1
+Watch0='xSQL',256,0,18,1,0,'Watches',1
 
 [WatchWindow]
 WatchColumnWidth=120
@@ -157,11 +171,11 @@ State=0
 Left=0
 Top=0
 Width=1895
-Height=8825
+Height=7398
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=8825
+ClientHeight=7398
 TBDockHeight=5899
 LRDockWidth=2350
 Dockable=1
@@ -170,18 +184,18 @@ StayOnTop=0
 [MessageView]
 PercentageSizes=1
 Create=1
-Visible=0
+Visible=1
 Docked=1
 State=0
 Left=0
-Top=0
-Width=2767
-Height=1415
+Top=23
+Width=10000
+Height=1079
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=2767
-ClientHeight=1415
-TBDockHeight=1415
+ClientWidth=10000
+ClientHeight=1079
+TBDockHeight=1079
 LRDockWidth=2767
 Dockable=1
 StayOnTop=0
@@ -290,11 +304,11 @@ State=0
 Left=0
 Top=0
 Width=1895
-Height=8477
+Height=7398
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=8477
+ClientHeight=7398
 TBDockHeight=6739
 LRDockWidth=1895
 Dockable=1
@@ -303,8 +317,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem="LiveBindings Designer",
-ExpandedItems=
+SelectedItem=Align,OnExecute
+ExpandedItems=Anchors=0,Constraints=0,LiveBindings=0,"LiveBindings Designer=0",Margins=0,Properties=0,Styles=0,DataBinding=0,Options=0,Properties.Alignment=0,Properties.AssignedValues=0,Summary=0,BackgroundBitmaps=0,DataController=0,DateTimeHandling=0,EditForm=0,FilterBox=0,Filtering=0,FilterRow=0,FindPanel=0,Navigator=0,NewItemRow=0,OptionsBehavior=0,OptionsCustomize=0,OptionsData=0,OptionsSelection=0,OptionsView=1,PopupMenu=0,Preview=0,Styles.Header=0,Styles.Header.AssignedValues=0,Styles.Header.Font=0,"Styles.Header.LiveBindings Designer=0",Styles.Header.Font.Style=0,"Styles.Header.LiveBindings Designer.Element Layers=0",BevelEdges=0,Font=0,LevelTabs=0,LockedStateImageOptions=0,LookAndFeel=1,RootLevelOptions=0,RootLevelStyles=0,Touch=0,LookAndFeel.AssignedValues=0,Images=0,EditValue=0
 
 [TFileExplorerForm]
 PercentageSizes=1
@@ -742,16 +756,16 @@ State=0
 Left=0
 Top=23
 Width=1895
-Height=9125
+Height=7698
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=9125
+ClientHeight=7698
 TBDockHeight=4532
 LRDockWidth=1895
 Dockable=1
 StayOnTop=0
 TabPosition=1
-ActiveTabID=ProjectManager
+ActiveTabID=PropertyInspector
 TabDockClients=PropertyInspector,ProjectManager,ModelViewTool,TFileExplorerForm,DataExplorerContainer
 

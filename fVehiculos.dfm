@@ -132,7 +132,7 @@ object frmVehiculos: TfrmVehiculos
         BorderStyle = cxcbsNone
         Align = alClient
         Images = frmPrincipal.imgListAcciones
-        LookAndFeel.Kind = lfOffice11
+        LookAndFeel.Kind = lfUltraFlat
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2016Colorful'
         OptionsView.CellAutoHeight = True

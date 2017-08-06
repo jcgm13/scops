@@ -290,6 +290,8 @@ type
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
     ViewEmpleadosColumnReingreso: TcxGridDBColumn;
+    ViewAsistenciaCapturaNewColumnDescansa: TcxGridDBBandedColumn;
+    dxBarButtonAcerca: TdxBarButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
@@ -359,10 +361,14 @@ type
     procedure actEliminarMovtoExecute(Sender: TObject);
     procedure actVerMovtoExecute(Sender: TObject);
     procedure ViewAsistenciaCapturaNewCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+    procedure dxBarButtonAcercaClick(Sender: TObject);
+    procedure ViewAsistenciaCapturaNewKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
+    fechaAsistencia : TDateTime;
     procedure ShowWaitForm;
     procedure HideWaitForm;
+    procedure EditarAsistencia;
   public
     { Public declarations }
   end;
@@ -455,7 +461,6 @@ begin
              end;
         end;
 end;
-
 procedure TfrmPrincipal.actCapturarAsistenciaExecute(Sender: TObject);
 begin
      try
@@ -1117,6 +1122,17 @@ begin
         dmMain.CargaDetalleEmpleado(_Globales.Empresa, dmMain.cdsEmpleados.FieldByName('empleado_id').AsInteger);
 end;
 
+procedure TfrmPrincipal.dxBarButtonAcercaClick(Sender: TObject);
+begin
+     try
+        frmSplash :=  TfrmSplash.Create(Nil);
+        frmSplash.autoCerrar := False;
+        frmSplash.ShowModal;
+     finally
+            FreeAndNil(frmSplash);
+     end;
+end;
+
 procedure TfrmPrincipal.dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
 begin
      if Assigned(dmMain) then
@@ -1160,6 +1176,31 @@ begin
         end;
 end;
 
+procedure TfrmPrincipal.EditarAsistencia;
+var
+   bmk : TBookmark;
+begin
+     try
+        frmAsistenciaEdit := TfrmAsistenciaEdit.Create(Self);
+        if frmAsistenciaEdit.ShowModal = mrOk then
+           try
+              bmk := dmMain.dsAsistencia.DataSet.GetBookmark;
+              dmMain.CargaAsistencia(_Globales.Empresa,
+                                     YearOf(Now),
+                                     MonthOf(Now),
+                                     DayOf(Now)
+                                    );
+              if Assigned(bmk) then
+                 dmMain.dsAsistencia.DataSet.GotoBookmark(bmk);
+           finally
+                  if Assigned(bmk) then
+                     dmMain.dsAsistencia.DataSet.FreeBookmark(bmk);
+           end;
+     finally
+            FreeAndNil(frmAsistenciaEdit);
+     end;
+end;
+
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 var
    IniFile : TIniFile;
@@ -1170,6 +1211,7 @@ begin
 
   // Se crea la forma Splash
   frmSplash := TfrmSplash.Create(Self);
+  frmSplash.autoCerrar := True;
   frmSplash.Show;
   frmSplash.Update;
 
@@ -1273,34 +1315,43 @@ begin
 end;
 
 procedure TfrmPrincipal.ViewAsistenciaCapturaCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+var
+   bmk : TBookmark;
 begin
      if not dmMain.dsAsistencia.DataSet.IsEmpty then
         try
-           frmAsistencia := TfrmAsistencia.Create(Self);
-           frmAsistencia.pAnio := dmMain.dsAsistencia.DataSet.FieldByName('anio').AsInteger;
-           frmAsistencia.pMes  := dmMain.dsAsistencia.DataSet.FieldByName('mes').AsInteger;
-           frmAsistencia.pDia  := dmMain.dsAsistencia.DataSet.FieldByName('dia').AsInteger;
-           frmAsistencia.CargaAsistencia;
-           frmAsistencia.ShowModal;
+           frmAsistenciaEdit := TfrmAsistenciaEdit.Create(Self);
+           if frmAsistenciaEdit.ShowModal = mrOk then
+              begin
+                   try
+                      bmk := dmMain.dsAsistencia.DataSet.GetBookmark;
+                      actCapturarAsistencia.Execute;
+                      if Assigned(bmk) then
+                         dmMain.dsAsistencia.DataSet.GotoBookmark(bmk);
+                   finally
+                          if Assigned(bmk) then
+                             begin
+                                  dmMain.dsAsistencia.DataSet.FreeBookmark(bmk);
+                                  FreeAndNil(bmk);
+                             end;
+                   end;
+
+              end;
         finally
-               FreeAndNil(frmAsistencia);
+               FreeAndNil(frmAsistenciaEdit);
         end;
 end;
 
 procedure TfrmPrincipal.ViewAsistenciaCapturaNewCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
   var AHandled: Boolean);
 begin
-     try
-        frmAsistenciaEdit := TfrmAsistenciaEdit.Create(Self);
-        if frmAsistenciaEdit.ShowModal = mrOk then
-           dmMain.CargaAsistenciaDetalle(_Globales.Empresa,
-                                         YearOf(Now),
-                                         MonthOf(Now),
-                                         DayOf(Now)
-                                        );
-     finally
-            FreeAndNil(frmAsistenciaEdit);
-     end;
+     EditarAsistencia;
+end;
+
+procedure TfrmPrincipal.ViewAsistenciaCapturaNewKeyPress(Sender: TObject; var Key: Char);
+begin
+     if Key = #13 then
+        EditarAsistencia;
 end;
 
 procedure TfrmPrincipal.ViewClientesCellDblClick(Sender: TcxCustomGridTableView;
