@@ -214,7 +214,7 @@ object frmAsistenciaEdit: TfrmAsistenciaEdit
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
     TabOrder = 4
-    Width = 75
+    Width = 50
   end
   object pnlFecha: TPanel
     Left = 0

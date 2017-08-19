@@ -10,7 +10,7 @@ uses
   cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, cxImageComboBox,
   dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, cxLookupEdit, cxDBLookupEdit, cxSpinEdit, cxImage,
   dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxButtonEdit, dxSkinOffice2016Colorful, System.Actions, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridCustomTableView,
-  cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGridCustomView, cxClasses, cxGridLevel, cxGrid;
+  cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGridCustomView, cxClasses, cxGridLevel, cxGrid, dxSkinOffice2013DarkGray;
 
 type
   TfrmEmpleados = class(TForm)
@@ -704,7 +704,6 @@ type
     cxLabel302: TcxLabel;
     cxDBMemo3: TcxDBMemo;
     OpenDialog1: TOpenDialog;
-    btnEditCURP: TcxButtonEdit;
     cxGroupBox2: TcxGroupBox;
     cxLabel303: TcxLabel;
     cxDBTextEdit181: TcxDBTextEdit;
@@ -725,14 +724,13 @@ type
     xsexo: TcxDBImageComboBox;
     cxDBCheckBox33: TcxDBCheckBox;
     cxLabel308: TcxLabel;
+    btnDocumentos: TcxButton;
     procedure actCerrarExecute(Sender: TObject);
     procedure actGuardarExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure cxDBImageComboBox1Enter(Sender: TObject);
-    procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
   private
     { Private declarations }
     function Validate : Boolean;
@@ -772,16 +770,6 @@ begin
 
                 ModalResult := mrOk;
            end;
-end;
-
-procedure TfrmEmpleados.cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
-begin
-     if OpenDialog1.Execute then
-        begin
-             btnEditCURP.Hint := OpenDialog1.FileName;
-             btnEditCURP.Properties.Buttons[0].Kind := bkGlyph;
-        end;
 end;
 
 procedure TfrmEmpleados.cxDBImageComboBox1Enter(Sender: TObject);

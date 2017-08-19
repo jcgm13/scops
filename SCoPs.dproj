@@ -180,6 +180,14 @@
             <Form>frmEmpleadosBaja</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="FDocsCliente.pas">
+            <Form>frmDocsCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="FDocsEmpleado.pas">
+            <Form>frmDocsEmpleado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

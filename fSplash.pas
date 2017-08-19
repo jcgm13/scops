@@ -12,7 +12,8 @@ type
     Panel1: TPanel;
     lblCargando: TcxLabel;
     img1: TImage;
-    img2: TImage;
+    cxLabel1: TcxLabel;
+    cxLabel2: TcxLabel;
     procedure FormShow(Sender: TObject);
     procedure img2Click(Sender: TObject);
   private
@@ -28,6 +29,9 @@ var
   frmSplash: TfrmSplash;
 
 implementation
+
+uses
+  fPrincipal;
 
 {$R *.dfm}
 

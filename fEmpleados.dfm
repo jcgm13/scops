@@ -92,6 +92,18 @@ object frmEmpleados: TfrmEmpleados
       SpeedButtonOptions.CanBeFocused = False
       TabOrder = 4
     end
+    object btnDocumentos: TcxButton
+      Left = 304
+      Top = 4
+      Width = 100
+      Height = 28
+      Align = alLeft
+      Action = frmPrincipal.actDocumentosEmpleado
+      LookAndFeel.SkinName = 'Office2016Colorful'
+      PaintStyle = bpsCaption
+      SpeedButtonOptions.CanBeFocused = False
+      TabOrder = 5
+    end
   end
   object Panel2: TPanel
     Left = 0
@@ -256,11 +268,11 @@ object frmEmpleados: TfrmEmpleados
     Properties.ActivePage = cxTabSheet10
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     ClientRectBottom = 554
     ClientRectLeft = 2
     ClientRectRight = 932
-    ClientRectTop = 26
+    ClientRectTop = 28
     object cxTabSheet10: TcxTabSheet
       Caption = 'Resumen'
       Highlighted = True
@@ -890,7 +902,7 @@ object frmEmpleados: TfrmEmpleados
         Width = 481
         Height = 222
         TabOrder = 52
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridBitacoraDBBandedTableViewBitacora: TcxGridDBBandedTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.Summary.DefaultGroupSummaryItems = <>
@@ -984,8 +996,13 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taRightJustify
         Properties.ValueChecked = 'S'
         Properties.ValueUnchecked = 'N'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 53
+        Transparent = True
       end
     end
     object cxTabSheet2: TcxTabSheet
@@ -1214,7 +1231,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = 'S'
         Properties.ValueUnchecked = 'N'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 19
         Transparent = True
       end
@@ -1235,7 +1256,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = 'S'
         Properties.ValueUnchecked = 'N'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 13
         Transparent = True
       end
@@ -1250,7 +1275,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 22
         Transparent = True
       end
@@ -1265,7 +1294,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 26
         Transparent = True
       end
@@ -1280,7 +1313,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 23
         Transparent = True
       end
@@ -1295,7 +1332,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 27
         Transparent = True
       end
@@ -1310,7 +1351,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 24
         Transparent = True
       end
@@ -1325,7 +1370,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 28
         Transparent = True
       end
@@ -1340,7 +1389,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.ImmediatePost = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 25
         Transparent = True
       end
@@ -1370,9 +1423,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Rechazado'
             Value = 3
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 32
         Height = 51
         Width = 357
@@ -1403,9 +1456,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Rechazado'
             Value = 3
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 34
         Height = 48
         Width = 357
@@ -1436,9 +1489,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Rechazado'
             Value = 3
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 29
         Height = 48
         Width = 357
@@ -1469,9 +1522,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Rechazado'
             Value = 3
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 42
         Height = 51
         Width = 355
@@ -2201,7 +2254,11 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 65
         Transparent = True
       end
@@ -2271,9 +2328,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ex Polic'#237'a'
             Value = 5
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 70
         Height = 133
         Width = 133
@@ -2310,9 +2367,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Otros'
             Value = 5
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 74
         Height = 133
         Width = 133
@@ -2326,7 +2383,11 @@ object frmEmpleados: TfrmEmpleados
         ParentFont = False
         Properties.ValueChecked = 1
         Properties.ValueUnchecked = 0
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 69
         Transparent = True
       end
@@ -2439,8 +2500,8 @@ object frmEmpleados: TfrmEmpleados
         Left = 414
         Top = 364
         Caption = 'Referencia - Padres'
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 75
         Height = 133
         Width = 426
@@ -2547,65 +2608,13 @@ object frmEmpleados: TfrmEmpleados
           Width = 101
         end
       end
-      object btnEditCURP: TcxButtonEdit
-        Left = 803
-        Top = 147
-        Hint = 'Seleccionar PDF del CURP'
-        ParentShowHint = False
-        Properties.Buttons = <
-          item
-            Default = True
-            Glyph.Data = {
-              36040000424D3604000000000000360000002800000010000000100000000100
-              2000000000000004000000000000000000000000000000000000000000000000
-              00000000000000000000103B52F7275E85FB4886BAFB326B8EC1061018220000
-              000000000000000000000000000000000000000000000000000000000000A479
-              58C4CA9269F4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
-              65FFC38452FFC38452FFC38452FFC38452FF81522EB00000000000000000D7A1
-              75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
-              C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC3895CFD0000000000000000D9A4
-              7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
-              EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFF0000000000000000DDA8
-              7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
-              F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFF0000000000000000DFAA
-              82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
-              F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFF0000000000000000E1AE
-              87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
-              FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFF0000000000000000E3B1
-              8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
-              EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF0C161E2600000000E5B4
-              8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
-              BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF639ACCF700000000E7B7
-              94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
-              ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF427FB5E800000000E9BA
-              98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
-              A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF10374D5E00000000EBBD
-              9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFF0000000000000000ECBF
-              9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
-              89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFF0000000000000000DBB2
-              94EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
-              F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD19C71F800000000000000007660
-              517ED5AC90E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
-              8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFAD8161CA00000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000}
-            Kind = bkEllipsis
-          end>
-        Properties.ViewStyle = vsButtonsOnly
-        Properties.OnButtonClick = cxDBButtonEdit1PropertiesButtonClick
-        ShowHint = True
-        TabOrder = 76
-        Text = 'btnEditCURP'
-        Width = 37
-      end
       object cxGroupBox2: TcxGroupBox
         Left = 680
         Top = 176
         Caption = 'Caracter'#237'sticas F'#237'sicas'
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
-        TabOrder = 77
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        TabOrder = 76
         Height = 123
         Width = 216
         object cxLabel303: TcxLabel
@@ -2721,9 +2730,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 0
         Height = 48
         Width = 200
@@ -2750,9 +2759,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 2
         Height = 48
         Width = 200
@@ -2779,9 +2788,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 4
         Height = 48
         Width = 200
@@ -2808,9 +2817,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 6
         Height = 48
         Width = 200
@@ -2837,9 +2846,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 9
         Height = 48
         Width = 200
@@ -2866,9 +2875,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 11
         Height = 48
         Width = 200
@@ -2895,9 +2904,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 15
         Height = 48
         Width = 200
@@ -2924,9 +2933,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 18
         Height = 48
         Width = 200
@@ -2953,9 +2962,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 21
         Height = 48
         Width = 200
@@ -2982,9 +2991,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 22
         Height = 48
         Width = 200
@@ -3011,9 +3020,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 19
         Height = 48
         Width = 200
@@ -3040,9 +3049,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 16
         Height = 48
         Width = 200
@@ -3069,9 +3078,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 12
         Height = 48
         Width = 200
@@ -3098,9 +3107,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 10
         Height = 48
         Width = 200
@@ -3127,9 +3136,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 7
         Height = 48
         Width = 200
@@ -3156,9 +3165,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 5
         Height = 48
         Width = 200
@@ -3185,9 +3194,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 3
         Height = 48
         Width = 200
@@ -3214,9 +3223,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Original'
             Value = 2
           end>
-        Style.LookAndFeel.SkinName = 'Office2016Colorful'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
-        StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 1
         Height = 48
         Width = 200
@@ -3344,7 +3353,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Baja'
             Value = 2
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 4
         Height = 48
         Width = 250
@@ -3519,7 +3530,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Tarjeta N'#243'mina'
             Value = 2
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 2
         Height = 48
         Width = 350
@@ -5008,7 +5021,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 0
         Transparent = True
       end
@@ -5060,7 +5077,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Familiar'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 1
         Height = 48
         Width = 426
@@ -5146,7 +5165,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Accesor'#237'a'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 10
         Height = 48
         Width = 426
@@ -5167,7 +5188,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 12
         Transparent = True
       end
@@ -5181,7 +5206,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 13
         Transparent = True
       end
@@ -5195,7 +5224,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 14
         Transparent = True
       end
@@ -5209,7 +5242,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 15
         Transparent = True
       end
@@ -5223,7 +5260,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 16
         Transparent = True
       end
@@ -5271,7 +5312,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Otros'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 19
         Height = 83
         Width = 122
@@ -5301,7 +5344,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'L'#225'mina Met'#225'lica'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 20
         Height = 83
         Width = 122
@@ -5331,7 +5376,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Tierra Apisonada'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 22
         Height = 83
         Width = 122
@@ -5358,7 +5405,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 23
         Transparent = True
       end
@@ -5372,7 +5423,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 24
         Transparent = True
       end
@@ -5386,7 +5441,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 25
         Transparent = True
       end
@@ -5400,7 +5459,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 26
         Transparent = True
       end
@@ -5414,7 +5477,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 27
         Transparent = True
       end
@@ -5428,7 +5495,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 28
         Transparent = True
       end
@@ -5442,7 +5513,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 29
         Transparent = True
       end
@@ -5456,7 +5531,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 30
         Transparent = True
       end
@@ -5830,7 +5909,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'M'#233'dico Privado'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 1
         Transparent = True
         Height = 43
@@ -6254,9 +6335,17 @@ object frmEmpleados: TfrmEmpleados
         Width = 711
       end
       object cxLabel285: TcxLabel
-        Left = 305
-        Top = 319
+        Left = 322
+        Top = 318
         Caption = 'Frecuencia con que los Consume'
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clBlack
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        Style.IsFontAssigned = True
         Transparent = True
       end
       object cxDBRadioGroup40: TcxDBRadioGroup
@@ -6287,6 +6376,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 54
         Height = 38
         Width = 345
@@ -6319,6 +6410,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 56
         Height = 38
         Width = 345
@@ -6351,6 +6444,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 52
         Height = 38
         Width = 345
@@ -6383,6 +6478,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 53
         Height = 38
         Width = 345
@@ -6415,6 +6512,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 60
         Height = 38
         Width = 345
@@ -6447,6 +6546,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 58
         Height = 38
         Width = 345
@@ -6479,6 +6580,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 55
         Height = 38
         Width = 345
@@ -6511,6 +6614,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 57
         Height = 38
         Width = 345
@@ -6543,6 +6648,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 59
         Height = 38
         Width = 345
@@ -6575,6 +6682,8 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Ocasional'
             Value = 4
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 61
         Height = 38
         Width = 345
@@ -6599,7 +6708,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 0
         Transparent = True
       end
@@ -6613,7 +6726,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 1
         Transparent = True
       end
@@ -6627,7 +6744,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 2
         Transparent = True
       end
@@ -6641,7 +6762,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 3
         Transparent = True
       end
@@ -6655,7 +6780,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 4
         Transparent = True
       end
@@ -6669,7 +6798,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taLeftJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 5
         Transparent = True
       end
@@ -6830,7 +6963,11 @@ object frmEmpleados: TfrmEmpleados
         Properties.Alignment = taRightJustify
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+        StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 8
         Transparent = True
       end
@@ -7537,7 +7674,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Recibido'
             Value = 1
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 7
         Height = 43
         Width = 168
@@ -7597,7 +7736,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Solicitud'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 8
         Height = 43
         Width = 322
@@ -7730,7 +7871,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Recibido'
             Value = 1
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 22
         Height = 43
         Width = 168
@@ -7790,7 +7933,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Solicitud'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 23
         Height = 43
         Width = 322
@@ -7932,7 +8077,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Solicitud'
             Value = 3
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 34
         Height = 43
         Width = 322
@@ -7984,7 +8131,9 @@ object frmEmpleados: TfrmEmpleados
             Caption = 'Recibido'
             Value = 1
           end>
+        Style.LookAndFeel.SkinName = 'Office2013DarkGray'
         Style.StyleController = frmPrincipal.cxEditStyleController1
+        StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
         TabOrder = 33
         Height = 43
         Width = 168

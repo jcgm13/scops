@@ -11,8 +11,8 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit, cxBarEditItem,
   dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, dxSkinDevExpressStyle, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls,
   cxTextEdit, cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems,
-  DateUtils, Vcl.Grids, Vcl.DBGrids, System.Actions, dxSkinOffice2016Colorful, dxSkinOffice2016Dark, cxTimeEdit, cxGridBandedTableView, cxGridDBBandedTableView, dxSkinBlack, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
-  dxSkinVisualStudio2013Light;
+  DateUtils, Vcl.Grids, Vcl.DBGrids, System.Actions, dxSkinOffice2016Colorful, cxTimeEdit, cxGridBandedTableView, cxGridDBBandedTableView,
+  dxSkinOffice2013DarkGray;
 
 type
   TfrmPrincipal = class(TdxRibbonForm)
@@ -172,8 +172,6 @@ type
     actReingreso: TAction;
     dxBarLargeButton37: TdxBarLargeButton;
     dxBarManager1Bar7: TdxBar;
-    dxBarLargeButton39: TdxBarLargeButton;
-    actProgramarServicios: TAction;
     xFechaProgramacion: TdxBarDateCombo;
     ViewAsistenciaCaptura: TcxGridDBTableView;
     ViewAsistenciaCapturaColumnAnio: TcxGridDBColumn;
@@ -183,7 +181,6 @@ type
     dxBarManager1Bar19: TdxBar;
     dxBarManager1Bar20: TdxBar;
     xFechaAsistenciaIni: TdxBarDateCombo;
-    xFechaAsistenciaFin: TdxBarDateCombo;
     dxBarLargeButton41: TdxBarLargeButton;
     actCapturarAsistencia: TAction;
     dxBarLargeButton42: TdxBarLargeButton;
@@ -231,9 +228,7 @@ type
     dxBarButtonModificarEquipo: TdxBarButton;
     dxBarButtonVerEquipo: TdxBarButton;
     dxBarButtonEliminarEquipo: TdxBarButton;
-    actCopiarPreProgramacion: TAction;
     dxBarManager1Bar24: TdxBar;
-    dxBarLargeButton50: TdxBarLargeButton;
     ViewAsistenciaConsultaColumnHorasExtra: TcxGridDBColumn;
     ViewEmpleadosColumnRFC: TcxGridDBColumn;
     ViewEmpleadosColumnFechaAlta: TcxGridDBColumn;
@@ -292,6 +287,14 @@ type
     ViewEmpleadosColumnReingreso: TcxGridDBColumn;
     ViewAsistenciaCapturaNewColumnDescansa: TcxGridDBBandedColumn;
     dxBarButtonAcerca: TdxBarButton;
+    actDocumentosEmpleado: TAction;
+    dxBarButtonEmpleadoDocs: TdxBarButton;
+    dxBarLargeButton57: TdxBarLargeButton;
+    xFechaAsistenciaFin: TdxBarDateCombo;
+    actDocumentosCliente: TAction;
+    dxBarLargeButton58: TdxBarLargeButton;
+    cxBarEditItemTipoNomina: TcxBarEditItem;
+    dbgrd1: TDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
@@ -342,7 +345,6 @@ type
     procedure actEliminarVehiculoExecute(Sender: TObject);
     procedure actConsultarVehiculosInactivosExecute(Sender: TObject);
     procedure actReingresoExecute(Sender: TObject);
-    procedure actProgramarServiciosExecute(Sender: TObject);
     procedure ViewAsistenciaCapturaCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure actCapturarAsistenciaExecute(Sender: TObject);
     procedure actConsultarAsistenciaExecute(Sender: TObject);
@@ -353,7 +355,6 @@ type
     procedure actConsultarEquipoActivoExecute(Sender: TObject);
     procedure actConsultarEquipoInactivoExecute(Sender: TObject);
     procedure ViewEquipoCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
-    procedure actCopiarPreProgramacionExecute(Sender: TObject);
     procedure actConsultarMovtosActivosExecute(Sender: TObject);
     procedure actConsultarMovtosInactivosExecute(Sender: TObject);
     procedure actAgregarMovtoExecute(Sender: TObject);
@@ -363,9 +364,11 @@ type
     procedure ViewAsistenciaCapturaNewCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure dxBarButtonAcercaClick(Sender: TObject);
     procedure ViewAsistenciaCapturaNewKeyPress(Sender: TObject; var Key: Char);
+    procedure actDocumentosEmpleadoExecute(Sender: TObject);
+    procedure actDocumentosClienteExecute(Sender: TObject);
   private
     { Private declarations }
-    fechaAsistencia : TDateTime;
+    TipoAsistencia : string;
     procedure ShowWaitForm;
     procedure HideWaitForm;
     procedure EditarAsistencia;
@@ -381,7 +384,7 @@ implementation
 {$R *.dfm}
 
 uses dMain, fEmpleados, fReportes, fSplash, fWaitForm, fPermisos, fLogin,
-  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit, fEmpleadosReingreso;
+  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit, fEmpleadosReingreso, FDocsEmpleado, FDocsCliente;
 
 
 { TForm1 }
@@ -466,10 +469,13 @@ begin
      try
         ShowWaitForm;
         cxGridMainLevelMain.GridView := ViewAsistenciaCapturaNew;
+        TipoAsistencia := cxBarEditItemTipoNomina.EditValue;
         dmMain.CargaAsistencia(_Globales.Empresa,
                                YearOf(Now),
                                MonthOf(Now),
-                               DayOf(Now));
+                               DayOf(Now),
+                               TipoAsistencia
+                              );
      finally
             HideWaitForm;
      end;
@@ -597,22 +603,6 @@ begin
      HideWaitForm;
 end;
 
-procedure TfrmPrincipal.actCopiarPreProgramacionExecute(Sender: TObject);
-begin
-     if not dmMain.ExistePreasignacionSemanal then
-        case dmMain.CopiarPreProgramacion of
-             0 : MessageDlg('No existe una preprogramación semanal previa', mtError, [mbOK], 0);
-             1 : MessageDlg('Ya existe la preprogramación para esta semana (' +
-                            FormatDateTime('dd/mm/yyyy',StartOfTheWeek(Now())) + ' al ' +
-                            FormatDateTime('dd/mm/yyyy',EndOfTheWeek(Now())) + ')', mtError, [mbOK], 0);
-             2 : MessageDlg('Se ha copiado la preprogramación anterior a la semana actual correctamente', mtInformation, [mbOK], 0);
-        end
-     else
-         MessageDlg('Ya existe la preprogramación para esta semana (' +
-                     FormatDateTime('dd/mm/yyyy',StartOfTheWeek(Now())) + ' al ' +
-                     FormatDateTime('dd/mm/yyyy',EndOfTheWeek(Now())) + ')', mtError, [mbOK], 0);
-end;
-
 procedure TfrmPrincipal.actCredencialExecute(Sender: TObject);
 begin
      if not dmMain.dsEmpleados.DataSet.IsEmpty then
@@ -623,6 +613,38 @@ begin
                 frmReportes.ShowModal;
              finally
                     FreeAndNil(frmReportes);
+             end;
+        end;
+end;
+
+procedure TfrmPrincipal.actDocumentosClienteExecute(Sender: TObject);
+begin
+     if not dmMain.dsEmpleados.DataSet.IsEmpty then
+        begin
+             try
+                frmDocsCliente := TfrmDocsCliente.Create(Self);
+                frmDocsCliente.cliente := dmMain.dsClientes.DataSet.FieldByName('cliente_id').AsString;
+                frmDocsCliente.lblNumCliente.Caption := dmMain.dsClientes.DataSet.FieldByName('cliente_id').AsString;
+                frmDocsCliente.lblNombreCliente.Caption := dmMain.dsClientes.DataSet.FieldByName('descripcion').AsString;
+                frmDocsCliente.ShowModal;
+             finally
+                    FreeAndNil(frmDocsCliente);
+             end;
+        end;
+end;
+
+procedure TfrmPrincipal.actDocumentosEmpleadoExecute(Sender: TObject);
+begin
+     if not dmMain.dsEmpleados.DataSet.IsEmpty then
+        begin
+             try
+                frmDocsEmpleado := TfrmDocsEmpleado.Create(Self);
+                frmDocsEmpleado.empleado := dmMain.dsEmpleados.DataSet.FieldByName('empleado_id').AsString;
+                frmDocsEmpleado.lblNumEmpleado.Caption := dmMain.dsEmpleados.DataSet.FieldByName('empleado_id').AsString;
+                frmDocsEmpleado.lblNombreEmpleado.Caption := dmMain.dsEmpleados.DataSet.FieldByName('nombre_empleado').AsString;
+                frmDocsEmpleado.ShowModal;
+             finally
+                    FreeAndNil(frmDocsEmpleado);
              end;
         end;
 end;
@@ -964,21 +986,6 @@ begin
         end;
 end;
 
-procedure TfrmPrincipal.actProgramarServiciosExecute(Sender: TObject);
-var
-   k : Integer;
-begin
-     if MessageDlg('¿Generar la programación de Servicios de la semana del ' + FormatDateTime('dd/mm/yyyy',StartOfTheWeek(xFechaProgramacion.Date)) + ' al ' + FormatDateTime('dd/mm/yyyy',EndOfTheWeek(xFechaProgramacion.Date)) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-        begin
-             k := dmMain.ProgramarServicios(_Globales.Empresa,StartOfTheWeek(xFechaProgramacion.Date));
-             if k > 0 then
-                MessageDlg('Se ha generado la programación de la semana del ' + FormatDateTime('dd/mm/yyyy',StartOfTheWeek(xFechaProgramacion.Date)) + ' al ' + FormatDateTime('dd/mm/yyyy',EndOfTheWeek(xFechaProgramacion.Date)) +
-                           ' correctamente' + #13 + #10 + '(' + IntToStr(k) + ' servicios)', mtInformation, [mbOk], 0);
-             if k = 0 then
-                MessageDlg('Ya se ha generado la programación de la semana del ' + FormatDateTime('dd/mm/yyyy',StartOfTheWeek(xFechaProgramacion.Date)) + ' al ' + FormatDateTime('dd/mm/yyyy',EndOfTheWeek(xFechaProgramacion.Date)), mtInformation, [mbOk], 0);
-        end;
-end;
-
 procedure TfrmPrincipal.actReingresoExecute(Sender: TObject);
 begin
      with dmMain.dsEmpleados.DataSet do
@@ -1188,7 +1195,8 @@ begin
               dmMain.CargaAsistencia(_Globales.Empresa,
                                      YearOf(Now),
                                      MonthOf(Now),
-                                     DayOf(Now)
+                                     DayOf(Now),
+                                     TipoAsistencia
                                     );
               if Assigned(bmk) then
                  dmMain.dsAsistencia.DataSet.GotoBookmark(bmk);
@@ -1268,10 +1276,12 @@ begin
      actReingreso.Visible := False;
 
      xFechaProgramacion.Date := Now;
-     xFechaAsistenciaIni.Date := StartOfTheWeek(Now);
-     xFechaAsistenciaFin.Date := EndOfTheWeek(Now);
+     xFechaAsistenciaIni.Date := StartOfTheMonth(Now);
+     xFechaAsistenciaFin.Date := EndOfTheMonth(Now);
 
      ViewEmpleados.Controller.ShowFindPanel;
+
+     cxBarEditItemTipoNomina.EditValue := 'T';
 end;
 
 procedure TfrmPrincipal.HideWaitForm;

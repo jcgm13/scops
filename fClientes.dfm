@@ -168,12 +168,12 @@ object frmClientes: TfrmClientes
     TabOrder = 2
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     OnPageChanging = cxPageControl1PageChanging
     ClientRectBottom = 529
     ClientRectLeft = 2
     ClientRectRight = 692
-    ClientRectTop = 26
+    ClientRectTop = 28
     object cxTabSheet1: TcxTabSheet
       Caption = 'Informaci'#243'n General'
       ImageIndex = 0
@@ -181,13 +181,13 @@ object frmClientes: TfrmClientes
         Left = 0
         Top = 0
         Width = 690
-        Height = 503
+        Height = 501
         BorderStyle = cxcbsNone
         Align = alClient
         Images = frmPrincipal.imgListAcciones
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         OptionsView.CellAutoHeight = True
         OptionsView.CellEndEllipsis = True
         OptionsView.ScrollBars = ssVertical
@@ -750,11 +750,11 @@ object frmClientes: TfrmClientes
         Left = 0
         Top = 0
         Width = 690
-        Height = 467
+        Height = 465
         Align = alClient
         TabOrder = 0
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsServiciosCliente
@@ -796,7 +796,7 @@ object frmClientes: TfrmClientes
       end
       object pnl1: TPanel
         Left = 0
-        Top = 467
+        Top = 465
         Width = 690
         Height = 36
         Align = alBottom

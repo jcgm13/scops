@@ -117,10 +117,11 @@ object frmVehiculos: TfrmVehiculos
     TabOrder = 2
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     ClientRectBottom = 541
     ClientRectLeft = 2
     ClientRectRight = 692
-    ClientRectTop = 26
+    ClientRectTop = 28
     object cxTabSheet1: TcxTabSheet
       Caption = 'Informaci'#243'n General'
       ImageIndex = 0
@@ -128,13 +129,13 @@ object frmVehiculos: TfrmVehiculos
         Left = 0
         Top = 0
         Width = 690
-        Height = 479
+        Height = 477
         BorderStyle = cxcbsNone
         Align = alClient
         Images = frmPrincipal.imgListAcciones
         LookAndFeel.Kind = lfUltraFlat
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         OptionsView.CellAutoHeight = True
         OptionsView.CellEndEllipsis = True
         OptionsView.ScrollBars = ssVertical
@@ -700,7 +701,7 @@ object frmVehiculos: TfrmVehiculos
       end
       object Panel3: TPanel
         Left = 0
-        Top = 479
+        Top = 477
         Width = 690
         Height = 36
         Align = alBottom
@@ -745,7 +746,7 @@ object frmVehiculos: TfrmVehiculos
       ImageIndex = 1
       object Panel4: TPanel
         Left = 0
-        Top = 479
+        Top = 477
         Width = 690
         Height = 36
         Align = alBottom
@@ -819,11 +820,11 @@ object frmVehiculos: TfrmVehiculos
         Left = 0
         Top = 0
         Width = 690
-        Height = 479
+        Height = 477
         Align = alClient
         TabOrder = 1
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsVehiculosCombustible
@@ -914,7 +915,7 @@ object frmVehiculos: TfrmVehiculos
       ImageIndex = 2
       object Panel5: TPanel
         Left = 0
-        Top = 479
+        Top = 477
         Width = 690
         Height = 36
         Align = alBottom
@@ -988,11 +989,11 @@ object frmVehiculos: TfrmVehiculos
         Left = 0
         Top = 0
         Width = 690
-        Height = 479
+        Height = 477
         Align = alClient
         TabOrder = 1
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsVehiculosReparaciones

@@ -112,17 +112,17 @@ object frmAsignarFoto: TfrmAsignarFoto
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     ClientRectBottom = 472
     ClientRectLeft = 2
     ClientRectRight = 386
-    ClientRectTop = 26
+    ClientRectTop = 28
     object cxTabSheet1: TcxTabSheet
       Caption = 'Foto Actual'
       ImageIndex = 0
       DesignSize = (
         384
-        446)
+        444)
       object Label3: TLabel
         Left = 21
         Top = 357
@@ -162,7 +162,7 @@ object frmAsignarFoto: TfrmAsignarFoto
         Left = 0
         Top = 41
         Width = 384
-        Height = 405
+        Height = 403
         Cursor = crHandPoint
         Align = alClient
       end

@@ -11,7 +11,7 @@ uses
   dxSkinDevExpressStyle, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator,
   cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid,
   cxGridBandedTableView, cxSchedulerStorage, cxSchedulerCustomControls, cxSchedulerDateNavigator, cxDateNavigator, cxLabel,
-  Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon, dxSkinOffice2016Colorful, System.Actions;
+  Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmServicios = class(TForm)
@@ -24,8 +24,6 @@ type
     ActionList1: TActionList;
     actGuardar: TAction;
     actCerrar: TAction;
-    actExpandir: TAction;
-    actContraer: TAction;
     xcliente_id: TcxDBLookupComboBox;
     cxButton3: TcxButton;
     actCopiarInfoCliente: TAction;
@@ -34,37 +32,12 @@ type
     cxTabSheet1: TcxTabSheet;
     cxTabSheet2: TcxTabSheet;
     cxTabSheet3: TcxTabSheet;
-    vGridServicios: TcxDBVerticalGrid;
-    vGridServiciosCategoryRow1: TcxCategoryRow;
-    vGridServiciosDBEditorRow4: TcxDBEditorRow;
-    vGridServiciosDBEditorRow2: TcxDBEditorRow;
-    vGridServiciosDBEditorRow3: TcxDBEditorRow;
-    vGridServiciosDBEditorRow6: TcxDBEditorRow;
-    vGridServiciosDBEditorRow7: TcxDBEditorRow;
-    vGridServiciosDBEditorRow8: TcxDBEditorRow;
-    vGridServiciosDBEditorRow9: TcxDBEditorRow;
-    vGridServiciosDBEditorRow10: TcxDBEditorRow;
-    vGridServiciosDBEditorRow11: TcxDBEditorRow;
-    vGridServiciosDBEditorRow12: TcxDBEditorRow;
-    vGridServiciosDBEditorRow1: TcxDBEditorRow;
-    vGridServiciosDBEditorRow33: TcxDBEditorRow;
-    vGridServiciosDBEditorRow34: TcxDBEditorRow;
-    vGridServiciosCategoryRow3: TcxCategoryRow;
-    vGridServiciosDBEditorRow19: TcxDBEditorRow;
-    vGridServiciosDBEditorRow20: TcxDBEditorRow;
-    vGridServiciosDBEditorRow21: TcxDBEditorRow;
-    vGridServiciosDBEditorRow23: TcxDBEditorRow;
-    vGridServiciosDBEditorRow46: TcxDBEditorRow;
-    vGridServiciosDBEditorRow5: TcxDBEditorRow;
-    cxTabSheet4: TcxTabSheet;
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
     cxGrid2: TcxGrid;
     cxGridDBTableView1: TcxGridDBTableView;
     cxGridLevel1: TcxGridLevel;
-    cxGrid3: TcxGrid;
-    cxGridLevel2: TcxGridLevel;
     cxGrid1DBTableView1Column1: TcxGridDBColumn;
     cxGrid1DBTableView1Column2: TcxGridDBColumn;
     cxGrid1DBTableView1Column3: TcxGridDBColumn;
@@ -81,14 +54,6 @@ type
     actAgregarFuncion: TAction;
     actModificarFuncion: TAction;
     actEliminarFuncion: TAction;
-    Panel4: TPanel;
-    xfecha: TcxDateNavigator;
-    cxButton9: TcxButton;
-    cxButton10: TcxButton;
-    cxButton11: TcxButton;
-    cxButton12: TcxButton;
-    cxButton13: TcxButton;
-    cxButton14: TcxButton;
     actLimpiarSemana: TAction;
     actMarcarSemana: TAction;
     actProgramarDiurno: TAction;
@@ -100,35 +65,6 @@ type
     Label3: TcxLabel;
     actConsultarFuncion: TAction;
     cxButton15: TcxButton;
-    cxGrid3DBBandedTableView1: TcxGridDBBandedTableView;
-    cxGrid3DBBandedTableView1Column1: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column2: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column3: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column4: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column5: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column6: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column7: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column8: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column9: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column10: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column11: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column12: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column13: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column14: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column15: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column16: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column17: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column18: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column19: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column20: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column21: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column22: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column23: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column24: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column25: TcxGridDBBandedColumn;
-    cxGrid3DBBandedTableView1Column26: TcxGridDBBandedColumn;
-    cxLabel1: TcxLabel;
-    lblSemana: TcxLabel;
     cxTabSheet5: TcxTabSheet;
     Panel5: TPanel;
     cxButton16: TcxButton;
@@ -142,8 +78,6 @@ type
     actAgregarEquipo: TAction;
     actEliminarEquipo: TAction;
     Panel6: TPanel;
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
     cxGridDBTableView2ColumnMarca: TcxGridDBColumn;
     cxGridDBTableView2ColumnModelo: TcxGridDBColumn;
     cxGridDBTableView2ColumnCantidad: TcxGridDBColumn;
@@ -152,17 +86,53 @@ type
     dxRibbonPopupMenuEquipo: TdxRibbonPopupMenu;
     cxLabel2: TcxLabel;
     cxLabel3: TcxLabel;
+    cxDBTextEdit1: TcxDBTextEdit;
+    cxLabel4: TcxLabel;
+    cxLabel5: TcxLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    cxDBTextEdit3: TcxDBTextEdit;
+    cxLabel6: TcxLabel;
+    cxLabel7: TcxLabel;
+    cxDBTextEdit4: TcxDBTextEdit;
+    cxLabel8: TcxLabel;
+    cxDBTextEdit5: TcxDBTextEdit;
+    cxLabel9: TcxLabel;
+    cxDBTextEdit6: TcxDBTextEdit;
+    cxDBTextEdit7: TcxDBTextEdit;
+    cxLabel10: TcxLabel;
+    cxLabel11: TcxLabel;
+    cxDBTextEdit8: TcxDBTextEdit;
+    cxLabel12: TcxLabel;
+    cxDBTextEdit9: TcxDBTextEdit;
+    cxLabel13: TcxLabel;
+    cxDBTextEdit10: TcxDBTextEdit;
+    cxLabel14: TcxLabel;
+    cxDBTextEdit11: TcxDBTextEdit;
+    cxLabel15: TcxLabel;
+    cxDBDateEdit1: TcxDBDateEdit;
+    cxLabel16: TcxLabel;
+    cxDBDateEdit2: TcxDBDateEdit;
+    cxLabel192: TcxLabel;
+    cxDBTextEdit12: TcxDBTextEdit;
+    cxLabel17: TcxLabel;
+    cxLabel18: TcxLabel;
+    cxDBTextEdit13: TcxDBTextEdit;
+    cxLabel19: TcxLabel;
+    cxDBTextEdit14: TcxDBTextEdit;
+    cxLabel20: TcxLabel;
+    cxDBTextEdit15: TcxDBTextEdit;
+    cxLabel21: TcxLabel;
+    cxDBMemo1: TcxDBMemo;
+    cxLabel22: TcxLabel;
+    cxDBMemo2: TcxDBMemo;
+    xtipo_nomina: TcxDBRadioGroup;
     procedure actGuardarExecute(Sender: TObject);
     procedure xdescripcionKeyPress(Sender: TObject; var Key: Char);
     procedure actCerrarExecute(Sender: TObject);
-    procedure actExpandirExecute(Sender: TObject);
-    procedure actContraerExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure actCopiarInfoClienteExecute(Sender: TObject);
     procedure cxDBImageComboBox1Enter(Sender: TObject);
-    procedure cxPageControl1PageChanging(Sender: TObject; NewPage: TcxTabSheet;
-      var AllowChange: Boolean);
     procedure actAgregarFuncionExecute(Sender: TObject);
     procedure actModificarFuncionExecute(Sender: TObject);
     procedure actConsultarFuncionExecute(Sender: TObject);
@@ -170,14 +140,7 @@ type
     procedure cxGrid1DBTableView1CellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
-    procedure xfechaClick(Sender: TObject);
     procedure cxGridDBTableView1Column6PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
-    procedure actLimpiarSemanaExecute(Sender: TObject);
-    procedure actMarcarSemanaExecute(Sender: TObject);
-    procedure actProgramarDiurnoExecute(Sender: TObject);
-    procedure actProgramarNocturnoExecute(Sender: TObject);
-    procedure actProgramar24T1Execute(Sender: TObject);
-    procedure actProgramar24T2Execute(Sender: TObject);
     procedure actAgregarEquipoExecute(Sender: TObject);
     procedure actAumentarEquipoExecute(Sender: TObject);
     procedure actDisminuirEquipoExecute(Sender: TObject);
@@ -186,8 +149,8 @@ type
     { Private declarations }
     AnioSel, SemanaSel : Integer;
     function Validate : Boolean;
+    procedure HabilitarControles(habilitar : Boolean);
     procedure RevisaAccionesFunciones;
-    procedure CargaPreasignacion;
   public
     { Public declarations }
   end;
@@ -273,11 +236,6 @@ begin
          end;
 end;
 
-procedure TfrmServicios.actContraerExecute(Sender: TObject);
-begin
-     vGridServicios.FullCollapse;
-end;
-
 procedure TfrmServicios.actCopiarInfoClienteExecute(Sender: TObject);
 begin
      if xcliente_id.EditValue <> Null then
@@ -333,11 +291,6 @@ begin
            end;
 end;
 
-procedure TfrmServicios.actExpandirExecute(Sender: TObject);
-begin
-     vGridServicios.FullExpand;
-end;
-
 procedure TfrmServicios.actGuardarExecute(Sender: TObject);
 begin
      if dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit] then
@@ -346,32 +299,6 @@ begin
                 dmMain.dsServiciosEdit.DataSet.Post;
                 ModalResult := mrOk;
            end;
-end;
-
-procedure TfrmServicios.actLimpiarSemanaExecute(Sender: TObject);
-begin
-     dmMain.Preasignacion_LimpiarSemana(
-                                        dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                        dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                        dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                        dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                        YearOf(xfecha.Date),
-                                        WeekOfTheYear(xfecha.Date),
-                                        StartOfTheWeek(xfecha.Date)
-                                       );
-end;
-
-procedure TfrmServicios.actMarcarSemanaExecute(Sender: TObject);
-begin
-     dmMain.Preasignacion_MarcarSemana(
-                                       dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                       dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                       dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                       dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                       YearOf(xfecha.Date),
-                                       WeekOfTheYear(xfecha.Date),
-                                       StartOfTheWeek(xfecha.Date)
-                                      );
 end;
 
 procedure TfrmServicios.actModificarFuncionExecute(Sender: TObject);
@@ -394,73 +321,6 @@ begin
                 RevisaAccionesFunciones;
                 FreeAndNil(frmServiciosFunciones);
          end;
-end;
-
-procedure TfrmServicios.actProgramar24T1Execute(Sender: TObject);
-begin
-     dmMain.Preasignacion_Programar24hT1(
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                         YearOf(xfecha.Date),
-                                         WeekOfTheYear(xfecha.Date),
-                                         StartOfTheWeek(xfecha.Date)
-                                        );
-end;
-
-procedure TfrmServicios.actProgramar24T2Execute(Sender: TObject);
-begin
-     dmMain.Preasignacion_Programar24hT2(
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                         dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                         YearOf(xfecha.Date),
-                                         WeekOfTheYear(xfecha.Date),
-                                         StartOfTheWeek(xfecha.Date)
-                                        );
-end;
-
-procedure TfrmServicios.actProgramarDiurnoExecute(Sender: TObject);
-begin
-     dmMain.Preasignacion_ProgramarDiurno(
-                                          dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                          dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                          dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                          dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                          YearOf(xfecha.Date),
-                                          WeekOfTheYear(xfecha.Date),
-                                          StartOfTheWeek(xfecha.Date)
-                                         );
-end;
-
-procedure TfrmServicios.actProgramarNocturnoExecute(Sender: TObject);
-begin
-     dmMain.Preasignacion_ProgramarNocturno(
-                                            dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('servicio_id').AsString,
-                                            dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('empresa_id').AsInteger,
-                                            dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('funcion_id').AsInteger,
-                                            dmMain.dsServiciosPreasignacionSemanal.DataSet.FieldByName('asignacion_id').AsInteger,
-                                            YearOf(xfecha.Date),
-                                            WeekOfTheYear(xfecha.Date),
-                                            StartOfTheWeek(xfecha.Date)
-                                           );
-end;
-
-procedure TfrmServicios.CargaPreasignacion;
-begin
-//     if (SemanaSel <> WeekOfTheYear(xfecha.Date)) or (AnioSel <> YearOf(xfecha.Date)) then
-//        begin
-             dmMain.CargaPreasignacionSemanal(_Globales.Empresa,
-                                              xservicio_id.Text,
-                                              YearOf(xfecha.Date),
-                                              WeekOfTheYear(xfecha.Date));
-             lblSemana.Caption := FormatDateTime('"del" dd "de" mmmm "del" yyyy',StartOfTheWeek(xfecha.Date)) + '  al  ' + FormatDateTime('dd "de" mmmm "del" yyyy',EndOfTheWeek(xfecha.Date));
-//        end;
-
-     SemanaSel := WeekOfTheYear(xfecha.Date);
-     AnioSel   := YearOf(xfecha.Date);
 end;
 
 procedure TfrmServicios.cxDBImageComboBox1Enter(Sender: TObject);
@@ -505,19 +365,9 @@ begin
      dmMain.CargaFuncionesEmpleados(_Globales.Empresa,xservicio_id.Text);
 end;
 
-procedure TfrmServicios.cxPageControl1PageChanging(Sender: TObject;
-  NewPage: TcxTabSheet; var AllowChange: Boolean);
-begin
-     cxButton1.Visible := NewPage.TabIndex = 0;
-     cxButton2.Visible := NewPage.TabIndex = 0;
-     if NewPage.TabIndex = 3 then
-        CargaPreasignacion;
-end;
-
 procedure TfrmServicios.FormCreate(Sender: TObject);
 begin
      dmMain.qryServiciosEdit.Open;
-     vGridServicios.FullExpand;
 end;
 
 procedure TfrmServicios.FormShow(Sender: TObject);
@@ -529,38 +379,41 @@ begin
      if dmMain.dsServiciosEdit.DataSet.State = dsBrowse then
         Caption := 'Servicios (consultar)';
 
-     xfecha.Date := Now;
-     AnioSel     := YearOf(xfecha.Date);
-     SemanaSel   := WeekOfTheYear(xfecha.Date);
-
      if dmMain.dsServiciosEdit.DataSet.State in [dsEdit,dsBrowse] then
         begin
              dmMain.CargaFunciones(_Globales.Empresa,xservicio_id.Text);
              dmMain.CargaFuncionesEmpleados(_Globales.Empresa,xservicio_id.Text);
              dmMain.CargaEquipoServicio(_Globales.Empresa,xservicio_id.Text);
-             CargaPreasignacion;
         end;
 
-     actGuardar.Enabled                 := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
-     actGuardar.Visible                 := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
-     xservicio_id.Enabled               := dmMain.dsServiciosEdit.DataSet.State in [dsInsert];
-     xdescripcion.Enabled               := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
-     xcliente_id.Enabled                := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
-     vGridServicios.OptionsData.Editing := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
-     actCopiarInfoCliente.Visible       := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     actGuardar.Enabled           := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     actGuardar.Visible           := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     xservicio_id.Enabled         := dmMain.dsServiciosEdit.DataSet.State in [dsInsert];
+     xdescripcion.Enabled         := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     xcliente_id.Enabled          := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     xtipo_nomina.Enabled         := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
+     actCopiarInfoCliente.Visible := dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit];
 
      cxPageControl1.Pages[1].Visible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
      cxPageControl1.Pages[2].Visible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
      cxPageControl1.Pages[3].Visible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
-     cxPageControl1.Pages[4].Visible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
      cxPageControl1.Pages[1].TabVisible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
      cxPageControl1.Pages[2].TabVisible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
      cxPageControl1.Pages[3].TabVisible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
-     cxPageControl1.Pages[4].TabVisible := dmMain.dsServiciosEdit.DataSet.State <> dsInsert;
 
      RevisaAccionesFunciones;
 
-     vGridServicios.LookAndFeel.NativeStyle := dmMain.dsServiciosEdit.DataSet.State in [dsBrowse];
+     HabilitarControles(dmMain.dsServiciosEdit.DataSet.State in [dsInsert, dsEdit]);
+end;
+
+procedure TfrmServicios.HabilitarControles(habilitar: Boolean);
+var
+   p, c : Integer;
+begin
+     for p := 0 to cxPageControl1.PageCount -1 do
+         for c := 0 to cxPageControl1.Pages[p].ControlCount - 1 do
+             if not(cxPageControl1.Pages[p].Controls[c] is TcxLabel) and (cxPageControl1.Pages[p].Controls[c].Tag = 0) then
+                cxPageControl1.Pages[p].Controls[c].Enabled := habilitar;
 end;
 
 procedure TfrmServicios.RevisaAccionesFunciones;
@@ -603,11 +456,6 @@ begin
              key := #0;
              SelectNext(ActiveControl,True,True)
         end;
-end;
-
-procedure TfrmServicios.xfechaClick(Sender: TObject);
-begin
-     CargaPreasignacion;
 end;
 
 end.

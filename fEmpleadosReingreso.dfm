@@ -162,7 +162,7 @@ object frmEmpleadosReingreso: TfrmEmpleadosReingreso
     Width = 594
     Height = 205
     TabOrder = 11
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     object cxGridBitacoraDBBandedTableViewBitacora: TcxGridDBBandedTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.Summary.DefaultGroupSummaryItems = <>

@@ -33,7 +33,9 @@ uses
   fSeleccionEmpleados in 'fSeleccionEmpleados.pas' {frmSeleccionEmpleados},
   fDocumentacionEmpleados in 'fDocumentacionEmpleados.pas' {frmDocumentacionEmpleados},
   FMovtosAlmacen in 'FMovtosAlmacen.pas' {frmMovtosAlmacen},
-  fEmpleadosBaja in 'fEmpleadosBaja.pas' {frmEmpleadosBaja};
+  fEmpleadosBaja in 'fEmpleadosBaja.pas' {frmEmpleadosBaja},
+  FDocsCliente in 'FDocsCliente.pas' {frmDocsCliente},
+  FDocsEmpleado in 'FDocsEmpleado.pas' {frmDocsEmpleado};
 
 {$R *.res}
 

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters,
-  Vcl.Menus, Vcl.StdCtrls, cxButtons, frxClass, frxDBSet, db, dxSkinDevExpressStyle, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful;
+  Vcl.Menus, Vcl.StdCtrls, cxButtons, frxClass, frxDBSet, db, dxSkinDevExpressStyle, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, dxSkinOffice2013DarkGray;
 
 type
   TfrmReportes = class(TForm)

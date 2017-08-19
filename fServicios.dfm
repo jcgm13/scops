@@ -30,7 +30,7 @@ object frmServicios: TfrmServicios
     BevelOuter = bvNone
     TabOrder = 0
     object xservicio_id: TcxDBTextEdit
-      Left = 81
+      Left = 87
       Top = 13
       DataBinding.DataField = 'servicio_id'
       DataBinding.DataSource = dmMain.dsServiciosEdit
@@ -42,7 +42,7 @@ object frmServicios: TfrmServicios
       Width = 100
     end
     object xdescripcion: TcxDBTextEdit
-      Left = 81
+      Left = 87
       Top = 38
       DataBinding.DataField = 'descripcion'
       DataBinding.DataSource = dmMain.dsServiciosEdit
@@ -54,7 +54,7 @@ object frmServicios: TfrmServicios
       Width = 400
     end
     object xcliente_id: TcxDBLookupComboBox
-      Left = 81
+      Left = 87
       Top = 62
       DataBinding.DataField = 'cliente_id'
       DataBinding.DataSource = dmMain.dsServiciosEdit
@@ -82,7 +82,7 @@ object frmServicios: TfrmServicios
     end
     object cxButton3: TcxButton
       Left = 500
-      Top = 60
+      Top = 58
       Width = 113
       Height = 25
       Action = actCopiarInfoCliente
@@ -134,6 +134,31 @@ object frmServicios: TfrmServicios
       Caption = 'Cliente'
       Transparent = True
     end
+    object xtipo_nomina: TcxDBRadioGroup
+      Left = 690
+      Top = 38
+      Caption = 'Tipo de N'#243'mina'
+      DataBinding.DataField = 'tipo_nomina'
+      DataBinding.DataSource = dmMain.dsServiciosEdit
+      ParentFont = False
+      Properties.Columns = 2
+      Properties.Items = <
+        item
+          Caption = 'Semanal'
+          Value = 'S'
+        end
+        item
+          Caption = 'Quincenal'
+          Value = 'Q'
+        end>
+      Style.LookAndFeel.SkinName = 'Office2016Colorful'
+      Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+      TabOrder = 8
+      Transparent = True
+      Height = 45
+      Width = 173
+    end
   end
   object Panel1: TPanel
     Left = 0
@@ -182,273 +207,17 @@ object frmServicios: TfrmServicios
     Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
-    OnPageChanging = cxPageControl1PageChanging
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     ClientRectBottom = 507
     ClientRectLeft = 2
     ClientRectRight = 892
-    ClientRectTop = 26
+    ClientRectTop = 28
     object cxTabSheet1: TcxTabSheet
       Caption = 'Informaci'#243'n General'
       ImageIndex = 0
-      object vGridServicios: TcxDBVerticalGrid
-        Left = 0
-        Top = 0
-        Width = 890
-        Height = 445
-        BorderStyle = cxcbsNone
-        Align = alClient
-        Images = frmPrincipal.imgListAcciones
-        LookAndFeel.Kind = lfOffice11
-        LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
-        OptionsView.CellAutoHeight = True
-        OptionsView.CellEndEllipsis = True
-        OptionsView.ScrollBars = ssVertical
-        OptionsView.ShowEditButtons = ecsbFocused
-        OptionsView.RowHeaderWidth = 197
-        OptionsView.ShowEmptyRowImage = True
-        OptionsBehavior.GoToNextCellOnEnter = True
-        OptionsBehavior.HeaderSizing = False
-        OptionsData.CancelOnExit = False
-        OptionsData.Appending = False
-        OptionsData.Deleting = False
-        OptionsData.DeletingConfirmation = False
-        OptionsData.Inserting = False
-        Navigator.Buttons.CustomButtons = <>
-        Navigator.Buttons.PriorPage.Visible = False
-        Navigator.Buttons.NextPage.Visible = False
-        Navigator.Buttons.Cancel.Enabled = False
-        Navigator.Buttons.Cancel.Visible = False
-        Navigator.Buttons.Refresh.Visible = False
-        Navigator.Buttons.SaveBookmark.Visible = False
-        Navigator.Buttons.GotoBookmark.Visible = False
-        Navigator.Buttons.Filter.Visible = False
-        Navigator.InfoPanel.DisplayMask = '[RecordIndex] de [RecordCount] elementos'
-        Navigator.InfoPanel.Visible = True
-        TabOrder = 0
-        DataController.DataSource = dmMain.dsServiciosEdit
-        DataController.GridMode = True
-        Version = 1
-        object vGridServiciosCategoryRow1: TcxCategoryRow
-          Options.Focusing = False
-          Properties.Caption = 'INFORMACI'#211'N GENERAL'
-          ID = 0
-          ParentID = -1
-          Index = 0
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow4: TcxDBEditorRow
-          Properties.Caption = 'Calle'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomCalle'
-          ID = 1
-          ParentID = 0
-          Index = 0
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow2: TcxDBEditorRow
-          Properties.Caption = 'N'#250'm. Exterior'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomNoExt'
-          ID = 2
-          ParentID = 0
-          Index = 1
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow3: TcxDBEditorRow
-          Properties.Caption = 'N'#250'm. Interior'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomNoInt'
-          ID = 3
-          ParentID = 0
-          Index = 2
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow6: TcxDBEditorRow
-          Properties.Caption = 'Colonia'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomColonia'
-          ID = 4
-          ParentID = 0
-          Index = 3
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow7: TcxDBEditorRow
-          Properties.Caption = 'C'#243'digo Postal'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomCP'
-          ID = 5
-          ParentID = 0
-          Index = 4
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow8: TcxDBEditorRow
-          Properties.Caption = 'Ciudad'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomCiudad'
-          ID = 6
-          ParentID = 0
-          Index = 5
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow9: TcxDBEditorRow
-          Properties.Caption = 'Estado'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'DomEstado'
-          ID = 7
-          ParentID = 0
-          Index = 6
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow10: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono 1'
-          Properties.ImageIndex = 78
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'Telefono1'
-          ID = 8
-          ParentID = 0
-          Index = 7
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow11: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono 2'
-          Properties.ImageIndex = 78
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'Telefono2'
-          ID = 9
-          ParentID = 0
-          Index = 8
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow12: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono Emergencia 1'
-          Properties.ImageIndex = 78
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'TelefEmer1'
-          ID = 10
-          ParentID = 0
-          Index = 9
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow1: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono Emergencia 2'
-          Properties.ImageIndex = 78
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.DataBinding.FieldName = 'TelefEmer2'
-          ID = 11
-          ParentID = 0
-          Index = 10
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow33: TcxDBEditorRow
-          Properties.Caption = 'Fecha Inicio'
-          Properties.ImageIndex = 14
-          Properties.EditPropertiesClassName = 'TcxDateEditProperties'
-          Properties.EditProperties.SaveTime = False
-          Properties.EditProperties.ShowTime = False
-          Properties.DataBinding.FieldName = 'FechaIni'
-          ID = 12
-          ParentID = 0
-          Index = 11
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow34: TcxDBEditorRow
-          Properties.Caption = 'Fecha Final'
-          Properties.ImageIndex = 14
-          Properties.EditPropertiesClassName = 'TcxDateEditProperties'
-          Properties.EditProperties.SaveTime = False
-          Properties.EditProperties.ShowTime = False
-          Properties.DataBinding.FieldName = 'FechaFin'
-          ID = 13
-          ParentID = 0
-          Index = 12
-          Version = 1
-        end
-        object vGridServiciosCategoryRow3: TcxCategoryRow
-          Properties.Caption = 'REPRESENTANTE DE SEGURIDAD'
-          ID = 14
-          ParentID = -1
-          Index = 1
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow19: TcxDBEditorRow
-          Properties.Caption = 'Nombre'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'RepSeg'
-          ID = 15
-          ParentID = 14
-          Index = 0
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow20: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono Domicilio'
-          Properties.ImageIndex = 78
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'RepSegTD'
-          ID = 16
-          ParentID = 14
-          Index = 1
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow21: TcxDBEditorRow
-          Properties.Caption = 'Tel'#233'fono Celular'
-          Properties.EditPropertiesClassName = 'TcxTextEditProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'RepSegTC'
-          ID = 17
-          ParentID = 14
-          Index = 2
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow23: TcxDBEditorRow
-          Properties.Caption = 'Email'
-          Properties.EditPropertiesClassName = 'TcxHyperLinkEditProperties'
-          Properties.EditProperties.Prefix = ''
-          Properties.DataBinding.FieldName = 'RepSegEmail'
-          ID = 18
-          ParentID = 14
-          Index = 3
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow46: TcxDBEditorRow
-          Height = 50
-          Properties.EditPropertiesClassName = 'TcxMemoProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.DataBinding.FieldName = 'Comentarios'
-          ID = 19
-          ParentID = -1
-          Index = 2
-          Version = 1
-        end
-        object vGridServiciosDBEditorRow5: TcxDBEditorRow
-          Height = 200
-          Properties.Caption = 'Consignas Especiales'
-          Properties.EditPropertiesClassName = 'TcxMemoProperties'
-          Properties.EditProperties.CharCase = ecUpperCase
-          Properties.EditProperties.ScrollBars = ssVertical
-          Properties.DataBinding.FieldName = 'consignas_especiales'
-          ID = 20
-          ParentID = -1
-          Index = 3
-          Version = 1
-        end
-      end
       object Panel6: TPanel
         Left = 0
-        Top = 445
+        Top = 443
         Width = 890
         Height = 36
         Align = alBottom
@@ -457,35 +226,345 @@ object frmServicios: TfrmServicios
         Padding.Top = 4
         Padding.Right = 4
         Padding.Bottom = 4
+        TabOrder = 0
+      end
+      object cxDBTextEdit1: TcxDBTextEdit
+        Left = 103
+        Top = 24
+        DataBinding.DataField = 'DomCalle'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 1
-        object cxButton1: TcxButton
-          Left = 4
-          Top = 4
-          Width = 40
-          Height = 28
-          Align = alLeft
-          Action = actExpandir
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 0
-        end
-        object cxButton2: TcxButton
-          Left = 44
-          Top = 4
-          Width = 40
-          Height = 28
-          Align = alLeft
-          Action = actContraer
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 1
-        end
+        Width = 300
+      end
+      object cxLabel4: TcxLabel
+        Left = 25
+        Top = 25
+        Caption = 'Calle'
+        Transparent = True
+      end
+      object cxLabel5: TcxLabel
+        Left = 410
+        Top = 26
+        Caption = 'Num. Exterior'
+        Transparent = True
+      end
+      object cxDBTextEdit2: TcxDBTextEdit
+        Left = 488
+        Top = 24
+        DataBinding.DataField = 'DomNoExt'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 4
+        Width = 75
+      end
+      object cxDBTextEdit3: TcxDBTextEdit
+        Left = 713
+        Top = 24
+        DataBinding.DataField = 'DomNoInt'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 5
+        Width = 75
+      end
+      object cxLabel6: TcxLabel
+        Left = 639
+        Top = 26
+        Caption = 'N'#250'm. Interior'
+        Transparent = True
+      end
+      object cxLabel7: TcxLabel
+        Left = 26
+        Top = 51
+        Caption = 'Colonia'
+        Transparent = True
+      end
+      object cxDBTextEdit4: TcxDBTextEdit
+        Left = 104
+        Top = 50
+        DataBinding.DataField = 'DomColonia'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 8
+        Width = 300
+      end
+      object cxLabel8: TcxLabel
+        Left = 410
+        Top = 53
+        Caption = 'C'#243'd. Postal'
+        Transparent = True
+      end
+      object cxDBTextEdit5: TcxDBTextEdit
+        Left = 488
+        Top = 51
+        DataBinding.DataField = 'DomCP'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 10
+        Width = 75
+      end
+      object cxLabel9: TcxLabel
+        Left = 26
+        Top = 80
+        Caption = 'Ciudad'
+        Transparent = True
+      end
+      object cxDBTextEdit6: TcxDBTextEdit
+        Left = 104
+        Top = 78
+        DataBinding.DataField = 'DomCiudad'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 12
+        Width = 300
+      end
+      object cxDBTextEdit7: TcxDBTextEdit
+        Left = 488
+        Top = 78
+        DataBinding.DataField = 'DomEstado'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 13
+        Width = 300
+      end
+      object cxLabel10: TcxLabel
+        Left = 410
+        Top = 80
+        Caption = 'Estado'
+        Transparent = True
+      end
+      object cxLabel11: TcxLabel
+        Left = 26
+        Top = 107
+        Caption = 'Tel'#233'fono 1'
+        Transparent = True
+      end
+      object cxDBTextEdit8: TcxDBTextEdit
+        Left = 104
+        Top = 105
+        DataBinding.DataField = 'Telefono1'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 16
+        Width = 150
+      end
+      object cxLabel12: TcxLabel
+        Left = 264
+        Top = 107
+        Caption = 'Tel'#233'fono 2'
+        Transparent = True
+      end
+      object cxDBTextEdit9: TcxDBTextEdit
+        Left = 359
+        Top = 105
+        DataBinding.DataField = 'Telefono2'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 18
+        Width = 150
+      end
+      object cxLabel13: TcxLabel
+        Left = 25
+        Top = 134
+        Caption = 'Tel. Emergencia 1'
+        Transparent = True
+      end
+      object cxDBTextEdit10: TcxDBTextEdit
+        Left = 104
+        Top = 132
+        DataBinding.DataField = 'TelefEmer1'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 20
+        Width = 150
+      end
+      object cxLabel14: TcxLabel
+        Left = 264
+        Top = 134
+        Caption = 'Tel. Emergencia 2'
+        Transparent = True
+      end
+      object cxDBTextEdit11: TcxDBTextEdit
+        Left = 359
+        Top = 130
+        DataBinding.DataField = 'TelefEmer2'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 22
+        Width = 150
+      end
+      object cxLabel15: TcxLabel
+        Left = 26
+        Top = 159
+        Caption = 'Fecha Inicio'
+        Transparent = True
+      end
+      object cxDBDateEdit1: TcxDBDateEdit
+        Left = 104
+        Top = 157
+        DataBinding.DataField = 'FechaIni'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Properties.DateButtons = [btnToday]
+        Properties.DisplayFormat = 'dd/mm/yyyy'
+        Properties.EditFormat = 'dd/mm/yyyy'
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 24
+        Width = 100
+      end
+      object cxLabel16: TcxLabel
+        Left = 222
+        Top = 159
+        Caption = 'Fecha T'#233'rmino'
+        Transparent = True
+      end
+      object cxDBDateEdit2: TcxDBDateEdit
+        Left = 300
+        Top = 157
+        DataBinding.DataField = 'FechaFin'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Properties.DateButtons = [btnToday]
+        Properties.DisplayFormat = 'dd/mm/yyyy'
+        Properties.EditFormat = 'dd/mm/yyyy'
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 26
+        Width = 100
+      end
+      object cxLabel192: TcxLabel
+        Left = 26
+        Top = 196
+        AutoSize = False
+        Caption = 'REPRESENTANTE DE SEGURIDAD'
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clBlack
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        Style.IsFontAssigned = True
+        Properties.LabelStyle = cxlsRaised
+        Properties.LineOptions.Alignment = cxllaBottom
+        Properties.LineOptions.Visible = True
+        Transparent = True
+        Height = 18
+        Width = 452
+      end
+      object cxDBTextEdit12: TcxDBTextEdit
+        Left = 103
+        Top = 226
+        DataBinding.DataField = 'RepSeg'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 28
+        Width = 350
+      end
+      object cxLabel17: TcxLabel
+        Left = 25
+        Top = 227
+        Caption = 'Nombre'
+        Transparent = True
+      end
+      object cxLabel18: TcxLabel
+        Left = 26
+        Top = 253
+        Caption = 'Tel. Domicilio'
+        Transparent = True
+      end
+      object cxDBTextEdit13: TcxDBTextEdit
+        Left = 104
+        Top = 252
+        DataBinding.DataField = 'RepSegTD'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 31
+        Width = 150
+      end
+      object cxLabel19: TcxLabel
+        Left = 264
+        Top = 255
+        Caption = 'Tel. Celular'
+        Transparent = True
+      end
+      object cxDBTextEdit14: TcxDBTextEdit
+        Left = 328
+        Top = 253
+        DataBinding.DataField = 'RepSegTC'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 33
+        Width = 150
+      end
+      object cxLabel20: TcxLabel
+        Left = 25
+        Top = 281
+        Caption = 'Email'
+        Transparent = True
+      end
+      object cxDBTextEdit15: TcxDBTextEdit
+        Left = 103
+        Top = 279
+        DataBinding.DataField = 'RepSegEmail'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 35
+        Width = 250
+      end
+      object cxLabel21: TcxLabel
+        Left = 104
+        Top = 321
+        Caption = 'Comentarios'
+        Transparent = True
+      end
+      object cxDBMemo1: TcxDBMemo
+        Left = 104
+        Top = 338
+        DataBinding.DataField = 'Comentarios'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Properties.ScrollBars = ssVertical
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 37
+        Height = 136
+        Width = 375
+      end
+      object cxLabel22: TcxLabel
+        Left = 486
+        Top = 321
+        Caption = 'Consignas Especiales'
+        Transparent = True
+      end
+      object cxDBMemo2: TcxDBMemo
+        Left = 485
+        Top = 338
+        DataBinding.DataField = 'consignas_especiales'
+        DataBinding.DataSource = dmMain.dsServiciosEdit
+        ParentFont = False
+        Properties.ScrollBars = ssVertical
+        Style.StyleController = frmPrincipal.cxEditStyleController1
+        TabOrder = 39
+        Height = 136
+        Width = 375
       end
     end
     object cxTabSheet2: TcxTabSheet
@@ -495,11 +574,11 @@ object frmServicios: TfrmServicios
         Left = 0
         Top = 0
         Width = 890
-        Height = 445
+        Height = 443
         Align = alClient
         TabOrder = 0
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           OnCellDblClick = cxGrid1DBTableView1CellDblClick
@@ -542,7 +621,7 @@ object frmServicios: TfrmServicios
       end
       object Panel3: TPanel
         Left = 0
-        Top = 445
+        Top = 443
         Width = 890
         Height = 36
         Align = alBottom
@@ -605,7 +684,7 @@ object frmServicios: TfrmServicios
           Align = alLeft
           Action = actConsultarFuncion
           LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'DevExpressStyle'
+          LookAndFeel.SkinName = 'Office2016Colorful'
           ParentShowHint = False
           ShowHint = True
           SpeedButtonOptions.CanBeFocused = False
@@ -620,11 +699,11 @@ object frmServicios: TfrmServicios
         Left = 0
         Top = 0
         Width = 890
-        Height = 481
+        Height = 479
         Align = alClient
         TabOrder = 0
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dmMain.dsServiciosFuncionesEmpleados
@@ -715,735 +794,12 @@ object frmServicios: TfrmServicios
         end
       end
     end
-    object cxTabSheet4: TcxTabSheet
-      Caption = 'Preasignaci'#243'n Semanal'
-      ImageIndex = 3
-      TabVisible = False
-      object cxGrid3: TcxGrid
-        Left = 0
-        Top = 128
-        Width = 890
-        Height = 353
-        Align = alClient
-        TabOrder = 0
-        LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
-        object cxGrid3DBBandedTableView1: TcxGridDBBandedTableView
-          Navigator.Buttons.CustomButtons = <>
-          DataController.DataSource = dmMain.dsServiciosPreasignacionSemanal
-          DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
-          DataController.Summary.SummaryGroups = <>
-          Images = frmPrincipal.imgListAcciones
-          OptionsData.CancelOnExit = False
-          OptionsData.Deleting = False
-          OptionsData.DeletingConfirmation = False
-          OptionsData.Editing = False
-          OptionsData.Inserting = False
-          OptionsView.NoDataToDisplayInfoText = '<No hay Informaci'#243'n>'
-          OptionsView.ScrollBars = ssHorizontal
-          OptionsView.ColumnAutoWidth = True
-          OptionsView.GroupByBox = False
-          Styles.Header = frmPrincipal.cxStyle1
-          Styles.BandHeader = frmPrincipal.cxStyle1
-          Bands = <
-            item
-            end
-            item
-            end
-            item
-            end
-            item
-            end
-            item
-            end
-            item
-              Caption = 'Lunes'
-            end
-            item
-              Caption = 'Martes'
-            end
-            item
-              Caption = 'Mi'#233'rcoles'
-            end
-            item
-              Caption = 'Jueves'
-            end
-            item
-              Caption = 'Viernes'
-            end
-            item
-              Caption = 'S'#225'bado'
-            end
-            item
-              Caption = 'Domingo'
-            end>
-          object cxGrid3DBBandedTableView1Column1: TcxGridDBBandedColumn
-            Caption = 'Consec.'
-            DataBinding.FieldName = 'funcion_id'
-            HeaderAlignmentHorz = taRightJustify
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 0
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column2: TcxGridDBBandedColumn
-            Caption = 'Funci'#243'n (Puesto)'
-            DataBinding.FieldName = 'tipo'
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 100
-            Position.BandIndex = 1
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column3: TcxGridDBBandedColumn
-            Caption = 'Horario'
-            DataBinding.FieldName = 'horario'
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 100
-            Position.BandIndex = 2
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column4: TcxGridDBBandedColumn
-            Caption = 'Id'
-            DataBinding.FieldName = 'asignacion_id'
-            HeaderAlignmentHorz = taRightJustify
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 3
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column5: TcxGridDBBandedColumn
-            Caption = 'Empleado'
-            DataBinding.FieldName = 'nombre_empleado'
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 100
-            Position.BandIndex = 4
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column6: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'lund'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 5
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column7: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'lunt'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 5
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column8: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'lunn'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 5
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column9: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'mard'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 6
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column10: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'mart'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 6
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column11: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'marn'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 6
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column12: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'mied'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 7
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column13: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'miet'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 7
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column14: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'mien'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 7
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column15: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'jued'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 8
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column16: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'juet'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 8
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column17: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'juen'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 8
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column18: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'vied'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 9
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column19: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'viet'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 9
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column20: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'vien'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 9
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column21: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'sabd'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 10
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column22: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'sabt'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 10
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column23: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'sabn'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 10
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column24: TcxGridDBBandedColumn
-            Caption = 'D'
-            DataBinding.FieldName = 'domd'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 11
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column25: TcxGridDBBandedColumn
-            Caption = 'T'
-            DataBinding.FieldName = 'domt'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 11
-            Position.ColIndex = 1
-            Position.RowIndex = 0
-          end
-          object cxGrid3DBBandedTableView1Column26: TcxGridDBBandedColumn
-            Caption = 'N'
-            DataBinding.FieldName = 'domn'
-            PropertiesClassName = 'TcxImageComboBoxProperties'
-            Properties.Images = frmPrincipal.imgListAcciones
-            Properties.Items = <
-              item
-                ImageIndex = 6
-                Value = 1
-              end
-              item
-                Value = 0
-              end>
-            HeaderAlignmentHorz = taCenter
-            Options.Editing = False
-            Options.Filtering = False
-            Options.Sorting = False
-            Width = 20
-            Position.BandIndex = 11
-            Position.ColIndex = 2
-            Position.RowIndex = 0
-          end
-        end
-        object cxGridLevel2: TcxGridLevel
-          GridView = cxGrid3DBBandedTableView1
-        end
-      end
-      object Panel4: TPanel
-        Left = 0
-        Top = 0
-        Width = 890
-        Height = 128
-        Align = alTop
-        BevelOuter = bvNone
-        ParentColor = True
-        TabOrder = 1
-        DesignSize = (
-          890
-          128)
-        object xfecha: TcxDateNavigator
-          Left = 0
-          Top = 0
-          Width = 147
-          Height = 128
-          Align = alLeft
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          LookAndFeel.NativeStyle = False
-          SelectPeriod = False
-          StartOfWeek = swMonday
-          TabOrder = 0
-          OnClick = xfechaClick
-        end
-        object cxButton9: TcxButton
-          Left = 650
-          Top = 10
-          Width = 110
-          Height = 32
-          Action = actLimpiarSemana
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 1
-        end
-        object cxButton10: TcxButton
-          Left = 650
-          Top = 48
-          Width = 110
-          Height = 32
-          Action = actProgramarDiurno
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 2
-        end
-        object cxButton11: TcxButton
-          Left = 650
-          Top = 86
-          Width = 110
-          Height = 32
-          Action = actProgramar24T1
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 3
-        end
-        object cxButton12: TcxButton
-          Left = 766
-          Top = 86
-          Width = 110
-          Height = 32
-          Action = actProgramar24T2
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 4
-        end
-        object cxButton13: TcxButton
-          Left = 766
-          Top = 48
-          Width = 110
-          Height = 32
-          Action = actProgramarNocturno
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 5
-        end
-        object cxButton14: TcxButton
-          Left = 766
-          Top = 10
-          Width = 110
-          Height = 32
-          Action = actMarcarSemana
-          Anchors = [akTop, akRight]
-          LookAndFeel.NativeStyle = False
-          LookAndFeel.SkinName = 'Office2016Colorful'
-          ParentShowHint = False
-          ShowHint = True
-          SpeedButtonOptions.CanBeFocused = False
-          TabOrder = 6
-        end
-        object cxLabel1: TcxLabel
-          Left = 166
-          Top = 99
-          Caption = 'Semana Seleccionada:'
-          Transparent = True
-        end
-        object lblSemana: TcxLabel
-          Left = 283
-          Top = 99
-          ParentColor = False
-          ParentFont = False
-          Style.Color = 8454143
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clBlack
-          Style.Font.Height = -11
-          Style.Font.Name = 'Tahoma'
-          Style.Font.Style = [fsBold]
-          Style.StyleController = frmPrincipal.cxEditStyleController1
-          Style.IsFontAssigned = True
-          Properties.LabelEffect = cxleExtrude
-        end
-      end
-    end
     object cxTabSheet5: TcxTabSheet
       Caption = 'Asignaci'#243'n de Equipo'
       ImageIndex = 4
       object Panel5: TPanel
         Left = 0
-        Top = 445
+        Top = 443
         Width = 890
         Height = 36
         Align = alBottom
@@ -1510,11 +866,11 @@ object frmServicios: TfrmServicios
         Left = 0
         Top = 0
         Width = 890
-        Height = 445
+        Height = 443
         Align = alClient
         TabOrder = 1
         LookAndFeel.NativeStyle = False
-        LookAndFeel.SkinName = 'Office2016Colorful'
+        LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridDBTableView2: TcxGridDBTableView
           PopupMenu = dxRibbonPopupMenuEquipo
           Navigator.Buttons.CustomButtons = <>
@@ -1611,18 +967,6 @@ object frmServicios: TfrmServicios
       ImageIndex = 15
       OnExecute = actCerrarExecute
     end
-    object actExpandir: TAction
-      Hint = 'Expandir Todo'
-      ImageIndex = 110
-      ShortCut = 117
-      OnExecute = actExpandirExecute
-    end
-    object actContraer: TAction
-      Hint = 'Contraer Todo'
-      ImageIndex = 111
-      ShortCut = 118
-      OnExecute = actContraerExecute
-    end
     object actCopiarInfoCliente: TAction
       Caption = 'Copiar Info. Cliente'
       OnExecute = actCopiarInfoClienteExecute
@@ -1654,32 +998,26 @@ object frmServicios: TfrmServicios
     object actLimpiarSemana: TAction
       Category = 'Preasignacion'
       Caption = 'Limpiar Semana'
-      OnExecute = actLimpiarSemanaExecute
     end
     object actMarcarSemana: TAction
       Category = 'Preasignacion'
       Caption = 'Marcar Semana'
-      OnExecute = actMarcarSemanaExecute
     end
     object actProgramarDiurno: TAction
       Category = 'Preasignacion'
       Caption = 'Programar Diurno'
-      OnExecute = actProgramarDiurnoExecute
     end
     object actProgramarNocturno: TAction
       Category = 'Preasignacion'
       Caption = 'Programar Nocturno'
-      OnExecute = actProgramarNocturnoExecute
     end
     object actProgramar24T1: TAction
       Category = 'Preasignacion'
       Caption = 'Programar 24h T1'
-      OnExecute = actProgramar24T1Execute
     end
     object actProgramar24T2: TAction
       Category = 'Preasignacion'
       Caption = 'Programar 24h T2'
-      OnExecute = actProgramar24T2Execute
     end
     object actAgregarEquipo: TAction
       Category = 'Asignacion Equipo'
@@ -1721,7 +1059,7 @@ object frmServicios: TfrmServicios
       end>
     Ribbon = frmPrincipal.dxRibbon1
     UseOwnFont = False
-    Left = 432
-    Top = 208
+    Left = 493
+    Top = 87
   end
 end

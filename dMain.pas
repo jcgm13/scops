@@ -7,6 +7,11 @@ uses
   ZConnection, Datasnap.Provider, Datasnap.DBClient, DateUtils, Vcl.ActnList, Variants, dxmdaset, Math, StrUtils, dialogs;
 
 type
+    TInfoFuncion = record
+       horaEntrada : TTime;
+       horaSalida : TTime;
+    end;
+
     TInfoVehiculo = record
        Marca  : String;
        Modelo : String;
@@ -153,6 +158,7 @@ type
     qryMovtosAlmacenEdit: TZQuery;
     qryBitacoraEmpleado: TZQuery;
     dsBitacoraEmpleado: TDataSource;
+    memAsistencia: TdxMemData;
     procedure qryEmpleadosEditCalcFields(DataSet: TDataSet);
     procedure qryEmpleadosEditNewRecord(DataSet: TDataSet);
     procedure qryEmpleadosEditBeforePost(DataSet: TDataSet);
@@ -204,17 +210,6 @@ type
     function getNextServicioFuncionId(empresaId : Integer; id : string) : Integer;
     procedure AsignaEmpleadoFuncion(empresaId : Integer; servicioId :string; empleado, funcionId, asignacionId : integer);
     procedure QuitaAsignacionEmpleadoFuncion(empresaId : Integer; servicioId :string; empleado, funcionId, asignacionId : integer);
-    procedure CargaPreasignacionSemanal(empresaId : Integer; servicioId : string; anio, semana : Integer);
-    procedure BorrarServiciosPreasignacionSemanal(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer);
-    procedure Preasignacion_LimpiarSemana(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    procedure Preasignacion_MarcarSemana(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    procedure Preasignacion_ProgramarDiurno(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    procedure Preasignacion_ProgramarNocturno(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    procedure Preasignacion_Programar24hT1(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    procedure Preasignacion_Programar24hT2(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-    function ProgramarServicios(empresaId : integer; fecha : TDateTime) : Integer;
-    function CopiarPreProgramacion : Integer;
-    function ExistePreasignacionSemanal : Boolean;
     procedure EliminarFuncion(empresaId : Integer; servicioId : String; funcionId : Integer);
     procedure CargaEquipoServicio(empresaId : Integer; servicioId : String);
     procedure AsignaEquipoServicio(empresaId : Integer; servicioId : String; EquipoId : Integer);
@@ -244,11 +239,12 @@ type
     function getNextMovtoAlmacenId(empresaId : Integer) : Integer;
 
     // ASISTENCIA
-    procedure CargaAsistencia(empresaId : Integer; anio, mes, dia: Integer);
+    procedure CargaAsistencia(empresaId : Integer; anio, mes, dia: Integer; tipo: string);
     procedure ConsultaAsistencia(empresaId : Integer; fechaIni, fechaFin : TDateTime);
     procedure CargaAsistenciaDetalle(empresaId, anio, mes, dia : Integer);
     procedure RegistraAsistencia(empresa_id, anio, mes, dia: Integer; hora_entrada, hora_salida: TDateTime; horas_extra, tipo_registro : Integer;
                                  empleado_id : Integer; servicio_id : string; funcion_id, asignacion_id : Integer; observaciones: String; fecha : TDateTime);
+    function obtenerInfoFuncion(servicioId : string; empresaId, funcionId, diaSemana : Integer) : TInfoFuncion;
 
     // USUARIOS
     procedure CargaUsuarios;
@@ -328,23 +324,6 @@ begin
 
      for i := 0 to actlst.ActionCount-1 do
          (actlst.Actions[i] as TAction).Enabled := qryAux.Locate('nombre',(actlst.Actions[i] as TAction).Name,[]);
-end;
-
-procedure TdmMain.CargaPreasignacionSemanal(empresaId: Integer; servicioId: string; anio, semana: Integer);
-begin
-     try
-        cdsServiciosPreasignacionSemanal.DisableControls;
-        cdsServiciosPreasignacionSemanal.Active := False;
-        qryServiciosPreasignacionSemanal.Close;
-        qryServiciosPreasignacionSemanal.ParamByName('empresa_id').AsInteger := empresaId;
-        qryServiciosPreasignacionSemanal.ParamByName('servicio_id').AsString := servicioId;
-        qryServiciosPreasignacionSemanal.ParamByName('anio').AsInteger       := anio;
-        qryServiciosPreasignacionSemanal.ParamByName('semana').AsInteger     := semana;
-//        qryServiciosPreasignacionSemanal.Open;
-        cdsServiciosPreasignacionSemanal.Active := True;
-     finally
-            cdsServiciosPreasignacionSemanal.EnableControls;
-     end;
 end;
 
 procedure TdmMain.RegistraAsistencia(empresa_id, anio, mes, dia: Integer; hora_entrada, hora_salida: TDateTime; horas_extra, tipo_registro : Integer;
@@ -530,65 +509,41 @@ begin
      end;
 end;
 
-procedure TdmMain.BorrarServiciosPreasignacionSemanal(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer);
-var
-   xSQL : string;
-begin
-     try
-        xSQL := 'DELETE FROM servicios_preasignacion_semanal ' +
-                ' WHERE servicio_id = :servicio_id ' +
-                ' AND empresa_id = :empresa_id ' +
-                ' AND funcion_id = :funcion_id ' +
-                ' AND asignacion_id = :asignacion_id ' +
-                ' AND anio = :anio ' +
-                ' AND semana = :semana';
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString    := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger    := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger    := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger          := anio;
-        qryAux.ParamByName('semana').AsInteger        := semana;
-        qryAux.ExecSQL;
-     finally
-            qryAux.Close;
-     end;
-end;
-
-procedure TdmMain.CargaAsistencia(empresaId: Integer; anio, mes, dia: Integer);
+procedure TdmMain.CargaAsistencia(empresaId: Integer; anio, mes, dia: Integer; tipo: string);
 var
    xSQL : string;
 begin
      try
         cdsAsistencia.DisableControls;
+        dspAsistencia.DataSet := qryAsistencia;
         cdsAsistencia.Active := False;
 
-        xSQL := 'SELECT ' +
-                '   serv.cliente_id, ' +
-                '   serv.cliente_descripcion, ' +
-                '   sfe.servicio_id, ' +
-                '   serv.descripcion AS descripcion_servicio, ' +
-                '   sfe.asignacion_id, ' +
-                '   sfe.funcion_id, ' +
-                '   sfe.asignacion_id, ' +
-                '   tipos_funciones.descripcion AS descripcion_funcion, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN sfe.empleado_id ELSE asist.empleado_id END empleado_id, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN COALESCE( TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ), '' *** N O  A S I G N A D O ***'' ) ELSE asist.nombre_empleado END AS nombre_empleado, ' +
-                '   tipo_registro, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_entrada END AS hora_entrada, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_salida END AS hora_salida, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horas_extra END AS horas_extra, ' +
-                '   CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.observaciones END AS observaciones, ' +
-                '   :anio AS anio, ' +
-                '   :mes AS mes, ' +
-                '   :dia AS dia, ' +
-                '   asist.fecha_asistencia ' +
+        xSQL := 'SELECT * FROM ' +
+                '( ' +
+                ' SELECT serv.empresa_id, ' +
+                '       serv.cliente_id, ' +
+                '       serv.cliente_descripcion, ' +
+                '       sfe.servicio_id, ' +
+                '       serv.descripcion AS descripcion_servicio, ' +
+                '       sfe.asignacion_id, ' +
+                '       sfe.funcion_id, ' +
+                '       sfe.asignacion_id, ' +
+                '       tipos_funciones.descripcion AS descripcion_funcion, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN sfe.empleado_id ELSE asist.empleado_id END empleado_id, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN COALESCE( TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ), '' *** N O  A S I G N A D O ***'' ) ELSE asist.nombre_empleado END AS nombre_empleado, ' +
+                '       tipo_registro, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_entrada END AS hora_entrada, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.hora_salida END AS hora_salida, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.horas_extra END AS horas_extra, ' +
+                '       CASE WHEN asist.empleado_id IS NULL THEN NULL ELSE asist.observaciones END AS observaciones, ' +
+                '       :anio AS anio, ' +
+                '       :mes AS mes, ' +
+                '       :dia AS dia, ' +
+                '       asist.fecha_asistencia, ' +
+                '       tipo_nomina ' +
                 ' FROM servicios_funciones_empleados sfe ' +
                 ' LEFT JOIN ( ' +
-                '            SELECT ' +
-                '                   servicios.*, ' +
+                '            SELECT servicios.*, ' +
                 '                   clientes.descripcion AS cliente_descripcion ' +
                 '            FROM servicios ' +
                 '            LEFT JOIN clientes ON clientes.empresa_id = servicios.empresa_id AND clientes.cliente_id = servicios.cliente_id ' +
@@ -598,8 +553,7 @@ begin
                 ' LEFT JOIN tipos_funciones ON tipos_funciones.id_tipo_funcion = sfe.funcion_id ' +
                 ' LEFT JOIN empleados ON empleados.empresa_id = sfe.empresa_id AND empleados.empleado_id = sfe.empleado_id ' +
                 ' LEFT JOIN ( ' +
-                '            SELECT ' +
-                '                   asistencia.*, ' +
+                '            SELECT asistencia.*, ' +
                 '                   TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ) AS nombre_empleado ' +
                 '            FROM asistencia ' +
                 '            LEFT JOIN empleados ON empleados.empleado_id = asistencia.empleado_id ' +
@@ -613,14 +567,17 @@ begin
                 '                      AND asist.asignacion_id = sfe.asignacion_id ' +
                 '                      AND asist.empleado_id = sfe.empleado_id ' +
                 ' WHERE serv.activo = 1 ' +
-                ' ORDER BY serv.cliente_id, serv.servicio_id, nombre_empleado';
+                ' ORDER BY serv.cliente_id, serv.servicio_id, nombre_empleado ' +
+                ') asist ' +
+                ' WHERE (tipo_nomina = :tipo) OR (:tipo = ''T'')';
         qryAsistencia.Close;
         qryAsistencia.SQL.Clear;
         qryAsistencia.SQL.Add(xSQL);
         qryAsistencia.ParamByName('empresa').AsInteger := empresaId;
-        qryAsistencia.ParamByName('anio').AsInteger := anio;
-        qryAsistencia.ParamByName('mes').AsInteger := mes;
-        qryAsistencia.ParamByName('dia').AsInteger := dia;
+        qryAsistencia.ParamByName('anio').AsInteger    := anio;
+        qryAsistencia.ParamByName('mes').AsInteger     := mes;
+        qryAsistencia.ParamByName('dia').AsInteger     := dia;
+        qryAsistencia.ParamByName('tipo').Value        := tipo;
         cdsAsistencia.Active := True;
      finally
             cdsAsistencia.EnableControls;
@@ -1345,32 +1302,82 @@ end;
 procedure TdmMain.ConsultaAsistencia(empresaId: Integer; fechaIni, fechaFin: TDateTime);
 var
    xSQL : string;
+   i : Integer;
 begin
+     xSQL := '';
+     for i := 0 to DaysBetween(fechaIni,fechaFin) do
+         if Trim(xSQL) <> '' then
+            xSQL := xSQL + ',0 AS "' + StringReplace(FormatDateTime('ddd dd',IncDay(fechaIni,i)),'. ','',[rfReplaceAll]) + '"'
+         else
+             xSQL := '0 AS "' + StringReplace(FormatDateTime('ddd dd',IncDay(fechaIni,i)),'. ','',[rfReplaceAll]) + '"';
+
      try
+        dspAsistencia.DataSet := memAsistencia;
+//        cdsAsistencia.Close;
         cdsAsistencia.DisableControls;
-        cdsAsistencia.Active := False;
-        xSQL := 'SELECT s.servicio_id, ' +
-                '       s.descripcion as servicio, ' +
-                '       e.empleado_id, ' +
-                '       CONCAT(TRIM(e.apellido_paterno),'' '',TRIM(e.apellido_materno),'' '',TRIM(e.nombres)) AS nombre_empleado, ' +
-                '       FORMAT(''%s-%s-%s'', anio, mes, dia) fecha, ' +
-                '       a.horaentprog, a.horasalprog, a.horaentrada, a.horasalida, ' +
-                '       COALESCE(horas_extra,0) horas_extra, ' +
-                '       a.observaciones ' +
-                ' FROM asistencia a ' +
-                ' LEFT JOIN empleados e ON e.empleado_id = a.empleado_id and e.empresa_id = a.empresa_id ' +
-                ' LEFT JOIN servicios s ON s.servicio_id = a.servicio_id and s.empresa_id = a.empresa_id ' +
-                ' WHERE a.empresa_id = :empresa ' +
-                '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') >= :fini ' +
-                '       AND to_date(to_char(anio, ''0000'') || to_char(mes, ''00'') || to_char(dia, ''00''), ''yyyymmdd'') <= :ffin ' +
-                '       AND horaentrada IS NOT NULL ' +
-                ' ORDER BY anio, mes, dia';
+        xSQL := 'SELECT DISTINCT cast(TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ) as varchar(100)) AS nombre_empleado, ' +
+                '       servicios.descripcion AS descripcion_servicio, ' + xSQL +
+                ' FROM asistencia ' +
+                ' LEFT JOIN empleados ON asistencia.empresa_id = empleados.empresa_id AND empleados.empleado_id = asistencia.empleado_id ' +
+                ' LEFT JOIN servicios ON asistencia.empresa_id = servicios.empresa_id AND servicios.servicio_id = asistencia.servicio_id ' +
+                ' WHERE asistencia.empresa_id = :empresa ' +
+                '       AND asistencia.fecha_asistencia BETWEEN :fini AND :ffin ' +
+                ' ORDER BY descripcion_servicio, nombre_empleado';
         qryAsistencia.Close;
         qryAsistencia.SQL.Clear;
         qryAsistencia.SQL.Add(xSQL);
         qryAsistencia.ParamByName('empresa').AsInteger := empresaId;
         qryAsistencia.ParamByName('fini').AsDate := fechaIni;
         qryAsistencia.ParamByName('ffin').AsDate := fechaFin;
+        qryAsistencia.Open;
+
+        memAsistencia.Close;
+        memAsistencia.Open;
+        memAsistencia.CreateFieldsFromDataSet(qryAsistencia);
+        memAsistencia.LoadFromDataSet(qryAsistencia);
+
+        xSQL := 'SELECT cast(TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ) as varchar(100)) AS nombre_empleado, ' +
+                '       servicios.descripcion AS descripcion_servicio, ' +
+                '       CASE when to_char(fecha_asistencia,''D'') = ''1'' THEN ''dom''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''2'' THEN ''lun''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''3'' THEN ''mar''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''4'' THEN ''mié''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''5'' THEN ''jue''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''6'' THEN ''vie''  || to_char(fecha_asistencia,''dd'') ' +
+                '            when to_char(fecha_asistencia,''D'') = ''7'' THEN ''sáb''  || to_char(fecha_asistencia,''dd'') ' +
+                '       END AS dia, ' +
+                '    dia, ' +
+                '    CASE WHEN tipo_registro = 0 THEN '''' ' +
+                '      WHEN tipo_registro = 1 THEN ''Descanso'' ' +
+                '      WHEN tipo_registro = 2 THEN ''Falta'' ' +
+                '    END AS tipo, ' +
+                '    DATE_PART(''hour'', hora_salida - hora_entrada ) AS horas, ' +
+                '    asistencia.observaciones ' +
+                ' FROM asistencia ' +
+                ' LEFT JOIN empleados ON asistencia.empresa_id = empleados.empresa_id AND empleados.empleado_id = asistencia.empleado_id ' +
+                ' LEFT JOIN servicios ON asistencia.empresa_id = servicios.empresa_id AND servicios.servicio_id = asistencia.servicio_id ' +
+                ' WHERE asistencia.empresa_id = :empresa ' +
+                '       AND asistencia.fecha_asistencia BETWEEN :fini AND :ffin ' +
+                ' ORDER BY fecha_asistencia, asistencia.servicio_id';
+        qryAsistencia.Close;
+        qryAsistencia.SQL.Clear;
+        qryAsistencia.SQL.Add(xSQL);
+        qryAsistencia.ParamByName('empresa').AsInteger := empresaId;
+        qryAsistencia.ParamByName('fini').AsDate := fechaIni;
+        qryAsistencia.ParamByName('ffin').AsDate := fechaFin;
+        qryAsistencia.Open;
+        qryAsistencia.First;
+        while not qryAsistencia.Eof do
+              begin
+                   if memAsistencia.Locate('nombre_empleado;descripcion_servicio',VarArrayOf([qryAsistencia.FieldByName('nombre_empleado').AsString,qryAsistencia.FieldByName('descripcion_servicio').AsString]),[]) then
+                      begin
+                           memAsistencia.Edit;
+                           memAsistencia.FieldByName(qryAsistencia.FieldByName('dia').AsString).AsInteger := qryAsistencia.FieldByName('horas').AsInteger;
+                           memAsistencia.Post;
+                      end;
+                   qryAsistencia.Next;
+              end;
+        cdsAsistencia.Close;
         cdsAsistencia.Active := True;
      finally
             cdsAsistencia.EnableControls;
@@ -1401,119 +1408,6 @@ begin
      except
            on E:Exception do
               raise Exception.Create('Ha ocurrido un error en TdmMain.CoparInfoCliente. ' + E.Message);
-     end;
-end;
-
-function TdmMain.CopiarPreProgramacion : Integer;
-var
-   xSQL : string;
-   vAnioActual, vSemanaActual, vAnio, vSemana : Integer;
-begin
-     Result := 0;
-     vAnioActual := YearOf(Now());
-     vSemanaActual := WeekOfTheYear(Now());
-     try
-        if not ExistePreasignacionSemanal then
-           begin
-                // Se obtiene la fecha de la última presignacion semanal
-                xSQL := 'SELECT anio, semana, fecha_inicial ' +
-                        ' FROM servicios_preasignacion_semanal ' +
-                        ' WHERE empresa_id = :empresaId ' +
-                        ' GROUP BY anio, semana, fecha_inicial ' +
-                        ' ORDER BY fecha_inicial DESC LIMIT 1';
-                qryAux2.Close;
-                qryAux2.SQL.Clear;
-                qryAux2.SQL.Add(xSQL);
-                qryAux2.ParamByName('empresaId').AsInteger := _Globales.Empresa;
-                qryAux2.Open;
-                if qryAux2.IsEmpty then
-                   Result := 0     // <-- No hay una presignacion semanal previa
-                else
-                    begin
-                         vAnio   := qryAux2.FieldByName('anio').AsInteger;
-                         vSemana := qryAux2.FieldByName('semana').AsInteger;
-                         // Se copia la preasignación semanal de la última semana a la actual
-                        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                                '            servicio_id,                      ' +
-                                '            empresa_id,                       ' +
-                                '            funcion_id,                       ' +
-                                '            asignacion_id,                    ' +
-                                '            anio,                             ' +
-                                '            semana,                           ' +
-                                '            fecha_inicial,                    ' +
-                                '            lund,                             ' +
-                                '            lunt,                             ' +
-                                '            lunn,                             ' +
-                                '            mard,                             ' +
-                                '            mart,                             ' +
-                                '            marn,                             ' +
-                                '            mied,                             ' +
-                                '            miet,                             ' +
-                                '            mien,                             ' +
-                                '            jued,                             ' +
-                                '            juet,                             ' +
-                                '            juen,                             ' +
-                                '            vied,                             ' +
-                                '            viet,                             ' +
-                                '            vien,                             ' +
-                                '            sabd,                             ' +
-                                '            sabt,                             ' +
-                                '            sabn,                             ' +
-                                '            domd,                             ' +
-                                '            domt,                             ' +
-                                '            domn                              ' +
-                                '  )                                           ' +
-                                '  SELECT                                      ' +
-                                '        servicio_id,                          ' +
-                                '        empresa_id,                           ' +
-                                '        funcion_id,                           ' +
-                                '        asignacion_id,                        ' +
-                                '        :anio_actual,                         ' +
-                                '        :semana_actual,                       ' +
-                                '        :fecha_inicial,                       ' +
-                                '        lund,                                 ' +
-                                '        lunt,                                 ' +
-                                '        lunn,                                 ' +
-                                '        mard,                                 ' +
-                                '        mart,                                 ' +
-                                '        marn,                                 ' +
-                                '        mied,                                 ' +
-                                '        miet,                                 ' +
-                                '        mien,                                 ' +
-                                '        jued,                                 ' +
-                                '        juet,                                 ' +
-                                '        juen,                                 ' +
-                                '        vied,                                 ' +
-                                '        viet,                                 ' +
-                                '        vien,                                 ' +
-                                '        sabd,                                 ' +
-                                '        sabt,                                 ' +
-                                '        sabn,                                 ' +
-                                '        domd,                                 ' +
-                                '        domt,                                 ' +
-                                '        domn                                  ' +
-                                ' FROM servicios_preasignacion_semanal         ' +
-                                ' WHERE empresa_id = :empresaId                ' +
-                                '       AND anio = :anio                       ' +
-                                '       AND semana = :semana';
-                        qryAux2.Close;
-                        qryAux2.SQL.Clear;
-                        qryAux2.SQL.Add(xSQL);
-                        qryAux2.ParamByName('empresaId').AsInteger := _Globales.Empresa;
-                        qryAux2.ParamByName('anio').AsInteger := vAnio;
-                        qryAux2.ParamByName('semana').AsInteger := vSemana;
-                        qryAux2.ParamByName('anio_actual').AsInteger := vAnioActual;
-                        qryAux2.ParamByName('semana_actual').AsInteger := vSemanaActual;
-                        qryAux2.ParamByName('fecha_inicial').AsDateTime := StartOfTheWeek(Now());
-                        qryAux2.ExecSQL;
-                        Result := 2;    // Se ha copiado correctamente la preasignacion semanal
-                    end;
-           end
-        else
-            Result := 1;   // <-- Ya existe la preasignacion Semanal para esta semana
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.CopiarPreProgramacion. ' + E.Message);
      end;
 end;
 
@@ -1650,31 +1544,6 @@ begin
      except
            on E:Exception do
               raise Exception.Create('Ha ocurrido un error en TdmMain.ExisteEmpleado. ' + E.Message);
-     end;
-end;
-
-function TdmMain.ExistePreasignacionSemanal: Boolean;
-var
-   xSQL : String;
-begin
-     Result := False;
-     try
-        xSQL := 'SELECT COUNT(*) ' +
-                ' FROM servicios_preasignacion_semanal ' +
-                ' WHERE empresa_id = :empresaId        ' +
-                '       AND anio = :anio        ' +
-                '       AND semana = :semana';
-        qryAux2.Close;
-        qryAux2.SQL.Clear;
-        qryAux2.SQL.Add(xSQL);
-        qryAux2.ParamByName('empresaId').AsInteger := _Globales.Empresa;
-        qryAux2.ParamByName('anio').AsInteger := YearOf(Now());
-        qryAux2.ParamByName('semana').AsInteger := WeekOfTheYear(Now());
-        qryAux2.Open;
-        Result := qryAux2.Fields[0].AsInteger > 0;
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.ExistePreasignacionSemanal. ' + E.Message);
      end;
 end;
 
@@ -2111,1164 +1980,85 @@ begin
      end;
 end;
 
-procedure TdmMain.Preasignacion_LimpiarSemana(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
+function TdmMain.obtenerInfoFuncion(servicioId: string; empresaId, funcionId, diaSemana: Integer): TInfoFuncion;
 var
    xSQL : string;
 begin
+     Result.horaEntrada := StrToTime('00:00:00');
+     Result.horaSalida  := StrToTime('00:00:00');
      try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
+        xSQL := 'SELECT * ' +
+                ' FROM servicios_funciones ' +
+                ' WHERE servicio_id = :servicio ' +
+                '       AND empresa_id = :empresa ' +
+                '       AND funcion_id = :funcion';
         qryAux.Close;
         qryAux.SQL.Clear;
         qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 0;
-        qryAux.ParamByName('lunt').AsInteger       := 0;
-        qryAux.ParamByName('lunn').AsInteger       := 0;
-
-        qryAux.ParamByName('mard').AsInteger       := 0;
-        qryAux.ParamByName('mart').AsInteger       := 0;
-        qryAux.ParamByName('marn').AsInteger       := 0;
-
-        qryAux.ParamByName('mied').AsInteger       := 0;
-        qryAux.ParamByName('miet').AsInteger       := 0;
-        qryAux.ParamByName('mien').AsInteger       := 0;
-
-        qryAux.ParamByName('jued').AsInteger       := 0;
-        qryAux.ParamByName('juet').AsInteger       := 0;
-        qryAux.ParamByName('juen').AsInteger       := 0;
-
-        qryAux.ParamByName('vied').AsInteger       := 0;
-        qryAux.ParamByName('viet').AsInteger       := 0;
-        qryAux.ParamByName('vien').AsInteger       := 0;
-
-        qryAux.ParamByName('sabd').AsInteger       := 0;
-        qryAux.ParamByName('sabt').AsInteger       := 0;
-        qryAux.ParamByName('sabn').AsInteger       := 0;
-
-        qryAux.ParamByName('domd').AsInteger       := 0;
-        qryAux.ParamByName('domt').AsInteger       := 0;
-        qryAux.ParamByName('domn').AsInteger       := 0;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_LimpiarSemana. ' + E.Message);
-     end;
-end;
-
-procedure TdmMain.Preasignacion_MarcarSemana(servicio_id : string; empresa_id, funcion_id, asignacion, anio, semana : Integer; fecha_inicial : TDateTime);
-var
-   xSQL : string;
-begin
-     try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 1;
-        qryAux.ParamByName('lunt').AsInteger       := 1;
-        qryAux.ParamByName('lunn').AsInteger       := 1;
-
-        qryAux.ParamByName('mard').AsInteger       := 1;
-        qryAux.ParamByName('mart').AsInteger       := 1;
-        qryAux.ParamByName('marn').AsInteger       := 1;
-
-        qryAux.ParamByName('mied').AsInteger       := 1;
-        qryAux.ParamByName('miet').AsInteger       := 1;
-        qryAux.ParamByName('mien').AsInteger       := 1;
-
-        qryAux.ParamByName('jued').AsInteger       := 1;
-        qryAux.ParamByName('juet').AsInteger       := 1;
-        qryAux.ParamByName('juen').AsInteger       := 1;
-
-        qryAux.ParamByName('vied').AsInteger       := 1;
-        qryAux.ParamByName('viet').AsInteger       := 1;
-        qryAux.ParamByName('vien').AsInteger       := 1;
-
-        qryAux.ParamByName('sabd').AsInteger       := 1;
-        qryAux.ParamByName('sabt').AsInteger       := 1;
-        qryAux.ParamByName('sabn').AsInteger       := 1;
-
-        qryAux.ParamByName('domd').AsInteger       := 1;
-        qryAux.ParamByName('domt').AsInteger       := 1;
-        qryAux.ParamByName('domn').AsInteger       := 1;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_MarcarSemana. ' + E.Message);
-     end;
-end;
-
-procedure TdmMain.Preasignacion_Programar24hT1(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer; fecha_inicial: TDateTime);
-var
-   xSQL : string;
-begin
-     try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 1;
-        qryAux.ParamByName('lunt').AsInteger       := 1;
-        qryAux.ParamByName('lunn').AsInteger       := 1;
-
-        qryAux.ParamByName('mard').AsInteger       := 0;
-        qryAux.ParamByName('mart').AsInteger       := 0;
-        qryAux.ParamByName('marn').AsInteger       := 0;
-
-        qryAux.ParamByName('mied').AsInteger       := 1;
-        qryAux.ParamByName('miet').AsInteger       := 1;
-        qryAux.ParamByName('mien').AsInteger       := 1;
-
-        qryAux.ParamByName('jued').AsInteger       := 0;
-        qryAux.ParamByName('juet').AsInteger       := 0;
-        qryAux.ParamByName('juen').AsInteger       := 0;
-
-        qryAux.ParamByName('vied').AsInteger       := 1;
-        qryAux.ParamByName('viet').AsInteger       := 1;
-        qryAux.ParamByName('vien').AsInteger       := 1;
-
-        qryAux.ParamByName('sabd').AsInteger       := 0;
-        qryAux.ParamByName('sabt').AsInteger       := 0;
-        qryAux.ParamByName('sabn').AsInteger       := 0;
-
-        qryAux.ParamByName('domd').AsInteger       := 1;
-        qryAux.ParamByName('domt').AsInteger       := 1;
-        qryAux.ParamByName('domn').AsInteger       := 1;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_Programar24hT1. ' + E.Message);
-     end;
-end;
-
-procedure TdmMain.Preasignacion_Programar24hT2(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer; fecha_inicial: TDateTime);
-var
-   xSQL : string;
-begin
-     try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 0;
-        qryAux.ParamByName('lunt').AsInteger       := 0;
-        qryAux.ParamByName('lunn').AsInteger       := 0;
-
-        qryAux.ParamByName('mard').AsInteger       := 1;
-        qryAux.ParamByName('mart').AsInteger       := 1;
-        qryAux.ParamByName('marn').AsInteger       := 1;
-
-        qryAux.ParamByName('mied').AsInteger       := 0;
-        qryAux.ParamByName('miet').AsInteger       := 0;
-        qryAux.ParamByName('mien').AsInteger       := 0;
-
-        qryAux.ParamByName('jued').AsInteger       := 1;
-        qryAux.ParamByName('juet').AsInteger       := 1;
-        qryAux.ParamByName('juen').AsInteger       := 1;
-
-        qryAux.ParamByName('vied').AsInteger       := 0;
-        qryAux.ParamByName('viet').AsInteger       := 0;
-        qryAux.ParamByName('vien').AsInteger       := 0;
-
-        qryAux.ParamByName('sabd').AsInteger       := 1;
-        qryAux.ParamByName('sabt').AsInteger       := 1;
-        qryAux.ParamByName('sabn').AsInteger       := 1;
-
-        qryAux.ParamByName('domd').AsInteger       := 0;
-        qryAux.ParamByName('domt').AsInteger       := 0;
-        qryAux.ParamByName('domn').AsInteger       := 0;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_Programar24hT2. ' + E.Message);
-     end;
-end;
-
-procedure TdmMain.Preasignacion_ProgramarDiurno(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer; fecha_inicial: TDateTime);
-var
-   xSQL : string;
-begin
-     try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 1;
-        qryAux.ParamByName('lunt').AsInteger       := 0;
-        qryAux.ParamByName('lunn').AsInteger       := 0;
-
-        qryAux.ParamByName('mard').AsInteger       := 1;
-        qryAux.ParamByName('mart').AsInteger       := 0;
-        qryAux.ParamByName('marn').AsInteger       := 0;
-
-        qryAux.ParamByName('mied').AsInteger       := 1;
-        qryAux.ParamByName('miet').AsInteger       := 0;
-        qryAux.ParamByName('mien').AsInteger       := 0;
-
-        qryAux.ParamByName('jued').AsInteger       := 1;
-        qryAux.ParamByName('juet').AsInteger       := 0;
-        qryAux.ParamByName('juen').AsInteger       := 0;
-
-        qryAux.ParamByName('vied').AsInteger       := 1;
-        qryAux.ParamByName('viet').AsInteger       := 0;
-        qryAux.ParamByName('vien').AsInteger       := 0;
-
-        qryAux.ParamByName('sabd').AsInteger       := 1;
-        qryAux.ParamByName('sabt').AsInteger       := 0;
-        qryAux.ParamByName('sabn').AsInteger       := 0;
-
-        qryAux.ParamByName('domd').AsInteger       := 1;
-        qryAux.ParamByName('domt').AsInteger       := 0;
-        qryAux.ParamByName('domn').AsInteger       := 0;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_ProgramarDiurno. ' + E.Message);
-     end;
-end;
-
-procedure TdmMain.Preasignacion_ProgramarNocturno(servicio_id: string; empresa_id, funcion_id, asignacion, anio, semana: Integer; fecha_inicial: TDateTime);
-var
-   xSQL : string;
-begin
-     try
-        BorrarServiciosPreasignacionSemanal(
-                                            servicio_id,
-                                            empresa_id,
-                                            funcion_id,
-                                            asignacion,
-                                            anio,
-                                            semana
-                                            );
-
-        xSQL := 'INSERT INTO servicios_preasignacion_semanal ( ' +
-                '  servicio_id, ' +
-                '  empresa_id, ' +
-                '  funcion_id, ' +
-                '  asignacion_id,  ' +
-                '  anio, ' +
-                '  semana, ' +
-                '  fecha_inicial, ' +
-                '  lund, ' +
-                '  lunt, ' +
-                '  lunn, ' +
-                '  mard, ' +
-                '  mart, ' +
-                '  marn, ' +
-                '  mied, ' +
-                '  miet, ' +
-                '  mien, ' +
-                '  jued, ' +
-                '  juet, ' +
-                '  juen, ' +
-                '  vied, ' +
-                '  viet, ' +
-                '  vien, ' +
-                '  sabd, ' +
-                '  sabt, ' +
-                '  sabn, ' +
-                '  domd, ' +
-                '  domt, ' +
-                '  domn ' +
-                ') ' +
-                'VALUES ' +
-                '  ( ' +
-                '    :servicio_id, ' +
-                '    :empresa_id, ' +
-                '    :funcion_id, ' +
-                '    :asignacion_id, ' +
-                '    :anio, ' +
-                '    :semana, ' +
-                '    :fecha_inicial, ' +
-                '    :lund, ' +
-                '    :lunt, ' +
-                '    :lunn, ' +
-                '    :mard, ' +
-                '    :mart, ' +
-                '    :marn, ' +
-                '    :mied, ' +
-                '    :miet, ' +
-                '    :mien, ' +
-                '    :jued, ' +
-                '    :juet, ' +
-                '    :juen, ' +
-                '    :vied, ' +
-                '    :viet, ' +
-                '    :vien, ' +
-                '    :sabd, ' +
-                '    :sabt, ' +
-                '    :sabn, ' +
-                '    :domd, ' +
-                '    :domt, ' +
-                '    :domn  ' +
-                '  )';
-
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSQL);
-        qryAux.ParamByName('servicio_id').AsString := servicio_id;
-        qryAux.ParamByName('empresa_id').AsInteger := empresa_id;
-        qryAux.ParamByName('funcion_id').AsInteger := funcion_id;
-        qryAux.ParamByName('asignacion_id').AsInteger := asignacion;
-        qryAux.ParamByName('anio').AsInteger       := anio;
-        qryAux.ParamByName('semana').AsInteger     := semana;
-        qryAux.ParamByName('fecha_inicial').AsDate := fecha_inicial;
-
-        qryAux.ParamByName('lund').AsInteger       := 0;
-        qryAux.ParamByName('lunt').AsInteger       := 0;
-        qryAux.ParamByName('lunn').AsInteger       := 1;
-
-        qryAux.ParamByName('mard').AsInteger       := 0;
-        qryAux.ParamByName('mart').AsInteger       := 0;
-        qryAux.ParamByName('marn').AsInteger       := 1;
-
-        qryAux.ParamByName('mied').AsInteger       := 0;
-        qryAux.ParamByName('miet').AsInteger       := 0;
-        qryAux.ParamByName('mien').AsInteger       := 1;
-
-        qryAux.ParamByName('jued').AsInteger       := 0;
-        qryAux.ParamByName('juet').AsInteger       := 0;
-        qryAux.ParamByName('juen').AsInteger       := 1;
-
-        qryAux.ParamByName('vied').AsInteger       := 0;
-        qryAux.ParamByName('viet').AsInteger       := 0;
-        qryAux.ParamByName('vien').AsInteger       := 1;
-
-        qryAux.ParamByName('sabd').AsInteger       := 0;
-        qryAux.ParamByName('sabt').AsInteger       := 0;
-        qryAux.ParamByName('sabn').AsInteger       := 1;
-
-        qryAux.ParamByName('domd').AsInteger       := 0;
-        qryAux.ParamByName('domt').AsInteger       := 0;
-        qryAux.ParamByName('domn').AsInteger       := 1;
-        qryAux.ExecSQL;
-
-        CargaPreasignacionSemanal(empresa_id,
-                                  servicio_id,
-                                  anio,
-                                  semana);
-     except
-           on E:Exception do
-              raise Exception.Create('Ha ocurrido un error en TdmMain.Preasignacion_ProgramarNocturno. ' + E.Message);
-     end;
-end;
-
-function TdmMain.ProgramarServicios(empresaId: integer; fecha: TDateTime): Integer;
-
-       procedure InsertaAsistencia(a, m, d, empleado : Integer; servicio : String; funcion, asignacion : Integer; horaEntrada, horaSalida : TTime);
-       var
-          cad : String;
-       begin
-            cad := 'INSERT INTO asistencia ( ' +
-                   '  empresa_id, ' +
-                   '  anio, ' +
-                   '  mes, ' +
-                   '  dia, ' +
-                   '  empleado_id, ' +
-                   '  servicio_id, ' +
-                   '  funcion_id, ' +
-                   '  asignacion_id, ' +
-                   '  horaentprog, ' +
-                   '  horasalprog ' +
-                   ') ' +
-                   'VALUES ' +
-                   '  ( ' +
-                   '  :empresa, ' +
-                   '  :anio, ' +
-                   '  :mes, ' +
-                   '  :dia, ' +
-                   '  :empleado, ' +
-                   '  :servicio, ' +
-                   '  :funcion, ' +
-                   '  :asignacion, ' +
-                   '  :HoraEntProg, ' +
-                   '  :HoraSalProg ' +
-                   '  )';
-            qryAux2.Close;
-            qryAux2.SQL.Clear;
-            qryAux2.SQL.Add(cad);
-            qryAux2.ParamByName('empresa').AsInteger       := empresaId;
-            qryAux2.ParamByName('anio').AsInteger          := a;
-            qryAux2.ParamByName('mes').AsInteger           := m;
-            qryAux2.ParamByName('dia').AsInteger           := d;
-            qryAux2.ParamByName('empleado').AsInteger      := empleado;
-            qryAux2.ParamByName('servicio').AsString       := servicio;
-            qryAux2.ParamByName('funcion').AsInteger       := funcion;
-            qryAux2.ParamByName('asignacion').AsInteger    := asignacion;
-            qryAux2.ParamByName('horaentprog').AsDateTime  := horaEntrada;
-            qryAux2.ParamByName('horasalprog').AsDateTime  := horaSalida;
-            qryAux2.ExecSQL;
-       end;
-
-       function ExisteAsistencia(a, m, d, empleado : Integer) : Boolean;
-       var
-          cad : String;
-       begin
-            cad := 'SELECT COUNT(empresa_id) FROM asistencia ' +
-                   ' WHERE empresa_id = :empresa ' +
-                   '       AND anio = :anio ' +
-                   '       AND mes = :mes ' +
-                   '       AND dia = :dia ' +
-                   '       AND empleado_id = :empleado';
-            qryAux2.Close;
-            qryAux2.SQL.Clear;
-            qryAux2.SQL.Add(cad);
-            qryAux2.ParamByName('empresa').AsInteger       := empresaId;
-            qryAux2.ParamByName('anio').AsInteger          := a;
-            qryAux2.ParamByName('mes').AsInteger           := m;
-            qryAux2.ParamByName('dia').AsInteger           := d;
-            qryAux2.ParamByName('empleado').AsInteger      := empleado;
-            qryAux2.Open;
-            Result := qryAux2.Fields[0].AsInteger > 0;
-       end;
-
-       procedure ActualizaAsistencia(a, m, d, empleado : Integer; servicio : String; funcion, asignacion : Integer; horaEntrada, horaSalida : TTime);
-       var
-          cad : String;
-       begin
-            cad := 'UPDATE asistencia SET ' +
-                   '  servicio_id   = :servicio, ' +
-                   '  funcion_id    = :funcion, ' +
-                   '  asignacion_id = :asignacion, ' +
-                   '  horaentprog   = :HoraEntProg, ' +
-                   '  horasalprog   = :HoraSalProg ' +
-                   ' WHERE ' +
-                   '  empresa_id  = :empresa ' +
-                   '  AND anio    = :anio ' +
-                   '  AND mes     = :mes ' +
-                   '  AND dia     = :dia ' +
-                   '  empleado_id = :empleado';
-            qryAux2.Close;
-            qryAux2.SQL.Clear;
-            qryAux2.SQL.Add(cad);
-            qryAux2.ParamByName('empresa').AsInteger       := empresaId;
-            qryAux2.ParamByName('anio').AsInteger          := a;
-            qryAux2.ParamByName('mes').AsInteger           := m;
-            qryAux2.ParamByName('dia').AsInteger           := d;
-            qryAux2.ParamByName('empleado').AsInteger      := empleado;
-            qryAux2.ParamByName('servicio').AsString       := servicio;
-            qryAux2.ParamByName('funcion').AsInteger       := funcion;
-            qryAux2.ParamByName('asignacion').AsInteger    := asignacion;
-            qryAux2.ParamByName('horaentprog').AsDateTime  := horaEntrada;
-            qryAux2.ParamByName('horasalprog').AsDateTime  := horaSalida;
-            qryAux2.ExecSQL;
-       end;
-
-      function ExisteProgramacion(anio, mes, dia, emp, asig: Integer): Boolean;
-      var
-         cad : String;
-      begin
-           Result := False;
-           cad := 'SELECT empleado_id FROM asistencia ' +
-                  ' WHERE anio = :anio ' +
-                  '       AND mes = :mes ' +
-                  '       AND dia = :dia ' +
-                  '       AND empleado_id = :empleado_id' +
-                  '       AND asignacion_id = :asignacion_id';
-           qryAux2.SQL.Clear;
-           qryAux2.SQL.Add(cad);
-           qryAux2.ParamByName('anio').AsInteger          := anio;
-           qryAux2.ParamByName('mes').AsInteger           := mes;
-           qryAux2.ParamByName('dia').AsInteger           := dia;
-           qryAux2.ParamByName('empleado_id').AsInteger   := emp;
-           qryAux2.ParamByName('asignacion_id').AsInteger := asig;
-           qryAux2.Open;
-           Result := qryAux2.FieldByName('empleado_id').AsInteger > 0;
-      end;
-
-var
-   xSql : string;
-   anio, semana, num : Integer;
-   fechaTmp : TDateTime;
-   a, m, d : word;
-begin
-     Result := 0;
-     try
-        anio := YearOf(fecha);
-        semana := WeekOfTheYear(fecha);
-
-        xSql := 'SELECT sps.*, sf.*, sfe.empleado_id ' +
-                ' FROM servicios_preasignacion_semanal sps ' +
-                ' LEFT JOIN servicios_funciones sf ' +
-                '      ON sps.servicio_id = sf.servicio_id AND sps.funcion_id = sf.funcion_id ' +
-                ' LEFT JOIN servicios_funciones_empleados sfe ' +
-                '      ON sfe.servicio_id = sps.servicio_id AND sfe.funcion_id = sps.funcion_id AND sfe.asignacion_id = sps.asignacion_id ' +
-                ' WHERE sps.anio = :anio ' +
-                '       AND sps.semana = :semana';
-        qryAux.Close;
-        qryAux.SQL.Clear;
-        qryAux.SQL.Add(xSql);
-        qryAux.ParamByName('anio').AsInteger   := anio;
-        qryAux.ParamByName('semana').AsInteger := semana;
+        qryAux.ParamByName('servicio').AsString := servicioId;
+        qryAux.ParamByName('empresa').AsInteger := empresaId;
+        qryAux.ParamByName('funcion').AsInteger := funcionId;
         qryAux.Open;
-        if qryAux.IsEmpty then
-           begin
-                MessageDlg('No hay servicios por programar. ' + #13 + #10 +
-                           'Revisar preasignación de la semana del ' +
-                           FormatDateTime('dd/mm/yyyy',StartOfTheWeek(fecha)) + ' al ' +
-                           FormatDateTime('dd/mm/yyyy',EndOfTheWeek(fecha)),mtWarning,[mbOK],-1);
-                Result := -1;
-           end;
-        while not qryAux.Eof do
-              begin
-                   if qryAux.FieldByName('empleado_id').AsInteger > 0 then
-                      begin
-                           // Lunes
-                           fechaTmp := qryAux.FieldByName('fecha_inicial').AsDateTime;
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('lunD').AsInteger <> 0) or
-                               (qryAux.FieldByName('lunT').AsInteger <> 0) or
-                               (qryAux.FieldByName('lunN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('lunes').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('lunesent').AsDateTime,
-                                                             qryAux.FieldByName('lunessal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('lunesent').AsDateTime,
-                                                            qryAux.FieldByName('lunessal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Martes
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,1);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('marD').AsInteger <> 0) or
-                               (qryAux.FieldByName('marT').AsInteger <> 0) or
-                               (qryAux.FieldByName('marN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('martes').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('martesent').AsDateTime,
-                                                             qryAux.FieldByName('martessal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('martesent').AsDateTime,
-                                                            qryAux.FieldByName('martessal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Miércoles
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,2);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('mieD').AsInteger <> 0) or
-                               (qryAux.FieldByName('mieT').AsInteger <> 0) or
-                               (qryAux.FieldByName('mieN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('miercoles').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('miercolesent').AsDateTime,
-                                                             qryAux.FieldByName('miercolessal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('miercolesent').AsDateTime,
-                                                            qryAux.FieldByName('miercolessal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Jueves
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,3);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('jueD').AsInteger <> 0) or
-                               (qryAux.FieldByName('jueT').AsInteger <> 0) or
-                               (qryAux.FieldByName('jueN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('jueves').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('juevesent').AsDateTime,
-                                                             qryAux.FieldByName('juevessal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('juevesent').AsDateTime,
-                                                            qryAux.FieldByName('juevessal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Viernes
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,4);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('vieD').AsInteger <> 0) or
-                               (qryAux.FieldByName('vieT').AsInteger <> 0) or
-                               (qryAux.FieldByName('vieN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('viernes').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('viernesent').AsDateTime,
-                                                             qryAux.FieldByName('viernessal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('viernesent').AsDateTime,
-                                                            qryAux.FieldByName('viernessal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Sábado
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,5);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('sabD').AsInteger <> 0) or
-                               (qryAux.FieldByName('sabT').AsInteger <> 0) or
-                               (qryAux.FieldByName('sabN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('sabado').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('sabadoent').AsDateTime,
-                                                             qryAux.FieldByName('sabadosal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('sabadoent').AsDateTime,
-                                                            qryAux.FieldByName('sabadosal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-
-                           // Domingo
-                           fechaTmp := IncDay(qryAux.FieldByName('fecha_inicial').AsDateTime,6);
-                           DecodeDate(fechaTmp,a,m,d);
-                           if ((qryAux.FieldByName('domD').AsInteger <> 0) or
-                               (qryAux.FieldByName('domT').AsInteger <> 0) or
-                               (qryAux.FieldByName('domN').AsInteger <> 0)) and
-                              (qryAux.FieldByName('domingo').AsInteger = 1) then
-                              if not ExisteProgramacion(a, m, d, qryAux.FieldByName('empleado_id').AsInteger, qryAux.FieldByName('asignacion_id').AsInteger) then
-                                 begin
-                                      if ExisteAsistencia(a, m, d, qryAux.FieldByName('empleado_id').AsInteger) then
-                                         ActualizaAsistencia(a,
-                                                             m,
-                                                             d,
-                                                             qryAux.FieldByName('empleado_id').AsInteger,
-                                                             qryAux.FieldByName('servicio_id').AsString,
-                                                             qryAux.FieldByName('funcion_id').AsInteger,
-                                                             qryAux.FieldByName('asignacion_id').AsInteger,
-                                                             qryAux.FieldByName('domingoent').AsDateTime,
-                                                             qryAux.FieldByName('domingosal').AsDateTime
-                                                            )
-                                      else
-                                          InsertaAsistencia(a,
-                                                            m,
-                                                            d,
-                                                            qryAux.FieldByName('empleado_id').AsInteger,
-                                                            qryAux.FieldByName('servicio_id').AsString,
-                                                            qryAux.FieldByName('funcion_id').AsInteger,
-                                                            qryAux.FieldByName('asignacion_id').AsInteger,
-                                                            qryAux.FieldByName('domingoent').AsDateTime,
-                                                            qryAux.FieldByName('domingosal').AsDateTime
-                                                            );
-                                      Inc(Result);
-                                 end;
-                      end;
-                   qryAux.Next;
-              end;
+        case diaSemana of
+             1 :
+               begin
+                    if qryAux.FieldByName('domingo').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('domingoent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('domingosal').AsDateTime;
+                       end;
+               end;
+             2 :
+               begin
+                    if qryAux.FieldByName('lunes').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('lunesent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('lunessal').AsDateTime;
+                       end;
+               end;
+             3 :
+               begin
+                    if qryAux.FieldByName('martes').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('martesent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('martessal').AsDateTime;
+                       end;
+               end;
+             4 :
+               begin
+                    if qryAux.FieldByName('miercoles').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('miercolesent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('miercolessal').AsDateTime;
+                       end;
+               end;
+             5 :
+               begin
+                    if qryAux.FieldByName('jueves').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('juevesent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('juevessal').AsDateTime;
+                       end;
+               end;
+             6 :
+               begin
+                    if qryAux.FieldByName('viernes').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('viernesent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('viernessal').AsDateTime;
+                       end;
+               end;
+             7 :
+               begin
+                    if qryAux.FieldByName('sabado').AsInteger = 1 then
+                       begin
+                            Result.horaEntrada := qryAux.FieldByName('sabadoent').AsDateTime;
+                            Result.horaSalida  := qryAux.FieldByName('sabadosal').AsDateTime;
+                       end;
+               end;
+        end;
      finally
-
+            qryEmpleados.Close;
      end;
 end;
 
@@ -3416,6 +2206,7 @@ procedure TdmMain.qryServiciosEditNewRecord(DataSet: TDataSet);
 begin
      DataSet.FieldByName('empresa_id').AsInteger := _Globales.Empresa;
      DataSet.FieldByName('activo').AsInteger     := 1;
+     DataSet.FieldByName('tipo_nomina').AsString := 'S';
 end;
 
 procedure TdmMain.qryServiciosFuncionesEditNewRecord(DataSet: TDataSet);

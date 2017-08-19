@@ -1032,7 +1032,7 @@ object dmMain: TdmMain
     Top = 548
   end
   object dspAsistencia: TDataSetProvider
-    DataSet = qryAsistencia
+    DataSet = memAsistencia
     Left = 96
     Top = 548
   end
@@ -1474,5 +1474,11 @@ object dmMain: TdmMain
     DataSet = qryBitacoraEmpleado
     Left = 668
     Top = 116
+  end
+  object memAsistencia: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 240
+    Top = 544
   end
 end

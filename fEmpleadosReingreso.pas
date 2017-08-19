@@ -10,7 +10,7 @@ uses
   cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids,
   cxImageComboBox, dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, System.Actions, dxBevel,
   Vcl.ComCtrls, dxCore, cxDateUtils, dxSkinOffice2016Colorful, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxClasses,
-  cxGridCustomView, cxGrid;
+  cxGridCustomView, cxGrid, dxSkinOffice2013DarkGray;
 
 type
   TfrmEmpleadosReingreso = class(TForm)

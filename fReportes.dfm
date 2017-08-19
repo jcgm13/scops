@@ -24,7 +24,7 @@ object frmReportes: TfrmReportes
     Height = 36
     Caption = 'Imprimir'
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     TabOrder = 0
     OnClick = btnImprimirClick
   end

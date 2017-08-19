@@ -65,7 +65,7 @@ object frmLogin: TfrmLogin
       Height = 41
       Align = alTop
       BevelOuter = bvNone
-      Color = 11360858
+      Color = 10114859
       Padding.Left = 5
       Padding.Top = 5
       Padding.Right = 5
@@ -85,6 +85,7 @@ object frmLogin: TfrmLogin
         Style.Font.Style = []
         Style.LookAndFeel.NativeStyle = True
         Style.LookAndFeel.SkinName = 'DevExpressStyle'
+        Style.StyleController = frmPrincipal.cxEditStyleController1
         Style.IsFontAssigned = True
         StyleDisabled.LookAndFeel.NativeStyle = True
         StyleDisabled.LookAndFeel.SkinName = 'DevExpressStyle'

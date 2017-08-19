@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinDevExpressStyle, Vcl.Menus, cxMemo, cxDBEdit,
   Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxSpinEdit, cxTimeEdit, cxMaskEdit, cxButtonEdit, cxTextEdit, cxLabel, cxCurrencyEdit, dxSkinBlue, dxSkinOffice2007Silver,
-  dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxCheckBox, dxSkinOffice2016Colorful, System.Actions, dxBevel, cxGroupBox, cxRadioGroup;
+  dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxCheckBox, dxSkinOffice2016Colorful, System.Actions, dxBevel, cxGroupBox, cxRadioGroup, dxSkinOffice2013DarkGray;
 
 type
   TfrmAsistenciaEdit = class(TForm)
@@ -117,14 +117,30 @@ begin
 end;
 
 procedure TfrmAsistenciaEdit.FormShow(Sender: TObject);
+var
+   vFechas : TInfoFuncion;
 begin
      edEmpleado.Text          := dmMain.dsAsistencia.DataSet.FieldByName('nombre_empleado').AsString;
      edServicio.Text          := dmMain.dsAsistencia.DataSet.FieldByName('descripcion_servicio').AsString;
      edFuncion.Text           := dmMain.dsAsistencia.DataSet.FieldByName('descripcion_funcion').AsString;
      edAsignacion.Text        := dmMain.dsAsistencia.DataSet.FieldByName('asignacion_id').AsString;
 
-     edEntrada.Time           := dmMain.dsAsistencia.DataSet.FieldByName('hora_entrada').AsDateTime;
-     edSalida.Time            := dmMain.dsAsistencia.DataSet.FieldByName('hora_salida').AsDateTime;
+     if dmMain.dsAsistencia.DataSet.FieldByName('hora_entrada').IsNull and
+        dmMain.dsAsistencia.DataSet.FieldByName('hora_salida').IsNull then
+        begin
+             vFechas := dmMain.obtenerInfoFuncion(dmMain.dsAsistencia.DataSet.FieldByName('servicio_id').AsString,
+                                                  dmMain.dsAsistencia.DataSet.FieldByName('empresa_id').AsInteger,
+                                                  dmMain.dsAsistencia.DataSet.FieldByName('funcion_id').AsInteger,
+                                                  DayOfWeek(Now)
+                                                 );
+             edEntrada.Time := vFechas.horaEntrada;
+             edSalida.Time := vFechas.horaSalida;
+        end
+     else
+         begin
+              edEntrada.Time := dmMain.dsAsistencia.DataSet.FieldByName('hora_entrada').AsDateTime;
+              edSalida.Time  := dmMain.dsAsistencia.DataSet.FieldByName('hora_salida').AsDateTime;
+         end;
 
      edHorasExtra.Value       := dmMain.dsAsistencia.DataSet.FieldByName('horas_extra').AsInteger;
      rgTipoRegistro.ItemIndex := dmMain.dsAsistencia.DataSet.FieldByName('tipo_registro').AsInteger;

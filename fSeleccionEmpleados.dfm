@@ -27,7 +27,7 @@ object frmSeleccionEmpleados: TfrmSeleccionEmpleados
     Align = alClient
     TabOrder = 0
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     object ViewEmpleados: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmAlways
