@@ -101,7 +101,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ValueChecked = '1'
       Properties.ValueUnchecked = '0'
       State = cbsGrayed
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 2
       Transparent = True
       OnClick = chkTodosClick
@@ -141,7 +145,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 5
       Transparent = True
       OnClick = chk1Click
@@ -157,7 +165,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 8
       Transparent = True
       OnClick = chk2Click
@@ -173,7 +185,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 14
       Transparent = True
       OnClick = chk4Click
@@ -189,7 +205,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 11
       Transparent = True
       OnClick = chk3Click
@@ -205,7 +225,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 17
       Transparent = True
       OnClick = chk5Click
@@ -221,7 +245,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 23
       Transparent = True
       OnClick = chk7Click
@@ -237,7 +265,11 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.ValueChecked = 1
       Properties.ValueUnchecked = 0
+      Style.LookAndFeel.SkinName = 'Office2013DarkGray'
       Style.StyleController = frmPrincipal.cxEditStyleController1
+      StyleDisabled.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleFocused.LookAndFeel.SkinName = 'Office2013DarkGray'
+      StyleHot.LookAndFeel.SkinName = 'Office2013DarkGray'
       TabOrder = 20
       Transparent = True
       OnClick = chk6Click
@@ -382,7 +414,7 @@ object frmServiciosFunciones: TfrmServiciosFunciones
       Properties.ImmediatePost = True
       Properties.TimeFormat = tfHourMin
       Style.StyleController = frmPrincipal.cxEditStyleController1
-      TabOrder = 25
+      TabOrder = 24
       Width = 50
     end
     object teDomingoS: TcxDBTimeEdit

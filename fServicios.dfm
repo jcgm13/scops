@@ -33,10 +33,8 @@ object frmServicios: TfrmServicios
       Left = 87
       Top = 13
       DataBinding.DataField = 'servicio_id'
-      DataBinding.DataSource = dmMain.dsServiciosEdit
       ParentFont = False
       Properties.CharCase = ecUpperCase
-      Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 0
       OnKeyPress = xdescripcionKeyPress
       Width = 100
@@ -45,10 +43,8 @@ object frmServicios: TfrmServicios
       Left = 87
       Top = 38
       DataBinding.DataField = 'descripcion'
-      DataBinding.DataSource = dmMain.dsServiciosEdit
       ParentFont = False
       Properties.CharCase = ecUpperCase
-      Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 1
       OnKeyPress = xdescripcionKeyPress
       Width = 400
@@ -57,7 +53,6 @@ object frmServicios: TfrmServicios
       Left = 87
       Top = 62
       DataBinding.DataField = 'cliente_id'
-      DataBinding.DataSource = dmMain.dsServiciosEdit
       ParentFont = False
       Properties.CharCase = ecUpperCase
       Properties.DropDownAutoSize = True
@@ -75,8 +70,6 @@ object frmServicios: TfrmServicios
         end>
       Properties.ListFieldIndex = 1
       Properties.ListOptions.ShowHeader = False
-      Properties.ListSource = dmMain.dsClientesList
-      Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 2
       Width = 400
     end
@@ -95,10 +88,8 @@ object frmServicios: TfrmServicios
       Top = 11
       TabStop = False
       DataBinding.DataField = 'activo'
-      DataBinding.DataSource = dmMain.dsServiciosEdit
       ParentFont = False
       Properties.Alignment.Horz = taLeftJustify
-      Properties.Images = frmPrincipal.imgListAcciones
       Properties.Items = <
         item
           Description = 'ACTIVO'
@@ -111,7 +102,6 @@ object frmServicios: TfrmServicios
           Value = '0'
         end>
       Properties.ReadOnly = True
-      Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 4
       OnEnter = cxDBImageComboBox1Enter
       Width = 99
@@ -139,7 +129,6 @@ object frmServicios: TfrmServicios
       Top = 38
       Caption = 'Tipo de N'#243'mina'
       DataBinding.DataField = 'tipo_nomina'
-      DataBinding.DataSource = dmMain.dsServiciosEdit
       ParentFont = False
       Properties.Columns = 2
       Properties.Items = <
@@ -152,7 +141,6 @@ object frmServicios: TfrmServicios
           Value = 'Q'
         end>
       Style.LookAndFeel.SkinName = 'Office2016Colorful'
-      Style.StyleController = frmPrincipal.cxEditStyleController1
       StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
       TabOrder = 8
       Transparent = True
@@ -232,9 +220,7 @@ object frmServicios: TfrmServicios
         Left = 103
         Top = 24
         DataBinding.DataField = 'DomCalle'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 1
         Width = 300
       end
@@ -254,9 +240,7 @@ object frmServicios: TfrmServicios
         Left = 488
         Top = 24
         DataBinding.DataField = 'DomNoExt'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 4
         Width = 75
       end
@@ -264,9 +248,7 @@ object frmServicios: TfrmServicios
         Left = 713
         Top = 24
         DataBinding.DataField = 'DomNoInt'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 5
         Width = 75
       end
@@ -286,9 +268,7 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 50
         DataBinding.DataField = 'DomColonia'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 8
         Width = 300
       end
@@ -302,9 +282,7 @@ object frmServicios: TfrmServicios
         Left = 488
         Top = 51
         DataBinding.DataField = 'DomCP'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 10
         Width = 75
       end
@@ -318,9 +296,7 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 78
         DataBinding.DataField = 'DomCiudad'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 12
         Width = 300
       end
@@ -328,9 +304,7 @@ object frmServicios: TfrmServicios
         Left = 488
         Top = 78
         DataBinding.DataField = 'DomEstado'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 13
         Width = 300
       end
@@ -350,9 +324,7 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 105
         DataBinding.DataField = 'Telefono1'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 16
         Width = 150
       end
@@ -366,9 +338,7 @@ object frmServicios: TfrmServicios
         Left = 359
         Top = 105
         DataBinding.DataField = 'Telefono2'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 18
         Width = 150
       end
@@ -382,9 +352,7 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 132
         DataBinding.DataField = 'TelefEmer1'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 20
         Width = 150
       end
@@ -398,9 +366,7 @@ object frmServicios: TfrmServicios
         Left = 359
         Top = 130
         DataBinding.DataField = 'TelefEmer2'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 22
         Width = 150
       end
@@ -414,14 +380,12 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 157
         DataBinding.DataField = 'FechaIni'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
         Properties.DateButtons = [btnToday]
         Properties.DisplayFormat = 'dd/mm/yyyy'
         Properties.EditFormat = 'dd/mm/yyyy'
         Properties.SaveTime = False
         Properties.ShowTime = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 24
         Width = 100
       end
@@ -435,14 +399,12 @@ object frmServicios: TfrmServicios
         Left = 300
         Top = 157
         DataBinding.DataField = 'FechaFin'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
         Properties.DateButtons = [btnToday]
         Properties.DisplayFormat = 'dd/mm/yyyy'
         Properties.EditFormat = 'dd/mm/yyyy'
         Properties.SaveTime = False
         Properties.ShowTime = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 26
         Width = 100
       end
@@ -457,7 +419,6 @@ object frmServicios: TfrmServicios
         Style.Font.Height = -11
         Style.Font.Name = 'Tahoma'
         Style.Font.Style = [fsBold]
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         Style.IsFontAssigned = True
         Properties.LabelStyle = cxlsRaised
         Properties.LineOptions.Alignment = cxllaBottom
@@ -470,9 +431,7 @@ object frmServicios: TfrmServicios
         Left = 103
         Top = 226
         DataBinding.DataField = 'RepSeg'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 28
         Width = 350
       end
@@ -492,9 +451,7 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 252
         DataBinding.DataField = 'RepSegTD'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 31
         Width = 150
       end
@@ -508,9 +465,7 @@ object frmServicios: TfrmServicios
         Left = 328
         Top = 253
         DataBinding.DataField = 'RepSegTC'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 33
         Width = 150
       end
@@ -524,9 +479,7 @@ object frmServicios: TfrmServicios
         Left = 103
         Top = 279
         DataBinding.DataField = 'RepSegEmail'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 35
         Width = 250
       end
@@ -540,10 +493,8 @@ object frmServicios: TfrmServicios
         Left = 104
         Top = 338
         DataBinding.DataField = 'Comentarios'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
         Properties.ScrollBars = ssVertical
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 37
         Height = 136
         Width = 375
@@ -558,10 +509,8 @@ object frmServicios: TfrmServicios
         Left = 485
         Top = 338
         DataBinding.DataField = 'consignas_especiales'
-        DataBinding.DataSource = dmMain.dsServiciosEdit
         ParentFont = False
         Properties.ScrollBars = ssVertical
-        Style.StyleController = frmPrincipal.cxEditStyleController1
         TabOrder = 39
         Height = 136
         Width = 375
@@ -582,13 +531,11 @@ object frmServicios: TfrmServicios
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           OnCellDblClick = cxGrid1DBTableView1CellDblClick
-          DataController.DataSource = dmMain.dsServiciosFunciones
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
-          Styles.Header = frmPrincipal.cxStyle1
           object cxGrid1DBTableView1Column1: TcxGridDBColumn
             Caption = 'Funci'#243'n'
             DataBinding.FieldName = 'funcion'
@@ -706,7 +653,6 @@ object frmServicios: TfrmServicios
         LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
-          DataController.DataSource = dmMain.dsServiciosFuncionesEmpleados
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
@@ -716,7 +662,6 @@ object frmServicios: TfrmServicios
           OptionsData.Inserting = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
-          Styles.Header = frmPrincipal.cxStyle1
           object cxGridDBTableView1Column1: TcxGridDBColumn
             Caption = 'Funci'#243'n'
             DataBinding.FieldName = 'funcion'
@@ -779,7 +724,6 @@ object frmServicios: TfrmServicios
                 ImageIndex = 24
                 Kind = bkGlyph
               end>
-            Properties.Images = frmPrincipal.imgListAcciones
             Properties.OnButtonClick = cxGridDBTableView1Column6PropertiesButtonClick
             MinWidth = 200
             Options.Filtering = False
@@ -872,9 +816,7 @@ object frmServicios: TfrmServicios
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2013DarkGray'
         object cxGridDBTableView2: TcxGridDBTableView
-          PopupMenu = dxRibbonPopupMenuEquipo
           Navigator.Buttons.CustomButtons = <>
-          DataController.DataSource = dmMain.dsServiciosEquipo
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
@@ -885,7 +827,6 @@ object frmServicios: TfrmServicios
           OptionsData.Inserting = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
-          Styles.Header = frmPrincipal.cxStyle1
           object cxGridDBColumnEquipoId: TcxGridDBColumn
             Caption = 'Equipo'
             DataBinding.FieldName = 'equipo_id'
@@ -953,7 +894,6 @@ object frmServicios: TfrmServicios
     end
   end
   object ActionList1: TActionList
-    Images = frmPrincipal.imgListAcciones
     Left = 496
     Top = 20
     object actGuardar: TAction
@@ -1045,21 +985,5 @@ object frmServicios: TfrmServicios
       ShortCut = 16424
       OnExecute = actDisminuirEquipoExecute
     end
-  end
-  object dxRibbonPopupMenuEquipo: TdxRibbonPopupMenu
-    BarManager = frmPrincipal.dxBarManager1
-    ItemLinks = <
-      item
-        Visible = True
-        ItemName = 'dxBarButtonAumentarEquipo'
-      end
-      item
-        Visible = True
-        ItemName = 'dxBarButtonDisminuirEquipo'
-      end>
-    Ribbon = frmPrincipal.dxRibbon1
-    UseOwnFont = False
-    Left = 493
-    Top = 87
   end
 end

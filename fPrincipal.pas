@@ -3,16 +3,15 @@ unit fPrincipal;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, dxBar, dxRibbon, dxRibbonForm,
-  dxRibbonSkins, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxClasses, dxRibbonBackstageView,
-  dxSkinsCore, dxSkinsDefaultPainters, dxSkinsdxRibbonPainter, dxRibbonCustomizationForm, dxSkinsdxBarPainter, cxContainer,
-  cxEdit, dxSkinsForm, dxStatusBar, dxRibbonStatusBar, cxLabel, dxGallery, dxGalleryControl, dxRibbonBackstageViewGalleryControl,
-  cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit, cxBarEditItem,
-  dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, dxSkinDevExpressStyle, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls,
-  cxTextEdit, cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems,
-  DateUtils, Vcl.Grids, Vcl.DBGrids, System.Actions, dxSkinOffice2016Colorful, cxTimeEdit, cxGridBandedTableView, cxGridDBBandedTableView,
-  dxSkinOffice2013DarkGray;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, dxBar, dxRibbon, dxRibbonForm, dxRibbonSkins,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxClasses, dxRibbonBackstageView, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinsdxRibbonPainter, dxRibbonCustomizationForm, dxSkinsdxBarPainter, cxContainer, cxEdit, dxSkinsForm, dxStatusBar,
+  dxRibbonStatusBar, cxLabel, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid, cxCurrencyEdit,
+  cxBarEditItem, dxBarExtDBItems, Vcl.ImgList, cxCalendar, StrUtils, Vcl.ActnList, cxImageComboBox, Vcl.ExtCtrls, cxTextEdit,
+  cxDBEdit, Vcl.StdCtrls, cxImage, IniFiles, cxGridExportLink, cxMemo, cxMaskEdit, cxDropDownEdit, dxBarExtItems, DateUtils,
+  Vcl.Grids, Vcl.DBGrids, System.Actions, dxSkinOffice2016Colorful, cxTimeEdit, cxGridBandedTableView, cxGridDBBandedTableView,
+  dxSkinOffice2013DarkGray, dxGallery, dxGalleryControl, dxRibbonBackstageViewGalleryControl;
 
 type
   TfrmPrincipal = class(TdxRibbonForm)
@@ -172,7 +171,6 @@ type
     actReingreso: TAction;
     dxBarLargeButton37: TdxBarLargeButton;
     dxBarManager1Bar7: TdxBar;
-    xFechaProgramacion: TdxBarDateCombo;
     ViewAsistenciaCaptura: TcxGridDBTableView;
     ViewAsistenciaCapturaColumnAnio: TcxGridDBColumn;
     ViewAsistenciaCapturaColumnMes: TcxGridDBColumn;
@@ -181,7 +179,6 @@ type
     dxBarManager1Bar19: TdxBar;
     dxBarManager1Bar20: TdxBar;
     xFechaAsistenciaIni: TdxBarDateCombo;
-    dxBarLargeButton41: TdxBarLargeButton;
     actCapturarAsistencia: TAction;
     dxBarLargeButton42: TdxBarLargeButton;
     actConsultarAsistencia: TAction;
@@ -294,7 +291,8 @@ type
     actDocumentosCliente: TAction;
     dxBarLargeButton58: TdxBarLargeButton;
     cxBarEditItemTipoNomina: TcxBarEditItem;
-    dbgrd1: TDBGrid;
+    ViewAsistenciaConsulta2: TcxGridDBBandedTableView;
+    dxRibbonPopupMenuUsuarios: TdxRibbonPopupMenu;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxRibbon1TabChanging(Sender: TdxCustomRibbon; ANewTab: TdxRibbonTab; var Allow: Boolean);
@@ -366,12 +364,17 @@ type
     procedure ViewAsistenciaCapturaNewKeyPress(Sender: TObject; var Key: Char);
     procedure actDocumentosEmpleadoExecute(Sender: TObject);
     procedure actDocumentosClienteExecute(Sender: TObject);
+    procedure actAgregarUsuarioExecute(Sender: TObject);
+    procedure actModificarUsuarioExecute(Sender: TObject);
+    procedure actVerUsuarioExecute(Sender: TObject);
+    procedure ViewUsuariosCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
   private
     { Private declarations }
     TipoAsistencia : string;
     procedure ShowWaitForm;
     procedure HideWaitForm;
     procedure EditarAsistencia;
+    procedure verConsultaAsistencia;
   public
     { Public declarations }
   end;
@@ -383,8 +386,9 @@ implementation
 
 {$R *.dfm}
 
-uses dMain, fEmpleados, fReportes, fSplash, fWaitForm, fPermisos, fLogin,
-  uGlobales, fClientes, fAsignarFoto, fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit, fEmpleadosReingreso, FDocsEmpleado, FDocsCliente;
+uses dMain, fEmpleados, fReportes, fSplash, fWaitForm, fPermisos, fLogin, uGlobales, fClientes, fAsignarFoto,
+     fServicios, fVehiculos, fEmpleadosBaja, fAsistencia, fEquipo, FMovtosAlmacen, fAsistenciaEdit, fEmpleadosReingreso,
+     FDocsEmpleado, FDocsCliente, fUsuarios;
 
 
 { TForm1 }
@@ -436,6 +440,15 @@ begin
      if frmServicios.ShowModal = mrOk then
         if actConsultarServiciosActivos.Enabled then
            actConsultarServiciosActivos.Execute;
+end;
+
+procedure TfrmPrincipal.actAgregarUsuarioExecute(Sender: TObject);
+begin
+     frmUsuarios := TfrmUsuarios.Create(Self);
+     dmMain.dsUsuariosEdit.DataSet.Insert;
+     if frmUsuarios.ShowModal = mrOk then
+        if actConsultarUsuarios.Enabled then
+           actConsultarUsuarios.Execute;
 end;
 
 procedure TfrmPrincipal.actAgregarVehiculoExecute(Sender: TObject);
@@ -498,11 +511,12 @@ end;
 procedure TfrmPrincipal.actConsultarAsistenciaExecute(Sender: TObject);
 begin
      ShowWaitForm;
-     cxGridMainLevelMain.GridView := ViewAsistenciaConsulta;
-     ViewAsistenciaConsulta.Controller.ShowFindPanel;
+     cxGridMainLevelMain.GridView := ViewAsistenciaConsulta2;
+     ViewAsistenciaConsulta2.Controller.ShowFindPanel;
      dmMain.ConsultaAsistencia(_Globales.Empresa,
                                xFechaAsistenciaIni.Date,
                                xFechaAsistenciaFin.Date);
+     verConsultaAsistencia;
      HideWaitForm;
 end;
 
@@ -945,6 +959,34 @@ begin
         end;
 end;
 
+procedure TfrmPrincipal.actModificarUsuarioExecute(Sender: TObject);
+var
+   bmk : TBookmark;
+begin
+     if not dmMain.dsUsuarios.DataSet.IsEmpty then
+        begin
+             try
+                bmk := dmMain.dsUsuarios.DataSet.GetBookmark;
+                frmUsuarios := TfrmUsuarios.Create(Self);
+                dmMain.qryUsuariosEdit.Close;
+                dmMain.qryUsuariosEdit.ParamByName('nombre').AsString := dmMain.dsUsuarios.DataSet.FieldByName('nombre').AsString;
+                dmMain.qryUsuariosEdit.Open;
+                dmMain.qryUsuariosEdit.Edit;
+                if frmUsuarios.ShowModal = mrOk then
+                   if actConsultarUsuarios.Enabled then
+                      begin
+                           actConsultarUsuarios.Execute;
+                           if dmMain.dsUsuarios.DataSet.BookmarkValid(bmk) then
+                              dmMain.dsUsuarios.DataSet.GotoBookmark(bmk);
+                      end;
+             finally
+                    if dmMain.dsUsuarios.DataSet.BookmarkValid(bmk) then
+                       dmMain.dsUsuarios.DataSet.FreeBookmark(bmk);
+                    FreeAndNil(frmUsuarios);
+             end;
+        end;
+end;
+
 procedure TfrmPrincipal.actModificarVehiculoExecute(Sender: TObject);
 var
    bmk : TBookmark;
@@ -979,7 +1021,7 @@ begin
      if not dmMain.dsUsuarios.DataSet.IsEmpty then
         try
            frmPermisos := TfrmPermisos.Create(Self);
-           dmMain.CargaPermisos(dmMain.dsUsuarios.DataSet.FieldByName('clave').AsString);
+           dmMain.CargaPermisos(dmMain.dsUsuarios.DataSet.FieldByName('nombre').AsString);
            frmPermisos.ShowModal;
         finally
                FreeAndNil(frmPermisos);
@@ -1102,6 +1144,22 @@ begin
                 frmServicios.ShowModal;
              finally
                     FreeAndNil(frmServicios);
+             end;
+        end;
+end;
+
+procedure TfrmPrincipal.actVerUsuarioExecute(Sender: TObject);
+begin
+     if not dmMain.dsUsuarios.DataSet.IsEmpty then
+        begin
+             try
+                frmUsuarios := TfrmUsuarios.Create(Self);
+                dmMain.qryUsuariosEdit.Close;
+                dmMain.qryUsuariosEdit.ParamByName('nombre').AsString := dmMain.dsUsuarios.DataSet.FieldByName('nombre').AsString;
+                dmMain.qryUsuariosEdit.Open;
+                frmUsuarios.ShowModal;
+             finally
+                    FreeAndNil(frmUsuarios);
              end;
         end;
 end;
@@ -1275,7 +1333,6 @@ begin
 
      actReingreso.Visible := False;
 
-     xFechaProgramacion.Date := Now;
      xFechaAsistenciaIni.Date := StartOfTheMonth(Now);
      xFechaAsistenciaFin.Date := EndOfTheMonth(Now);
 
@@ -1293,6 +1350,57 @@ procedure TfrmPrincipal.ShowWaitForm;
 begin
      frmWaitForm.Show;
      frmWaitForm.Update;
+end;
+
+procedure TfrmPrincipal.verConsultaAsistencia;
+var
+   banda : TcxGridBand;
+   columna :  TcxGridDBBandedColumn;
+   i : Integer;
+begin
+     // Se eliminan todas las bandas y columnas de la vista
+     with ViewAsistenciaConsulta2 do
+          begin
+               try
+                  BeginUpdate;
+                  Bands.Clear;
+                  ClearItems;
+                  banda := Bands.Add;
+                  banda.Caption := 'Servicio / Empleado';
+                  banda.Width := 450;
+                  banda.FixedKind := fkLeft;
+
+                  columna := CreateColumn;
+                  columna.Caption := 'Servicio';
+                  columna.DataBinding.FieldName := 'descripcion_servicio';
+                  columna.Position.BandIndex := banda.Index;
+
+                  columna := CreateColumn;
+                  columna.Caption := 'Empleado';
+                  columna.DataBinding.FieldName := 'nombre_empleado';
+                  columna.Position.BandIndex := banda.Index;
+
+                  for i := 3 to dmMain.dsAsistencia.DataSet.FieldCount-1 do
+                      begin
+                           banda := Bands.Add;
+                           banda.Caption := Copy(dmMain.dsAsistencia.DataSet.Fields[i].FieldName,1,3);
+                           banda.Width := 30;
+                           banda.HeaderAlignmentHorz := taCenter;
+
+                           columna := CreateColumn;
+                           columna.Caption := Copy(dmMain.dsAsistencia.DataSet.Fields[i].FieldName,4,2);
+                           columna.DataBinding.FieldName := dmMain.dsAsistencia.DataSet.Fields[i].FieldName;
+                           columna.Position.BandIndex := banda.Index;
+                           columna.Width := 30;
+                           columna.HeaderAlignmentHorz := taCenter;
+                           columna.PropertiesClass := TcxCurrencyEditProperties;
+                           TcxCurrencyEditProperties(columna.Properties).EditFormat := '#';
+                           TcxCurrencyEditProperties(columna.Properties).DisplayFormat := '#';
+                      end;
+               finally
+                      EndUpdate;
+               end;
+          end;
 end;
 
 procedure TfrmPrincipal.ViewEmpleadosCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
@@ -1314,6 +1422,12 @@ procedure TfrmPrincipal.ViewServiciosCellDblClick(
 begin
      if actVerServicio.Enabled then
         actVerServicio.Execute;
+end;
+
+procedure TfrmPrincipal.ViewUsuariosCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+     if actVerUsuario.Enabled then
+        actVerUsuario.Execute;
 end;
 
 procedure TfrmPrincipal.ViewVehiculosCellDblClick(

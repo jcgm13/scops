@@ -44,7 +44,7 @@ object frmPermisos: TfrmPermisos
       Properties.CharCase = ecUpperCase
       Style.StyleController = frmPrincipal.cxEditStyleController1
       TabOrder = 0
-      Width = 120
+      Width = 150
     end
   end
   object Panel1: TPanel
@@ -116,7 +116,7 @@ object frmPermisos: TfrmPermisos
     Align = alClient
     TabOrder = 0
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Office2016Colorful'
+    LookAndFeel.SkinName = 'Office2013DarkGray'
     object ViewPermisos: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dmMain.dsPermisos
@@ -130,6 +130,7 @@ object frmPermisos: TfrmPermisos
       OptionsData.Inserting = False
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
+      Styles.Header = frmPrincipal.cxStyle1
       object ViewPermisosColumnCategoria: TcxGridDBColumn
         Caption = 'Categoria'
         DataBinding.FieldName = 'categoria'

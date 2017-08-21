@@ -4,13 +4,12 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
-  Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
-  cxEdit, cxDBLookupComboBox, cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup, cxTextEdit, cxCurrencyEdit, cxContainer,
-  Vcl.Menus, Data.DB, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit, Vcl.ExtCtrls, cxVGrid, cxDBVGrid,
-  cxInplaceContainer, cxHyperLinkEdit, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, dxSkinDevExpressStyle, cxLabel,
-  dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, System.Actions,
-  dxSkinOffice2013DarkGray;
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxEdit, cxDBLookupComboBox,
+  cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup, cxTextEdit, cxCurrencyEdit, cxContainer, Vcl.Menus, Data.DB, Vcl.ActnList,
+  Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit, Vcl.ExtCtrls, cxVGrid, cxDBVGrid, cxInplaceContainer, cxHyperLinkEdit, StrUtils,
+  cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxNavigator, cxDBData, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
+  dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmVehiculos = class(TForm)

@@ -4,14 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
-  Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
-  cxEdit, cxDBLookupComboBox, cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup, cxTextEdit, cxCurrencyEdit, cxContainer,
-  Vcl.Menus, Data.DB, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit, Vcl.ExtCtrls, cxVGrid, cxDBVGrid,
-  cxInplaceContainer, cxHyperLinkEdit, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLookupEdit, cxDBLookupEdit,
-  dxSkinDevExpressStyle, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator,
-  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid,
-  cxGridBandedTableView, cxSchedulerStorage, cxSchedulerCustomControls, cxSchedulerDateNavigator, cxDateNavigator, cxLabel,
-  Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxEdit, cxDBLookupComboBox,
+  cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup, cxTextEdit, cxCurrencyEdit, cxContainer, Vcl.Menus, Data.DB, Vcl.ActnList,
+  Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit, Vcl.ExtCtrls, cxVGrid, cxDBVGrid, cxInplaceContainer, cxHyperLinkEdit, StrUtils,
+  cxMaskEdit, cxDropDownEdit, cxMemo, cxLookupEdit, cxDBLookupEdit, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxNavigator, cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGrid, cxGridBandedTableView, cxSchedulerStorage, cxSchedulerCustomControls, cxSchedulerDateNavigator,
+  cxDateNavigator, cxLabel, Vcl.Grids, Vcl.DBGrids, cxButtonEdit, cxGridDBBandedTableView, DateUtils, dxToggleSwitch, dxBar, dxRibbon,
+  dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmServicios = class(TForm)
@@ -83,7 +83,6 @@ type
     cxGridDBTableView2ColumnCantidad: TcxGridDBColumn;
     actAumentarEquipo: TAction;
     actDisminuirEquipo: TAction;
-    dxRibbonPopupMenuEquipo: TdxRibbonPopupMenu;
     cxLabel2: TcxLabel;
     cxLabel3: TcxLabel;
     cxDBTextEdit1: TcxDBTextEdit;

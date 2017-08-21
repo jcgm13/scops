@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
   Vcl.Dialogs, Vcl.StdCtrls, dxGDIPlusClasses, Vcl.ExtCtrls, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxContainer, cxEdit, cxLabel, dxSkinDevExpressStyle, dxSkinOffice2016Colorful;
+  cxLookAndFeelPainters, cxContainer, cxEdit, cxLabel, dxSkinOffice2016Colorful, dxSkinOffice2013DarkGray;
 
 type
   TfrmSplash = class(TForm)

@@ -83,7 +83,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 2
+    TabOrder = 1
     Text = 'edMarca'
     Width = 300
   end
@@ -94,7 +94,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 4
+    TabOrder = 2
     Text = 'edModelo'
     Width = 200
   end
@@ -119,7 +119,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 6
+    TabOrder = 4
     Text = 'edFuncion'
     Width = 200
   end
@@ -188,10 +188,11 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     DataBinding.DataField = 'fecha_entrada'
     DataBinding.DataSource = dmMain.dsVehiculosReparacionesEdit
     ParentFont = False
+    Properties.DateButtons = [btnToday]
     Properties.SaveTime = False
     Properties.ShowTime = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 9
+    TabOrder = 7
     Width = 100
   end
   object cxLabel62: TcxLabel
@@ -211,7 +212,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 13
+    TabOrder = 11
     Width = 60
   end
   object cxDBCurrencyEdit2: TcxDBCurrencyEdit
@@ -225,7 +226,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.DisplayFormat = ',0.00'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 17
+    TabOrder = 15
     Width = 75
   end
   object cxLabel8: TcxLabel
@@ -250,7 +251,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 15
+    TabOrder = 13
     Width = 300
   end
   object cxLabel10: TcxLabel
@@ -265,10 +266,11 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     DataBinding.DataField = 'fecha_salida'
     DataBinding.DataSource = dmMain.dsVehiculosReparacionesEdit
     ParentFont = False
+    Properties.DateButtons = [btnToday]
     Properties.SaveTime = False
     Properties.ShowTime = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 11
+    TabOrder = 9
     Width = 100
   end
   object cxLabel6: TcxLabel
@@ -287,7 +289,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 19
+    TabOrder = 17
     Width = 300
   end
   object cxDBMemo1: TcxDBMemo
@@ -299,7 +301,7 @@ object frmVehiculosReparaciones: TfrmVehiculosReparaciones
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 21
+    TabOrder = 19
     Height = 69
     Width = 300
   end

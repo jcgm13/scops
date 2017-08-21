@@ -1,19 +1,19 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\jc\code\SCops\fAsistenciaEdit.pas',0,1,118,1,123,0,0,,
-File_1=TSourceModule,'C:\jc\code\SCops\fEmpleados.pas',0,1,775,1,780,0,0,,
-File_2=TSourceModule,'C:\jc\code\SCops\fAsignarFoto.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'C:\jc\code\SCops\fWaitForm.pas',0,1,1,1,1,0,0,,
-File_4=TSourceModule,'C:\jc\code\SCops\fVehiculosReparaciones.pas',0,1,1,1,1,0,0,,
-File_5=TSourceModule,'C:\jc\code\SCops\fVehiculosCombustible.pas',0,1,1,1,1,0,0,,
-File_6=TSourceModule,'C:\jc\code\SCops\fVehiculos.pas',0,1,1,1,1,0,0,,
-File_7=TSourceModule,'C:\jc\code\SCops\fServiciosFunciones.pas',0,1,1,1,1,0,0,,
-File_8=TSourceModule,'C:\jc\code\SCops\fReportes.pas',0,1,1,1,1,0,0,,
-File_9=TSourceModule,'C:\jc\code\SCops\fEmpleadosReingreso.pas',0,1,1,1,1,0,0,,
-File_10=TSourceModule,'C:\jc\code\SCops\fEmpleadosBaja.pas',0,1,1,1,1,0,0,,
-File_11=TSourceModule,'C:\jc\code\SCops\fServicios.pas',0,1,529,93,540,0,0,,
-File_12=TSourceModule,'C:\jc\code\SCops\fSeleccionEquipo.pas',0,1,1,1,1,0,0,,
-File_13=TSourceModule,'C:\jc\code\SCops\fSeleccionEmpleados.pas',0,1,1,1,1,0,0,,
-File_14=TSourceModule,'C:\jc\code\SCops\fClientes.pas',0,1,1,1,1,0,0,,
+File_0=TSourceModule,'C:\jc\code\SCops\fPermisos.pas',0,1,1,3,11,0,0,,
+File_1=TSourceModule,'C:\jc\code\SCops\FMovtosAlmacen.pas',0,1,1,1,1,0,0,,
+File_2=TSourceModule,'C:\jc\code\SCops\fLogin.pas',0,1,1,58,9,0,0,,
+File_3=TSourceModule,'C:\jc\code\SCops\fEquipo.pas',0,1,1,3,10,0,0,,
+File_4=TSourceModule,'C:\jc\code\SCops\fEmpleadosReingreso.pas',0,1,1,39,12,0,0,,
+File_5=TSourceModule,'C:\jc\code\SCops\fEmpleadosBaja.pas',0,1,1,28,11,0,0,,
+File_6=TSourceModule,'C:\jc\code\SCops\fEmpleados.pas',0,1,1,6,12,0,0,,
+File_7=TSourceModule,'C:\jc\code\SCops\fAsistencia.pas',0,1,1,32,4,0,0,,
+File_8=TSourceModule,'C:\jc\code\SCops\fAsistenciaEdit.pas',0,1,1,3,10,0,0,,
+File_9=TSourceModule,'C:\jc\code\SCops\fClientes.pas',0,1,1,3,12,0,0,,
+File_10=TSourceModule,'C:\jc\code\SCops\FDocsCliente.pas',0,1,1,3,8,0,0,,
+File_11=TSourceModule,'C:\jc\code\SCops\FDocsEmpleado.pas',0,1,1,13,7,0,0,,
+File_12=TSourceModule,'C:\jc\code\SCops\fDocumentacionEmpleados.pas',0,1,13,69,20,0,0,,
+File_13=TSourceModule,'C:\jc\code\SCops\fReportes.pas',0,1,1,18,7,0,0,,
+File_14=TSourceModule,'C:\jc\code\SCops\fSeleccionEmpleados.pas',0,1,1,3,9,0,0,,
 
 [Modules]
 Module0=C:\jc\code\SCops\dMain.pas
@@ -28,12 +28,12 @@ FormOnTop=0
 
 [C:\jc\code\SCops\fPrincipal.pas]
 ModuleType=TSourceModule
-FormState=1
+FormState=0
 FormOnTop=0
 
 [C:\jc\code\SCops\fServicios.pas]
-FormState=1
-FormOnTop=1
+FormState=0
+FormOnTop=0
 
 [EditWindow0]
 ViewCount=2
@@ -56,24 +56,25 @@ ClientHeight=9400
 DockedToMainForm=1
 BorlandEditorCodeExplorer=BorlandEditorCodeExplorer@EditWindow0
 TopPanelSize=0
-LeftPanelSize=1895
-LeftPanelClients=DockSite2,DockSite4
-LeftPanelData=0000080001000100000009000000446F636B5369746532722300000000000000280D00000000000001000000007223000009000000446F636B5369746534FFFFFFFF
+LeftPanelSize=0
+LeftPanelClients=DockSite2
+LeftPanelData=0000080001000100000009000000446F636B5369746532722300000000000000280D000000000000FFFFFFFF
 RightPanelSize=0
-BottomPanelSize=0
-BottomPanelClients=DockSite1
-BottomPanelData=0000080001000100000009000000446F636B53697465317245000000000000003F05000000000000FFFFFFFF
-BottomMiddlePanelSize=405
-BottomMiddlePanelClients=DockSite0,GraphDrawingModel,MessageView
-BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E6756696577FA360000000000000295010000000000000100000000FA3600000F0000004D65737361676556696577466F726DFFFFFFFF
+BottomPanelSize=255
+BottomPanelClients=DockSite1,MessageView
+BottomPanelData=0000080001020100000009000000446F636B5369746531724500000000000002FF000000000000000100000000724500000F0000004D65737361676556696577466F726DFFFFFFFF
+BottomMiddlePanelSize=0
+BottomMiddlePanelClients=DockSite0,GraphDrawingModel
+BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965779D1D00000000000002F606000000000000FFFFFFFF
+TabDockLeftClients=DockSite4=0
 TabDockRightClients=DockSite3=0
 
 [View0]
 CustomEditViewType=TEditView
 Module=C:\jc\code\SCops\fPrincipal.pas
-CursorX=1
-CursorY=358
-TopLine=332
+CursorX=67
+CursorY=39
+TopLine=34
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -82,22 +83,21 @@ EditViewName=C:\jc\code\SCops\fPrincipal.pas
 [View1]
 CustomEditViewType=TEditView
 Module=C:\jc\code\SCops\dMain.pas
-CursorX=3
-CursorY=1316
-TopLine=1302
+CursorX=88
+CursorY=15
+TopLine=1
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\jc\code\SCops\dMain.pas
 
 [Watches]
-Count=6
-Watch0='dmMain.dsAsistencia.DataSet.FieldByName(''servicio_id'').AsString',256,0,18,1,0,'Watches',1
-Watch1='dmMain.dsAsistencia.DataSet.FieldByName(''empresa_id'').AsInteger',256,0,18,1,0,'Watches',1
-Watch2='dmMain.dsAsistencia.DataSet.FieldByName(''funcion_id'').AsInteger',256,0,18,1,0,'Watches',1
-Watch3='memAsistencia.recordCount',256,0,18,1,0,'Watches',1
-Watch4='qryAsistencia.recordcount',256,0,18,1,0,'Watches',1
-Watch5='cdsAsistencia.Recordcount',256,0,18,1,0,'Watches',1
+Count=5
+Watch0='memAsistencia.recordcount',256,0,18,1,0,'Watches',1
+Watch1='cdsAsistencia.recordcount',256,0,18,1,0,'Watches',1
+Watch2='qryAsistencia.recordcount',256,0,18,1,0,'Watches',1
+Watch3='xSQL',256,0,18,1,0,'Watches',1
+Watch4='qryAux2.IsEmpty',256,0,18,1,0,'Watches',1
 
 [WatchWindow]
 WatchColumnWidth=120
@@ -158,11 +158,11 @@ State=0
 Left=0
 Top=0
 Width=1895
-Height=8825
+Height=8801
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=8825
+ClientHeight=8801
 TBDockHeight=5899
 LRDockWidth=2350
 Dockable=1
@@ -176,13 +176,13 @@ Docked=1
 State=0
 Left=0
 Top=23
-Width=7917
-Height=144
+Width=10000
+Height=0
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=7917
-ClientHeight=144
-TBDockHeight=144
+ClientWidth=10000
+ClientHeight=0
+TBDockHeight=72
 LRDockWidth=2767
 Dockable=1
 StayOnTop=0
@@ -212,8 +212,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-2468
-Top=-5
+Left=-2458
+Top=-21
 Width=5306
 Height=4880
 MaxLeft=-1
@@ -231,8 +231,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=-73
+Left=-1229
+Top=-100
 Width=1842
 Height=3141
 MaxLeft=-1
@@ -291,21 +291,21 @@ State=0
 Left=0
 Top=0
 Width=1895
-Height=8825
+Height=8801
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=8825
+ClientHeight=8801
 TBDockHeight=6739
 LRDockWidth=1895
 Dockable=1
 StayOnTop=0
-SplitPos=117
+SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Active,AfterApplyUpdates
-ExpandedItems=BackgroundBitmaps=0,DataController=1,DateTimeHandling=0,EditForm=0,FilterBox=0,Filtering=0,FilterRow=0,FindPanel=0,"LiveBindings Designer=0",Navigator=0,NewItemRow=0,OptionsBehavior=0,OptionsCustomize=0,OptionsData=0,OptionsSelection=0,OptionsView=0,Preview=0,Styles=0,DataController.DataModeController=0,DataController.DataSource=0,DataController.Filter=0,DataController.MultiThreadedOptions=0,DataController.Options=0,DataController.Summary=0,Anchors=0,Constraints=0,Font=0,LiveBindings=0,Margins=0,DataSource=0,Persistent=0,SortOptions=0,DataSet=0,Options=0,LookAndFeel=1,Properties=1,Touch=0,Properties.CustomButtons=0,Properties.Options=0,Properties.TabSlants=0,Action=1,Connection=0,ShowRecordTypes=0,"Action.LiveBindings Designer=0",DataBinding=1,Summary=0,BorderIcons=0,GlassFrame=0,HorzScrollBar=0,Padding=0,Properties.Alignment=0,Properties.LineOptions=0,Style=1,StyleDisabled=0,StyleFocused=0,StyleHot=0,Images=0,LookAndFeel.AssignedValues=0,BevelEdges=0,LevelTabs=0,LockedStateImageOptions=0,RootLevelOptions=0,RootLevelStyles=0,OptionsImage=0,SpeedButtonOptions=0,Style.AssignedValues=0,Style.Edges=0,Style.Font=0,Style.LookAndFeel=1,Style.TextStyle=0,Style.StyleController=0,Style.LookAndFeel.AssignedValues=0,Properties.AssignedValues=0,Properties.DateButtons=1,Properties.ValidationOptions=0,Properties.DataBinding=1,Properties.EditProperties=0,DataBinding.DataSource=0,Colors=0,Properties.DefaultValue=0,Value=0,EditValue=0,Properties.IncrementalFilteringOptions=0,AssignedValues=0,ToolBar=0,ApplicationButton=0,BarManager=0,Fonts=0,HelpButton=0,OptionsFading=0,Style.Font.Style=1
+SelectedItem="LiveBindings Designer",Action
+ExpandedItems=FilterOptions=0,"LiveBindings Designer=1",DataSet=0,Options=0,BackgroundBitmaps=0,DataController=1,DateTimeHandling=0,EditForm=0,FilterBox=0,Filtering=0,FilterRow=0,FindPanel=0,Navigator=0,NewItemRow=0,OptionsBehavior=0,OptionsCustomize=0,OptionsData=0,OptionsSelection=0,OptionsView=0,Preview=0,Styles=1,DataController.DataModeController=0,DataController.DataSource=0,DataController.Filter=0,DataController.MultiThreadedOptions=0,DataController.Options=0,DataController.Summary=0,OptionsBehavior.ShowLockedStateImageOptions=0,PopupMenu=0,DateTimeHandling.Filters=0,DataController.Summary.DefaultGroupSummaryItems=0,DataController.Summary.Options=0,DataBinding=1,Options.FilteringPopupIncrementalFilteringOptions=0,Properties=1,Summary=0,Anchors=0,Constraints=0,LiveBindings=0,Margins=0,Style=1,StyleDisabled=0,StyleFocused=0,StyleHot=0,Touch=0,BorderIcons=0,Font=0,GlassFrame=0,HorzScrollBar=0,Padding=0,StyleElements=0,Style.AssignedValues=0,Style.Edges=0,Style.Font=0,Style.LookAndFeel=1,Style.StyleController=0,Style.TextStyle=0,Properties.Alignment=0,Properties.AssignedValues=0,Properties.ValidationOptions=0,Connection=0,ShowRecordTypes=0,Value=0,BevelEdges=0,LookAndFeel=0,OptionsImage=0,SpeedButtonOptions=0,DataBinding.DataSource=0,LevelTabs=0,LockedStateImageOptions=0,RootLevelOptions=0,RootLevelStyles=0,LookAndFeel.AssignedValues=0,Action=0,Colors=0,Images=0,BarManager=0,ItemOptions=0,Ribbon=0,GridView=0,Properties.DateButtons=1,"LiveBindings Designer.Element Layers=0",Properties.ValueChecked=0,Properties.ValueGrayed=0,Properties.ValueUnchecked=0,Style.LookAndFeel.AssignedValues=0,EditValue=0
 
 [TFileExplorerForm]
 PercentageSizes=1
@@ -499,8 +499,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-8
-Top=-110
+Left=0
+Top=-102
 Width=7148
 Height=4880
 MaxLeft=-1
@@ -671,12 +671,12 @@ State=0
 Left=0
 Top=23
 Width=3828
-Height=1715
+Height=240
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3828
-ClientHeight=1715
-TBDockHeight=1715
+ClientHeight=240
+TBDockHeight=240
 LRDockWidth=3828
 Dockable=1
 StayOnTop=0
@@ -692,8 +692,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=23
+Left=1229
+Top=50
 Width=1895
 Height=6739
 MaxLeft=-1
@@ -733,26 +733,26 @@ ActiveTabID=ToolForm
 TabDockClients=ToolForm,TemplateView
 
 [DockSite4]
-HostDockSite=DockLeftPanel
+HostDockSite=LeftDockTabSet
 DockSiteType=1
 PercentageSizes=1
 Create=1
-Visible=1
+Visible=0
 Docked=1
 State=0
-Left=0
-Top=23
+Left=1
+Top=24
 Width=1895
-Height=9125
+Height=9101
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
-ClientHeight=9125
+ClientHeight=9101
 TBDockHeight=4532
 LRDockWidth=1895
 Dockable=1
 StayOnTop=0
 TabPosition=1
-ActiveTabID=PropertyInspector
+ActiveTabID=ProjectManager
 TabDockClients=PropertyInspector,ProjectManager,DataExplorerContainer,TFileExplorerForm,ModelViewTool
 

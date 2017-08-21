@@ -1731,7 +1731,6 @@ object frmSplash: TfrmSplash
       Anchors = [akRight, akBottom]
       Caption = 'CARGANDO EL SISTEMA, ESPERE...'
       ParentFont = False
-      Style.Color = 10114859
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWhite
       Style.Font.Height = -13

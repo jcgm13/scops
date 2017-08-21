@@ -52,6 +52,7 @@ object frmSeleccionEquipo: TfrmSeleccionEquipo
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
+      Styles.Header = frmPrincipal.cxStyle1
       object ViewEquipoColumnEquipoId: TcxGridDBColumn
         Caption = 'Equipo'
         DataBinding.FieldName = 'equipo_id'

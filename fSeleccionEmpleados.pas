@@ -3,11 +3,11 @@ unit fSeleccionEmpleados;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinDevExpressStyle, cxGraphics, cxControls,
-  cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit,
-  cxNavigator, Data.DB, cxDBData, cxCurrencyEdit, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxClasses, cxGridCustomView, cxGrid, Vcl.Menus, Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxCurrencyEdit, cxGridLevel,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, Vcl.Menus, Vcl.ActnList,
+  Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmSeleccionEmpleados = class(TForm)

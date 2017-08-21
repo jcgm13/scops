@@ -52,6 +52,7 @@ object frmSeleccionEmpleados: TfrmSeleccionEmpleados
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
+      Styles.Header = frmPrincipal.cxStyle1
       object ViewEmpleadosColumnElemento: TcxGridDBColumn
         Caption = 'Empleado'
         DataBinding.FieldName = 'empleado_id'

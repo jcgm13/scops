@@ -5,9 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus,
-  dxSkinsCore, dxSkinDevExpressStyle, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, cxControls,
-  cxContainer, cxEdit, cxDBEdit, cxTextEdit, cxLabel, cxMaskEdit, cxDropDownEdit, cxCalendar,
-  cxImageComboBox, cxCurrencyEdit, db, cxMemo, dxSkinOffice2016Colorful, System.Actions;
+  dxSkinsCore, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, cxControls, cxContainer, cxEdit, cxDBEdit,
+  cxTextEdit, cxLabel, cxMaskEdit, cxDropDownEdit, cxCalendar, cxImageComboBox, cxCurrencyEdit, db, cxMemo,
+  dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmVehiculosReparaciones = class(TForm)

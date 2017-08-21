@@ -3,10 +3,11 @@ unit fAsistenciaEdit;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinDevExpressStyle, Vcl.Menus, cxMemo, cxDBEdit,
-  Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxSpinEdit, cxTimeEdit, cxMaskEdit, cxButtonEdit, cxTextEdit, cxLabel, cxCurrencyEdit, dxSkinBlue, dxSkinOffice2007Silver,
-  dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxCheckBox, dxSkinOffice2016Colorful, System.Actions, dxBevel, cxGroupBox, cxRadioGroup, dxSkinOffice2013DarkGray;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, Vcl.Menus, cxMemo,
+  cxDBEdit, Vcl.ActnList, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxSpinEdit, cxTimeEdit, cxMaskEdit, cxButtonEdit, cxTextEdit,
+  cxLabel, cxCurrencyEdit, cxCheckBox, dxSkinOffice2016Colorful, System.Actions, dxBevel, cxGroupBox, cxRadioGroup,
+  dxSkinOffice2013DarkGray;
 
 type
   TfrmAsistenciaEdit = class(TForm)

@@ -94,7 +94,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 3
+    TabOrder = 2
     Text = 'edModelo'
     Width = 200
   end
@@ -119,7 +119,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     Enabled = False
     ParentFont = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 5
+    TabOrder = 3
     Text = 'edFuncion'
     Width = 200
   end
@@ -188,10 +188,11 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     DataBinding.DataField = 'fecha'
     DataBinding.DataSource = dmMain.dsVehiculosCombustibleEdit
     ParentFont = False
+    Properties.DateButtons = [btnToday]
     Properties.SaveTime = False
     Properties.ShowTime = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 8
+    TabOrder = 6
     Width = 100
   end
   object cxLabel62: TcxLabel
@@ -211,7 +212,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 10
+    TabOrder = 8
     Width = 60
   end
   object cxDBImageComboBox1: TcxDBImageComboBox
@@ -244,7 +245,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
         Value = 5
       end>
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 12
+    TabOrder = 10
     Width = 100
   end
   object cxLabel6: TcxLabel
@@ -270,7 +271,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 14
+    TabOrder = 12
     Width = 75
   end
   object cxDBCurrencyEdit2: TcxDBCurrencyEdit
@@ -284,7 +285,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     Properties.DisplayFormat = ',0.00'
     Properties.UseLeftAlignmentOnEditing = False
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 16
+    TabOrder = 14
     Width = 75
   end
   object cxLabel8: TcxLabel
@@ -308,7 +309,7 @@ object frmVehiculosCombustible: TfrmVehiculosCombustible
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 18
+    TabOrder = 16
     Width = 300
   end
   object ActionList1: TActionList

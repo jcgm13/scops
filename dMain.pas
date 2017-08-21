@@ -159,6 +159,8 @@ type
     qryBitacoraEmpleado: TZQuery;
     dsBitacoraEmpleado: TDataSource;
     memAsistencia: TdxMemData;
+    qryUsuariosEdit: TZQuery;
+    dsUsuariosEdit: TDataSource;
     procedure qryEmpleadosEditCalcFields(DataSet: TDataSet);
     procedure qryEmpleadosEditNewRecord(DataSet: TDataSet);
     procedure qryEmpleadosEditBeforePost(DataSet: TDataSet);
@@ -248,11 +250,12 @@ type
 
     // USUARIOS
     procedure CargaUsuarios;
+    function ExisteUsuario(nombre: string): Boolean;
 
     // PERMISOS
     procedure CargaPermisos(usuario : string);
     procedure GuardaPermisos;
-    function ValidaUsuario(usuario, password : string) : boolean;
+    function ValidaUsuario(nombre, password : string) : boolean;
 
     // V A R I O S
     procedure CargaDatasetsAuxiliares;
@@ -1202,7 +1205,7 @@ begin
      try
         cdsUsuarios.DisableControls;
         cdsUsuarios.Active := False;
-        xSQL := 'SELECT * FROM usuarios WHERE clave <> ''ADMIN'' ORDER BY clave';
+        xSQL := 'SELECT * FROM usuarios WHERE nombre <> ''ADMIN'' ORDER BY nombre';
         qryUsuarios.Close;
         qryUsuarios.SQL.Clear;
         qryUsuarios.SQL.Add(xSQL);
@@ -1312,9 +1315,9 @@ begin
              xSQL := '0 AS "' + StringReplace(FormatDateTime('ddd dd',IncDay(fechaIni,i)),'. ','',[rfReplaceAll]) + '"';
 
      try
-        dspAsistencia.DataSet := memAsistencia;
-//        cdsAsistencia.Close;
         cdsAsistencia.DisableControls;
+        dspAsistencia.DataSet := memAsistencia;
+
         xSQL := 'SELECT DISTINCT cast(TRIM( empleados.nombres || '' '' || empleados.apellido_paterno || '' '' || empleados.apellido_materno ) as varchar(100)) AS nombre_empleado, ' +
                 '       servicios.descripcion AS descripcion_servicio, ' + xSQL +
                 ' FROM asistencia ' +
@@ -1377,8 +1380,11 @@ begin
                       end;
                    qryAsistencia.Next;
               end;
+
         cdsAsistencia.Close;
-        cdsAsistencia.Active := True;
+        cdsAsistencia.Open;
+        cdsAsistencia.Close;
+        cdsAsistencia.Open;
      finally
             cdsAsistencia.EnableControls;
      end;
@@ -1592,6 +1598,27 @@ begin
      except
            on E:Exception do
               raise Exception.Create('Ha ocurrido un error en TdmMain.ExisteServicioId. ' + E.Message);
+     end;
+end;
+
+function TdmMain.ExisteUsuario(nombre: string): Boolean;
+var
+   xSQL : string;
+begin
+     Result := False;
+     try
+       xSQL := 'SELECT nombre ' +
+               ' FROM usuarios ' +
+               ' WHERE nombre = :nombre';
+       qryAux2.Close;
+       qryAux2.SQL.Clear;
+       qryAux2.SQL.Add(xSQL);
+       qryAux2.ParamByName('nombre').AsString := nombre;
+       qryAux2.Open;
+       Result := not qryAux2.IsEmpty;
+     except
+           on E:Exception do
+              raise Exception.Create('Ha ocurrido un error en TdmMain.ExisteUsuario. ' + E.Message);
      end;
 end;
 
@@ -2388,16 +2415,16 @@ begin
      end;
 end;
 
-function TdmMain.ValidaUsuario(usuario, password: string): boolean;
+function TdmMain.ValidaUsuario(nombre, password: string): boolean;
 var
    xSQL : string;
 begin
      Result := False;
-     xSQL := 'SELECT * FROM usuarios WHERE clave = :usuario AND password = :password';
+     xSQL := 'SELECT * FROM usuarios WHERE nombre = :nombre AND password = :password';
      qryAux.Close;
      qryAux.SQL.Clear;
      qryAux.SQL.Add(xSQL);
-     qryAux.ParamByName('usuario').AsString  := usuario;
+     qryAux.ParamByName('nombre').AsString  := nombre;
      qryAux.ParamByName('password').AsString := password;
      qryAux.Open;
      Result := not qryAux.IsEmpty;

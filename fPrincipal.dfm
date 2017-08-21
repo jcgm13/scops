@@ -623,10 +623,12 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object ViewUsuarios: TcxGridDBTableView
+      PopupMenu = dxRibbonPopupMenuUsuarios
       Navigator.Buttons.CustomButtons = <>
       FindPanel.DisplayMode = fpdmManual
       FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
       FindPanel.ShowCloseButton = False
+      OnCellDblClick = ViewUsuariosCellDblClick
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
@@ -641,8 +643,8 @@ object frmPrincipal: TfrmPrincipal
       OptionsView.GroupByBox = False
       Styles.Header = cxStyle1
       object ViewUsuariosColumnUsuario: TcxGridDBColumn
-        Caption = 'Usuario'
-        DataBinding.FieldName = 'clave'
+        Caption = 'Nombre Usuario'
+        DataBinding.FieldName = 'nombre'
       end
     end
     object ViewAsistenciaCaptura: TcxGridDBTableView
@@ -1120,22 +1122,27 @@ object frmPrincipal: TfrmPrincipal
         Position.RowIndex = 0
       end
     end
+    object ViewAsistenciaConsulta2: TcxGridDBBandedTableView
+      Navigator.Buttons.CustomButtons = <>
+      FindPanel.DisplayMode = fpdmManual
+      FindPanel.InfoText = 'Capture informaci'#243'n a buscar...'
+      FindPanel.ShowCloseButton = False
+      DataController.DataSource = dmMain.dsAsistencia
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      Bands = <
+        item
+        end>
+    end
     object cxGridMainLevelMain: TcxGridLevel
       GridView = ViewEmpleados
     end
-  end
-  object dbgrd1: TDBGrid
-    Left = 37
-    Top = 328
-    Width = 868
-    Height = 206
-    DataSource = dmMain.dsAsistencia
-    TabOrder = 8
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
   end
   object dxBarManager1: TdxBarManager
     AllowReset = False
@@ -1592,11 +1599,7 @@ object frmPrincipal: TfrmPrincipal
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
-      ItemLinks = <
-        item
-          Visible = True
-          ItemName = 'xFechaProgramacion'
-        end>
+      ItemLinks = <>
       OneOnRow = False
       Row = 0
       UseOwnFont = False
@@ -2068,15 +2071,6 @@ object frmPrincipal: TfrmPrincipal
       Action = actReingreso
       Category = 0
     end
-    object xFechaProgramacion: TdxBarDateCombo
-      Category = 0
-      Visible = ivAlways
-      ImageIndex = 43
-      ShowCaption = True
-      Width = 120
-      ShowEditor = False
-      ShowClearButton = False
-    end
     object xFechaAsistenciaIni: TdxBarDateCombo
       Caption = 'Fecha Inicial'
       Category = 0
@@ -2084,15 +2078,22 @@ object frmPrincipal: TfrmPrincipal
       Visible = ivAlways
       ImageIndex = 43
       Width = 120
+      Text = 'dom. 20/08/2017'
       ShowEditor = False
       DateOnStart = bdsCustom
       ShowClearButton = False
     end
-    object dxBarLargeButton41: TdxBarLargeButton
-      Caption = 'New Button'
+    object xFechaAsistenciaFin: TdxBarDateCombo
+      Caption = 'Fecha Final  '
       Category = 0
-      Hint = 'New Button'
+      Hint = 'Fecha Final  '
       Visible = ivAlways
+      ImageIndex = 43
+      Width = 120
+      Text = 'dom. 20/08/2017'
+      ShowEditor = False
+      DateOnStart = bdsCustom
+      ShowClearButton = False
     end
     object dxBarLargeButton42: TdxBarLargeButton
       Action = actCapturarAsistencia
@@ -2237,17 +2238,6 @@ object frmPrincipal: TfrmPrincipal
       Action = actDocumentosEmpleado
       Category = 0
     end
-    object xFechaAsistenciaFin: TdxBarDateCombo
-      Caption = 'Fecha Final  '
-      Category = 0
-      Hint = 'Fecha Final  '
-      Visible = ivAlways
-      ImageIndex = 43
-      Width = 120
-      ShowEditor = False
-      DateOnStart = bdsCustom
-      ShowClearButton = False
-    end
     object dxBarLargeButton58: TdxBarLargeButton
       Action = actDocumentosCliente
       Category = 0
@@ -2287,7 +2277,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 360
     Top = 232
     Bitmap = {
-      494C0101B0002801600120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101B00028016C0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A005000001002000000000000040
       0B00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -30391,21 +30381,25 @@ object frmPrincipal: TfrmPrincipal
       Category = 'Usuarios'
       Caption = 'Agregar Usuario'
       ImageIndex = 54
+      OnExecute = actAgregarUsuarioExecute
     end
     object actModificarUsuario: TAction
       Category = 'Usuarios'
       Caption = 'Modificar Usuario'
       ImageIndex = 57
+      OnExecute = actModificarUsuarioExecute
     end
     object actEliminarUsuario: TAction
       Category = 'Usuarios'
       Caption = 'Eliminar Usuario'
       ImageIndex = 59
+      Visible = False
     end
     object actVerUsuario: TAction
       Category = 'Usuarios'
       Caption = 'Ver Usuario'
       ImageIndex = 58
+      OnExecute = actVerUsuarioExecute
     end
     object actConsultarUsuarios: TAction
       Category = 'Usuarios'
@@ -30561,7 +30555,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 356
     Top = 292
     Bitmap = {
-      494C0101AF00D800100110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101AF00D8001C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0020000010020000000000000C0
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -36556,5 +36550,34 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
     end
+  end
+  object dxRibbonPopupMenuUsuarios: TdxRibbonPopupMenu
+    BarManager = dxBarManager1
+    ItemLinks = <
+      item
+        Visible = True
+        ItemName = 'dxBarLargeButton25'
+      end
+      item
+        Visible = True
+        ItemName = 'dxBarLargeButton26'
+      end
+      item
+        Visible = True
+        ItemName = 'dxBarLargeButton27'
+      end
+      item
+        Visible = True
+        ItemName = 'dxBarLargeButton28'
+      end
+      item
+        BeginGroup = True
+        Visible = True
+        ItemName = 'dxBarLargeButton30'
+      end>
+    Ribbon = dxRibbon1
+    UseOwnFont = False
+    Left = 228
+    Top = 506
   end
 end

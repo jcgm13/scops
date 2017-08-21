@@ -3,14 +3,14 @@ unit fEmpleados;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinscxPCPainter, dxBarBuiltInMenu, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, cxPC,
-  Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox, cxInplaceContainer, cxCalendar, cxRadioGroup,
-  cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, cxImageComboBox,
-  dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, cxLookupEdit, cxDBLookupEdit, cxSpinEdit, cxImage,
-  dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray, cxButtonEdit, dxSkinOffice2016Colorful, System.Actions, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridCustomTableView,
-  cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGridCustomView, cxClasses, cxGridLevel, cxGrid, dxSkinOffice2013DarkGray;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, dxSkinscxPCPainter, dxBarBuiltInMenu,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, cxPC, Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox,
+  cxInplaceContainer, cxCalendar, cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList,
+  Vcl.Grids, Vcl.DBGrids, cxImageComboBox, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, cxLookupEdit, cxDBLookupEdit,
+  cxSpinEdit, cxImage, cxButtonEdit, dxSkinOffice2016Colorful, System.Actions, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxNavigator, cxDBData, cxGridCustomTableView, cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGridCustomView,
+  cxClasses, cxGridLevel, cxGrid, dxSkinOffice2013DarkGray;
 
 type
   TfrmEmpleados = class(TForm)

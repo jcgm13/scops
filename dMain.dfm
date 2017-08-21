@@ -1481,4 +1481,28 @@ object dmMain: TdmMain
     Left = 240
     Top = 544
   end
+  object qryUsuariosEdit: TZQuery
+    Connection = ZConnection1
+    SQL.Strings = (
+      'select * from usuarios where nombre = :nombre')
+    Params = <
+      item
+        DataType = ftString
+        Name = 'nombre'
+        ParamType = ptInput
+      end>
+    Left = 354
+    Top = 309
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'nombre'
+        ParamType = ptInput
+      end>
+  end
+  object dsUsuariosEdit: TDataSource
+    DataSet = qryUsuariosEdit
+    Left = 398
+    Top = 309
+  end
 end

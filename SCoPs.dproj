@@ -43,12 +43,12 @@
         <SanitizedProjectName>SCoPs</SanitizedProjectName>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-        <DCC_UsePackage>DBXInterBaseDriver;DataSnapCommon;DbxCommonDriver;dbxcds;IPIndyImpl;bindcompfmx;dbrtl;bindcomp;xmlrtl;bindengine;DBXInformixDriver;DBXFirebirdDriver;DBXSybaseASADriver;dbexpress;DBXOracleDriver;rtl;DbxClientDriver;DBXMySQLDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;inet;dsnap;DataSnapServer;DataSnapClient;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DataSnapCommon;DbxCommonDriver;IPIndyImpl;dbrtl;bindcomp;xmlrtl;bindengine;DBXInformixDriver;DBXFirebirdDriver;DBXSybaseASADriver;dbexpress;DBXOracleDriver;rtl;DbxClientDriver;DBXMySQLDriver;DataSnapProviderClient;inet;dsnap;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>dxTileControlRS16;cxLibraryRS16;dxPsPrVwAdvRS16;dxPSCoreRS16;cxPivotGridOLAPRS16;cxPageControlRS16;vclimg;dxComnRS16;vcldb;dxADOServerModeRS16;dxBarExtDBItemsRS16;cxDataRS16;cxBarEditItemRS16;dxDockingRS16;dxPSLnksRS16;dxBarExtItemsRS16;cxVerticalGridRS16;dxorgcRS16;dxWizardControlRS16;dxPScxExtCommonRS16;vcldbx;dxNavBarRS16;DBXOdbcDriver;frxDB16;dxSkinscxPCPainterRS16;fs16;vclactnband;bindcompvcl;dxServerModeRS16;vclie;dcldxSkinsCoreRS16;vclx;dxGDIPlusRS16;dxLayoutControlRS16;dxCoreRS16;cxExportRS16;ZComponent;dxBarRS16;dxSkinsdxNavBarPainterRS16;cxTreeListdxBarPopupMenuRS16;dxDBXServerModeRS16;dxRibbonRS16;DBXSybaseASEDriver;cxTreeListRS16;dxSkinsdxRibbonPainterRS16;DBXDb2Driver;frxe16;dxSkinscxSchedulerPainterRS16;vcl;DBXMSSQLDriver;dxSkinsdxDLPainterRS16;dxtrmdRS16;ZDbc;frx16;dxSkinsdxBarPainterRS16;ZPlain;dxSkinsCoreRS16;cxPivotGridChartRS16;dxPSPrVwRibbonRS16;dxSpellCheckerRS16;dxmdsRS16;dxMapControlRS16;cxGridRS16;dxPScxCommonRS16;cxEditorsRS16;cxPivotGridRS16;cxSchedulerRS16;ZCore;VclSmp;dxTabbedMDIRS16;fsDB16;dxThemeRS16;dxPScxPCProdRS16;ZParseSql;bdertl;AllSkinsRS16;inetdbbde;DataSnapConnectors;dsnapcon;dxSkinDevExpressStyleRS16;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>dxTileControlRS16;cxLibraryRS16;dxPsPrVwAdvRS16;dxPSCoreRS16;cxPivotGridOLAPRS16;cxPageControlRS16;vclimg;dxComnRS16;vcldb;dxADOServerModeRS16;dxBarExtDBItemsRS16;cxDataRS16;cxBarEditItemRS16;dxDockingRS16;dxPSLnksRS16;dxBarExtItemsRS16;cxVerticalGridRS16;dxorgcRS16;dxWizardControlRS16;dxPScxExtCommonRS16;vcldbx;dxNavBarRS16;DBXOdbcDriver;frxDB16;dxSkinscxPCPainterRS16;fs16;vclactnband;bindcompvcl;dxServerModeRS16;vclie;dcldxSkinsCoreRS16;vclx;dxGDIPlusRS16;dxLayoutControlRS16;dxCoreRS16;cxExportRS16;ZComponent;dxBarRS16;dxSkinsdxNavBarPainterRS16;cxTreeListdxBarPopupMenuRS16;dxDBXServerModeRS16;dxRibbonRS16;DBXSybaseASEDriver;cxTreeListRS16;dxSkinsdxRibbonPainterRS16;DBXDb2Driver;frxe16;dxSkinscxSchedulerPainterRS16;vcl;DBXMSSQLDriver;dxSkinsdxDLPainterRS16;dxtrmdRS16;ZDbc;frx16;dxSkinsdxBarPainterRS16;ZPlain;dxSkinsCoreRS16;cxPivotGridChartRS16;dxPSPrVwRibbonRS16;dxSpellCheckerRS16;dxmdsRS16;dxMapControlRS16;cxGridRS16;dxPScxCommonRS16;cxEditorsRS16;cxPivotGridRS16;cxSchedulerRS16;ZCore;dxTabbedMDIRS16;fsDB16;dxThemeRS16;dxPScxPCProdRS16;ZParseSql;bdertl;AllSkinsRS16;inetdbbde;dsnapcon;dxSkinDevExpressStyleRS16;dxSkinsCoreRS21;cxLibraryRS21;dxGDIPlusRS21;dxCoreRS21;dxThemeRS21;dxSkinOffice2013DarkGrayRS21;$(DCC_UsePackage)</DCC_UsePackage>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -56,7 +56,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>dxTileControlRS16;cxLibraryRS16;dxPsPrVwAdvRS16;dxPSCoreRS16;cxPivotGridOLAPRS16;cxPageControlRS16;vclimg;dxComnRS16;vcldb;dxADOServerModeRS16;dxBarExtDBItemsRS16;cxDataRS16;cxBarEditItemRS16;dxDockingRS16;dxPSLnksRS16;dxBarExtItemsRS16;cxVerticalGridRS16;dxorgcRS16;dxWizardControlRS16;dxPScxExtCommonRS16;dxNavBarRS16;DBXOdbcDriver;dxSkinscxPCPainterRS16;vclactnband;bindcompvcl;dxServerModeRS16;vclie;dcldxSkinsCoreRS16;vclx;dxGDIPlusRS16;dxLayoutControlRS16;dxCoreRS16;cxExportRS16;dxBarRS16;dxSkinsdxNavBarPainterRS16;cxTreeListdxBarPopupMenuRS16;dxDBXServerModeRS16;dxRibbonRS16;DBXSybaseASEDriver;cxTreeListRS16;dxSkinsdxRibbonPainterRS16;DBXDb2Driver;dxSkinscxSchedulerPainterRS16;vcl;DBXMSSQLDriver;dxSkinsdxDLPainterRS16;dxtrmdRS16;dxSkinsdxBarPainterRS16;dxSkinsCoreRS16;cxPivotGridChartRS16;dxPSPrVwRibbonRS16;dxSpellCheckerRS16;dxmdsRS16;dxMapControlRS16;cxGridRS16;dxPScxCommonRS16;cxEditorsRS16;cxPivotGridRS16;cxSchedulerRS16;VclSmp;dxTabbedMDIRS16;dxThemeRS16;dxPScxPCProdRS16;DataSnapConnectors;dsnapcon;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>dxTileControlRS16;cxLibraryRS16;dxPsPrVwAdvRS16;dxPSCoreRS16;cxPivotGridOLAPRS16;cxPageControlRS16;vclimg;dxComnRS16;vcldb;dxADOServerModeRS16;dxBarExtDBItemsRS16;cxDataRS16;cxBarEditItemRS16;dxDockingRS16;dxPSLnksRS16;dxBarExtItemsRS16;cxVerticalGridRS16;dxorgcRS16;dxWizardControlRS16;dxPScxExtCommonRS16;dxNavBarRS16;DBXOdbcDriver;dxSkinscxPCPainterRS16;vclactnband;bindcompvcl;dxServerModeRS16;vclie;dcldxSkinsCoreRS16;vclx;dxGDIPlusRS16;dxLayoutControlRS16;dxCoreRS16;cxExportRS16;dxBarRS16;dxSkinsdxNavBarPainterRS16;cxTreeListdxBarPopupMenuRS16;dxDBXServerModeRS16;dxRibbonRS16;DBXSybaseASEDriver;cxTreeListRS16;dxSkinsdxRibbonPainterRS16;DBXDb2Driver;dxSkinscxSchedulerPainterRS16;vcl;DBXMSSQLDriver;dxSkinsdxDLPainterRS16;dxtrmdRS16;dxSkinsdxBarPainterRS16;dxSkinsCoreRS16;cxPivotGridChartRS16;dxPSPrVwRibbonRS16;dxSpellCheckerRS16;dxmdsRS16;dxMapControlRS16;cxGridRS16;dxPScxCommonRS16;cxEditorsRS16;cxPivotGridRS16;cxSchedulerRS16;dxTabbedMDIRS16;dxThemeRS16;dxPScxPCProdRS16;dsnapcon;dxSkinsCoreRS21;cxLibraryRS21;dxGDIPlusRS21;dxCoreRS21;dxThemeRS21;dxSkinOffice2013DarkGrayRS21;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -146,10 +146,6 @@
             <Form>frmSeleccionEquipo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="fAsistencia.pas">
-            <Form>frmAsistencia</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="fAsistenciaEdit.pas">
             <Form>frmAsistenciaEdit</Form>
             <FormType>dfm</FormType>
@@ -168,10 +164,6 @@
         <DCCReference Include="fSeleccionEmpleados.pas">
             <Form>frmSeleccionEmpleados</Form>
         </DCCReference>
-        <DCCReference Include="fDocumentacionEmpleados.pas">
-            <Form>frmDocumentacionEmpleados</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="FMovtosAlmacen.pas">
             <Form>frmMovtosAlmacen</Form>
             <FormType>dfm</FormType>
@@ -186,6 +178,10 @@
         </DCCReference>
         <DCCReference Include="FDocsEmpleado.pas">
             <Form>frmDocsEmpleado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="fUsuarios.pas">
+            <Form>frmUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -233,9 +229,129 @@
                     <VersionInfoKeys Name="Comments"/>
                 </VersionInfoKeys>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclemsclientfiredac210.bpl">Embarcadero EMS Client FireDAC Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerService210.bpl">Data Explorer Reusable Services</Excluded_Packages>
+                    <Excluded_Packages Name="dclFireDAC210.bpl">Embarcadero FireDAC Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclRESTBackendComponents210.bpl">Embarcadero REST-Backend Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclRESTComponents210.bpl">Embarcadero REST-Library Components (Designtime)</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPlugin210.bpl">DBExpress Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPluginInt210.bpl">DBExpress InterBase Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDBXDriversInt210.bpl">Embarcadero Intro Driver Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcldbx210.bpl">Embarcadero dbExpress Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoap210.bpl">Embarcadero SOAP Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapClient210.bpl">Embarcadero DBExpress DataSnap Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapCommon210.bpl">Embarcadero DBExpress DataSnap Common Design package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapServer210.bpl">Embarcadero DBExpress DataSnap Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclrtl210.bpl">Embarcadero - RTL Component Editors</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclact210.bpl">Embarcadero ActionBar Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclado210.bpl">Embarcadero ADO DB Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxSchedulerRS21.bpl">ExpressScheduler by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="dclcxPivotGridRS21.bpl">ExpressPivotGrid by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxorgcRS21.bpl">ExpressOrgChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinscxSchedulerPainterRS21.bpl">ExpressSkins Library Painter for Scheduler by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinsdxNavBarPainterRS21.bpl">ExpressSkins Library Painter for NavBar by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFireDACEnt210.bpl">Embarcadero FireDAC C\S Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerFireDACPlugin210.bpl">FireDAC Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFMXFireDAC210.bpl">Embarcadero FMX FireDAC Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\applet210.bpl">Embarcadero Control Panel Applet Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsmp210.bpl">Embarcadero Sample Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoapmidas210.bpl">Embarcadero SOAP Midas Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoapserver210.bpl">Embarcadero SOAP Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeClient210.bpl">Embarcadero DBExpress DataSnap Native Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPluginEnt210.bpl">DBExpress Enterprise Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapConnectors210.bpl">Embarcadero DataSnap Connector Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapIndy10ServerTransport210.bpl">Embarcadero DBExpress DataSnap Server Transport Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeServer210.bpl">Embarcadero DBExpress DataSnap Native Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapProviderClient210.bpl">Embarcadero DBExpress DataSnap Provider Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapWebBrokerServer210.bpl">Embarcadero DBExpress DataSnap Web Broker Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclfmxstd210.bpl">Embarcadero FMX Standard Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx210.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltethering210.bpl">Embarcadero - Tethering Component Editors</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclCloudService210.bpl">Embarcadero Cloud management components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFireDACEntExt210.bpl">Embarcadero FireDAC Ext C\S Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Raize\CS5\Bin\CodeSiteExpressPkg_Design210.bpl">CodeSite Express 5.1.6</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxSchedulerGridRS21.bpl">ExpressScheduler connection to ExpressQuantumGrid by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxSchedulerRibbonStyleEventEditorRS21.bpl">ExpressScheduler Ribbon Event Window by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxSchedulerTreeBrowserRS21.bpl">ExpressScheduler tree browser by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxADOServerModeRS21.bpl">ADO Data Source for ExpressDataController Server Mode by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxDBXServerModeRS21.bpl">dbExpress Data Source for ExpressDataController Server Mode by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxGridWizardRS21.bpl">ExpressQuantumGrid Wizard by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxBarDBNavRS21.bpl">ExpressBars DBNavigator by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxNavBarRS21.bpl">ExpressNavBar by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPScxGridLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressQuantumGrid by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxLCLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressLayoutControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPScxPivotGridLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressPivotGrid by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPScxSchedulerLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressScheduler by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPScxTLLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressQuantumTreeList by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPScxVGridLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressVerticalGrid by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxDBOCLnkRS21.bpl">ExpressPrinting System ReportLinks for ExpressDBOrgChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxDBTVLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressDBTree by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxFCLnkRS21.bpl">ExpressPrinting System ReportLinks for ExpressFlowChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxGaugeControlLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressGauge Control by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxMapControlLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressMap Control by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxOCLnkRS21.bpl">ExpressPrinting System ReportLinks for ExpressOrgChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSdxSpreadSheetLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressSpreadSheet by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSLnksRS21.bpl">ExpressPrinting System ReportLinks (Standard) by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSPrVwRibbonRS21.bpl">ExpressPrinting System Ribbon Preview Window by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPSRichEditControlLnkRS21.bpl">ExpressPrinting System ReportLink for ExpressRichEditControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxtrmdRS21.bpl">ExpressTreePrintedDataSet by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxPivotGridChartRS21.bpl">ExpressPivotGrid connection to ExpressQuantumGrid Chart View by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxDBOrRS21.bpl">ExpressDBOrgChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxFlowChartRS21.bpl">ExpressFlowChart by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxGaugeControlRS21.bpl">ExpressGaugeControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxMapControlRS21.bpl">ExpressMapControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxTileControlRS21.bpl">ExpressTileControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxPDFViewerRS21.bpl">ExpressPDFViewer by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxSkinscxSchedulerPainterRS21.bpl">ExpressSkins Library Uses Clause Auto Fill Helper for Scheduler Painter by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxSkinsdxNavBarPainterRS21.bpl">ExpressSkins Library Uses Clause Auto Fill Helper for NavBar Painter by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinBlueprintRS21.bpl">ExpressSkins - Blueprint Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinBlueRS21.bpl">ExpressSkins - Blue Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinCaramelRS21.bpl">ExpressSkins - Caramel Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinCoffeeRS21.bpl">ExpressSkins - Coffee Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinDarkRoomRS21.bpl">ExpressSkins - Darkroom Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinDarkSideRS21.bpl">ExpressSkins - DarkSide Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinDevExpressDarkStyleRS21.bpl">ExpressSkins - DevExpressDarkStyle Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinDevExpressStyleRS21.bpl">ExpressSkins - DevExpressStyle Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinFoggyRS21.bpl">ExpressSkins - Foggy Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinGlassOceansRS21.bpl">ExpressSkins - GlassOceans Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinHighContrastRS21.bpl">ExpressSkins - HighContrast Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkiniMaginaryRS21.bpl">ExpressSkins - iMaginary Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinLilianRS21.bpl">ExpressSkins - Lilian Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinLiquidSkyRS21.bpl">ExpressSkins - LiquidSky Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinLondonLiquidSkyRS21.bpl">ExpressSkins - LondonLiquidSky Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinMcSkinRS21.bpl">ExpressSkins - McSkin Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinMetropolisDarkRS21.bpl">ExpressSkins - MetropolisDark Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinMetropolisRS21.bpl">ExpressSkins - Metropolis Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinMoneyTwinsRS21.bpl">ExpressSkins - MoneyTwins Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2007BlackRS21.bpl">ExpressSkins - Office2007Black Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2007BlueRS21.bpl">ExpressSkins - Office2007Blue Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2007GreenRS21.bpl">ExpressSkins - Office2007Green Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2007PinkRS21.bpl">ExpressSkins - Office2007Pink Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2007SilverRS21.bpl">ExpressSkins - Office2007Silver Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2010BlackRS21.bpl">ExpressSkins - Office2010Black Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2010BlueRS21.bpl">ExpressSkins - Office2010Blue Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2010SilverRS21.bpl">ExpressSkins - Office2010Silver Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2013LightGrayRS21.bpl">ExpressSkins - Office2013LightGray Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2013WhiteRS21.bpl">ExpressSkins - Office2013White Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinOffice2016DarkRS21.bpl">ExpressSkins - Office2016Dark Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinPumpkinRS21.bpl">ExpressSkins - Pumpkin Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSevenClassicRS21.bpl">ExpressSkins - SevenClassic Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSevenRS21.bpl">ExpressSkins - Seven Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSharpPlusRS21.bpl">ExpressSkins - SharpPlus Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSharpRS21.bpl">ExpressSkins - Sharp Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSilverRS21.bpl">ExpressSkins - Silver Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSpringTimeRS21.bpl">ExpressSkins - Springtime Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinStardustRS21.bpl">ExpressSkins - Stardust Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinSummer2008RS21.bpl">ExpressSkins - Summer2008 Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinTheAsphaltWorldRS21.bpl">ExpressSkins - TheAsphaltWorld Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinValentineRS21.bpl">ExpressSkins - Valentine Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinVisualStudio2013BlueRS21.bpl">ExpressSkins - VisualStudio2013Blue Skin </Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinVisualStudio2013DarkRS21.bpl">ExpressSkins - VisualStudio2013Dark Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinVisualStudio2013LightRS21.bpl">ExpressSkins - VisualStudio2013Light Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinVS2010RS21.bpl">ExpressSkins - VS2010 Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinWhiteprintRS21.bpl">ExpressSkins - Whiteprint Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinXmas2008BlueRS21.bpl">ExpressSkins - Xmas2008Blue Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dxSkinBlackRS21.bpl">ExpressSkins - Black Skin by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclemsclientfiredac210.bpl">Embarcadero EMS Client FireDAC Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclBindCompFireDAC210.bpl">LiveBinding Expression Components FireDac</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclVclFireDAC210.bpl">Embarcadero VCL FireDAC Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcl31w210.bpl">Delphi 1.0 Compatibility Components</Excluded_Packages>
@@ -243,26 +359,23 @@
                     <Excluded_Packages Name="$(BDSBIN)\dcltouch210.bpl">Embarcadero Touch Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclMetropolisUILiveTile210.bpl">Embarcadero Metropolis UI Live Tile Standard Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclnetwiz210.bpl">Embarcadero Internet Server Wizards</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclmid210.bpl">Embarcadero MyBase DataAccess Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclnetdb210.bpl">Embarcadero Internet DB Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclbindcompdbx210.bpl">LiveBindings Expression Components DbExpress</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclmcn210.bpl">Embarcadero DataSnap Connection Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclDataSnapFireDAC210.bpl">Embarcadero DataSnap FireDAC</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\gitide210.bpl">Embarcadero Git Integration</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\svnide210.bpl">Embarcadero Subversion Integration</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclado210.bpl">Embarcadero ADO DB Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclie210.bpl">Internet Explorer Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclIPIndyImpl210.bpl">IP Abstraction Indy Implementation Design Time</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcldbxcds210.bpl">Embarcadero SimpleDataset Component (DBX)</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclemsclient210.bpl">Embarcadero EMS Client Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclemsserver210.bpl">EMS Server design  package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclIndyCore210.bpl">Indy 10 Core Design Time</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols210.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclFMXtee9210.bpl">TeeChart Lite FMX Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcltee9210.bpl">TeeChart Standard VCL Components</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxFireDACServerModeRS21.bpl">FireDAC Data Source for ExpressDataController Server Mode by Developer Express Inc.</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxPivotGridOLAPRS21.bpl">ExpressPivotGrid OLAP by Developer Express Inc.</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dcldxWizardControlRS21.bpl">ExpressWizardControl by Developer Express Inc.</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\dclcxPivotGridOLAPRS21.bpl">ExpressPivotGrid OLAP by Developer Express Inc.</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k210.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp210.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>

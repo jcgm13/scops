@@ -193,8 +193,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 8
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 7
     Width = 400
   end
   object cxLabel6: TcxLabel
@@ -210,8 +214,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 10
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 9
     Width = 400
   end
   object cxLabel7: TcxLabel
@@ -227,8 +235,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 12
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 11
     Width = 100
   end
   object cxLabel8: TcxLabel
@@ -244,8 +256,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 14
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 13
     Width = 100
   end
   object cxLabel9: TcxLabel
@@ -261,8 +277,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 16
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 15
     Width = 150
   end
   object cxLabel10: TcxLabel
@@ -278,8 +298,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 18
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 17
     Width = 200
   end
   object cxLabel11: TcxLabel
@@ -295,8 +319,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 20
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 19
     Width = 50
   end
   object cxLabel12: TcxLabel
@@ -312,8 +340,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 22
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 21
     Width = 150
   end
   object cxLabel13: TcxLabel
@@ -329,8 +361,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 24
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 23
     Width = 200
   end
   object cxLabel14: TcxLabel
@@ -346,8 +382,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 26
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 25
     Width = 200
   end
   object cxLabel192: TcxLabel
@@ -385,8 +425,12 @@ object frmEquipo: TfrmEquipo
     Properties.Alignment.Horz = taRightJustify
     Properties.DisplayFormat = ',0.00'
     Properties.UseLeftAlignmentOnEditing = False
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 28
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 27
     Width = 100
   end
   object cxLabel15: TcxLabel
@@ -405,8 +449,12 @@ object frmEquipo: TfrmEquipo
     Properties.DecimalPlaces = 0
     Properties.DisplayFormat = ',0'
     Properties.UseLeftAlignmentOnEditing = False
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 30
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 29
     Width = 50
   end
   object cxLabel16: TcxLabel
@@ -422,8 +470,12 @@ object frmEquipo: TfrmEquipo
     DataBinding.DataSource = dmMain.dsEquipoEdit
     ParentFont = False
     Properties.CharCase = ecUpperCase
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 32
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 31
     Width = 200
   end
   object cxLabel84: TcxLabel
@@ -440,8 +492,12 @@ object frmEquipo: TfrmEquipo
     ParentFont = False
     Properties.CharCase = ecUpperCase
     Properties.ScrollBars = ssVertical
+    Style.LookAndFeel.SkinName = 'Office2016Colorful'
     Style.StyleController = frmPrincipal.cxEditStyleController1
-    TabOrder = 35
+    StyleDisabled.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleFocused.LookAndFeel.SkinName = 'Office2016Colorful'
+    StyleHot.LookAndFeel.SkinName = 'Office2016Colorful'
+    TabOrder = 34
     Height = 85
     Width = 400
   end

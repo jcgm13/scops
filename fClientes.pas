@@ -3,14 +3,13 @@ unit fClientes;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls,
-  Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxStyles, cxEdit, cxDBLookupComboBox, cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup,
-  cxTextEdit, cxCurrencyEdit, cxContainer, Vcl.Menus, Data.DB, Vcl.ActnList, Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit,
-  Vcl.ExtCtrls, cxVGrid, cxDBVGrid, cxInplaceContainer, cxHyperLinkEdit, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo,
-  dxSkinDevExpressStyle, cxLabel, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver, dxSkinOffice2013LightGray,
-  dxSkinscxPCPainter, dxBarBuiltInMenu, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, cxPC, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxEdit, cxDBLookupComboBox,
+  cxCalendar, cxCheckBox, cxImageComboBox, cxRadioGroup, cxTextEdit, cxCurrencyEdit, cxContainer, Vcl.Menus, Data.DB, Vcl.ActnList,
+  Vcl.StdCtrls, cxButtons, cxGroupBox, cxDBEdit, Vcl.ExtCtrls, cxVGrid, cxDBVGrid, cxInplaceContainer, cxHyperLinkEdit, StrUtils,
+  cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, dxSkinscxPCPainter, dxBarBuiltInMenu, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxNavigator, cxDBData, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
+  cxPC, dxSkinOffice2016Colorful, System.Actions, dxSkinOffice2013DarkGray;
 
 type
   TfrmClientes = class(TForm)

@@ -3,12 +3,11 @@ unit fEquipo;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore,
-  dxSkinDevExpressStyle, cxControls, cxContainer, cxEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, cxDBEdit,
-  cxTextEdit, cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList, db, cxLookupEdit, cxDBLookupEdit,
-  cxDBLookupComboBox, cxCurrencyEdit, cxMemo, dxSkinBlue, dxSkinOffice2007Silver, dxSkinOffice2010Silver,
-  dxSkinOffice2013LightGray, dxSkinOffice2016Colorful, System.Actions;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, cxControls, cxContainer, cxEdit,
+  cxMaskEdit, cxDropDownEdit, cxImageComboBox, cxDBEdit, cxTextEdit, cxLabel, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Vcl.ActnList,
+  db, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxCurrencyEdit, cxMemo, dxSkinOffice2016Colorful, System.Actions,
+  dxSkinOffice2013DarkGray;
 
 type
   TfrmEquipo = class(TForm)

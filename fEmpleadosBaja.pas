@@ -3,13 +3,12 @@ unit fEmpleadosBaja;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2010Black, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinscxPCPainter, dxBarBuiltInMenu, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, cxPC,
-  Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox, cxVGrid, cxDBVGrid, cxInplaceContainer, cxCalendar,
-  cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus, cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids,
-  cxImageComboBox, dxSkinDevExpressStyle, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel, System.Actions, dxBevel,
-  Vcl.ComCtrls, dxCore, cxDateUtils, dxSkinOffice2016Colorful;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,  Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, dxSkinsCore, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, dxSkinscxPCPainter, dxBarBuiltInMenu,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, cxPC, Data.DB, cxContainer, cxEdit, cxTextEdit, cxDBEdit, cxStyles, cxCheckBox,
+  cxVGrid, cxDBVGrid, cxInplaceContainer, cxCalendar, cxRadioGroup, cxDBLookupComboBox, cxCurrencyEdit, cxGroupBox, Vcl.Menus,
+  cxButtons, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, cxImageComboBox, StrUtils, cxMaskEdit, cxDropDownEdit, cxMemo, cxLabel,
+  System.Actions, dxBevel, Vcl.ComCtrls, dxCore, cxDateUtils, dxSkinOffice2016Colorful, dxSkinOffice2013DarkGray;
 
 type
   TfrmEmpleadosBaja = class(TForm)

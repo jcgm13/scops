@@ -25,17 +25,16 @@ uses
   fEmpleados in 'fEmpleados.pas' {frmEmpleados},
   fServiciosFunciones in 'fServiciosFunciones.pas' {frmServiciosFunciones},
   fSeleccionEquipo in 'fSeleccionEquipo.pas' {frmSeleccionEquipo},
-  fAsistencia in 'fAsistencia.pas' {frmAsistencia},
   fAsistenciaEdit in 'fAsistenciaEdit.pas' {frmAsistenciaEdit},
   fEquipo in 'fEquipo.pas' {frmEquipo},
   fVehiculosReparaciones in 'fVehiculosReparaciones.pas' {frmVehiculosReparaciones},
   fVehiculosCombustible in 'fVehiculosCombustible.pas' {frmVehiculosCombustible},
   fSeleccionEmpleados in 'fSeleccionEmpleados.pas' {frmSeleccionEmpleados},
-  fDocumentacionEmpleados in 'fDocumentacionEmpleados.pas' {frmDocumentacionEmpleados},
   FMovtosAlmacen in 'FMovtosAlmacen.pas' {frmMovtosAlmacen},
   fEmpleadosBaja in 'fEmpleadosBaja.pas' {frmEmpleadosBaja},
   FDocsCliente in 'FDocsCliente.pas' {frmDocsCliente},
-  FDocsEmpleado in 'FDocsEmpleado.pas' {frmDocsEmpleado};
+  FDocsEmpleado in 'FDocsEmpleado.pas' {frmDocsEmpleado},
+  fUsuarios in 'fUsuarios.pas' {frmUsuarios};
 
 {$R *.res}
 

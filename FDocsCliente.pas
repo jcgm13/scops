@@ -3,9 +3,10 @@ unit FDocsCliente;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2016Colorful, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, Vcl.Menus, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxGroupBox, cxRadioGroup,
-  System.Actions, Vcl.ActnList, cxCheckListBox, ShellAPI, cxLabel, dxSkinOffice2013DarkGray;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, dxSkinsCore, dxSkinOffice2016Colorful, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer,
+  cxEdit, Vcl.Menus, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxGroupBox, cxRadioGroup, System.Actions, Vcl.ActnList, cxCheckListBox,
+  ShellAPI, cxLabel, dxSkinOffice2013DarkGray;
 
 type
   TfrmDocsCliente = class(TForm)
